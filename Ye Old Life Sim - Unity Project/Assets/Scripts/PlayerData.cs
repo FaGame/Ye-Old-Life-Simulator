@@ -4,17 +4,16 @@ using System.Collections.Generic;
 
 public class PlayerData : MonoBehaviour 
 {
-    float currTime_;
-    float maxTime_;
-
-    bool isInfected_ = false;
-
     public ArrayList[] m_Skill;
 
     public string m_JobName;
 
-    Canvas m_PlayerCanvas;
+    public Canvas m_PlayerCanvas;
 
+    private float currTime_;
+    private float maxTime_;
+
+    private bool isInfected_ = false;
 
 	void Start () 
     {
