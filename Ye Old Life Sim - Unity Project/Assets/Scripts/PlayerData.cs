@@ -2,9 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlayerController : MonoBehaviour 
+public class PlayerData : MonoBehaviour 
 {
-    float acceleration_;
     float currTime_;
     float maxTime_;
 
@@ -35,5 +34,21 @@ public class PlayerController : MonoBehaviour
     void UpdateMovement()
     {
 
+    }
+
+    public float GetCurrTime
+    {
+        get 
+        { 
+            return currTime_;
+        }
+    }
+
+    public float GetMaxTime
+    {
+        get
+        {
+            return maxTime_;
+        }
     }
 }
