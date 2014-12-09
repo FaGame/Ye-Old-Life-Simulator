@@ -72,6 +72,10 @@
     <Compile Include="Assets\CloudSystem\Instractions\Standard Assets\Scripts\Utility Scripts\CombineChildren.cs" />
     <Compile Include="Assets\CloudSystem\Instractions\Standard Assets\Scripts\Utility Scripts\MeshCombineUtility.cs" />
     <Compile Include="Assets\Scripts\Building.cs" />
+    <Compile Include="Assets\Scripts\HUDScript.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\State.cs" />
+    <Compile Include="Assets\Scripts\StateMachine.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3D Models\Medieval Environment\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\DLAA.shader" />

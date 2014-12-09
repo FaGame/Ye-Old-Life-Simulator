@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Building : MonoBehaviour 
 {
-    public JobData[] m_JobData;
+    //public JobData[] m_JobData;
 
 
 	// Use this for initialization
@@ -18,7 +18,7 @@ public class Building : MonoBehaviour
 	
 	}
 
-    void Work(PlayerData pData, JobData jData)
+    /*void Work(PlayerData pData, JobData jData)
     {
 
     }
@@ -36,5 +36,5 @@ public class Building : MonoBehaviour
     void ApplyForJob(PlayerData, JobData jData)
     {
 
-    }
+    }*/
 }
