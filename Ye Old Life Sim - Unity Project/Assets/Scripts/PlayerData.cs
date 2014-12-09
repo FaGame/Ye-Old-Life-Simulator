@@ -10,10 +10,10 @@ public class PlayerData : MonoBehaviour
 
     public Canvas m_PlayerCanvas;
 
-    private float currTime_;
-    private float maxTime_;
+    public float m_CurrTime;
+    public float m_MaxTime;
 
-    private bool isInfected_ = false;
+    public bool m_IsInfected = false;       //variable used for when the player catches a disease
 
 	void Start () 
     {
@@ -28,26 +28,5 @@ public class PlayerData : MonoBehaviour
     void UpdateTime()
     {
 
-    }
-
-    void UpdateMovement()
-    {
-
-    }
-
-    public float GetCurrTime
-    {
-        get 
-        { 
-            return currTime_;
-        }
-    }
-
-    public float GetMaxTime
-    {
-        get
-        {
-            return maxTime_;
-        }
     }
 }
