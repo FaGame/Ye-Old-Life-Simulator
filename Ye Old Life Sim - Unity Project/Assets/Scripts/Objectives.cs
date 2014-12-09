@@ -4,101 +4,27 @@ using System.Collections;
 public class Objectives : MonoBehaviour {
 
     //Habitat
-    public int m_Rating
-    {
-        get
-        {
-            return m_Rating;
-        }
-        set
-        {
-            m_Rating = value;
-        }
-    }
-
-    public int m_Penalty
-    {
-        get
-        {
-            return m_Rating;
-        }
-        set
-        {
-            m_Penalty = value;
-        }
-    }
-
-    public float m_Rent
-    {
-        get
-        {
-            return m_Rent;
-        }
-        set
-        {
-            m_Rent = value;
-        }
-    }  
+    public int m_Rating;   
+    public int m_Penalty;
+    public float m_Rent;
+ 
 
     //Hunger
-    public float m_HungerMeter
-    {
-        get
-        {
-            return m_HungerMeter;
-        }
-        set
-        {
-            m_HungerMeter = value;
-        }
-    }
-
-    public float m_MaxHunger
-    {
-        get
-        {
-            return m_MaxHunger;
-        }
-    }
+    public float m_HungerMeter;
+    public float m_MaxHunger;
+   
 
     //Rep
-    public int m_Rep
-    {
-        get
-        {
-            return m_Rep;
-        }
-        set
-        {
-            m_Rep = value;
-        }
-    }
+    public int m_Rep;
+ 
 
     //Currency
-    public int m_Shillings
-    {
-        get
-        {
-            return m_Shillings;
-        }
-        set
-        {
-            m_Shillings = value;
-        }
-    }  
+    public int m_Shillings;
+  
     
     //Happiness
-    public float m_Happiness
-    {
-        get
-        {
-            return m_Happiness;
-        }
-        set
-        {
-            m_Happiness = value;
-        }
-    }
+    public float m_Happiness;
+ 
     
 
 	// Use this for initialization
