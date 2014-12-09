@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: Smithing 1200
+  m_Name: Forge Oxygen Engineer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,11 +36,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01cf64984319d4b43946bad155df9c20, type: 3}
+  m_Script: {fileID: 11500000, guid: 07c786cd230a09e4ba95a6072d5a1a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SkillReq: 12
-  m_Amount: 1200
+  m_Requirement: []
+  m_SkillGain:
+  - {fileID: 11400000, guid: 9dbc0c96a44509c4b9e617d4a77fabc8, type: 2}
+  m_RepRequirment: 0
+  m_Wage: 4
+  m_RepGain: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: Smithing 1200
+  m_Name: Smithing 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,11 +36,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01cf64984319d4b43946bad155df9c20, type: 3}
+  m_Script: {fileID: 11500000, guid: abcba6a5b2bbc6346bbe8adc4325708e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SkillReq: 12
-  m_Amount: 1200
+  m_Skill: 12
+  m_SkillGain: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
