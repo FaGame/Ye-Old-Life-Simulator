@@ -58,9 +58,10 @@ private List<float> playerStats_ = new List<float>();
 	void Start () 
     {
         sliderArray_ = m_PlayerHUD.GetComponentsInChildren<Slider>();
-        
+        SetUpHUDSliders();
 
         objSliderArray_ = m_Goals.GetComponentsInChildren<Slider>();
+        SetUpObjectiveSliders();
 
         playerStats_.Add(m_HabitatRating);
         playerStats_.Add(m_CurrHunger);
@@ -71,10 +72,8 @@ private List<float> playerStats_ = new List<float>();
         textArray_ = m_Stats.GetComponentsInChildren<Text>();
         m_Stats.SetActive(false);
         m_Goals.SetActive(false);
+        m_BuildingGUI.SetActive(false);
         timer_ = m_MaxTime;
-
-        SetUpHUDSliders();
-        SetUpObjectiveSliders();
 	}
 
     void SetUpHUDSliders()
