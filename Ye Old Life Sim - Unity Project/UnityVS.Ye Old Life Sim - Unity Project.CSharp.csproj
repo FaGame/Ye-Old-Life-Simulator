@@ -71,6 +71,7 @@
     <Compile Include="Assets\CloudSystem\Instractions\Standard Assets\Scripts\General Scripts\ActivateTrigger.cs" />
     <Compile Include="Assets\CloudSystem\Instractions\Standard Assets\Scripts\Utility Scripts\CombineChildren.cs" />
     <Compile Include="Assets\CloudSystem\Instractions\Standard Assets\Scripts\Utility Scripts\MeshCombineUtility.cs" />
+    <Compile Include="Assets\Scripts\Building.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3D Models\Medieval Environment\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\DLAA.shader" />
