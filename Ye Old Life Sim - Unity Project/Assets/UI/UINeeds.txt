@@ -1,0 +1,32 @@
+UI Needs
+------------
+Turn Sandglass timer
+
+Hunger slider bar
+	
+Objectives
+	Happiness
+	Reputation
+	Skills
+	Sickness
+	Habitat
+		Rating
+		Penalty
+		Rent
+	
+Player
+	Current Job
+	Currency
+	
+Building
+	Job Data
+	Work
+	Buy Items
+	Apply for Job
+	
+Random Events Screens
+
+**FOR LATER**
+Usable inventory
+
+Possession Inventory
