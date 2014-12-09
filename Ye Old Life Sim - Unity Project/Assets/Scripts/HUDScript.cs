@@ -9,6 +9,7 @@ public class HUDScript : MonoBehaviour
     public Canvas m_PlayerHUD;
     public GameObject m_Stats;
     public GameObject m_Goals;
+    public GameObject m_BuildingGUI;
     //public Player m_Player;
 
     //All values in the following temp code should be set from the player rather than in here
@@ -32,23 +33,26 @@ public float m_ReputationObjective;
 public float m_CurrencyObjective;
 public float m_HappinessObjective;
 
-private bool statsActive_;
+private bool statsActive_ = false;
+private bool buildingsActive_ = false;
+
+private float timer_; //Turn timer
+private Slider[] sliderArray_; //Array of sliders since the HUD has numerous
+private Slider timeSlider_; //Slider for the time left in your turn
+private Slider hungerSlider_; //Slider for the amount of player's hunger
+
+private Slider[] objSliderArray_;
+private Slider habitatObjSlider_;
+private Slider hungerObjSlider_;
+private Slider repObjSlider_;
+private Slider currObjSlider_;
+private Slider happyObjSlider_;
+
+private Text[] textArray_;
+private List<float> playerStats_ = new List<float>();
     //-------------END TEMP CODE-------------
 
-    private float timer_; //Turn timer
-    private Slider[] sliderArray_; //Array of sliders since the HUD has numerous
-    private Slider timeSlider_; //Slider for the time left in your turn
-    private Slider hungerSlider_; //Slider for the amount of player's hunger
-
-    private Slider[] objSliderArray_;
-    private Slider habitatObjSlider_;
-    private Slider hungerObjSlider_;
-    private Slider repObjSlider_;
-    private Slider currObjSlider_;
-    private Slider happyObjSlider_;
-
-    private Text[] textArray_;
-    private List<float> playerStats_ = new List<float>();
+   
 
 	// Use this for initialization
 	void Start () 
@@ -66,6 +70,7 @@ private bool statsActive_;
         
         textArray_ = m_Stats.GetComponentsInChildren<Text>();
         m_Stats.SetActive(false);
+        m_Goals.SetActive(false);
         timer_ = m_MaxTime;
 
         SetUpHUDSliders();
@@ -113,7 +118,7 @@ private bool statsActive_;
 	// Update is called once per frame
 	void Update ()
     {
-        timer_ -= Time.deltaTime;
+        timer_--;
         timeSlider_.value = timer_;
         hungerSlider_.value = m_CurrHunger;
         if (timer_ <= m_MinTime)
@@ -139,6 +144,7 @@ private bool statsActive_;
         {
             statsActive_ = !statsActive_;
             m_Stats.SetActive(statsActive_);
+            m_Goals.SetActive(statsActive_);
             PopulateStats();
             UpdateSliders();
         }
@@ -155,7 +161,7 @@ private bool statsActive_;
         playerStats_.Add(m_Happiness);
 
         //Loop through the pair of arrays to get the appropriate values next to the proper text
-        for (int i = 0; i < textArray_.Length; ++i)
+        for (int i = 0; i < textArray_.Length - 1; ++i)
         {
             textArray_[i].text = textArray_[i].name + ": " + playerStats_[i].ToString();
         }
@@ -168,5 +174,11 @@ private bool statsActive_;
         repObjSlider_.value = m_Reputation;
         currObjSlider_.value = m_Currency;
         happyObjSlider_.value = m_Happiness;
+    }
+
+    public void BuildingGUI()
+    {
+        buildingsActive_ = !buildingsActive_;
+        m_BuildingGUI.SetActive(buildingsActive_);
     }
 }
