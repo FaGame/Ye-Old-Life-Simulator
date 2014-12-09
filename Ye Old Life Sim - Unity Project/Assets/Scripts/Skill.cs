@@ -5,7 +5,13 @@ public class Skill : MonoBehaviour
 {
     public enum Skills
     {
-        skill1 = 1,
-        skill2
+        Alchemy = 1,
+        Cleaning,
+        Finance,
+        Martial,
+        Riding,
+        Sales,
+        Smithing,
+        Social
     };
 }
