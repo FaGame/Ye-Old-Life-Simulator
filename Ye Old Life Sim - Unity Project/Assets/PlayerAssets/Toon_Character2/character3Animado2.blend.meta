@@ -1,0 +1,140 @@
+fileFormatVersion: 2
+guid: 708c163accdcf8e41abcf864561f3309
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: chest
+    100004: Cube_001
+    100006: f_middle_01_L
+    100008: f_middle_01_R
+    100010: foot_L
+    100012: foot_LIK
+    100014: foot_LIK_002
+    100016: foot_R
+    100018: forearm_L
+    100020: forearm_R
+    100022: hand_L
+    100024: hand_R
+    100026: head
+    100028: hips
+    100030: hips_Main
+    100032: metarig
+    100034: neck
+    100036: palm_02_L
+    100038: palm_02_R
+    100040: Rodillas_L
+    100042: Rodillas_R
+    100044: shin_L
+    100046: shin_R
+    100048: shoulder_L
+    100050: shoulder_R
+    100052: spine
+    100054: thigh_L
+    100056: thigh_R
+    100058: thumb_01_L
+    100060: thumb_01_R
+    100062: thumb_02_L
+    100064: thumb_02_R
+    100066: toe_L
+    100068: toe_R
+    100070: upper_arm_L
+    100072: upper_arm_R
+    400000: //RootNode
+    400002: chest
+    400004: Cube_001
+    400006: f_middle_01_L
+    400008: f_middle_01_R
+    400010: foot_L
+    400012: foot_LIK
+    400014: foot_LIK_002
+    400016: foot_R
+    400018: forearm_L
+    400020: forearm_R
+    400022: hand_L
+    400024: hand_R
+    400026: head
+    400028: hips
+    400030: hips_Main
+    400032: metarig
+    400034: neck
+    400036: palm_02_L
+    400038: palm_02_R
+    400040: Rodillas_L
+    400042: Rodillas_R
+    400044: shin_L
+    400046: shin_R
+    400048: shoulder_L
+    400050: shoulder_R
+    400052: spine
+    400054: thigh_L
+    400056: thigh_R
+    400058: thumb_01_L
+    400060: thumb_01_R
+    400062: thumb_02_L
+    400064: thumb_02_R
+    400066: toe_L
+    400068: toe_R
+    400070: upper_arm_L
+    400072: upper_arm_R
+    4300000: Cube_001
+    7400000: Default Take
+    7400002: ataque1
+    7400004: corriendo
+    7400006: idle
+    9500000: //RootNode
+    13700000: Cube_001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
