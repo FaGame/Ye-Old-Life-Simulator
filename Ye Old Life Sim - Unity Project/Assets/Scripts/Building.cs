@@ -3,8 +3,10 @@ using System.Collections;
 
 public class Building : MonoBehaviour 
 {
+    public string m_Name;
+    public string[] m_Description;
+    public Texture2D m_Image;
     public JobData[] m_JobData;
-
 
 	// Use this for initialization
 	void Start () 
@@ -18,7 +20,7 @@ public class Building : MonoBehaviour
 	
 	}
 
-    void Work(PlayerData pData, JobData jData)
+    public void Work(PlayerData pData, JobData jData)
     {
         bool isSkillFound = false;
 
@@ -38,6 +40,16 @@ public class Building : MonoBehaviour
                 pData.m_Skills.Add(new SkillAndAmount(jData.m_SkillGain[i].m_Skill, jData.m_SkillGain[i].m_Amount * ValueConstants.WORK_TIME));
             }
         }
+    }
+
+    public void BuildingInteraction()
+    {
+
+    }
+
+    public string GetDescription()
+    {
+        return m_Description[Random.Range(0, m_Description.Length)];
     }
 
     /*void BuyItem(PlayerData pData, ItemData iData)

@@ -72,6 +72,7 @@
     <Compile Include="Assets\CloudSystem\Instractions\Standard Assets\Scripts\Utility Scripts\CombineChildren.cs" />
     <Compile Include="Assets\CloudSystem\Instractions\Standard Assets\Scripts\Utility Scripts\MeshCombineUtility.cs" />
     <Compile Include="Assets\Scripts\Building.cs" />
+    <Compile Include="Assets\Scripts\BuildingUI.cs" />
     <Compile Include="Assets\Scripts\HUDScript.cs" />
     <Compile Include="Assets\Scripts\Habitat.cs" />
     <Compile Include="Assets\Scripts\JobData.cs" />
@@ -157,6 +158,7 @@
     <None Include="Assets\3D Models\Medieval Environment\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\VortexEffect.shader" />
     <None Include="Assets\3D Models\Medieval Environment\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
     <None Include="Assets\3D Models\Medieval Environment\Standard Assets\Skyboxes\_skybox info.txt" />
+    <None Include="Assets\Horse\SoftAlpha.shader" />
     <None Include="Assets\PlayerAssets\Medieval_Toon_Character\ReadMe.txt" />
     <None Include="Assets\Test.txt" />
     <None Include="Assets\Textures\Forest Grounds - Terrain Texture Pack\Readme.txt" />
