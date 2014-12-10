@@ -6,72 +6,58 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Canvas))]
 public class HUDScript : MonoBehaviour 
 {
-    public Canvas m_PlayerHUD;
-    public GameObject m_Stats;
-    public GameObject m_Goals;
-    public GameObject m_BuildingGUI;
-    public Button m_WorkButton;
-    public PlayerData m_PlayerData;
+    public Canvas m_PlayerHUD; //Player's HUD canvas
+    public GameObject m_Stats; //The stat's panel
+    public GameObject m_Goals; //The goals panel
+    public PlayerData m_PlayerData; //The player's data
+
+    private bool statsActive_ = false; //This bool determines whether or not the the stats window is open
+    private float timer_; //Turn timer
+    private Slider[] sliderArray_; //Array containing the HUD sliders
+    private Slider[] objSliderArray_; //Array of objective sliders
+    private Slider timeSlider_; //Slider for the time left in your turn
+    private Slider hungerSlider_; //Slider for the amount of player's hunger
+    private Slider repObjSlider_; //Slider for the reputation objective
+    private Slider currObjSlider_; //Slider for the currency/shillings objective
+    private Slider happyObjSlider_; //Slider for the happiness objective
+    private Text[] textArray_; //Array of text for the stats screen
+    private List<float> playerStats_ = new List<float>(); //List of the player stats
 
     //All values in the following temp code should be set from the player rather than in here
     //This will be all plugged in once the player is in a state where this can happen
     //-------------TEMP CODE-------------
-public float m_MaxTime; //Max time in a turn                        
-public float m_MinTime = 0.0f; //Time that denotes end of turn
-public float m_MaxHunger = 100.0f; //The hungriest the player can be
-public float m_MinHunger = 0.0f; //When the player is full
-public float m_DefaultStartHunger = 0.0f; //Where the hunger starts at the beginning of the game
-public float m_CurrHunger = 0.0f; //Current level of hunger
-
-public float m_Currency = 10000.0f;
-public float m_Happiness = 40.0f;
-public float m_HabitatRating = 1.0f;
-public float m_Reputation = 10.0f;
-
 public float m_ReputationObjective;
 public float m_CurrencyObjective;
 public float m_HappinessObjective;
-
-private bool statsActive_ = false;
-private bool buildingsActive_ = false;
-private bool jobApplied_ = false;
-
-private float timer_; //Turn timer
-private Slider[] sliderArray_; //Array of sliders since the HUD has numerous
-private Slider timeSlider_; //Slider for the time left in your turn
-private Slider hungerSlider_; //Slider for the amount of player's hunger
-
-private Slider[] objSliderArray_;
-private Slider repObjSlider_;
-private Slider currObjSlider_;
-private Slider happyObjSlider_;
-
-private Text[] textArray_;
-private List<float> playerStats_ = new List<float>();
     //-------------END TEMP CODE------------- 
 
 	// Use this for initialization
 	void Start () 
     {
+        //Initialize and set up the slider arrays
         sliderArray_ = m_PlayerHUD.GetComponentsInChildren<Slider>();
         SetUpHUDSliders();
 
         objSliderArray_ = m_Goals.GetComponentsInChildren<Slider>();
         SetUpObjectiveSliders();
 
-        //playerStats_.Add(m_PlayerData.m_Home.m_Rating);
+        //Load the player stats list with the player's stats
+        //playerStats_.Add(m_PlayerData.m_Home.m_Rating); //Need to figure out how to work around the enumerator
         playerStats_.Add(m_PlayerData.m_HungerMeter);
         playerStats_.Add(m_PlayerData.m_Reputation);
         playerStats_.Add(m_PlayerData.m_Shillings);
         playerStats_.Add(m_PlayerData.m_Happiness);
         
+        //Initialize the text array
         textArray_ = m_Stats.GetComponentsInChildren<Text>();
+        //Turn off the stats and goal panels after initializing all stats
         m_Stats.SetActive(false);
         m_Goals.SetActive(false);
-        m_BuildingGUI.SetActive(false);
+        //Set the current turn's timer
         timer_ = m_PlayerData.m_MaxTime;
 	}
 
+    //This function initializes the player HUD sliders, and then sets their min, max and current values
     void SetUpHUDSliders()
     {
         timeSlider_ = sliderArray_[0];
@@ -86,6 +72,7 @@ private List<float> playerStats_ = new List<float>();
         hungerSlider_.value = 0.0f;
     }
 
+    //This function initializes the objective sliders in the stats menu, then sets their min, max and current values
     void SetUpObjectiveSliders()
     {
         repObjSlider_ = objSliderArray_[0];
@@ -107,10 +94,10 @@ private List<float> playerStats_ = new List<float>();
     {
         timer_--;
         timeSlider_.value = timer_;
-        hungerSlider_.value = m_CurrHunger;
+        hungerSlider_.value = m_PlayerData.m_HungerMeter;
         if (timer_ <= 0.0f)
         {
-            m_CurrHunger += 10.0f;
+            m_PlayerData.m_HungerMeter += 10.0f;
             timer_ = m_PlayerData.m_MaxTime;
         }
 
@@ -137,11 +124,12 @@ private List<float> playerStats_ = new List<float>();
         }
     }
 
+    //This function gets the latest stats when the player opens the stats menu
     void PopulateStats()
     {
         //Clear the list and re-add the variables to make sure the information is completely up to date
         playerStats_.Clear();
-        playerStats_.Add(m_HabitatRating);
+        //playerStats_.Add(m_PlayerData.m_Home.m_Rating);
         playerStats_.Add(m_PlayerData.m_HungerMeter);
         playerStats_.Add(m_PlayerData.m_Reputation);
         playerStats_.Add(m_PlayerData.m_Shillings);
@@ -154,22 +142,11 @@ private List<float> playerStats_ = new List<float>();
         }
     }
 
+    //This function sets the objective sliders to their current values when the player opens the stats menu
     void UpdateSliders()
     {
         repObjSlider_.value = m_PlayerData.m_Reputation;
         currObjSlider_.value = m_PlayerData.m_Shillings;
         happyObjSlider_.value = m_PlayerData.m_Happiness;
-    }
-
-    public void BuildingGUI()
-    {
-        buildingsActive_ = !buildingsActive_;
-        m_BuildingGUI.SetActive(buildingsActive_);
-    }
-
-    public void ApplyForJob()
-    {
-        jobApplied_ = true;
-        m_WorkButton.interactable = true;
     }
 }
