@@ -75,6 +75,8 @@
     <Compile Include="Assets\Scripts\BuildingUI.cs" />
     <Compile Include="Assets\Scripts\HUDScript.cs" />
     <Compile Include="Assets\Scripts\Habitat.cs" />
+    <Compile Include="Assets\Scripts\Items\Food.cs" />
+    <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\JobData.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerData.cs" />
