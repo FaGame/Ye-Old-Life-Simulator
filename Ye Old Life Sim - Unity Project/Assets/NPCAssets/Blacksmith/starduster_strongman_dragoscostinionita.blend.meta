@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: 7abaa508627d83d48a631cfac49e15dc
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Apron
+    100002: Apron_Lace
+    100004: Body
+    100006: Body_MeshPart0
+    100008: Body_MeshPart1
+    100010: Boot_Left
+    100012: Boot_Right
+    100014: Circle
+    100016: Circle_001
+    100018: Empty
+    100020: EyeBall
+    100022: Hammer
+    100024: Pants
+    100026: //RootNode
+    100028: Sword_1
+    100030: Sword_1_Handle
+    100032: Sword_2
+    100034: Sword_2_Handle
+    100036: T-Shirt
+    100038: Teeth
+    100040: Wrist_Band
+    400000: Apron
+    400002: Apron_Lace
+    400004: Body
+    400006: Body_MeshPart0
+    400008: Body_MeshPart1
+    400010: Boot_Left
+    400012: Boot_Right
+    400014: Circle
+    400016: Circle_001
+    400018: Empty
+    400020: EyeBall
+    400022: Hammer
+    400024: Pants
+    400026: //RootNode
+    400028: Sword_1
+    400030: Sword_1_Handle
+    400032: Sword_2
+    400034: Sword_2_Handle
+    400036: T-Shirt
+    400038: Teeth
+    400040: Wrist_Band
+    2300000: Apron
+    2300002: Apron_Lace
+    2300004: Body_MeshPart0
+    2300006: Body_MeshPart1
+    2300008: Boot_Left
+    2300010: Boot_Right
+    2300012: Circle
+    2300014: Circle_001
+    2300016: EyeBall
+    2300018: Hammer
+    2300020: Pants
+    2300022: Sword_1
+    2300024: Sword_1_Handle
+    2300026: Sword_2
+    2300028: Sword_2_Handle
+    2300030: T-Shirt
+    2300032: Teeth
+    2300034: Wrist_Band
+    3300000: Apron
+    3300002: Apron_Lace
+    3300004: Body_MeshPart0
+    3300006: Body_MeshPart1
+    3300008: Boot_Left
+    3300010: Boot_Right
+    3300012: Circle
+    3300014: Circle_001
+    3300016: EyeBall
+    3300018: Hammer
+    3300020: Pants
+    3300022: Sword_1
+    3300024: Sword_1_Handle
+    3300026: Sword_2
+    3300028: Sword_2_Handle
+    3300030: T-Shirt
+    3300032: Teeth
+    3300034: Wrist_Band
+    4300000: Sword_2_Handle
+    4300002: Circle_001
+    4300004: Sword_2
+    4300006: Sword_1
+    4300008: Sword_1_Handle
+    4300010: Wrist_Band
+    4300012: Boot_Right
+    4300014: Boot_Left
+    4300016: Apron_Lace
+    4300018: Apron
+    4300020: Hammer
+    4300022: Circle
+    4300024: T-Shirt
+    4300026: EyeBall
+    4300028: Body_MeshPart0
+    4300030: Body_MeshPart1
+    4300032: Pants
+    4300034: Teeth
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
