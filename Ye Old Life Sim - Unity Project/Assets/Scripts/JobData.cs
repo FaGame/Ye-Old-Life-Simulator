@@ -21,14 +21,15 @@ public class JobData : MonoBehaviour
 	
 	void Update () 
     {
-        SetWage();
+        
 	}
 
-    void SetWage()
+    public float SetWage()
     {
         if(m_MinWage != m_MaxWage)
         {
             m_Wage = Random.Range(m_MinWage, m_MaxWage);
         }
+        return m_Wage;
     }
 }

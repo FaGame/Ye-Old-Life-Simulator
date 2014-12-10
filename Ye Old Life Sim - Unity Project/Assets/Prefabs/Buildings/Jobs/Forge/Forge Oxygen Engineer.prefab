@@ -41,9 +41,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Requirement: []
   m_SkillGain:
-  - {fileID: 11400000, guid: 9dbc0c96a44509c4b9e617d4a77fabc8, type: 2}
-  m_RepRequirment: 0
+  - m_Skill: 11
+    m_Amount: 1
+  m_RepRequirement: 0
   m_Wage: 4
+  m_MinWage: 0
+  m_MaxWage: 0
   m_RepGain: 1
 --- !u!1001 &100100000
 Prefab:
