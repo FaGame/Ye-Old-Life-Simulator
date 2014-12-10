@@ -23,17 +23,17 @@ public class Building : MonoBehaviour
 
     }
 
-    /*void BuyItem(PlayerData, ItemData iData)
+    /*void BuyItem(PlayerData pData, ItemData iData)
     {
 
     }
 
-    void Interact(PlayerData, InteractionData iData)
+    void Interact(PlayerData pData, InteractionData iData)
     {
 
     }*/
 
-    void ApplyForJob(PlayerData, JobData jData)
+    void ApplyForJob(PlayerData pData, JobData jData)
     {
 
     }
