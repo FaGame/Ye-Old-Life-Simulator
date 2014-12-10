@@ -19,7 +19,7 @@ public class PlayerData : MonoBehaviour
     public float m_FoodPenalty = 0.0f;
     public float m_Happiness;
 
-    public int m_Rep;
+    public int m_Reputation;
     public int m_Shillings;
 
     public bool m_IsInfected = false;       //variable used for when the player catches a disease

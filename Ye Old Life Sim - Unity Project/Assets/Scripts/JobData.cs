@@ -8,11 +8,11 @@ public class JobData : MonoBehaviour
     public SkillAndAmount[] m_Requirement;
     public SkillAndAmount[] m_SkillGain;
 
-    public float m_RepRequirement;
+    public float m_ReputationRequirement;
     public float m_Wage;
     public float m_MinWage;
     public float m_MaxWage;
-    public float m_RepGain;
+    public float m_ReputationGain;
 
 	void Start () 
     {
