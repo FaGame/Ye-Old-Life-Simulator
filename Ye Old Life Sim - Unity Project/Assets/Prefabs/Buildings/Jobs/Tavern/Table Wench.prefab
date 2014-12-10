@@ -39,15 +39,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c786cd230a09e4ba95a6072d5a1a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Requirement:
-  - {fileID: 11400000, guid: 4c7c50d5578c2bb4ca3613aa7aa43bd2, type: 2}
+  m_SkillRequirement:
+  - m_Skill: 12
+    m_Amount: 100
   m_SkillGain:
-  - {fileID: 11400000, guid: ae8b95a9d7869374694eee0f3b696dad, type: 2}
-  m_RepRequirment: 0
+  - m_Skill: 12
+    m_Amount: 2
   m_Wage: 0
   m_MinWage: 5
   m_MaxWage: 9
-  m_RepGain: 100
+  m_ReputationGain: 100
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
