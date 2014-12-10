@@ -11,8 +11,9 @@ public class Food : Item
     public float m_Time = 0.0f;             //used to keep track of time
     public float m_HungerAmount = 0.0f;     //how much you want to subtract from player hunger
 
-    public Vector3 m_DecreaseSpeedAmount = new Vector3(0.0f, 0.0f, 0.0f);   //how slow you want the player to move
-    public Vector3 m_IncreaseSpeedAmount = new Vector3(0.0f, 0.0f, 0.0f);   //how fast you want the player to move
+    public Vector3 m_DefaultPlayerSpeedAmount = new Vector3(0.0f, 0.0f, 0.0f);   //default player speed
+    public Vector3 m_DecreaseSpeedAmount = new Vector3(0.0f, 0.0f, 0.0f);       //how slow you want the player to move
+    public Vector3 m_IncreaseSpeedAmount = new Vector3(0.0f, 0.0f, 0.0f);       //how fast you want the player to move
 
     void Update()
     {
@@ -50,7 +51,7 @@ public class Food : Item
         if(m_Time >= switchTime)
         {
             //reset the player's speed to its default and reset timer
-            m_NavMeshAgent.velocity = ValueConstants.PLAYER_SPEED;
+            m_NavMeshAgent.velocity = m_DefaultPlayerSpeedAmount;
             m_Time = 0.0f;
             m_StartTimer = false;
         }
