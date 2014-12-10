@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public class HUDScript : MonoBehaviour 
 {
     public Canvas m_PlayerHUD; //Player's HUD canvas
+    public GameObject m_StatsScreen; //Game object containing the stats panels
     public GameObject m_Stats; //The stat's panel
     public GameObject m_Goals; //The goals panel
     public GameObject m_Skills; //The skills panel
@@ -56,9 +57,10 @@ public float m_HappinessObjective;
         skillsText_ = m_Skills.GetComponentsInChildren<Text>();
 
         //Turn off the stats, goal and skills panels after initializing all stats
-        m_Stats.SetActive(false);
+        m_StatsScreen.SetActive(false);
+        /*m_Stats.SetActive(false);
         m_Goals.SetActive(false);
-        m_Skills.SetActive(false);
+        m_Skills.SetActive(false);*/
 
         //Set the current turn's timer
         timer_ = ValueConstants.PLAYER_MAX_TIME;
@@ -114,9 +116,10 @@ public float m_HappinessObjective;
         if(Input.GetKeyDown(KeyCode.E))
         {
             statsActive_ = !statsActive_;
-            m_Stats.SetActive(statsActive_);
+            m_StatsScreen.SetActive(statsActive_);
+            /*m_Stats.SetActive(statsActive_);
             m_Goals.SetActive(statsActive_);
-            m_Skills.SetActive(statsActive_);
+            m_Skills.SetActive(statsActive_);*/
             PopulateStats();
             PopulateSkills();
             UpdateSliders();
