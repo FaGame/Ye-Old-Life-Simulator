@@ -6,6 +6,7 @@ public class JobData : MonoBehaviour
     public SkillAndAmount[] m_SkillRequirement;
     public SkillAndAmount[] m_SkillGain;
 
+    public string m_JobDescription;
     public float m_Wage;
     public float m_MinWage;
     public float m_MaxWage;
