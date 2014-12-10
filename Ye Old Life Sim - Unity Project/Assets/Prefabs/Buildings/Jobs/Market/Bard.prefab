@@ -41,7 +41,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SkillRequirement:
   - m_Skill: 12
-    m_Amount: 1000
+    m_Amount: 1500
   m_SkillGain:
   - m_Skill: 12
     m_Amount: 2

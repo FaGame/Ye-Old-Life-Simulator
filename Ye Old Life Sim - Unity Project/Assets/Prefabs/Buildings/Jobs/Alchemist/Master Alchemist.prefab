@@ -45,8 +45,7 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 0
     m_Amount: 1
-  m_ReputationRequirement: 0
-  m_Wage: 35
+  m_Wage: 39
   m_MinWage: 0
   m_MaxWage: 0
   m_ReputationGain: 1000

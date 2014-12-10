@@ -43,6 +43,8 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 2
     m_Amount: 1
+  - m_Skill: 4
+    m_Amount: .200000003
   m_Wage: 2
   m_MinWage: 0
   m_MaxWage: 0

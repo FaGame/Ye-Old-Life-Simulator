@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: Royal Jouster
+  m_Name: Hash Slinger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,19 +40,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SkillRequirement:
-  - m_Skill: 7
-    m_Amount: 600
-  - m_Skill: 9
-    m_Amount: 800
+  - m_Skill: 3
+    m_Amount: 100
   m_SkillGain:
-  - m_Skill: 7
-    m_Amount: .75
-  - m_Skill: 9
-    m_Amount: 1.5
-  m_Wage: 25
+  - m_Skill: 3
+    m_Amount: 1
+  - m_Skill: 12
+    m_Amount: .5
+  m_Wage: 4
   m_MinWage: 0
   m_MaxWage: 0
-  m_ReputationGain: 1000
+  m_ReputationGain: 10
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

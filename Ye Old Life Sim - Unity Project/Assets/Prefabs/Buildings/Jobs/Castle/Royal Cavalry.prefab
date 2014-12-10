@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: Dice Holder
+  m_Name: Royal Cavalry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,16 +39,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c786cd230a09e4ba95a6072d5a1a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SkillRequirement: []
+  m_SkillRequirement:
+  - m_Skill: 7
+    m_Amount: 600
+  - m_Skill: 9
+    m_Amount: 800
   m_SkillGain:
-  - m_Skill: 5
-    m_Amount: .5
-  - m_Skill: 12
-    m_Amount: .5
-  m_Wage: 0
-  m_MinWage: 3
-  m_MaxWage: 7
-  m_ReputationGain: -1
+  - m_Skill: 7
+    m_Amount: .75
+  - m_Skill: 9
+    m_Amount: 1.5
+  m_Wage: 25
+  m_MinWage: 0
+  m_MaxWage: 0
+  m_ReputationGain: 1000
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
