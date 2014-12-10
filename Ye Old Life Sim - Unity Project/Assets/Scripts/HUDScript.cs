@@ -61,7 +61,7 @@ private List<float> playerStats_ = new List<float>();
 
         //playerStats_.Add(m_PlayerData.m_Home.m_Rating);
         playerStats_.Add(m_PlayerData.m_HungerMeter);
-        playerStats_.Add(m_PlayerData.m_Rep);
+        playerStats_.Add(m_PlayerData.m_Reputation);
         playerStats_.Add(m_PlayerData.m_Shillings);
         playerStats_.Add(m_PlayerData.m_Happiness);
         
@@ -143,7 +143,7 @@ private List<float> playerStats_ = new List<float>();
         playerStats_.Clear();
         playerStats_.Add(m_HabitatRating);
         playerStats_.Add(m_PlayerData.m_HungerMeter);
-        playerStats_.Add(m_PlayerData.m_Rep);
+        playerStats_.Add(m_PlayerData.m_Reputation);
         playerStats_.Add(m_PlayerData.m_Shillings);
         playerStats_.Add(m_PlayerData.m_Happiness);
 
@@ -156,7 +156,7 @@ private List<float> playerStats_ = new List<float>();
 
     void UpdateSliders()
     {
-        repObjSlider_.value = m_PlayerData.m_Rep;
+        repObjSlider_.value = m_PlayerData.m_Reputation;
         currObjSlider_.value = m_PlayerData.m_Shillings;
         happyObjSlider_.value = m_PlayerData.m_Happiness;
     }
