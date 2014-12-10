@@ -6,16 +6,16 @@ public class PlayerData : MonoBehaviour
 {
     public Habitat m_Home;
 
-    public SkillAndAmount[] m_Skills;
+    public List<SkillAndAmount> m_Skills;
 
     public string m_JobName;
 
     public Canvas m_PlayerCanvas;
 
     public float m_CurrTime = 0.0f;
-    public float m_MaxTime = 45.0f;
+    public float m_MaxTime = ValueConstants.PLAYER_MAX_TIME;
     public float m_HungerMeter = 0.0f;
-    public float m_MaxHunger = 100.0f;
+    public float m_MaxHunger = ValueConstants.PLAYER_MAX_HUNGER;
     public float m_FoodPenalty = 0.0f;
     public float m_Happiness = 0.0f;
 
@@ -36,8 +36,8 @@ public class PlayerData : MonoBehaviour
 
     public void CalculateFoodPenalty()
     {
-        float applyTimePenalty = 75.0f;
-        float maxFoodPenalty = 5.0f;
+        float applyTimePenalty = ValueConstants.PLAYER_HUNGER_PENALTY_LEVEL;
+        float maxFoodPenalty = ValueConstants.PLAYER_MAX_FOOD_PENALTY;
         
         if(m_HungerMeter >= applyTimePenalty)
         {

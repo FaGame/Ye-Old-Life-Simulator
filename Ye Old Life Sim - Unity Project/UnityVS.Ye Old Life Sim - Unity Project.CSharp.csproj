@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\SkillGain.cs" />
     <Compile Include="Assets\Scripts\State.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\ValueConstants.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3D Models\Medieval Environment\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\DLAA.shader" />
