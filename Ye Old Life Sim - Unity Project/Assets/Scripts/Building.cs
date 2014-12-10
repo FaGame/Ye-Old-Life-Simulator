@@ -33,8 +33,17 @@ public class Building : MonoBehaviour
 
     }*/
 
-    void ApplyForJob(PlayerData pData, JobData jData)
+    public bool ApplyForJob(PlayerData pData, JobData jData)
     {
+        bool isJobAllowed = false;
 
+        if(jData.m_ReputationRequirement > pData.m_Reputation)
+        {
+            return false;
+        }
+
+        //for(int i = 0; i < jData.m
+
+        return isJobAllowed;
     }
 }

@@ -5,7 +5,7 @@ public class JobData : MonoBehaviour
 {
     //public Requirement[] m_Requirement;
     //public SkillGain[] m_SkillGain;
-    public SkillAndAmount[] m_Requirement;
+    public SkillAndAmount[] m_SkillRequirement;
     public SkillAndAmount[] m_SkillGain;
 
     public float m_ReputationRequirement;
