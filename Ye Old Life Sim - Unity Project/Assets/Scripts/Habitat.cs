@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Habitat : MonoBehaviour 
-{ 
+{
+    public int m_RatingValue = 0;
     public float m_Penalty = 0.0f;
     public float m_Rent = 0.0f;
     void Start()
@@ -27,26 +28,32 @@ public class Habitat : MonoBehaviour
         {
             case BuildingRating.NOSTAR:
                 m_Penalty = 10.0f;
+                m_RatingValue = 0;
                 break;
 
             case BuildingRating.ONESTAR:
                 m_Penalty = 8.0f;
+                m_RatingValue = 1;
                 break;
 
             case BuildingRating.TWOSTAR:
                 m_Penalty = 6.0f;
+                m_RatingValue = 2;
                 break;
 
             case BuildingRating.THREESTAR:
                 m_Penalty = 4.0f;
+                m_RatingValue = 3;
                 break;
 
             case BuildingRating.FOURSTAR:
                 m_Penalty = 2.0f;
+                m_RatingValue = 4;
                 break;
 
             case BuildingRating.FIVESTAR:
                 m_Penalty = 0.0f;
+                m_RatingValue = 5;
                 break;
         }
     }
