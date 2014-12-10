@@ -45,7 +45,7 @@ public float m_HappinessObjective;
         SetUpObjectiveSliders();
 
         //Load the player stats list with the player's stats
-        //playerStats_.Add(m_PlayerData.m_Home.m_Rating); //Need to figure out how to work around the enumerator
+        playerStats_.Add(m_PlayerData.m_Home.m_RatingValue);
         playerStats_.Add(m_PlayerData.m_HungerMeter);
         playerStats_.Add(m_PlayerData.m_Reputation);
         playerStats_.Add(m_PlayerData.m_Shillings);
@@ -61,7 +61,7 @@ public float m_HappinessObjective;
         m_Skills.SetActive(false);
 
         //Set the current turn's timer
-        timer_ = m_PlayerData.m_MaxTime;
+        timer_ = ValueConstants.PLAYER_MAX_TIME;
 	}
 
     //This function initializes the player HUD sliders, and then sets their min, max and current values
@@ -70,11 +70,11 @@ public float m_HappinessObjective;
         timeSlider_ = sliderArray_[0];
         hungerSlider_ = sliderArray_[1];
 
-        timeSlider_.maxValue = m_PlayerData.m_MaxTime;
+        timeSlider_.maxValue = ValueConstants.PLAYER_MAX_TIME;
         timeSlider_.minValue = 0.0f;
         timeSlider_.value = timer_;
 
-        hungerSlider_.maxValue = m_PlayerData.m_MaxHunger;
+        hungerSlider_.maxValue = ValueConstants.PLAYER_MAX_HUNGER;
         hungerSlider_.minValue = 0.0f;
         hungerSlider_.value = 0.0f;
     }
@@ -102,9 +102,9 @@ public float m_HappinessObjective;
         timeSlider_.value = m_PlayerData.m_CurrTime;
         hungerSlider_.value = m_PlayerData.m_HungerMeter;
 
-        if (m_PlayerData.m_HungerMeter >= m_PlayerData.m_MaxHunger)
+        if (m_PlayerData.m_HungerMeter >= ValueConstants.PLAYER_MAX_HUNGER)
         {
-            m_PlayerData.m_HungerMeter = m_PlayerData.m_MaxHunger;
+            m_PlayerData.m_HungerMeter = ValueConstants.PLAYER_MAX_HUNGER;
         }
 	}
 
@@ -128,7 +128,7 @@ public float m_HappinessObjective;
     {
         //Clear the list and re-add the variables to make sure the information is completely up to date
         playerStats_.Clear();
-        //playerStats_.Add(m_PlayerData.m_Home.m_Rating);
+        playerStats_.Add(m_PlayerData.m_Home.m_RatingValue);
         playerStats_.Add(m_PlayerData.m_HungerMeter);
         playerStats_.Add(m_PlayerData.m_Reputation);
         playerStats_.Add(m_PlayerData.m_Shillings);
@@ -144,13 +144,13 @@ public float m_HappinessObjective;
     //This function gets the skill names and values when the player opens the stats menu
     void PopulateSkills()
     {
-        if(m_PlayerData.m_Skills.Length <= 0)
+        if(m_PlayerData.m_Skills.Count <= 0)
         {
             return;
         }
         else
         {
-            for(int i = 0; i < m_PlayerData.m_Skills.Length; ++i)
+            for (int i = 0; i < m_PlayerData.m_Skills.Count; ++i)
             {
                 skillString_ += m_PlayerData.m_Skills[i].m_Skill.ToString() + ": " + m_PlayerData.m_Skills[i].m_Amount.ToString() + "\n";
             }
