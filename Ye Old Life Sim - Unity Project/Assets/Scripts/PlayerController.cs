@@ -4,6 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(NavMeshAgent))]
 public class PlayerController : MonoBehaviour 
 {
+    public PlayerData m_PlayerData;     //object to hold the player data, if that wasn't obvious 
     public Camera mCamera;
     public Terrain mTerrain;
 
@@ -57,6 +58,8 @@ public class PlayerController : MonoBehaviour
                 SetTarget(rayData.point);
             }
         }
+
+        DecreaseTime();
     }
 
     private void UpdateAnimation()
@@ -69,5 +72,14 @@ public class PlayerController : MonoBehaviour
         animator_.SetFloat("yDir", speedRatio);
         animator_.SetFloat("rotation", Mathf.Min(1.0f, Mathf.Abs(angularSpeed / (navAgent_.angularSpeed * Time.deltaTime))));
         animator_.SetFloat("rotDir", Mathf.Clamp(angularSpeed / (navAgent_.angularSpeed * Time.deltaTime), -1.0f, 1.0f));
+    }
+
+    private void DecreaseTime()
+    {
+        //when the player is moving decrease time by Time.deltaTime
+        if (navAgent_.velocity.magnitude > 0.0f && m_PlayerData.m_CurrTime != 0.0f)
+        {
+            m_PlayerData.m_CurrTime -= Time.deltaTime;
+        }
     }
 }
