@@ -10,6 +10,7 @@ public class HUDScript : MonoBehaviour
     public GameObject m_Stats;
     public GameObject m_Goals;
     public GameObject m_BuildingGUI;
+    public Button m_WorkButton;
     //public Player m_Player;
 
     //All values in the following temp code should be set from the player rather than in here
@@ -27,14 +28,13 @@ public float m_Happiness = 40.0f;
 public float m_HabitatRating = 1.0f;
 public float m_Reputation = 10.0f;
 
-public float m_HabitatObjective;
-public float m_HungerObjective;
 public float m_ReputationObjective;
 public float m_CurrencyObjective;
 public float m_HappinessObjective;
 
 private bool statsActive_ = false;
 private bool buildingsActive_ = false;
+private bool jobApplied_ = false;
 
 private float timer_; //Turn timer
 private Slider[] sliderArray_; //Array of sliders since the HUD has numerous
@@ -42,17 +42,13 @@ private Slider timeSlider_; //Slider for the time left in your turn
 private Slider hungerSlider_; //Slider for the amount of player's hunger
 
 private Slider[] objSliderArray_;
-private Slider habitatObjSlider_;
-private Slider hungerObjSlider_;
 private Slider repObjSlider_;
 private Slider currObjSlider_;
 private Slider happyObjSlider_;
 
 private Text[] textArray_;
 private List<float> playerStats_ = new List<float>();
-    //-------------END TEMP CODE-------------
-
-   
+    //-------------END TEMP CODE------------- 
 
 	// Use this for initialization
 	void Start () 
@@ -92,17 +88,9 @@ private List<float> playerStats_ = new List<float>();
 
     void SetUpObjectiveSliders()
     {
-        habitatObjSlider_ = objSliderArray_[0];
-        hungerObjSlider_ = objSliderArray_[1];
-        repObjSlider_ = objSliderArray_[2];
-        currObjSlider_ = objSliderArray_[3];
-        happyObjSlider_ = objSliderArray_[4];
-
-        habitatObjSlider_.maxValue = m_HabitatObjective;
-        habitatObjSlider_.minValue = 0.0f;
-
-        hungerObjSlider_.maxValue = m_HungerObjective;
-        hungerObjSlider_.minValue = 0.0f;
+        repObjSlider_ = objSliderArray_[0];
+        currObjSlider_ = objSliderArray_[1];
+        happyObjSlider_ = objSliderArray_[2];
 
         repObjSlider_.maxValue = m_ReputationObjective;
         repObjSlider_.minValue = 0.0f;
@@ -168,8 +156,6 @@ private List<float> playerStats_ = new List<float>();
 
     void UpdateSliders()
     {
-        habitatObjSlider_.value = m_HabitatRating;
-        hungerObjSlider_.value = m_CurrHunger;
         repObjSlider_.value = m_Reputation;
         currObjSlider_.value = m_Currency;
         happyObjSlider_.value = m_Happiness;
@@ -179,5 +165,11 @@ private List<float> playerStats_ = new List<float>();
     {
         buildingsActive_ = !buildingsActive_;
         m_BuildingGUI.SetActive(buildingsActive_);
+    }
+
+    public void ApplyForJob()
+    {
+        jobApplied_ = true;
+        m_WorkButton.interactable = true;
     }
 }
