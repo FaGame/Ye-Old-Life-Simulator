@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public PlayerData m_PlayerData;     //object to hold the player data, if that wasn't obvious 
     public Camera mCamera;
     public Terrain mTerrain;
+    public Transform mblackSmithWaypoint;
 
     private Vector3 currTarget_;
     private bool atCurrTarget_;
@@ -40,22 +41,24 @@ public class PlayerController : MonoBehaviour
 
         RaycastHit rayData;
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            int layerMask = ~LayerMask.GetMask("Terrain");
-            if (Physics.Raycast(pickingRay, out rayData, 3000.0f, layerMask))
-            {
-                
-            }
-        }
-
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(0))
         {
             if (transform != null)
             {
                 int layerMask = LayerMask.GetMask("Terrain");
                 Physics.Raycast(pickingRay, out rayData, 3000.0f, layerMask);
                 SetTarget(rayData.point);
+            }
+
+            RaycastHit hitInfo = new RaycastHit();
+            bool hit = Physics.Raycast(pickingRay, out hitInfo);
+            if (hit)
+            {
+                if (hitInfo.transform.gameObject.tag == "blackSmith")
+                {
+                    Debug.Log("It's working!");
+                    SetTarget(mblackSmithWaypoint.position);
+                }
             }
         }
 
