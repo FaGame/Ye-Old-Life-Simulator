@@ -5,7 +5,7 @@ public class Skill : MonoBehaviour
 {
     public enum Skills
     {
-        Alchemy = 1,
+        Alchemy = 0,
         Butchering,
         Cleaning,
         Cooking,
@@ -17,6 +17,7 @@ public class Skill : MonoBehaviour
         Riding,
         Sales,
         Smithing,
-        Social
+        Social,
+        NUM_SKILLS
     };
 }

@@ -40,11 +40,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Requirement:
-  - {fileID: 11400000, guid: 45d490631bfa87b40b5800d6bd7529d0, type: 2}
+  - m_Skill: 0
+    m_Amount: 0
   m_SkillGain:
-  - {fileID: 11400000, guid: feef300196800294d8e8156bea250e2d, type: 2}
-  m_RepRequirment: 0
+  - m_Skill: 0
+    m_Amount: 0
+  - m_Skill: 0
+    m_Amount: 0
+  - m_Skill: 0
+    m_Amount: 0
+  m_RepRequirement: 0
   m_Wage: 20
+  m_MinWage: 0
+  m_MaxWage: 0
   m_RepGain: 1000
 --- !u!1001 &100100000
 Prefab:

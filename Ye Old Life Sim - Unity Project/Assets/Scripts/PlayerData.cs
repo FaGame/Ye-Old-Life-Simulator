@@ -6,7 +6,7 @@ public class PlayerData : MonoBehaviour
 {
     public Habitat m_Home;
 
-    public ArrayList[] m_Skill;
+    public SkillAndAmount[] m_Skills;
 
     public string m_JobName;
 

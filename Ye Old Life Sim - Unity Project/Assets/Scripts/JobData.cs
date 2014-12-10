@@ -3,10 +3,12 @@ using System.Collections;
 
 public class JobData : MonoBehaviour 
 {
-    public Requirement[] m_Requirement;
-    public SkillGain[] m_SkillGain;
+    //public Requirement[] m_Requirement;
+    //public SkillGain[] m_SkillGain;
+    public SkillAndAmount[] m_Requirement;
+    public SkillAndAmount[] m_SkillGain;
 
-    public float m_RepRequirment;
+    public float m_RepRequirement;
     public float m_Wage;
     public float m_MinWage;
     public float m_MaxWage;
