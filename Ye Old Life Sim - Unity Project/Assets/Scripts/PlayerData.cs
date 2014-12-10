@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class PlayerData : MonoBehaviour 
 {
+    public Habitat m_Home;
+
     public ArrayList[] m_Skill;
 
     public string m_JobName;
@@ -13,7 +15,8 @@ public class PlayerData : MonoBehaviour
     public float m_CurrTime;
     public float m_MaxTime;
     public float m_HungerMeter;
-    public float m_MaxHunger;
+    public float m_MaxHunger = 100.0f;
+    public float m_FoodPenalty = 0.0f;
     public float m_Happiness;
 
     public int m_Rep;
@@ -23,7 +26,7 @@ public class PlayerData : MonoBehaviour
 
 	void Start () 
     {
-	
+        StartTurn();
 	}
 	
 	void Update () 
@@ -31,9 +34,21 @@ public class PlayerData : MonoBehaviour
 	
 	}
 
-    void UpdateTime()
+    public void CalculateFoodPenalty()
     {
-
+        float applyTimePenalty = 75.0f;
+        float maxFoodPenalty = 5.0f;
+        
+        if(m_HungerMeter >= applyTimePenalty)
+        {
+            //if the hunger meter is 75% full apply a 5 second penalty 
+            m_FoodPenalty = maxFoodPenalty;
+        }
     }
 
+    public void StartTurn()
+    {
+        //calculate the curr time 
+        m_CurrTime = m_MaxTime - m_Home.m_Penalty - m_FoodPenalty;
+    }  
 }
