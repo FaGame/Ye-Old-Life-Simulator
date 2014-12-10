@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Food : Item 
 {
+    public bool m_IsPerishable = false;
     public bool m_StartTimer = false;       //used to call the UpdateTimer function
 
     public NavMeshAgent m_NavMeshAgent;     //player NavMeshAgent
