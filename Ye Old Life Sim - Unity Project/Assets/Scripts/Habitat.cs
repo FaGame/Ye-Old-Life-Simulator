@@ -4,8 +4,12 @@ using System.Collections.Generic;
 
 public class Habitat : MonoBehaviour 
 { 
-    public float m_Penalty;
-    public float m_Rent;
+    public float m_Penalty = 0.0f;
+    public float m_Rent = 0.0f;
+    void Start()
+    {
+        CalculateHomePenalty();
+    }
     public enum BuildingRating
     {
         NOSTAR = 0,

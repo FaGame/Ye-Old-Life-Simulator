@@ -11,7 +11,7 @@ public class HUDScript : MonoBehaviour
     public GameObject m_Goals;
     public GameObject m_BuildingGUI;
     public Button m_WorkButton;
-    //public Player m_Player;
+    public PlayerData m_PlayerData;
 
     //All values in the following temp code should be set from the player rather than in here
     //This will be all plugged in once the player is in a state where this can happen
@@ -59,17 +59,17 @@ private List<float> playerStats_ = new List<float>();
         objSliderArray_ = m_Goals.GetComponentsInChildren<Slider>();
         SetUpObjectiveSliders();
 
-        playerStats_.Add(m_HabitatRating);
-        playerStats_.Add(m_CurrHunger);
-        playerStats_.Add(m_Reputation);
-        playerStats_.Add(m_Currency);
-        playerStats_.Add(m_Happiness);
+        //playerStats_.Add(m_PlayerData.m_Home.m_Rating);
+        playerStats_.Add(m_PlayerData.m_HungerMeter);
+        playerStats_.Add(m_PlayerData.m_Rep);
+        playerStats_.Add(m_PlayerData.m_Shillings);
+        playerStats_.Add(m_PlayerData.m_Happiness);
         
         textArray_ = m_Stats.GetComponentsInChildren<Text>();
         m_Stats.SetActive(false);
         m_Goals.SetActive(false);
         m_BuildingGUI.SetActive(false);
-        timer_ = m_MaxTime;
+        timer_ = m_PlayerData.m_MaxTime;
 	}
 
     void SetUpHUDSliders()
@@ -77,13 +77,13 @@ private List<float> playerStats_ = new List<float>();
         timeSlider_ = sliderArray_[0];
         hungerSlider_ = sliderArray_[1];
 
-        timeSlider_.maxValue = m_MaxTime;
-        timeSlider_.minValue = m_MinTime;
+        timeSlider_.maxValue = m_PlayerData.m_MaxTime;
+        timeSlider_.minValue = 0.0f;
         timeSlider_.value = timer_;
 
-        hungerSlider_.maxValue = m_MaxHunger;
-        hungerSlider_.minValue = m_MinHunger;
-        hungerSlider_.value = m_DefaultStartHunger;
+        hungerSlider_.maxValue = m_PlayerData.m_MaxHunger;
+        hungerSlider_.minValue = 0.0f;
+        hungerSlider_.value = 0.0f;
     }
 
     void SetUpObjectiveSliders()
@@ -108,24 +108,24 @@ private List<float> playerStats_ = new List<float>();
         timer_--;
         timeSlider_.value = timer_;
         hungerSlider_.value = m_CurrHunger;
-        if (timer_ <= m_MinTime)
+        if (timer_ <= 0.0f)
         {
             m_CurrHunger += 10.0f;
-            timer_ = m_MaxTime;
+            timer_ = m_PlayerData.m_MaxTime;
         }
 
-        if (m_CurrHunger >= m_MaxHunger)
+        if (m_PlayerData.m_HungerMeter >= m_PlayerData.m_MaxHunger)
         {
-            m_CurrHunger = m_MaxHunger;
+            m_PlayerData.m_HungerMeter = m_PlayerData.m_MaxHunger;
         }
 	}
 
     void FixedUpdate()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        /*if(Input.GetKeyDown(KeyCode.Space))
         {
             m_CurrHunger -= 10.0f;
-        }
+        }*/
 
         if(Input.GetKeyDown(KeyCode.E))
         {
@@ -142,10 +142,10 @@ private List<float> playerStats_ = new List<float>();
         //Clear the list and re-add the variables to make sure the information is completely up to date
         playerStats_.Clear();
         playerStats_.Add(m_HabitatRating);
-        playerStats_.Add(m_CurrHunger);
-        playerStats_.Add(m_Reputation);
-        playerStats_.Add(m_Currency);
-        playerStats_.Add(m_Happiness);
+        playerStats_.Add(m_PlayerData.m_HungerMeter);
+        playerStats_.Add(m_PlayerData.m_Rep);
+        playerStats_.Add(m_PlayerData.m_Shillings);
+        playerStats_.Add(m_PlayerData.m_Happiness);
 
         //Loop through the pair of arrays to get the appropriate values next to the proper text
         for (int i = 0; i < textArray_.Length - 1; ++i)
@@ -156,9 +156,9 @@ private List<float> playerStats_ = new List<float>();
 
     void UpdateSliders()
     {
-        repObjSlider_.value = m_Reputation;
-        currObjSlider_.value = m_Currency;
-        happyObjSlider_.value = m_Happiness;
+        repObjSlider_.value = m_PlayerData.m_Rep;
+        currObjSlider_.value = m_PlayerData.m_Shillings;
+        happyObjSlider_.value = m_PlayerData.m_Happiness;
     }
 
     public void BuildingGUI()
