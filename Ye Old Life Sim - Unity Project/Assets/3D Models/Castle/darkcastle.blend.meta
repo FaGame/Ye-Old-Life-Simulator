@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8fb33d0dd4bf0a8439edd8e914be9876
+guid: cd6e5965b9ca3d24a968bf7fc72ff010
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -34,8 +34,8 @@ ModelImporter:
     9500000: //RootNode
   materials:
     importMaterials: 1
-    materialName: 0
-    materialSearch: 1
+    materialName: 1
+    materialSearch: 2
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
