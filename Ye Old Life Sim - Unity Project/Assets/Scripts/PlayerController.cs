@@ -63,6 +63,8 @@ public class PlayerController : MonoBehaviour
         }
 
         DecreaseTime();
+
+        navAgent_.speed = GetComponent<PlayerData>().m_Speed;
     }
 
     private void UpdateAnimation()

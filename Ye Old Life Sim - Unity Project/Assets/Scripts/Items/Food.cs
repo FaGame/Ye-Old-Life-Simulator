@@ -3,46 +3,27 @@ using System.Collections;
 
 public class Food : Item 
 {
-    public bool m_StartTimer = false;       //used to call the UpdateTimer function
+    public ItemEffect m_Effect;
+   
     public bool m_IsPerishable = false;
 
-    public NavMeshAgent m_NavMeshAgent;     //player NavMeshAgent
-
-    public float m_SwitchTimerOff = 10.0f;  //time you want the UpdateTimer to stop at
-    public float m_Time = 0.0f;             //used to keep track of time
+    public float m_Timer = 0.0f;
     public float m_HungerAmount = 0.0f;     //how much you want to subtract from player hunger
-    public float m_SpeedModifier = 0.0f;         //scalar to change player speed
+    public float m_SpeedModifier = 0.0f;    //scalar to change player speed
 
-    void Update()
+    void Start()
     {
-        if (m_StartTimer)
-        {
-            UpdateTimer();
-        }
+        m_Effect.m_Type = ItemEffect.EffectType.SPEED;      //sets the type to be speed so when the players uses a food item speed is changed
+        m_Effect.m_Timer = m_Timer;
+        m_Effect.m_Value = m_SpeedModifier;
     }
 
     //when the function is called subtract a value from the hunger meter and increase or decrease player speed
-    public override void UseItem(PlayerData playerData, PlayerController playerController)
+    public override void UseItem(PlayerData playerData)
     {
-        //Get the player's NavmeshAgent and set the speed based on the modifier
-        m_NavMeshAgent = playerController.GetComponent<NavMeshAgent>();
-        m_NavMeshAgent.speed += m_NavMeshAgent.speed * m_SpeedModifier;
-
-        playerData.m_HungerMeter -= m_HungerAmount;
-        m_StartTimer = true;     
+        //uses the AddEffect function which sets all values based on the ItemEffect specified 
+        playerData.AddEffect(m_Effect);
+        playerData.m_HungerMeter -= m_HungerAmount;    
     }
-
-    public override void UpdateTimer()
-    {
-        //this function increases the m_Time variable for a set amount of time then flips the timer off and resets player speed to its default speed.
-        m_Time += Time.deltaTime;
-
-        if (m_Time >= m_SwitchTimerOff)
-        {
-            //reset the player's speed to its default and reset timer
-            m_NavMeshAgent.speed = ValueConstants.PLAYER_DEFAULT_SPEED;
-            m_Time = 0.0f;
-            m_StartTimer = false;
-        }
-    }
+  
 }

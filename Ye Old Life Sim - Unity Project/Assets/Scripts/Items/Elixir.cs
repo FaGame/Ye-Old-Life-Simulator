@@ -3,51 +3,51 @@ using System.Collections;
 
 public class Elixir : Item 
 {
-    public NavMeshAgent m_EnemyNavMeshAgent;    //enemy NavMeshAgent
-    public NavMeshAgent m_NavMeshAgent;         //player NavMeshAgent
+    public PlayerData m_Enemy;                              //this is what the enemy will be assigned to
+    public ItemEffect m_PlayerSpeedEffect;                  //effect for player's speed
+    public ItemEffect m_PlayerEarningsEffect;               //effect for player's earnings 
+    public ItemEffect m_EnemySpeedEffect;                   //effeect for enimies speed
+    public ItemEffect m_EnemyEarningEffect;                 //effect for enimies earnings
 
-    public bool m_StartTimer = false;           //used to call the UpdateTimer function
+    public float m_PlayerSpeedTimer = 0.0f;                 //Player's speed timer
+    public float m_PlayerEarningsTimer = 0.0f;              //Player's earning timer
+    public float m_EnemySpeedTimer = 0.0f;                  //Enemies speed timer  
+    public float m_EnemyEarningsTimer = 0.0f;               //Enemies earnings timer  
+    public float m_PlayerSpeedModifier = 0.0f;              //scalar to change player speed
+    public float m_EnemySpeedModifier = 0.0f;               //scalar to change the enemy speed
+    public float m_PlayerEarningsModifier = 1.0f;           //modifier that changes the scale of which the player's earnings are calculated 
+    public float m_EnemyEarningModifier = 1.0f;             //modifier that changes the scale of which the enemies earnings are calculated 
 
-    public float m_SwitchTimerOff = 10.0f;      //time you want the UpdateTimer to stop at
-    public float m_Time = 0.0f;                 //used to keep track of time
-    public float m_SpeedModifier = 0.0f;        //scalar to change player speed
-    public float m_EnemySpeedModifier = 0.0f;   //scalar to change the enemy speed
-
-    public int m_EarningsModifier = 1;          //modifier that changes the scale of which the player's earnings are calculated 
-    public int m_EnemyEarningModifier = 1;      //modifier that changes the scale of which the enemies earnings are calculated 
-
-    void Update()
+    void Start()
     {
-        if (m_StartTimer)
-        {
-            UpdateTimer();
-        }
+        //set the player's speed effect values
+        m_PlayerSpeedEffect.m_Type = ItemEffect.EffectType.SPEED;
+        m_PlayerSpeedEffect.m_Timer = m_PlayerSpeedTimer;
+        m_PlayerSpeedEffect.m_Value = m_PlayerSpeedModifier;
+
+        //set the player's earning effect values
+        m_PlayerEarningsEffect.m_Type = ItemEffect.EffectType.INCOME_MODIFIER;
+        m_PlayerEarningsEffect.m_Timer = m_PlayerEarningsTimer;
+        m_PlayerEarningsEffect.m_Value = m_PlayerEarningsModifier;
+
+        //set the enimies speed effect values
+        m_EnemySpeedEffect.m_Type = ItemEffect.EffectType.SPEED;
+        m_EnemySpeedEffect.m_Timer = m_EnemySpeedTimer;
+        m_EnemySpeedEffect.m_Value = m_EnemySpeedModifier;
+
+        //set the enimies earning effect values
+        m_EnemyEarningEffect.m_Type = ItemEffect.EffectType.INCOME_MODIFIER;
+        m_EnemyEarningEffect.m_Timer = m_EnemyEarningsTimer;
+        m_EnemyEarningEffect.m_Value = m_EnemyEarningModifier;
     }
 
-    public override void UseItem(PlayerData playerData, PlayerController playerController)
+    public override void UseItem(PlayerData playerData)
     {
-        //Get the player's NavmeshAgent and set the speed based on the modifier
-        m_NavMeshAgent = playerController.GetComponent<NavMeshAgent>();
-        m_NavMeshAgent.speed += m_NavMeshAgent.speed * m_SpeedModifier;
+        //uses the AddEffect function which sets all values based on the ItemEffect specified 
+        playerData.AddEffect(m_PlayerSpeedEffect);
+        playerData.AddEffect(m_PlayerEarningsEffect);
 
-        //set the player's earnings scalar
-        playerData.m_EarningScalar = m_EarningsModifier;
-
-        m_StartTimer = true; 
-    }
-
-    public override void UpdateTimer()
-    {
-        //this function increases the m_Time variable for a set amount of time then flips the timer off and resets player speed to its default speed.
-        m_Time += Time.deltaTime;
-
-        if (m_Time >= m_SwitchTimerOff)
-        {
-            //reset the player and enemy speed to its default and reset timer
-            m_NavMeshAgent.speed = ValueConstants.PLAYER_DEFAULT_SPEED;
-            m_EnemyNavMeshAgent.speed = ValueConstants.PLAYER_DEFAULT_SPEED;
-            m_StartTimer = false;
-            m_Time = 0.0f;      
-        }
+        m_Enemy.AddEffect(m_EnemySpeedEffect);
+        m_Enemy.AddEffect(m_EnemyEarningEffect);
     }
 }
