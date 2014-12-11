@@ -24,6 +24,10 @@ public class ValueConstants : MonoBehaviour
     public const int CHAPEL_DONATION_COST = 100;
     public const int CHAPEL_REPUTATION_GAIN = 50;
 
+    public const int UNIVERSITY_TUITION_SCHILLING_COST = 25;
+    public const float UNIVERSITY_TUITION_TIME_COST = 5.0f;
+    public const int UNIVERSITY_TUITION_SKILL_GAIN = 25;
+
     public const float ZERO_STAR_HABITAT_PENALTY = 10.0F;
     public const float ONE_STAR_HABITAT_PENALTY = 8.0f;
     public const float TWO_STAR_HABITAT_PENALTY = 6.0f;
