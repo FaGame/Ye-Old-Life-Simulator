@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Elixir : Item 
 {
-    public NavMeshAgent m_EnemyNavMeshAgent;    //player NavMeshAgent
+    public NavMeshAgent m_EnemyNavMeshAgent;    //enemy NavMeshAgent
     public NavMeshAgent m_NavMeshAgent;         //player NavMeshAgent
 
     public bool m_StartTimer = false;           //used to call the UpdateTimer function
