@@ -13,4 +13,5 @@ public class ValueConstants : MonoBehaviour
     public const int WENCH_FLIRT_BASE_SUCCESS = 10;
     public const int WENCH_FLIRT_BASE_REPUTATION_PIVOT = 100;
     public const int WENCH_FLIRT_SUCCESS_ADJUST = 10;
+
 }

@@ -50,4 +50,5 @@ public class Elixir : Item
         m_Enemy.AddEffect(m_EnemySpeedEffect);
         m_Enemy.AddEffect(m_EnemyEarningEffect);
     }
+
 }

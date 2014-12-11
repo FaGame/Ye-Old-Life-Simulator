@@ -26,4 +26,5 @@ public class Food : Item
         playerData.m_HungerMeter -= m_HungerAmount;    
     }
   
+
 }

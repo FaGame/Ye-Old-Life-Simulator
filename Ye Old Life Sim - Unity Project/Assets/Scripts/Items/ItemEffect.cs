@@ -19,4 +19,5 @@ public class ItemEffect
         m_Timer = timer;
         m_Value = value;
     }
+
 }

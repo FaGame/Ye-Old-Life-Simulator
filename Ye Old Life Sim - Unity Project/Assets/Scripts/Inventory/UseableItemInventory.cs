@@ -16,4 +16,5 @@ public class UseableItemInventory : MonoBehaviour
     {
         m_UseableItemInventory = new Dictionary<string, ItemInventoryEntry>();
     }
+
 }
