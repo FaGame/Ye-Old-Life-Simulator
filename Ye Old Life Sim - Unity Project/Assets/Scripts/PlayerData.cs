@@ -21,6 +21,7 @@ public class PlayerData : MonoBehaviour
 
     public int m_Reputation = 0;
     public int m_Shillings = 0;
+    public int m_EarningScalar = ValueConstants.PLAYER_DEFAULT_MONEY_SCALAR;    //scalar that is used to determine how much the player will earn that turn for work
 
     public bool m_IsInfected = false;       //variable used for when the player catches a disease
 
@@ -48,6 +49,7 @@ public class PlayerData : MonoBehaviour
 
     public void StartTurn()
     {
+        m_EarningScalar = ValueConstants.PLAYER_DEFAULT_MONEY_SCALAR;
         //calculate the curr time 
         m_CurrTime = m_MaxTime - m_Home.m_Penalty - m_FoodPenalty;
     }  

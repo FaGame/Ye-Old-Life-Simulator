@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Food : Item 
+public class Elixir : Item 
 {
-    public bool m_StartTimer = false;       //used to call the UpdateTimer function
-    public bool m_IsPerishable = false;
-
     public NavMeshAgent m_NavMeshAgent;     //player NavMeshAgent
+
+    public bool m_StartTimer = false;       //used to call the UpdateTimer function
 
     public float m_SwitchTimerOff = 10.0f;  //time you want the UpdateTimer to stop at
     public float m_Time = 0.0f;             //used to keep track of time
-    public float m_HungerAmount = 0.0f;     //how much you want to subtract from player hunger
-    public float m_SpeedModifier = 0.0f;         //scalar to change player speed
+    public float m_SpeedModifier = 0.0f;    //scalar to change player speed
+
+    public int m_EarningsModifier = 0;      //modifier that changes the scale of which the player's earnings are calculated 
 
     void Update()
     {
@@ -21,15 +21,14 @@ public class Food : Item
         }
     }
 
-    //when the function is called subtract a value from the hunger meter and increase or decrease player speed
     public override void UseItem(PlayerData playerData, PlayerController playerController)
     {
         //Get the player's NavmeshAgent and set the speed based on the modifier
         m_NavMeshAgent = playerController.GetComponent<NavMeshAgent>();
         m_NavMeshAgent.speed += m_NavMeshAgent.speed * m_SpeedModifier;
 
-        playerData.m_HungerMeter -= m_HungerAmount;
-        m_StartTimer = true;     
+        //set the player's earnings scalar
+        playerData.m_EarningScalar = m_EarningsModifier;
     }
 
     public override void UpdateTimer()
