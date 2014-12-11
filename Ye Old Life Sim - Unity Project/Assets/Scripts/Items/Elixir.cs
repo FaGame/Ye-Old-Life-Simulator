@@ -13,7 +13,7 @@ public class Elixir : Item
     public float m_SpeedModifier = 0.0f;        //scalar to change player speed
     public float m_EnemySpeedModifier = 0.0f;   //scalar to change the enemy speed
 
-    public int m_EarningsModifier = 0;          //modifier that changes the scale of which the player's earnings are calculated 
+    public int m_EarningsModifier = 1;          //modifier that changes the scale of which the player's earnings are calculated 
     public int m_EnemyEarningModifier = 1;      //modifier that changes the scale of which the enemies earnings are calculated 
 
     void Update()
@@ -32,6 +32,8 @@ public class Elixir : Item
 
         //set the player's earnings scalar
         playerData.m_EarningScalar = m_EarningsModifier;
+
+        m_StartTimer = true; 
     }
 
     public override void UpdateTimer()
@@ -44,8 +46,8 @@ public class Elixir : Item
             //reset the player and enemy speed to its default and reset timer
             m_NavMeshAgent.speed = ValueConstants.PLAYER_DEFAULT_SPEED;
             m_EnemyNavMeshAgent.speed = ValueConstants.PLAYER_DEFAULT_SPEED;
-            m_Time = 0.0f;
             m_StartTimer = false;
+            m_Time = 0.0f;      
         }
     }
 }
