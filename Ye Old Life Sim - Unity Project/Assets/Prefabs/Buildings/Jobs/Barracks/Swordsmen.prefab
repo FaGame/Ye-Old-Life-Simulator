@@ -45,6 +45,7 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 7
     m_Amount: 1.5
+  m_JobDescription: "Hack! Slash! Smash! Wait! Not that last one!\r\n"
   m_Wage: 15
   m_MinWage: 0
   m_MaxWage: 0

@@ -45,7 +45,8 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 0
     m_Amount: 2
-  m_ReputationRequirement: 0
+  m_JobDescription: "Turn some water into wine. Actually, just go buy it if you have
+    to.\r\n"
   m_Wage: 10
   m_MinWage: 0
   m_MaxWage: 0

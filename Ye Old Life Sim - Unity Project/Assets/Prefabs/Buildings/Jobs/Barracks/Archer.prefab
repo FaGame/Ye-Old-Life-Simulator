@@ -45,7 +45,8 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 7
     m_Amount: 1
-  m_ReputationRequirement: 0
+  m_JobDescription: "Do not aim if you don\u2019t intend to shoot. Here is a picture
+    of my ex wife. Aim."
   m_Wage: 6
   m_MinWage: 0
   m_MaxWage: 0

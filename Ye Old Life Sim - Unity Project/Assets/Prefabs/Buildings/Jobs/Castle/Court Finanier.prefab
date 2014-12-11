@@ -47,6 +47,7 @@ MonoBehaviour:
     m_Amount: 1
   - m_Skill: 12
     m_Amount: .200000003
+  m_JobDescription: "You don\u2019t make money, you just invent new ways to use it."
   m_Wage: 85
   m_MinWage: 0
   m_MaxWage: 0

@@ -49,6 +49,7 @@ MonoBehaviour:
     m_Amount: .75
   - m_Skill: 9
     m_Amount: 1.5
+  m_JobDescription: "Have a banner with your horse and ride like you own the place.\r\n"
   m_Wage: 25
   m_MinWage: 0
   m_MaxWage: 0

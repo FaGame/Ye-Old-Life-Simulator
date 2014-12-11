@@ -45,7 +45,7 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 0
     m_Amount: 2
-  m_ReputationRequirement: 0
+  m_JobDescription: "We need to see how it works. You need work. Seems like a match!\r\n"
   m_Wage: 2
   m_MinWage: 0
   m_MaxWage: 0

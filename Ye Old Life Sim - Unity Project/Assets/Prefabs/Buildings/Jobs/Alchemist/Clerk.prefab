@@ -47,7 +47,7 @@ MonoBehaviour:
     m_Amount: .5
   - m_Skill: 10
     m_Amount: .5
-  m_ReputationRequirement: 0
+  m_JobDescription: The only transmuting you will be doing is quill to paper!
   m_Wage: 5
   m_MinWage: 0
   m_MaxWage: 0

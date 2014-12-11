@@ -49,6 +49,7 @@ MonoBehaviour:
     m_Amount: 1
   - m_Skill: 12
     m_Amount: 1
+  m_JobDescription: "Well someone has to.\r\n"
   m_Wage: 15
   m_MinWage: 0
   m_MaxWage: 0

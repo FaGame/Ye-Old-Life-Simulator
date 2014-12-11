@@ -49,6 +49,7 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 12
     m_Amount: 10
+  m_JobDescription: "Basically, you win the game.\r\n"
   m_Wage: 100
   m_MinWage: 0
   m_MaxWage: 0

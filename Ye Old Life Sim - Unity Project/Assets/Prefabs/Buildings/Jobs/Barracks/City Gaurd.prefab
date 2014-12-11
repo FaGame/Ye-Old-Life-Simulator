@@ -43,7 +43,7 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 7
     m_Amount: 1
-  m_ReputationRequirement: 0
+  m_JobDescription: "More like City Clown. AMIRITE?!?! *cough*\r\n"
   m_Wage: 4
   m_MinWage: 0
   m_MaxWage: 0

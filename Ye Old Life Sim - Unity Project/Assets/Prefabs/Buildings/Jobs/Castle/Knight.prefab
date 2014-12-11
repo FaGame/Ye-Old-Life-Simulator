@@ -47,6 +47,7 @@ MonoBehaviour:
     m_Amount: 1
   - m_Skill: 12
     m_Amount: 1
+  m_JobDescription: "In our world, this is the definition of upper middle class.\r\n"
   m_Wage: 24
   m_MinWage: 0
   m_MaxWage: 0

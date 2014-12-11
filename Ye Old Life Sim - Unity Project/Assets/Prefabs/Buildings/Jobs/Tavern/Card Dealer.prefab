@@ -49,6 +49,7 @@ MonoBehaviour:
     m_Amount: .5
   - m_Skill: 12
     m_Amount: .5
+  m_JobDescription: "If you aren\u2019t cheating, you aren\u2019t trying.\r\n"
   m_Wage: 0
   m_MinWage: 5
   m_MaxWage: 9

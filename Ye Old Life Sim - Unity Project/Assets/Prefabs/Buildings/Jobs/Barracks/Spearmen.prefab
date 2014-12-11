@@ -45,7 +45,7 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 7
     m_Amount: 1
-  m_ReputationRequirement: 0
+  m_JobDescription: "This end is pointy. This end is not. Don\u2019t screw it up.\r\n"
   m_Wage: 10
   m_MinWage: 0
   m_MaxWage: 0

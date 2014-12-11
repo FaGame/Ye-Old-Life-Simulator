@@ -47,6 +47,8 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 12
     m_Amount: 1
+  m_JobDescription: "Give commands. Don\u2019t get too many people killed while doing
+    so.\r\n"
   m_Wage: 50
   m_MinWage: 0
   m_MaxWage: 0

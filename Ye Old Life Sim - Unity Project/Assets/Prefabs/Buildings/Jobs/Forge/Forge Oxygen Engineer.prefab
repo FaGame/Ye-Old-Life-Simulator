@@ -43,7 +43,8 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 11
     m_Amount: 1
-  m_ReputationRequirement: 0
+  m_JobDescription: "Melting steel takes big heat. Use your breath to grow the fire.
+    Don\u2019t inhale."
   m_Wage: 4
   m_MinWage: 0
   m_MaxWage: 0

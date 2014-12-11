@@ -49,7 +49,7 @@ MonoBehaviour:
     m_Amount: 1
   - m_Skill: 12
     m_Amount: .5
-  m_ReputationRequirement: 0
+  m_JobDescription: The highest ranked of the lowest
   m_Wage: 4
   m_MinWage: 0
   m_MaxWage: 0

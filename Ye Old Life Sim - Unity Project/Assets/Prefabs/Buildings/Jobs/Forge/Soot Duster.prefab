@@ -47,7 +47,8 @@ MonoBehaviour:
     m_Amount: .5
   - m_Skill: 11
     m_Amount: .5
-  m_ReputationRequirement: 0
+  m_JobDescription: Good smiths cleans up after themselves. We need you to clean up
+    after the fire.
   m_Wage: 6
   m_MinWage: 0
   m_MaxWage: 0

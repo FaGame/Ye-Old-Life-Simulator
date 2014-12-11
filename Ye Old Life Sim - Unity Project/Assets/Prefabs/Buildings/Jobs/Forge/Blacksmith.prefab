@@ -47,7 +47,8 @@ MonoBehaviour:
     m_Amount: .5
   - m_Skill: 11
     m_Amount: 1
-  m_ReputationRequirement: 0
+  m_JobDescription: "Hold the hammer. Swing. Don\u2019t let the screaming deter you
+    if you miss."
   m_Wage: 15
   m_MinWage: 0
   m_MaxWage: 0

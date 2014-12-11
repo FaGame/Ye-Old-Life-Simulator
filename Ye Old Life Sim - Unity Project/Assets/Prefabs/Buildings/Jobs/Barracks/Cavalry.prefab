@@ -49,6 +49,7 @@ MonoBehaviour:
     m_Amount: .5
   - m_Skill: 9
     m_Amount: 1.20000005
+  m_JobDescription: "Just like Stannis the Mannis.\r\n"
   m_Wage: 18
   m_MinWage: 0
   m_MaxWage: 0

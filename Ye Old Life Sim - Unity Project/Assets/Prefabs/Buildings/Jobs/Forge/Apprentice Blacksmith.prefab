@@ -45,7 +45,8 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 11
     m_Amount: 1
-  m_ReputationRequirement: 0
+  m_JobDescription: "Hold the anvil. Don\u2019t move. My aim isn\u2019t what it used
+    to be."
   m_Wage: 7
   m_MinWage: 0
   m_MaxWage: 0

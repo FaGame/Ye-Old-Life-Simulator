@@ -49,6 +49,7 @@ MonoBehaviour:
     m_Amount: .5
   - m_Skill: 12
     m_Amount: 1
+  m_JobDescription: "For when you figure out when end of the stick is pointy.\r\n"
   m_Wage: 45
   m_MinWage: 0
   m_MaxWage: 0

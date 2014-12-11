@@ -45,6 +45,8 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 0
     m_Amount: 1
+  m_JobDescription: "Make what you want out of whatever you want. Just don\u2019t
+    try to turn it back.\r\n"
   m_Wage: 39
   m_MinWage: 0
   m_MaxWage: 0

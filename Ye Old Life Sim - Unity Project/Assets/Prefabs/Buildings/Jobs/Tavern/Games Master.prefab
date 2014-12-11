@@ -51,6 +51,8 @@ MonoBehaviour:
     m_Amount: .5
   - m_Skill: 12
     m_Amount: .5
+  m_JobDescription: "It\u2019s not about winning or losing, it\u2019s how... oh who
+    am I kidding?\r\n"
   m_Wage: 0
   m_MinWage: 8
   m_MaxWage: 25

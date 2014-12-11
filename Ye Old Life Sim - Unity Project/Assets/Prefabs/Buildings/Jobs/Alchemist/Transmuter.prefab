@@ -45,7 +45,8 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 0
     m_Amount: 1
-  m_ReputationRequirement: 0
+  m_JobDescription: "First Law: A Transmuter may not harm any human being. Except
+    Steve.\r\n"
   m_Wage: 20
   m_MinWage: 0
   m_MaxWage: 0

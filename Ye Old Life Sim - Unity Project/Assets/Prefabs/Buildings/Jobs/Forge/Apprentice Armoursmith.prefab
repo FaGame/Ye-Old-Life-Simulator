@@ -45,7 +45,7 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 11
     m_Amount: 2
-  m_JobDescription: 
+  m_JobDescription: 'Rule number 1: Make sure it covers the important bits.'
   m_Wage: 6
   m_MinWage: 0
   m_MaxWage: 0
