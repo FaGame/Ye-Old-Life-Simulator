@@ -84,6 +84,8 @@
     <Compile Include="Assets\Scripts\Skill.cs" />
     <Compile Include="Assets\Scripts\SkillAndAmount.cs" />
     <Compile Include="Assets\Scripts\SkillGain.cs" />
+    <Compile Include="Assets\Scripts\SpecialEffects\FlirtWithWench.cs" />
+    <Compile Include="Assets\Scripts\SpecialEffects\SpecialEffect.cs" />
     <Compile Include="Assets\Scripts\State.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
     <Compile Include="Assets\Scripts\ValueConstants.cs" />

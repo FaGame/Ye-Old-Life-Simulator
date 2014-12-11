@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SpecialEffect : MonoBehaviour 
+public abstract class SpecialEffect : MonoBehaviour 
 {
 
-    
+    public abstract void DoSpecialEffect(PlayerData pData);
+
+    public abstract void TurnEnded();
 }
