@@ -46,7 +46,7 @@ public float m_HappinessObjective;
         SetUpObjectiveSliders();
 
         //Load the player stats list with the player's stats
-        playerStats_.Add(m_PlayerData.m_Home.m_RatingValue);
+        playerStats_.Add((float)m_PlayerData.m_Home.m_Rating);
         playerStats_.Add(m_PlayerData.m_HungerMeter);
         playerStats_.Add(m_PlayerData.m_Reputation);
         playerStats_.Add(m_PlayerData.m_Shillings);
@@ -131,7 +131,7 @@ public float m_HappinessObjective;
     {
         //Clear the list and re-add the variables to make sure the information is completely up to date
         playerStats_.Clear();
-        playerStats_.Add(m_PlayerData.m_Home.m_RatingValue);
+        playerStats_.Add((float)m_PlayerData.m_Home.m_Rating);
         playerStats_.Add(m_PlayerData.m_HungerMeter);
         playerStats_.Add(m_PlayerData.m_Reputation);
         playerStats_.Add(m_PlayerData.m_Shillings);

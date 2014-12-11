@@ -4,9 +4,8 @@ using System.Collections.Generic;
 
 public class Habitat : MonoBehaviour 
 {
-    public float m_RatingValue = 0.0f;
-    public float m_Penalty = 0.0f;
     public float m_Rent = 0.0f;
+
     void Start()
     {
         CalculateHomePenalty();
@@ -22,39 +21,29 @@ public class Habitat : MonoBehaviour
     };
     public BuildingRating m_Rating = BuildingRating.NOSTAR;
 
-    public void CalculateHomePenalty()
+    public float CalculateHomePenalty()
     {
         switch (m_Rating)
         {
             case BuildingRating.NOSTAR:
-                m_Penalty = 10.0f;
-                m_RatingValue = 0.0f;
-                break;
+                return ValueConstants.ZERO_STAR_HABITAT_PENALTY;
 
             case BuildingRating.ONESTAR:
-                m_Penalty = 8.0f;
-                m_RatingValue = 1.0f;
-                break;
+                return ValueConstants.ONE_STAR_HABITAT_PENALTY;
 
             case BuildingRating.TWOSTAR:
-                m_Penalty = 6.0f;
-                m_RatingValue = 2.0f;
-                break;
+                return ValueConstants.TWO_STAR_HABITAT_PENALTY;
 
             case BuildingRating.THREESTAR:
-                m_Penalty = 4.0f;
-                m_RatingValue = 3.0f;
-                break;
+                return ValueConstants.THREE_STAR_HABITAT_PENALTY;
 
             case BuildingRating.FOURSTAR:
-                m_Penalty = 2.0f;
-                m_RatingValue = 4.0f;
-                break;
+                return ValueConstants.FOUR_STAR_HABITAT_PENALTY;
 
             case BuildingRating.FIVESTAR:
-                m_Penalty = 0.0f;
-                m_RatingValue = 5.0f;
-                break;
+                return ValueConstants.FIVE_STAR_HABITAT_PENALTY;
         }
-    }
+
+        return 0;
+    }  
 }
