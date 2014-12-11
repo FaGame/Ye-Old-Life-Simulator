@@ -8,19 +8,21 @@ public class FlirtWithWench : SpecialEffect
 
     public override void DoSpecialEffect(PlayerData pData)
     {
-        float wenchSuccess = 10.0f;
+        int wenchSuccess = ValueConstants.WENCH_FLIRT_BASE_SUCCESS;
+        bool isFlirtSuccess = false;
 
         if(!hasFlirted_)
         {
             hasFlirted_ = true;
-            if(pData.m_Reputation <= 100)
+            if(pData.m_Reputation <= ValueConstants.WENCH_FLIRT_BASE_REPUTATION_PIVOT)
             {
-                wenchSuccess -= pData.m_Reputation / 10;
+                wenchSuccess -= pData.m_Reputation / ValueConstants.WENCH_FLIRT_SUCCESS_ADJUST;
             }
             else
             {
-                wenchSuccess += pData.m_Reputation / 10;
+                wenchSuccess += pData.m_Reputation / ValueConstants.WENCH_FLIRT_SUCCESS_ADJUST;
             }
+            isFlirtSuccess = Random.Range(0, 100) < wenchSuccess;
         }
     }
 

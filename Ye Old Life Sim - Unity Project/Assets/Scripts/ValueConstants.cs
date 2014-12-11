@@ -11,4 +11,8 @@ public class ValueConstants : MonoBehaviour
     public const float PLAYER_MAX_FOOD_PENALTY = 5.0f;
     public const float PLAYER_DEFAULT_SPEED = 10.0f;
     public const int PLAYER_DEFAULT_MONEY_SCALAR = 1;
+
+    public const int WENCH_FLIRT_BASE_SUCCESS = 10;
+    public const int WENCH_FLIRT_BASE_REPUTATION_PIVOT = 100;
+    public const int WENCH_FLIRT_SUCCESS_ADJUST = 10;
 }
