@@ -8,8 +8,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 406760}
-  - 65: {fileID: 6506760}
   - 114: {fileID: 11406760}
+  - 65: {fileID: 6506760}
   m_Layer: 0
   m_Name: Barracks
   m_TagString: Untagged
