@@ -7,11 +7,11 @@ public class BuildingUI : MonoBehaviour
     public GameObject m_BuildingGUI;
     public GameObject m_ApplyMenu;
     public GameObject m_ApplyMenuButtonPrefab;
+    public GameObject m_ScrollMaskContent;
     public Button m_WorkButton;
     public Button m_ApplyButton;
 
     private bool buildingsActive_ = false;
-    private bool jobApplied_ = false;
     private GameObject selectedBuilding_;
     private Text[] buildingMenuText_;
     private Text[] applyMenuText_;
@@ -65,7 +65,6 @@ public class BuildingUI : MonoBehaviour
     {
         float startYPos = 180.0f;
         float yPosOffset = 60.0f;
-        jobApplied_ = true;
         m_WorkButton.interactable = true;
         m_ApplyMenu.SetActive(true);
 
@@ -73,7 +72,7 @@ public class BuildingUI : MonoBehaviour
         for (int i = 0; i < selectedBuilding_.GetComponent<Building>().m_JobData.Length; ++i)
         {
             GameObject go = (GameObject)Instantiate(m_ApplyMenuButtonPrefab, new Vector3(0, startYPos, 0), Quaternion.identity);
-            go.gameObject.transform.SetParent(m_ApplyMenu.transform, false);
+            go.gameObject.transform.SetParent(m_ScrollMaskContent.transform, false);
             startYPos -= yPosOffset;
         }
 
