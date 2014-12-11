@@ -64,7 +64,7 @@ public class BuildingUI : MonoBehaviour
     public void ApplyMenu()
     {
         float startYPos = 180.0f;
-        float yPosOffset = 60.0f;
+        float yPosOffset = 70.0f;
         m_WorkButton.interactable = true;
         m_ApplyMenu.SetActive(true);
 
@@ -102,6 +102,23 @@ public class BuildingUI : MonoBehaviour
                 selectedBuilding_.GetComponent<Building>().m_JobData[j].m_SkillGain[k].m_Amount.ToString() + " point(s) in " + selectedBuilding_.GetComponent<Building>().m_JobData[j].m_SkillGain[k].m_Skill.ToString() + ".";
             }
             j++;
+        }
+    }
+
+    public void CloseCurrentMenu()
+    {
+        if(m_ApplyMenu.activeSelf)
+        {
+            foreach(RectTransform child in m_ScrollMaskContent.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+
+            m_ApplyMenu.SetActive(false);
+        }
+        else if(buildingsActive_)
+        {
+            buildingsActive_ = false;
         }
     }
 
