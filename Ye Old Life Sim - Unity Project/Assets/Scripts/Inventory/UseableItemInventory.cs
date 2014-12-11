@@ -33,12 +33,31 @@ public class UseableItemInventory : MonoBehaviour
     public void AddToInventory(string name, ItemInventoryEntry item)
     {
         //adds an item to the list based on a name given and takes in a list of type ItemInventoryEntry
-        m_UseableItemInventory.Add(name, item);
+        if (!m_UseableItemInventory.ContainsKey(name))
+        {
+            m_UseableItemInventory.Add(name, item);
+        }
+        else
+        {
+            ItemInventoryEntry entry = item;
+            item.count += m_UseableItemInventory[name].count;
+            m_UseableItemInventory[name] = item;
+        }
     }
 
     public void RemoveFromInventory(string name)
     {
         //removes an item from the ItemInventoryEntry based on the name given
-        m_UseableItemInventory.Remove(name);
+        if (m_UseableItemInventory.ContainsKey(name))
+        {
+            ItemInventoryEntry item = m_UseableItemInventory[name];
+            item.count--;
+            m_UseableItemInventory[name] = item;
+
+            if(m_UseableItemInventory.Count <= 0)
+            {
+                m_UseableItemInventory.Remove(name);
+            }
+        }
     }
 }
