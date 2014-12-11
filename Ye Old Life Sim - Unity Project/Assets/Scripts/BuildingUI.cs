@@ -6,6 +6,7 @@ public class BuildingUI : MonoBehaviour
 {
     public GameObject m_BuildingGUI;
     public GameObject m_ApplyMenu;
+    public GameObject m_ApplyMenuButtonPrefab;
     public Button m_WorkButton;
     public Button m_ApplyButton;
 
@@ -62,9 +63,20 @@ public class BuildingUI : MonoBehaviour
     //If pressed, it will populate and show the Apply for Job menu, in which you can choose a job to apply for
     public void ApplyMenu()
     {
+        float startYPos = 180.0f;
+        float yPosOffset = 60.0f;
         jobApplied_ = true;
         m_WorkButton.interactable = true;
         m_ApplyMenu.SetActive(true);
+
+        //Create the necessary amount of buttons to display on screen
+        for (int i = 0; i < selectedBuilding_.GetComponent<Building>().m_JobData.Length; ++i)
+        {
+            GameObject go = (GameObject)Instantiate(m_ApplyMenuButtonPrefab, new Vector3(0, startYPos, 0), Quaternion.identity);
+            go.gameObject.transform.SetParent(m_ApplyMenu.transform, false);
+            startYPos -= yPosOffset;
+        }
+
         applyMenuText_ = m_ApplyMenu.GetComponentsInChildren<Text>();
         int j = 0;
         int k = 0;
