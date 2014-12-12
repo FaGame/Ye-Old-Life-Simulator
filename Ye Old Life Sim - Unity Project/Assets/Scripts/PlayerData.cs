@@ -33,6 +33,7 @@ public class PlayerData : MonoBehaviour
     {
         m_Speed = m_DefaultSpeed;
         StartTurn();
+        m_Job = null;
 	}
 	
 	void Update () 

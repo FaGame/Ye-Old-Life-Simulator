@@ -88,11 +88,11 @@ public class Building : MonoBehaviour
         if(failedSkill == null)
         {
             // Remove last job's reputation before adding new job's reputation
-            if(pData.m_PreviousJobData != null)
+            if(pData.m_Job != null)
             {
-                pData.m_Reputation -= (int)pData.m_PreviousJobData.m_ReputationGain;
+                pData.m_Reputation -= (int)pData.m_Job.m_ReputationGain;
             }
-            pData.m_PreviousJobData = jData;
+            pData.m_Job = jData;
             
             pData.m_Reputation += (int)jData.m_ReputationGain;
         }

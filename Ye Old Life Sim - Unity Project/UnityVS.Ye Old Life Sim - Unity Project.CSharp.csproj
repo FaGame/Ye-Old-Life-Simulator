@@ -76,12 +76,14 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HUDScript.cs" />
     <Compile Include="Assets\Scripts\Habitat.cs" />
+    <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\Inventory\PossessionInventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\UseableItemInventory.cs" />
     <Compile Include="Assets\Scripts\Items\Elixir.cs" />
     <Compile Include="Assets\Scripts\Items\Food.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Items\ItemEffect.cs" />
+    <Compile Include="Assets\Scripts\Items\Possession.cs" />
     <Compile Include="Assets\Scripts\JobData.cs" />
     <Compile Include="Assets\Scripts\MusicShuffle.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
