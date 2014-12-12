@@ -9,7 +9,7 @@ public class Food : Item
 
     public float m_Timer = 0.0f;
     public float m_HungerAmount = 0.0f;     //how much you want to subtract from player hunger
-    public float m_SpeedModifier = 0.0f;    //scalar to change player speed
+    public float m_SpeedModifier = 1.0f;    //scalar to change player speed
 
     void Start()
     {
