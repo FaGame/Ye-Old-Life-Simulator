@@ -10,6 +10,7 @@ public class PlayerData : MonoBehaviour
     public List<SkillAndAmount> m_Skills;
 
     public JobData m_Job;
+    public Building m_Building;
 
     public Canvas m_PlayerCanvas;
 
@@ -34,6 +35,7 @@ public class PlayerData : MonoBehaviour
         m_Speed = m_DefaultSpeed;
         StartTurn();
         m_Job = null;
+        m_Building = null;
 	}
 	
 	void Update () 

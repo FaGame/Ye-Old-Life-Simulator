@@ -7,11 +7,12 @@ public class Building : MonoBehaviour
     public string[] m_Description;
     public Texture2D m_Image;
     public JobData[] m_JobData;
+    public bool m_PlayerWorksHere;
 
 	// Use this for initialization
 	void Start () 
     {
-	
+        m_PlayerWorksHere = false;
 	}
 	
 	// Update is called once per frame
@@ -23,6 +24,7 @@ public class Building : MonoBehaviour
     public void Work(PlayerData pData, JobData jData)
     {
         bool isSkillFound = false;
+        float actualWorkTime = pData.m_CurrTime < ValueConstants.WORK_TIME ? pData.m_CurrTime : ValueConstants.WORK_TIME;
 
         for (int i = 0; i < jData.m_SkillGain.Length; ++i)
         {
@@ -30,17 +32,17 @@ public class Building : MonoBehaviour
             {
                 if (jData.m_SkillGain[i].m_Skill == pData.m_Skills[j].m_Skill)
                 {
-                    pData.m_Skills[j].m_Amount += jData.m_SkillGain[i].m_Amount * ValueConstants.WORK_TIME;
+                    pData.m_Skills[j].m_Amount += jData.m_SkillGain[i].m_Amount * actualWorkTime;
                     isSkillFound = true;
                 }
                 continue;
             }
             if(!isSkillFound)
             {
-                pData.m_Skills.Add(new SkillAndAmount(jData.m_SkillGain[i].m_Skill, jData.m_SkillGain[i].m_Amount * ValueConstants.WORK_TIME));
+                pData.m_Skills.Add(new SkillAndAmount(jData.m_SkillGain[i].m_Skill, jData.m_SkillGain[i].m_Amount * actualWorkTime));
             }
         }
-        pData.m_Shillings += (int)(jData.GetWage() * ValueConstants.WORK_TIME);
+        pData.m_Shillings += (int)(jData.GetWage() * actualWorkTime);
     }
 
     public void BuildingInteraction()
@@ -93,6 +95,14 @@ public class Building : MonoBehaviour
                 pData.m_Reputation -= (int)pData.m_Job.m_ReputationGain;
             }
             pData.m_Job = jData;
+
+            if(pData.m_Building != null)
+            {
+                pData.m_Building.m_PlayerWorksHere = false;
+            }
+            m_PlayerWorksHere = true;
+            pData.m_Building = this;
+            
             
             pData.m_Reputation += (int)jData.m_ReputationGain;
         }
