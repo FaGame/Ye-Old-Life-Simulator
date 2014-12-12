@@ -12,8 +12,11 @@ public class PossessionInventory : MonoBehaviour
         public int count;
     };
 
+    //used for inspector use, place the names of the items in here
     public string[] m_Names;
+    //used for inspector use, place your items in here
     public ItemInventoryEntry[] m_InspectorInventory;
+    //this is what you need to use when accessing the inventory
     public Dictionary<string, PossessionInventory.ItemInventoryEntry> m_PossessionItemInventory;
 
     void Start()

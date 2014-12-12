@@ -12,8 +12,11 @@ public class UseableItemInventory : MonoBehaviour
         public int count;
     };
 
+    //used for inspector use, place the names of the items in here
     public string[] m_Names;
+    //used for inspector use, place your items in here
     public ItemInventoryEntry[] m_InspectorInventory;
+
     public Dictionary<string, UseableItemInventory.ItemInventoryEntry> m_UseableItemInventory;
 
     void Start()
