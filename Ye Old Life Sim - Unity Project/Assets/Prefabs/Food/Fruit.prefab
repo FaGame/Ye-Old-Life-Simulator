@@ -39,6 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac79831da344dd45876920d3b2058ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Cost: 1
   m_IsPerishable: 0
   m_Timer: 0
   m_HungerAmount: 5

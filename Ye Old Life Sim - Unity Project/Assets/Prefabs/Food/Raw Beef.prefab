@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: Wine
+  m_Name: Raw Beef
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,11 +39,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac79831da344dd45876920d3b2058ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Cost: 10
+  m_Cost: 5
   m_IsPerishable: 0
   m_Timer: 0
-  m_HungerAmount: 1
-  m_SpeedModifier: -.5
+  m_HungerAmount: 75
+  m_SpeedModifier: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
