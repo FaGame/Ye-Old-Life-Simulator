@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Building : MonoBehaviour 
 {
-    public string m_Name;
+    public string m_BuildingName;
     public string[] m_Description;
     public Texture2D m_Image;
     public JobData[] m_JobData;
