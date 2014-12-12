@@ -9,7 +9,7 @@ public class PlayerData : MonoBehaviour
 
     public List<SkillAndAmount> m_Skills;
 
-    public string m_JobName;
+    public JobData m_Job;
 
     public Canvas m_PlayerCanvas;
 

@@ -147,6 +147,7 @@ public class BuildingUI : MonoBehaviour
             {
                 Debug.Log("Applying for " + selectedBuilding_.GetComponent<Building>().m_JobData[i].name);
                 jobGainedData_ = selectedBuilding_.GetComponent<Building>().ApplyForJob(m_PlayerData, selectedBuilding_.GetComponent<Building>().m_JobData[i]);
+
                 if(jobGainedData_ == null)
                 {
 
