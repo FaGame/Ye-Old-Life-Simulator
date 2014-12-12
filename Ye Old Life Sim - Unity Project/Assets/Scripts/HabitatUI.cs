@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class HabitatUI : MonoBehaviour 
 {
-    public PlayerData m_Habitat;
-    public Habitat m_RentVal;
+    private PlayerData m_Habitat;
+    private Habitat m_RentVal;
 
     public Text m_RentValue;
     public Text m_TimePenalty;
