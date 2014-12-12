@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
         DecreaseTime();
 
-        navAgent_.speed = GetComponent<PlayerData>().m_Speed;
+        navAgent_.speed = m_PlayerData.GetComponent<PlayerData>().m_Speed;
     }
 
     private void UpdateAnimation()
