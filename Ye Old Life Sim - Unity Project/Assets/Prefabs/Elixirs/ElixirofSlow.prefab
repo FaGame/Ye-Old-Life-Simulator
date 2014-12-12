@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: ElixirofSpeed
+  m_Name: ElixirofSlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,14 +40,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Enemy: {fileID: 0}
-  m_PlayerSpeedScalar: 5
-  m_EnemySpeedScalar: 1
+  m_PlayerSpeedScalar: 1
+  m_EnemySpeedScalar: 5
+  m_PlayerEarningsScalar: 1
+  m_EnemyEarningsScalar: 1
   m_PlayerSpeedTimer: 0
-  m_PlayerEarningsTimer: 0
   m_EnemySpeedTimer: 0
+  m_PlayerEarningsTimer: 0
   m_EnemyEarningsTimer: 0
-  m_PlayerSpeedModifier: 3
-  m_EnemySpeedModifier: 1
+  m_PlayerSpeedModifier: 1
+  m_EnemySpeedModifier: -3
   m_PlayerEarningsModifier: 1
   m_EnemyEarningModifier: 1
 --- !u!1001 &100100000

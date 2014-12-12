@@ -9,17 +9,29 @@ public class Elixir : Item
     public ItemEffect m_EnemySpeedEffect;                   //effeect for enimies speed
     public ItemEffect m_EnemyEarningEffect;                 //effect for enimies earnings
 
+    public float m_PlayerSpeedScalar = 1.0f;                //used to scale the the player's speed timer based on elixir
+    public float m_EnemySpeedScalar = 1.0f;                 //used to scale the the enemy speed timer based on elixir
+    public float m_PlayerEarningsScalar = 1.0f;             //used to scale the the player's earnings timer based on elixir
+    public float m_EnemyEarningsScalar = 1.0f;              //used to scale the the enemy earnings timer based on elixir
     public float m_PlayerSpeedTimer = 0.0f;                 //Player's speed timer
+    public float m_EnemySpeedTimer = 0.0f;                  //Enemies speed timer 
     public float m_PlayerEarningsTimer = 0.0f;              //Player's earning timer
-    public float m_EnemySpeedTimer = 0.0f;                  //Enemies speed timer  
     public float m_EnemyEarningsTimer = 0.0f;               //Enemies earnings timer  
-    public float m_PlayerSpeedModifier = 0.0f;              //scalar to change player speed
-    public float m_EnemySpeedModifier = 0.0f;               //scalar to change the enemy speed
+    public float m_PlayerSpeedModifier = 0.0f;              //modifier to change player speed
+    public float m_EnemySpeedModifier = 0.0f;               //modifier to change the enemy speed
     public float m_PlayerEarningsModifier = 1.0f;           //modifier that changes the scale of which the player's earnings are calculated 
     public float m_EnemyEarningModifier = 1.0f;             //modifier that changes the scale of which the enemies earnings are calculated 
 
     void Start()
     {
+        //scales the player and enemy speed timers based on the scalar value
+        m_PlayerSpeedTimer = ValueConstants.PLAYER_MAX_TIME * m_PlayerSpeedScalar;
+        m_EnemySpeedTimer = ValueConstants.PLAYER_MAX_TIME * m_EnemySpeedScalar;
+
+        //scales the player and enemy earnings timers based on the scalr value
+        m_PlayerEarningsTimer = ValueConstants.PLAYER_MAX_TIME * m_PlayerEarningsScalar;
+        m_EnemyEarningsTimer = ValueConstants.PLAYER_MAX_TIME * m_EnemyEarningsScalar;
+
         //set the player's speed effect values
         m_PlayerSpeedEffect.m_Type = ItemEffect.EffectType.SPEED;
         m_PlayerSpeedEffect.m_Timer = m_PlayerSpeedTimer;
