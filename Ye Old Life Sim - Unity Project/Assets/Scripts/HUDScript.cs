@@ -12,6 +12,8 @@ public class HUDScript : MonoBehaviour
     public GameObject m_Goals; //The goals panel
     public GameObject m_Skills; //The skills panel
     public PlayerData m_PlayerData; //The player's data
+    public Text m_CurrJobText; //The player's current job text
+    public Text m_ShillingText; //The player's current shillings
 
     private bool statsActive_ = false; //This bool determines whether or not the the stats window is open
     private float timer_; //Turn timer
@@ -44,6 +46,8 @@ public float m_HappinessObjective;
 
         objSliderArray_ = m_Goals.GetComponentsInChildren<Slider>();
         SetUpObjectiveSliders();
+
+        m_CurrJobText.text = "Unemployed";
 
         //Load the player stats list with the player's stats
         playerStats_.Add((float)m_PlayerData.m_Home.m_Rating);
@@ -101,23 +105,38 @@ public float m_HappinessObjective;
         timeSlider_.value = m_PlayerData.m_CurrTime;
         hungerSlider_.value = m_PlayerData.m_HungerMeter;
 
+        m_ShillingText.text = m_PlayerData.m_Shillings.ToString();
+
         if (m_PlayerData.m_HungerMeter >= ValueConstants.PLAYER_MAX_HUNGER)
         {
             m_PlayerData.m_HungerMeter = ValueConstants.PLAYER_MAX_HUNGER;
+        }
+
+        if(m_PlayerData.m_Job != null)
+        {
+            m_CurrJobText.text = m_PlayerData.m_Job.name;
         }
 	}
 
     void FixedUpdate()
     {
-        //If the player presses E (temporarily) open up the stats menu
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            statsActive_ = !statsActive_;
-            m_StatsScreen.SetActive(statsActive_);
-            PopulateStats();
-            PopulateSkills();
-            UpdateSliders();
-        }
+    }
+
+    //Button function - Opens the stats screen on press
+    public void OpenStatsMenu()
+    {
+        statsActive_ = true;
+        m_StatsScreen.SetActive(statsActive_);
+        PopulateStats();
+        PopulateSkills();
+        UpdateSliders();
+    }
+
+    //Button function - Closes the stats screen on press
+    public void CloseMenu()
+    {
+        statsActive_ = false;
+        m_StatsScreen.SetActive(statsActive_);
     }
 
     //This function gets the latest stats when the player opens the stats menu
@@ -147,6 +166,7 @@ public float m_HappinessObjective;
         }
         else
         {
+            skillString_ = "";
             for (int i = 0; i < m_PlayerData.m_Skills.Count; ++i)
             {
                 skillString_ += m_PlayerData.m_Skills[i].m_Skill.ToString() + ": " + m_PlayerData.m_Skills[i].m_Amount.ToString() + "\n";
