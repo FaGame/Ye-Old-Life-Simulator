@@ -28,6 +28,7 @@ GameObject:
   - 4: {fileID: 467060}
   - 114: {fileID: 11467060}
   - 65: {fileID: 6567060}
+  - 114: {fileID: 11475420}
   m_Layer: 0
   m_Name: Shack
   m_TagString: Untagged
@@ -136,6 +137,19 @@ MonoBehaviour:
   - On the plus side, indoor plants grow very well with all this natural light
   m_Image: {fileID: 0}
   m_JobData: []
+--- !u!114 &11475420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b32fa333aa80548866671de461155e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Rent: 10
+  m_Rating: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

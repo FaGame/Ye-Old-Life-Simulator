@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 406760}
   - 114: {fileID: 11406760}
   - 65: {fileID: 6506760}
+  - 114: {fileID: 11421050}
   m_Layer: 0
   m_Name: Barracks
   m_TagString: Untagged
@@ -828,6 +829,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4017cc15e19ea7b4aa0ddb6d532f8497, type: 2}
   - {fileID: 11400000, guid: 0887bd42cc19bbf478e35b41860207c1, type: 2}
   - {fileID: 11400000, guid: ddb351290d6574b49932de6c3a67d5e9, type: 2}
+--- !u!114 &11421050
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b32fa333aa80548866671de461155e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Rent: 200
+  m_Rating: 5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

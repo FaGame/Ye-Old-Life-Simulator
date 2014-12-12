@@ -469,6 +469,7 @@ GameObject:
   - 4: {fileID: 435686}
   - 114: {fileID: 11435632}
   - 65: {fileID: 6533838}
+  - 114: {fileID: 11486906}
   m_Layer: 0
   m_Name: Farm
   m_TagString: Untagged
@@ -2186,6 +2187,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 73254e9dd548b6540a7823113736f362, type: 2}
   - {fileID: 11400000, guid: 719cb02d362d65345b2f28fb9f8037e4, type: 2}
   - {fileID: 11400000, guid: 04391a60e48e1b74dbf0819295d02fe2, type: 2}
+--- !u!114 &11486906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b32fa333aa80548866671de461155e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Rent: 100
+  m_Rating: 4
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
