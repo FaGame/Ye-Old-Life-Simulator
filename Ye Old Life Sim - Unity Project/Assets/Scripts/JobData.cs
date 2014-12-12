@@ -14,12 +14,12 @@ public class JobData : MonoBehaviour
 
 	void Start () 
     {
-        m_MinWage = 0;
-        m_MaxWage = 0;
+        //m_MinWage = 0;
+       // m_MaxWage = 0;
 	}
 
     //public function setting the wage and returning it
-    public float SetWage()
+    public float GetWage()
     {
         //if the wage has a min and max value inputed, it selecets a random number between them
         if(m_MinWage != m_MaxWage)

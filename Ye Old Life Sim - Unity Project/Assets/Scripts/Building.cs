@@ -40,6 +40,7 @@ public class Building : MonoBehaviour
                 pData.m_Skills.Add(new SkillAndAmount(jData.m_SkillGain[i].m_Skill, jData.m_SkillGain[i].m_Amount * ValueConstants.WORK_TIME));
             }
         }
+        pData.m_Shillings += (int)(jData.GetWage() * ValueConstants.WORK_TIME);
     }
 
     public void BuildingInteraction()
@@ -82,6 +83,18 @@ public class Building : MonoBehaviour
                     continue;
                 }
             }
+        }
+
+        if(failedSkill == null)
+        {
+            // Remove last job's reputation before adding new job's reputation
+            if(pData.m_PreviousJobData != null)
+            {
+                pData.m_Reputation -= (int)pData.m_PreviousJobData.m_ReputationGain;
+            }
+            pData.m_PreviousJobData = jData;
+            
+            pData.m_Reputation += (int)jData.m_ReputationGain;
         }
 
         return failedSkill;
