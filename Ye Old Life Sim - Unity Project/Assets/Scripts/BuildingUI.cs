@@ -4,18 +4,17 @@ using System.Collections;
 
 public class BuildingUI : MonoBehaviour 
 {
-    public GameObject m_BuildingGUI;
-    public GameObject m_ApplyMenu;
-    public GameObject m_ApplyMenuButtonPrefab;
-    public GameObject m_ScrollMaskContent;
-    public Button m_WorkButton;
-    public Button m_ApplyButton;
+    public GameObject m_BuildingGUI; //Building UI element
+    public GameObject m_ApplyMenu; //Menu that appears after pressing "Apply for Job"
+    public GameObject m_ApplyMenuButtonPrefab; //Prefab for the Apply Menu Button to Instantiate later
+    public GameObject m_ScrollMaskContent; //Gameobject that is to have the job information as a parent to allow for scrolling
+    public Button m_WorkButton; //Building UI "work" button
 
-    private bool buildingsActive_ = false;
-    private GameObject selectedBuilding_;
-    private Text[] buildingMenuText_;
-    private Text[] applyMenuText_;
-    private Text descriptionText_;
+    private bool buildingsActive_ = false; //Flag to turn on and off the building UI
+    private GameObject selectedBuilding_; //Selected building GameObject
+    private Text[] buildingMenuText_; //Array of text on the building UI element (Buy Items, Interact, etc)..
+    private Text[] applyMenuText_; //Array of text for the Apply For Job Menu
+    private Text descriptionText_; //Building description text - the funny quip at the top of the building UI
 
 	// Use this for initialization
 	void Start () 
@@ -30,6 +29,8 @@ public class BuildingUI : MonoBehaviour
 	void Update ()
     {
         m_BuildingGUI.SetActive(buildingsActive_);
+
+        //-------------TEMP CODE-------------
         if (Input.GetMouseButtonDown(0) && !buildingsActive_)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -42,8 +43,10 @@ public class BuildingUI : MonoBehaviour
                 }
             }
         }
+        //-------------END TEMP CODE-------------
 	}
 
+    //This function loads the building data based on which building was clicked
     void LoadBuildingData(string name)
     {
         buildingsActive_ = true;
@@ -51,12 +54,6 @@ public class BuildingUI : MonoBehaviour
         descriptionText_.text = selectedBuilding_.GetComponent<Building>().GetDescription();
 
         Debug.Log("Loading " + selectedBuilding_.name + "'s data");
-    }
-
-    public void BuildingGUI()
-    {
-        buildingsActive_ = !buildingsActive_;
-        m_BuildingGUI.SetActive(buildingsActive_);
     }
 
     //This function is used on button press in the building UI
@@ -77,12 +74,25 @@ public class BuildingUI : MonoBehaviour
         }
 
         applyMenuText_ = m_ApplyMenu.GetComponentsInChildren<Text>();
+
+        /*
+         * i -- Used to get and populate the text elements on the Apply for Job Menu
+         *   -- It is incremented by 3 each iteration because there are 3 text elements in each button prefab, so in order to move on to the next prefab without altering other text elements
+         *   -- we need to jump over them each iteration
+         *   
+         * j -- Used to get the job data
+         *   -- This is incremented at the end of each iteration of the for loop so it can get the appropriate job data
+         * 
+         * k -- Used to get the skill gain data
+         *  NOTE: To remove the IF statements try using a for loop ---- ATTEMPT AT A LATER TIME WHEN NOT TIRED
+         */
         int j = 0;
         int k = 0;
         for (int i = 0; i < selectedBuilding_.GetComponent<Building>().m_JobData.Length * 3; i += 3)
         {
             applyMenuText_[i].text = selectedBuilding_.GetComponent<Building>().m_JobData[j].name;
             applyMenuText_[i + 1].text = selectedBuilding_.GetComponent<Building>().m_JobData[j].m_JobDescription;
+            
             if (selectedBuilding_.GetComponent<Building>().m_JobData[j].m_SkillGain.Length == 3)
             {
                 applyMenuText_[i + 2].text = selectedBuilding_.GetComponent<Building>().m_JobData[j].m_Wage.ToString() + " shilling(s) and " +
@@ -105,6 +115,9 @@ public class BuildingUI : MonoBehaviour
         }
     }
 
+    //Button function - This function is called by the giant "X" in the top right corner of the building UI.
+    //If the Apply for Job menu is active it will destroy all of it's children -- Pretty dark, right?
+    //Otherwise it will just disable the menu.
     public void CloseCurrentMenu()
     {
         if(m_ApplyMenu.activeSelf)
@@ -122,6 +135,7 @@ public class BuildingUI : MonoBehaviour
         }
     }
 
+    // ***Work In Progress***
     public void ApplyForJob()
     {
         //selectedBuilding_.GetComponent<Building>().ApplyForJob(selectedBuilding_.GetComponent<Building>().m_JobData);

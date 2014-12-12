@@ -58,9 +58,6 @@ public float m_HappinessObjective;
 
         //Turn off the stats, goal and skills panels after initializing all stats
         m_StatsScreen.SetActive(false);
-        /*m_Stats.SetActive(false);
-        m_Goals.SetActive(false);
-        m_Skills.SetActive(false);*/
 
         //Set the current turn's timer
         timer_ = ValueConstants.PLAYER_MAX_TIME;
@@ -117,9 +114,6 @@ public float m_HappinessObjective;
         {
             statsActive_ = !statsActive_;
             m_StatsScreen.SetActive(statsActive_);
-            /*m_Stats.SetActive(statsActive_);
-            m_Goals.SetActive(statsActive_);
-            m_Skills.SetActive(statsActive_);*/
             PopulateStats();
             PopulateSkills();
             UpdateSliders();
