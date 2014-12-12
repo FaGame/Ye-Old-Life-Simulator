@@ -44,20 +44,4 @@ public class PossessionInventory : MonoBehaviour
             m_PossessionItemInventory[name] = item;
         }
     }
-
-    public void RemoveFromInventory(string name)
-    {
-        //removes an item from the ItemInventoryEntry based on the name given
-        if (m_PossessionItemInventory.ContainsKey(name))
-        {
-            ItemInventoryEntry item = m_PossessionItemInventory[name];
-            item.count--;
-            m_PossessionItemInventory[name] = item;
-
-            if (m_PossessionItemInventory.Count <= 0)
-            {
-                m_PossessionItemInventory.Remove(name);
-            }
-        }
-    }
 }
