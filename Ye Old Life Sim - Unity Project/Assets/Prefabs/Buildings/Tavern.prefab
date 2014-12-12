@@ -743,7 +743,7 @@ GameObject:
   - 65: {fileID: 6577790}
   m_Layer: 0
   m_Name: Tavern
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3093,6 +3093,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8775ec0f991d59648992d93e136fbce6, type: 2}
   - {fileID: 11400000, guid: a3a255d39fd08664ab735559013ffa52, type: 2}
   - {fileID: 11400000, guid: 5c4badffbd7668a40b06320eaacef885, type: 2}
+  m_PlayerWorksHere: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

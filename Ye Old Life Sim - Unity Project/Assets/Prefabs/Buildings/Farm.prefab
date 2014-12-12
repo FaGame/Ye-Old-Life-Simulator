@@ -472,7 +472,7 @@ GameObject:
   - 114: {fileID: 11486906}
   m_Layer: 0
   m_Name: Farm
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2187,6 +2187,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 73254e9dd548b6540a7823113736f362, type: 2}
   - {fileID: 11400000, guid: 719cb02d362d65345b2f28fb9f8037e4, type: 2}
   - {fileID: 11400000, guid: 04391a60e48e1b74dbf0819295d02fe2, type: 2}
+  m_PlayerWorksHere: 0
 --- !u!114 &11486906
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -31,7 +31,7 @@ GameObject:
   - 114: {fileID: 11475420}
   m_Layer: 0
   m_Name: Shack
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 508.100006, y: .0599999987, z: 322.440002}
+  m_LocalPosition: {x: 508.100006, y: .0599999987, z: 322.399994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 467058}
@@ -137,6 +137,7 @@ MonoBehaviour:
   - On the plus side, indoor plants grow very well with all this natural light
   m_Image: {fileID: 0}
   m_JobData: []
+  m_PlayerWorksHere: 0
 --- !u!114 &11475420
 MonoBehaviour:
   m_ObjectHideFlags: 1

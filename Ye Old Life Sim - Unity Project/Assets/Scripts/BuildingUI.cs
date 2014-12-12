@@ -41,11 +41,17 @@ public class BuildingUI : MonoBehaviour
             {
                 if (rayHit.collider.tag == "Building")
                 {
+                    Debug.Log("Name: " + rayHit.collider.name);
                     LoadBuildingData(rayHit.collider.name);
                 }
             }
         }
         //-------------END TEMP CODE-------------
+
+        if(selectedBuilding_ != null)
+        {
+            CheckForEmployment();
+        }
 	}
 
     //This function loads the building data based on which building was clicked
@@ -55,7 +61,31 @@ public class BuildingUI : MonoBehaviour
         selectedBuilding_ = GameObject.Find(name);
         descriptionText_.text = selectedBuilding_.GetComponent<Building>().GetDescription();
 
+        if(selectedBuilding_.GetComponent<Building>().m_PlayerWorksHere)
+        {
+            m_WorkButton.interactable = true;
+        }
+        else
+        {
+            m_WorkButton.interactable = false;
+        }
+
         Debug.Log("Loading " + selectedBuilding_.name + "'s data");
+    }
+
+    //This function is called in the update, but only if the player has selected a building
+    //The purpose of the function is to check if the player works at that building, and changes whether or not the work button
+    //Is interactable or not
+    void CheckForEmployment()
+    {
+        if (selectedBuilding_.GetComponent<Building>().m_PlayerWorksHere)
+        {
+            m_WorkButton.interactable = true;
+        }
+        else
+        {
+            m_WorkButton.interactable = false;
+        }
     }
 
     //This function is used on button press in the building UI
@@ -64,7 +94,6 @@ public class BuildingUI : MonoBehaviour
     {
         float startYPos = 180.0f;
         float yPosOffset = 70.0f;
-        m_WorkButton.interactable = true;
         m_ApplyMenu.SetActive(true);
 
         //Create the necessary amount of buttons to display on screen

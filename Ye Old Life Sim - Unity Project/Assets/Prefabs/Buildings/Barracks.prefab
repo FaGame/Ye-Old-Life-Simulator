@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11421050}
   m_Layer: 0
   m_Name: Barracks
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,7 +246,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 501, y: 0, z: 617}
+  m_LocalPosition: {x: 501, y: 3.83999991, z: 617}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 406776}
@@ -829,6 +829,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4017cc15e19ea7b4aa0ddb6d532f8497, type: 2}
   - {fileID: 11400000, guid: 0887bd42cc19bbf478e35b41860207c1, type: 2}
   - {fileID: 11400000, guid: ddb351290d6574b49932de6c3a67d5e9, type: 2}
+  m_PlayerWorksHere: 0
 --- !u!114 &11421050
 MonoBehaviour:
   m_ObjectHideFlags: 1

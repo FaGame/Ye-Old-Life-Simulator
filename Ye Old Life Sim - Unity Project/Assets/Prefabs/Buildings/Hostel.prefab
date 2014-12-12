@@ -387,7 +387,7 @@ GameObject:
   - 114: {fileID: 11418454}
   m_Layer: 0
   m_Name: Hostel
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -918,7 +918,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171964}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 328.51001, y: -0, z: 330}
+  m_LocalPosition: {x: 328.51001, y: 0, z: 330}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 471930}
@@ -2194,6 +2194,7 @@ MonoBehaviour:
   - Free bed bugs!
   m_Image: {fileID: 2800000, guid: a52086db16f4c0641b03bb99f8901013, type: 3}
   m_JobData: []
+  m_PlayerWorksHere: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

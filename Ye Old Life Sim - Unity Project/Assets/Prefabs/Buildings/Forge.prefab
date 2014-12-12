@@ -12,7 +12,7 @@ GameObject:
   - 65: {fileID: 6512794}
   m_Layer: 8
   m_Name: Forge
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -873,8 +873,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112694}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 630.179321, y: 335.34671, z: -415.087128}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
+  m_LocalPosition: {x: 452.670013, y: 1.07000005, z: 320.170013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 412696}
@@ -2950,6 +2950,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3356d0aedebb94a4b81234ed219a3520, type: 2}
   - {fileID: 11400000, guid: 693067da6eb94c74399f88f73b8080fc, type: 2}
   - {fileID: 11400000, guid: b3ea696fae3515942b1e96f444452730, type: 2}
+  m_PlayerWorksHere: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

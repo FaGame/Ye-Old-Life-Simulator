@@ -12,7 +12,7 @@ GameObject:
   - 65: {fileID: 6513654}
   m_Layer: 8
   m_Name: Chapel
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -262,7 +262,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 641.410828, y: 339.87442, z: -418.24646}
+  m_LocalPosition: {x: 608, y: 0, z: 524}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 413628}
@@ -872,6 +872,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aeb4c818ec4ad0f43a753cc48661fa14, type: 2}
   - {fileID: 11400000, guid: a285023ebbd5ef3448519328b8c20f9f, type: 2}
   - {fileID: 11400000, guid: 9d583db72dc2f5e44944223040f79d97, type: 2}
+  m_PlayerWorksHere: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

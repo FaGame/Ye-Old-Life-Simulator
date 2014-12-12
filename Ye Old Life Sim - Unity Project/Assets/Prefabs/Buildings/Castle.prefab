@@ -12,7 +12,7 @@ GameObject:
   - 65: {fileID: 6571128}
   m_Layer: 0
   m_Name: Castle
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -250,6 +250,7 @@ MonoBehaviour:
   - {fileID: 11465264, guid: 8a27c4e4a0edbac4c84f138a19127f8c, type: 2}
   - {fileID: 11470072, guid: ee8f1df3a5c218c44a02b24ec95fc370, type: 2}
   - {fileID: 11497560, guid: 4059fe86b7dc1534cad902b055a6ef92, type: 2}
+  m_PlayerWorksHere: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
