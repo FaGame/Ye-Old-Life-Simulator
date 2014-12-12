@@ -138,19 +138,20 @@ public class BuildingUI : MonoBehaviour
         }
     }
 
-    // ***Work In Progress***
+    //Button function - The object passed into the function is the button itself to get the appropriate information
+    //                - The function first finds the name of the job you selected based off of the text of the button the player pressed
+    //                - It then will check to see if you were successful in your job application, if you are, the player has gotten a job!
     public void ApplyForJob(GameObject go)
     {
         for(int i = 0; i < selectedBuilding_.GetComponent<Building>().m_JobData.Length; ++i)
         {
             if(selectedBuilding_.GetComponent<Building>().m_JobData[i].name == go.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text)
             {
-                Debug.Log("Applying for " + selectedBuilding_.GetComponent<Building>().m_JobData[i].name);
                 jobGainedData_ = selectedBuilding_.GetComponent<Building>().ApplyForJob(m_PlayerData, selectedBuilding_.GetComponent<Building>().m_JobData[i]);
 
                 if(jobGainedData_ == null)
                 {
-
+                    m_PlayerData.m_Job = selectedBuilding_.GetComponent<Building>().m_JobData[i];
                 }
             }
         }
@@ -158,6 +159,6 @@ public class BuildingUI : MonoBehaviour
 
     public void Work()
     {
-        //selectedBuilding_.GetComponent<Building>().Work(m_PlayerData)
+        selectedBuilding_.GetComponent<Building>().Work(m_PlayerData, m_PlayerData.m_Job);
     }
 }
