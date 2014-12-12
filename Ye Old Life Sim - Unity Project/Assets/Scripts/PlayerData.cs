@@ -56,7 +56,8 @@ public class PlayerData : MonoBehaviour
     {
         m_EarningScalar = ValueConstants.PLAYER_DEFAULT_MONEY_SCALAR;
         //calculate the curr time 
-        m_CurrTime = m_MaxTime - m_Home.CalculateHomePenalty() - m_FoodPenalty;
+        //Temp commented out since we dont have those penalties set up yet
+        m_CurrTime = m_MaxTime; //- m_Home.CalculateHomePenalty() - m_FoodPenalty;
     }
 
     public void AddEffect(ItemEffect itemEffect)
