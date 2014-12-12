@@ -5,19 +5,19 @@ public class Skill : MonoBehaviour
 {
     public enum Skills
     {
-        Alchemy = 0,
-        Butchering,
-        Cleaning,
-        Cooking,
-        Farming,
-        Finance,
-        Healing,
-        Martial,
-        Religion,
-        Riding,
-        Sales,
-        Smithing,
-        Social,
+        ALCHEMY = 0,
+        BUTCHERING,
+        CLEANING,
+        COOKING,
+        FARMING,
+        FINANCE,
+        HEALING,
+        MARTIAL,
+        RELIGION,
+        RIDING,
+        SALES,
+        SMITHING,
+        SOCIAL,
         NUM_SKILLS
     };
 }
