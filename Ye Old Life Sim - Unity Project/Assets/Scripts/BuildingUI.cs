@@ -9,12 +9,14 @@ public class BuildingUI : MonoBehaviour
     public GameObject m_ApplyMenuButtonPrefab; //Prefab for the Apply Menu Button to Instantiate later
     public GameObject m_ScrollMaskContent; //Gameobject that is to have the job information as a parent to allow for scrolling
     public Button m_WorkButton; //Building UI "work" button
+    public PlayerData m_PlayerData;
 
     private bool buildingsActive_ = false; //Flag to turn on and off the building UI
     private GameObject selectedBuilding_; //Selected building GameObject
     private Text[] buildingMenuText_; //Array of text on the building UI element (Buy Items, Interact, etc)..
     private Text[] applyMenuText_; //Array of text for the Apply For Job Menu
     private Text descriptionText_; //Building description text - the funny quip at the top of the building UI
+    private SkillAndAmount jobGainedData_;
 
 	// Use this for initialization
 	void Start () 
@@ -70,6 +72,7 @@ public class BuildingUI : MonoBehaviour
         {
             GameObject go = (GameObject)Instantiate(m_ApplyMenuButtonPrefab, new Vector3(0, startYPos, 0), Quaternion.identity);
             go.gameObject.transform.SetParent(m_ScrollMaskContent.transform, false);
+            go.GetComponentInChildren<Button>().onClick.AddListener(delegate { ApplyForJob(go); });
             startYPos -= yPosOffset;
         }
 
@@ -136,8 +139,24 @@ public class BuildingUI : MonoBehaviour
     }
 
     // ***Work In Progress***
-    public void ApplyForJob()
+    public void ApplyForJob(GameObject go)
     {
-        //selectedBuilding_.GetComponent<Building>().ApplyForJob(selectedBuilding_.GetComponent<Building>().m_JobData);
+        for(int i = 0; i < selectedBuilding_.GetComponent<Building>().m_JobData.Length; ++i)
+        {
+            if(selectedBuilding_.GetComponent<Building>().m_JobData[i].name == go.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text)
+            {
+                Debug.Log("Applying for " + selectedBuilding_.GetComponent<Building>().m_JobData[i].name);
+                jobGainedData_ = selectedBuilding_.GetComponent<Building>().ApplyForJob(m_PlayerData, selectedBuilding_.GetComponent<Building>().m_JobData[i]);
+                if(jobGainedData_ == null)
+                {
+
+                }
+            }
+        }
+    }
+
+    public void Work()
+    {
+        //selectedBuilding_.GetComponent<Building>().Work(m_PlayerData)
     }
 }
