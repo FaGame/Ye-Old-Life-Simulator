@@ -10,6 +10,7 @@ public class Food : Item
     public float m_Timer = 0.0f;
     public float m_HungerAmount = 0.0f;     //how much you want to subtract from player hunger
     public float m_SpeedModifier = 1.0f;    //scalar to change player speed
+    public float m_Happiness = 0.0f;        //used to increase player's happiness
 
     void Start()
     {
@@ -27,7 +28,8 @@ public class Food : Item
 
             //uses the AddEffect function which sets all values based on the ItemEffect specified 
             playerData.AddEffect(m_Effect);
-            playerData.m_HungerMeter -= m_HungerAmount; 
+            playerData.m_HungerMeter -= m_HungerAmount;     //subtract from player's hunger
+            playerData.m_Happiness += m_Happiness;          //add to player's happiness
         }
          
     }
