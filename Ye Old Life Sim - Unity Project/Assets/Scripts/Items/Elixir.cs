@@ -55,12 +55,15 @@ public class Elixir : Item
 
     public override void UseItem(PlayerData playerData)
     {
-        //uses the AddEffect function which sets all values based on the ItemEffect specified 
-        playerData.AddEffect(m_PlayerSpeedEffect);
-        playerData.AddEffect(m_PlayerEarningsEffect);
+        if (m_UseCount != 0)
+        {
+            m_UseCount--;  //subtract 1 from the count of uses
+            //uses the AddEffect function which sets all values based on the ItemEffect specified 
+            playerData.AddEffect(m_PlayerSpeedEffect);
+            playerData.AddEffect(m_PlayerEarningsEffect);
 
-        m_Enemy.AddEffect(m_EnemySpeedEffect);
-        m_Enemy.AddEffect(m_EnemyEarningEffect);
+            m_Enemy.AddEffect(m_EnemySpeedEffect);
+            m_Enemy.AddEffect(m_EnemyEarningEffect);
+        }
     }
-
 }
