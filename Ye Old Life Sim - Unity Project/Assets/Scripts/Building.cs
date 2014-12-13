@@ -8,6 +8,7 @@ public class Building : MonoBehaviour
     public Texture2D m_Image;
     public JobData[] m_JobData;
     public bool m_PlayerWorksHere;
+    public BuildingUI m_BuildingUI;
 
 	// Use this for initialization
 	void Start () 

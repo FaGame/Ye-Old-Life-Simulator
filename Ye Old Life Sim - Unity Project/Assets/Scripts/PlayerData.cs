@@ -30,12 +30,16 @@ public class PlayerData : MonoBehaviour
     public bool m_IsInfected = false;       //variable used for when the player catches a disease
 
     public List<ItemEffect> m_StatusEffects = new List<ItemEffect>();
+
+    private PlayerController playerController_;
+
 	void Start () 
     {
         m_Speed = m_DefaultSpeed;
         StartTurn();
         m_Job = null;
         m_Building = null;
+        playerController_ = GetComponent<PlayerController>();
 	}
 	
 	void Update () 
@@ -97,6 +101,20 @@ public class PlayerData : MonoBehaviour
                 }
                 m_StatusEffects.RemoveAt(i);
                 i--;
+            }
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Building")
+        {
+            Debug.Log("Name: " + other.name);
+            Building building = other.gameObject.GetComponent<Building>();
+            if (building != null)
+            {
+                playerController_.enabled = false;
+                building.m_BuildingUI.LoadBuildingData(other.name, playerController_);
             }
         }
     }

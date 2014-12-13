@@ -17,6 +17,7 @@ public class BuildingUI : MonoBehaviour
     private Text[] applyMenuText_; //Array of text for the Apply For Job Menu
     private Text descriptionText_; //Building description text - the funny quip at the top of the building UI
     private SkillAndAmount jobGainedData_;
+    private PlayerController playerController_; // Reenable the player after X'ing
 
 	// Use this for initialization
 	void Start () 
@@ -33,7 +34,7 @@ public class BuildingUI : MonoBehaviour
         m_BuildingGUI.SetActive(buildingsActive_);
 
         //-------------TEMP CODE-------------
-        if (Input.GetMouseButtonDown(0) && !buildingsActive_)
+        /*if (Input.GetMouseButtonDown(0) && !buildingsActive_)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit rayHit;
@@ -45,7 +46,7 @@ public class BuildingUI : MonoBehaviour
                     LoadBuildingData(rayHit.collider.name);
                 }
             }
-        }
+        }*/
         //-------------END TEMP CODE-------------
 
         if(selectedBuilding_ != null)
@@ -55,7 +56,7 @@ public class BuildingUI : MonoBehaviour
 	}
 
     //This function loads the building data based on which building was clicked
-    void LoadBuildingData(string name)
+    public void LoadBuildingData(string name, PlayerController pController)
     {
         buildingsActive_ = true;
         selectedBuilding_ = GameObject.Find(name);
@@ -69,6 +70,8 @@ public class BuildingUI : MonoBehaviour
         {
             m_WorkButton.interactable = false;
         }
+
+        playerController_ = pController;
 
         Debug.Log("Loading " + selectedBuilding_.name + "'s data");
     }
@@ -165,6 +168,8 @@ public class BuildingUI : MonoBehaviour
         {
             buildingsActive_ = false;
         }
+
+        playerController_.enabled = true;
     }
 
     //Button function - The object passed into the function is the button itself to get the appropriate information

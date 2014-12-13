@@ -1,0 +1,11 @@
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\Temp\UnityVS_bin\Debug\Assembly-CSharp.pdb
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\Temp\UnityVS_bin\Debug\UnityEditor.dll
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.dll
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.UI.dll
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.xml
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\Temp\UnityVS_bin\Debug\UnityEditor.xml
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.UI.xml
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\obj\Debug\UnityVS.Ye Old Life Sim - Unity Project.CSharp.csprojResolveAssemblyReference.cache
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\obj\Debug\Assembly-CSharp.dll
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\obj\Debug\Assembly-CSharp.pdb
