@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         TurnManager();
         SetObjGame();
         SetTurnsGame();
+        CheckForLoss();
     }
 
     void TurnManager()
@@ -114,9 +115,9 @@ public class GameManager : MonoBehaviour
             maxCurrency_ = GameMenu.m_selectedCurrency;
             maxHappy_ = GameMenu.m_selectedHappiness;
             maxRep_ = GameMenu.m_selectedRep;
-        }
 
-        CheckForObjWin();
+            CheckForObjWin();
+        }
     }
 
     void SetTurnsGame()
@@ -124,8 +125,26 @@ public class GameManager : MonoBehaviour
         if(turnsGame_ == true)
         {
             maxTurns_ = GameMenu.m_selectedTurns;
+
+            CheckForTurnWin();
+        }
+    }
+
+    void CheckForLoss()
+    {
+        if(m_PlayerData.m_Happiness <= 0.0f)
+        {
+            //commit suicide
         }
 
-        CheckForTurnWin();
+        if(m_PlayerData.m_Shillings <= 0)
+        {
+            //take up prostitution
+        }
+
+        if(m_PlayerData.m_Reputation <= 0)
+        {
+            //drink your woes away in obscurity, try some narcotics
+        }
     }
 }
