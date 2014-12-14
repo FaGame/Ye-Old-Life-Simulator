@@ -10,8 +10,8 @@ public class HabitatUI : MonoBehaviour
     public Text m_RentValue;
     public Text m_TimePenalty;
 
-    public float timePenalty_;
-    public float rentValue_;
+    private float timePenalty_;
+    private float rentValue_;
 
     public void FixedUpdate()
     {
