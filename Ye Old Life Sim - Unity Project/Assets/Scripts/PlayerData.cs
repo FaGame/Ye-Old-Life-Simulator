@@ -107,14 +107,14 @@ public class PlayerData : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Building")
+        if (other.tag == "Waypoint")
         {
-            Debug.Log("Name: " + other.name);
-            Building building = other.gameObject.GetComponent<Building>();
+            Debug.Log("Name: " + other.gameObject.transform.parent.name);
+            Building building = other.gameObject.transform.parent.gameObject.GetComponent<Building>();
             if (building != null)
             {
                 playerController_.enabled = false;
-                building.m_BuildingUI.LoadBuildingData(other.name, playerController_);
+                building.m_BuildingUI.LoadBuildingData(other.gameObject.transform.parent.name, playerController_, other.gameObject.transform.parent.gameObject);
             }
         }
     }

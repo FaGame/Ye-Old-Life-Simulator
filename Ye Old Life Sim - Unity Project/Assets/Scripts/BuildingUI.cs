@@ -56,10 +56,11 @@ public class BuildingUI : MonoBehaviour
 	}
 
     //This function loads the building data based on which building was clicked
-    public void LoadBuildingData(string name, PlayerController pController)
+    public void LoadBuildingData(string name, PlayerController pController, GameObject gObj)
     {
         buildingsActive_ = true;
-        selectedBuilding_ = GameObject.Find(name);
+        //selectedBuilding_ = GameObject.Find(name);
+        selectedBuilding_ = gObj;
         descriptionText_.text = selectedBuilding_.GetComponent<Building>().GetDescription();
 
         if(selectedBuilding_.GetComponent<Building>().m_PlayerWorksHere)

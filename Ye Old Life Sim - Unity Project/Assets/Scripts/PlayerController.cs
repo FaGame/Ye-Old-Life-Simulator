@@ -54,10 +54,20 @@ public class PlayerController : MonoBehaviour
             bool hit = Physics.Raycast(pickingRay, out hitInfo);
             if (hit)
             {
-                if (hitInfo.transform.gameObject.tag == "blackSmith")
+                if (hitInfo.transform.gameObject.tag == "Building")
                 {
                     Debug.Log("It's working!");
-                    SetTarget(mblackSmithWaypoint.position);
+                    Transform[] posEs = hitInfo.transform.gameObject.GetComponentsInChildren<Transform>();
+                    foreach (Transform tForm in posEs)
+                    {
+                        if(tForm.CompareTag("Waypoint"))
+                        {
+                            Debug.Log("Found the waypoint.");
+                            SetTarget(tForm.position);
+                            break;
+                        }
+                    }
+                    //SetTarget(mblackSmithWaypoint.position);
                 }
             }
         }
