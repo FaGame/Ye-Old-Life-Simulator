@@ -9,9 +9,13 @@ public class BuildingUI : MonoBehaviour
     public GameObject m_ApplyMenuButtonPrefab; //Prefab for the Apply Menu Button to Instantiate later
     public GameObject m_BuyMenu; //Menu that appears after pressing "Buy Items"
     public GameObject m_BuyButtonPrefab; //Prefab for the Buy Items buttons to Instantiate later
+    public GameObject m_InteractMenu; //Menu that appears after pressing "Interact"
     public GameObject m_ApplyMenuScrollMask; //Gameobject that is to have the job information as a parent to allow for scrolling
     public GameObject m_BuyMenuScrollMask; //Gameobject that is to have the item information as a parent to allow for scrolling
+    public GameObject m_InteractMenuScrollMask; //Gameobject that is to have the item information as a parent to allow for scrolling
     public Button m_WorkButton; //Building UI "work" button
+    public Button m_InteractButton; //Building UI "interact" button
+    public Button m_BuyButton; //Building UI "buy items" button
     public PlayerData m_PlayerData;
 
     private bool buildingsActive_ = false; //Flag to turn on and off the building UI
@@ -19,6 +23,7 @@ public class BuildingUI : MonoBehaviour
     private Text[] buildingMenuText_; //Array of text on the building UI element (Buy Items, Interact, etc)..
     private Text[] applyMenuText_; //Array of text for the Apply For Job Menu
     private Text[] buyMenuText_; //Array of text for the Buy Items Menu
+    private Text[] interactText_;
     private Text descriptionText_; //Building description text - the funny quip at the top of the building UI
     private SkillAndAmount jobGainedData_;
     private PlayerController playerController_; // Reenable the player after X'ing
@@ -53,9 +58,18 @@ public class BuildingUI : MonoBehaviour
         }*/
         //-------------END TEMP CODE-------------
 
+
         if(selectedBuilding_ != null)
         {
             CheckForEmployment();
+            if(selectedBuilding_.GetComponent<Building>().m_Items.Length == 0)
+            {
+                m_BuyButton.interactable = false;
+            }
+            if(selectedBuilding_.GetComponent<Building>().m_SpecialEffects.Length == 0)
+            {
+                m_InteractButton.interactable = false;
+            }
         }
 	}
 
@@ -77,8 +91,6 @@ public class BuildingUI : MonoBehaviour
         }
 
         //playerController_ = pController;
-
-        Debug.Log("Loading " + selectedBuilding_.name + "'s data");
     }
 
     //This function is called in the update, but only if the player has selected a building
@@ -124,6 +136,33 @@ public class BuildingUI : MonoBehaviour
         }
     }
 
+    public void InteractionMenu()
+    {
+        float startYPos = 180.0f;
+        float yPosOffset = 70.0f;
+
+        m_InteractMenu.SetActive(true);
+
+        for(int i = 0; i < selectedBuilding_.GetComponent<Building>().m_SpecialEffects.Length; ++i)
+        {
+            GameObject go = (GameObject)Instantiate(m_BuyButtonPrefab, new Vector3(0, startYPos, 0), Quaternion.identity);
+            go.gameObject.transform.SetParent(m_InteractMenuScrollMask.transform, false);
+            go.GetComponentInChildren<Button>().onClick.AddListener(delegate { Interact(go); });
+            startYPos -= yPosOffset;
+        }
+
+        interactText_ = m_InteractMenu.GetComponentsInChildren<Text>();
+
+        int j = 0;
+        for(int i = 0; i < selectedBuilding_.GetComponent<Building>().m_SpecialEffects.Length * 2; i += 2)
+        {
+            interactText_[i].text = selectedBuilding_.GetComponent<Building>().m_SpecialEffects[j].name;
+            //m_InteractMenuText[i + 1].text = selectedBuilding_.GetComponent<Building>().m_SpecialEffects[j].
+            interactText_[i + 1].text = "Temp string";
+            j++;
+        }
+    }
+
     //Button Function - This function is called by the "Apply for Job" button
     //If pressed, it will populate and show the Apply for Job menu, in which you can choose a job to apply for
     public void ApplyMenu()
@@ -153,7 +192,7 @@ public class BuildingUI : MonoBehaviour
          *   -- This is incremented at the end of each iteration of the for loop so it can get the appropriate job data
          * 
          * k -- Used to get the skill gain data
-         *  NOTE: To remove the IF statements try using a for loop ---- ATTEMPT AT A LATER TIME WHEN NOT TIRED
+         *  NOTE: To remove the IF statements try using a for loop
          */
         int j = 0;
         int k = 0;
@@ -208,6 +247,11 @@ public class BuildingUI : MonoBehaviour
 
     }
 
+    public void Interact(GameObject go)
+    {
+
+    }
+
     //Button function - This function is called by the "Work" button in the Building Menu, it called the Work function in the Building's script.
     public void Work()
     {
@@ -234,13 +278,23 @@ public class BuildingUI : MonoBehaviour
             {
                 GameObject.Destroy(child.gameObject);
             }
+
             m_BuyMenu.SetActive(false);
+        }
+        else if(m_InteractMenu.activeSelf)
+        {
+            foreach(RectTransform child in m_InteractMenuScrollMask.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+
+            m_InteractMenu.SetActive(false);
         }
         else if (buildingsActive_)
         {
             buildingsActive_ = false;
         }
 
-        //playerController_.enabled = true;
+        playerController_.enabled = true;
     }
 }

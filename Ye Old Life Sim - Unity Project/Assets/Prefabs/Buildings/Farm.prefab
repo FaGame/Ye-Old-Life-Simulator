@@ -2172,7 +2172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb90059e40cc41b4ca498dc1b85a7944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: Farm
+  m_BuildingName: 
   m_Description:
   - Our last farm hand spent a little too much time in the hay.
   - "The biggest farm in all the land\u2026 If you know what I mean"
@@ -2187,7 +2187,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 73254e9dd548b6540a7823113736f362, type: 2}
   - {fileID: 11400000, guid: 719cb02d362d65345b2f28fb9f8037e4, type: 2}
   - {fileID: 11400000, guid: 04391a60e48e1b74dbf0819295d02fe2, type: 2}
+  m_Items:
+  - {fileID: 11400000, guid: f3ca3e9aa3a0a5b45ac0f9d43e5c8ae6, type: 2}
+  - {fileID: 11400000, guid: 51bda5fcdeda4f2459f1a4e19c173814, type: 2}
   m_PlayerWorksHere: 0
+  m_BuildingUI: {fileID: 0}
 --- !u!114 &11486906
 MonoBehaviour:
   m_ObjectHideFlags: 1
