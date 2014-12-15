@@ -7,6 +7,7 @@ public class Building : MonoBehaviour
     public string[] m_Description;
     public Texture2D m_Image;
     public JobData[] m_JobData;
+    public Item[] m_Items;
     public bool m_PlayerWorksHere;
     public BuildingUI m_BuildingUI;
 
