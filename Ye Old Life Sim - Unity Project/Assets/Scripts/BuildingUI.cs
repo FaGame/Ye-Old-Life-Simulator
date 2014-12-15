@@ -90,7 +90,7 @@ public class BuildingUI : MonoBehaviour
             m_WorkButton.interactable = false;
         }
 
-        //playerController_ = pController;
+        playerController_ = pController;
     }
 
     //This function is called in the update, but only if the player has selected a building
