@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public abstract class Item : MonoBehaviour 
 {
     public abstract void UseItem(PlayerData playerData);
-    public string GetDescription()
+    public virtual string GetDescription()
     {
         return m_Description;
     }
