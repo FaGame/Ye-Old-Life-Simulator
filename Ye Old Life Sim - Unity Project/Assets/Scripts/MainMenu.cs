@@ -4,9 +4,14 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-     public void StartScene()
+    public void StartNewGame()
     {
-        Debug.Log("Load Next Scene");
+        Debug.Log("Load New Game");
+    }
+
+    public void LoadGame()
+    {
+        Debug.Log("Load Saved Game");
     }
 
     public void CloseGame()
