@@ -60,11 +60,11 @@ public class BuildingUI : MonoBehaviour
 	}
 
     //This function loads the building data based on which building was clicked
-    public void LoadBuildingData(string name, PlayerController pController, GameObject gObj)
+    public void LoadBuildingData(/*string name*/PlayerController pController, GameObject gObj)
     {
         buildingsActive_ = true;
-        //selectedBuilding_ = GameObject.Find(name);
         selectedBuilding_ = gObj;
+        //selectedBuilding_ = GameObject.Find(name);
         descriptionText_.text = selectedBuilding_.GetComponent<Building>().GetDescription();
 
         if(selectedBuilding_.GetComponent<Building>().m_PlayerWorksHere)
@@ -76,7 +76,7 @@ public class BuildingUI : MonoBehaviour
             m_WorkButton.interactable = false;
         }
 
-        playerController_ = pController;
+        //playerController_ = pController;
 
         Debug.Log("Loading " + selectedBuilding_.name + "'s data");
     }
@@ -107,7 +107,7 @@ public class BuildingUI : MonoBehaviour
 
         for(int i = 0; i < selectedBuilding_.GetComponent<Building>().m_Items.Length; ++i)
         {
-            GameObject go = (GameObject)Instantiate(m_ApplyMenuButtonPrefab, new Vector3(0, startYPos, 0), Quaternion.identity);
+            GameObject go = (GameObject)Instantiate(m_BuyButtonPrefab, new Vector3(0, startYPos, 0), Quaternion.identity);
             go.gameObject.transform.SetParent(m_BuyMenuScrollMask.transform, false);
             go.GetComponentInChildren<Button>().onClick.AddListener(delegate { BuyItems(go); });
             startYPos -= yPosOffset;
@@ -116,10 +116,10 @@ public class BuildingUI : MonoBehaviour
         buyMenuText_ = m_BuyMenu.GetComponentsInChildren<Text>();
 
         int j = 0;
-        for(int i = 0; i < selectedBuilding_.GetComponent<Building>().m_Items.Length; i += 2)
+        for(int i = 0; i < selectedBuilding_.GetComponent<Building>().m_Items.Length * 2; i += 2)
         {
             buyMenuText_[i].text = selectedBuilding_.GetComponent<Building>().m_Items[j].name;
-            //buyMenuText_[i + 1].text = selectedBuilding_.GetComponent<Building>().m_Items[j].GetDescription();
+            buyMenuText_[i + 1].text = selectedBuilding_.GetComponent<Building>().m_Items[j].GetDescription();
             j++;
         }
     }
@@ -133,6 +133,7 @@ public class BuildingUI : MonoBehaviour
         m_ApplyMenu.SetActive(true);
 
         //Create the necessary amount of buttons to display on screen
+        Debug.Log(selectedBuilding_.GetComponent<Building>().m_JobData.Length.ToString());
         for (int i = 0; i < selectedBuilding_.GetComponent<Building>().m_JobData.Length; ++i)
         {
             GameObject go = (GameObject)Instantiate(m_ApplyMenuButtonPrefab, new Vector3(0, startYPos, 0), Quaternion.identity);
@@ -227,11 +228,19 @@ public class BuildingUI : MonoBehaviour
 
             m_ApplyMenu.SetActive(false);
         }
+        else if(m_BuyMenu.activeSelf)
+        {
+            foreach(RectTransform child in m_BuyMenuScrollMask.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+            m_BuyMenu.SetActive(false);
+        }
         else if (buildingsActive_)
         {
             buildingsActive_ = false;
         }
 
-        playerController_.enabled = true;
+        //playerController_.enabled = true;
     }
 }

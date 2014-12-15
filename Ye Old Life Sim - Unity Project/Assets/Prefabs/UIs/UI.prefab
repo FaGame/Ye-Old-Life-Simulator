@@ -1238,7 +1238,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11488056}
         m_MethodName: CloseCurrentMenu
         m_Mode: 1
         m_Arguments:
@@ -1544,7 +1544,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11488056}
         m_MethodName: CloseCurrentMenu
         m_Mode: 1
         m_Arguments:
@@ -1666,7 +1666,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11488056}
         m_MethodName: CloseCurrentMenu
         m_Mode: 1
         m_Arguments:
@@ -2149,7 +2149,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11488056}
         m_MethodName: Work
         m_Mode: 1
         m_Arguments:
@@ -2579,7 +2579,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11474904}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11488056}
+        m_MethodName: BuyItemsMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11474908
@@ -2778,7 +2790,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11488056}
         m_MethodName: ApplyMenu
         m_Mode: 1
         m_Arguments:
@@ -3223,7 +3235,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174878}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61623b9826197d641ad992e51e69f0f2, type: 3}
   m_Name: 
@@ -3245,7 +3257,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174878}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61722104e0642ee4d9139a7a6d7b6fb9, type: 3}
   m_Name: 
@@ -3255,6 +3267,7 @@ MonoBehaviour:
   m_ApplyMenuButtonPrefab: {fileID: 152740, guid: 2e02a434b32b68a4492f805e88c8a85f,
     type: 2}
   m_BuyMenu: {fileID: 174902}
+  m_BuyButtonPrefab: {fileID: 132992, guid: e977103e619f8d144903559a8012cb18, type: 2}
   m_ApplyMenuScrollMask: {fileID: 135826}
   m_BuyMenuScrollMask: {fileID: 174930}
   m_WorkButton: {fileID: 11474872}
