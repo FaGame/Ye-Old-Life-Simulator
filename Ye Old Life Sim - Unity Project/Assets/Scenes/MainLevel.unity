@@ -25512,8 +25512,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 500, y: 6, z: 308.399994}
   m_LocalScale: {x: 1, y: 2, z: 1}
-  m_Children:
-  - {fileID: 2113245763}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 17
 --- !u!114 &2007613437
@@ -25555,7 +25554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0750a89031ee84f854f342a75e7289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlayerData: {fileID: 2113245762}
+  m_PlayerData: {fileID: 2007613437}
   mCamera: {fileID: 1052255808}
   mTerrain: {fileID: 715305267}
   mblackSmithWaypoint: {fileID: 0}
@@ -26889,62 +26888,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1422810110}
   m_GameObject: {fileID: 2112832514}
   m_Mesh: {fileID: 4300084, guid: d2f1d970d0def594fb87a000e6872abe, type: 3}
---- !u!1 &2113245761
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2113245763}
-  - 114: {fileID: 2113245762}
-  m_Layer: 0
-  m_Name: SackofHolding
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2113245762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2113245761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b52508118febc3143a9c823b9f126b9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Home: {fileID: 0}
-  m_Skills: []
-  m_Job: {fileID: 0}
-  m_Building: {fileID: 0}
-  m_PlayerCanvas: {fileID: 0}
-  m_DefaultSpeed: 10
-  m_CurrTime: 0
-  m_MaxTime: 45
-  m_HungerMeter: 0
-  m_MaxHunger: 100
-  m_FoodPenalty: 0
-  m_Happiness: 0
-  m_Speed: 0
-  m_Reputation: 0
-  m_Shillings: 0
-  m_EarningScalar: 1
-  m_IsInfected: 0
---- !u!4 &2113245763
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2113245761}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.058013916, y: -.111999989, z: -.622009277}
-  m_LocalScale: {x: 1, y: .5, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2007613436}
-  m_RootOrder: 0
 --- !u!1 &2118810157
 GameObject:
   m_ObjectHideFlags: 0
