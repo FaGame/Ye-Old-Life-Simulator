@@ -114,7 +114,7 @@ public class PlayerData : MonoBehaviour
             if (building != null)
             {
                 playerController_.enabled = false;
-                building.m_BuildingUI.LoadBuildingData(other.gameObject.transform.parent.name, playerController_, other.gameObject.transform.parent.gameObject);
+                building.m_BuildingUI.LoadBuildingData(playerController_, other.gameObject.transform.parent.gameObject);
             }
         }
     }
