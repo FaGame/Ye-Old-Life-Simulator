@@ -28,7 +28,7 @@ public class IceBox : MonoBehaviour
         foreach (KeyValuePair<string, UseableItemInventory.ItemInventoryEntry> entry in m_PlayerUseableItemInventory.m_UseableItemInventory)
         {
             if (entry.Value.item is Food)
-            {             
+            {
                  food_.Add((Food)entry.Value.item);
             }
         }    

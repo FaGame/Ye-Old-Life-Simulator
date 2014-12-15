@@ -36,7 +36,7 @@ public class Food : Item
         }       
     }
 
-    void RemoveFood()
+    public void RemoveFood()
     {
         if(m_IsPerishable)
         {
