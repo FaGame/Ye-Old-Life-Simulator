@@ -72,9 +72,9 @@ public class PlayerData : MonoBehaviour
             {
                 //set the food variable if the entry is a food type
                 playerFood_ = (Food)entry.Value.item;
+                playerFood_.RemoveFood();   //removes perishable food item
             }
-        }
-        playerFood_.RemoveFood();   //removes perishable food at the start of the turn
+        }  
         m_EarningScalar = ValueConstants.PLAYER_DEFAULT_MONEY_SCALAR;
         //calculate the curr time 
         //Temp commented out since we dont have those penalties set up yet
