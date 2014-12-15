@@ -30,7 +30,8 @@ public class Food : Item
             playerData.AddEffect(m_Effect);
             playerData.m_HungerMeter -= m_HungerAmount;     //subtract from player's hunger
             playerData.m_Happiness += m_Happiness;          //add to player's happiness
-        }
-         
+        }       
     }
+
+
 }
