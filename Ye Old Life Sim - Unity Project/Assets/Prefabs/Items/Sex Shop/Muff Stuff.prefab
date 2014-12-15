@@ -41,11 +41,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Cost: 30
   m_UseCount: 20
+  m_Description: Test string for now
   m_IsPerishable: 0
   m_Timer: 0
   m_HungerAmount: 0
   m_SpeedModifier: 1
   m_Happiness: 3
+  m_FoodName: Muff Stuff
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

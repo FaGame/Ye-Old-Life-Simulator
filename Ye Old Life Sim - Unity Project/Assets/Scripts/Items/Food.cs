@@ -13,7 +13,7 @@ public class Food : Item
     public float m_SpeedModifier = 1.0f;    //scalar to change player speed
     public float m_Happiness = 0.0f;        //used to increase player's happiness
 
-    public string m_Name = "";
+    public string m_FoodName = "";
 
     void Start()
     {
@@ -41,7 +41,7 @@ public class Food : Item
         if(m_IsPerishable)
         {
             //remove the food item after the player turn when the item is perishable
-            m_Inventory.RemoveFromInventory(m_Name);
+            m_Inventory.RemoveFromInventory(m_FoodName);
         }
     }
 }
