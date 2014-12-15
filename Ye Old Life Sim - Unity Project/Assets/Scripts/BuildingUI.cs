@@ -136,6 +136,8 @@ public class BuildingUI : MonoBehaviour
         }
     }
 
+    //Button function - This function is called by the "Interact" button
+    //If pressed, it will populate and show the Interact menu, from which you can choose any of the special interactions the building has to offer
     public void InteractionMenu()
     {
         float startYPos = 180.0f;
@@ -293,8 +295,7 @@ public class BuildingUI : MonoBehaviour
         else if (buildingsActive_)
         {
             buildingsActive_ = false;
+            playerController_.enabled = true;
         }
-
-        playerController_.enabled = true;
     }
 }
