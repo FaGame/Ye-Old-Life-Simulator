@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
     public void StartNewGame()
     {
         Debug.Log("Load New Game");
+        Application.LoadLevel("GameMenu");
     }
 
     public void LoadGame()
@@ -16,6 +17,7 @@ public class MainMenu : MonoBehaviour
 
     public void CloseGame()
     {
+        Application.Quit();
         Debug.Log("Close Game");
     }
 
