@@ -37,14 +37,15 @@ public class PlayerData : MonoBehaviour
 
     private Food playerFood_;
 
-	void Start () 
+    void Start()
     {
         m_Speed = m_DefaultSpeed;
         StartTurn();
         m_Job = null;
         m_Building = null;
         playerController_ = GetComponent<PlayerController>();
-	}
+
+    }
 	
 	void Update () 
     {
@@ -65,6 +66,10 @@ public class PlayerData : MonoBehaviour
 
     public void StartTurn()
     {
+        if(m_UseableInventory == null)
+        {
+            return;
+        }
         //loop through the player's inventory and find objects with the food script
         foreach (KeyValuePair<string, UseableItemInventory.ItemInventoryEntry> entry in m_UseableInventory.m_UseableItemInventory)
         {
