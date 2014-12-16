@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Collections;
 
 [RequireComponent(typeof(NavMeshAgent))]
@@ -45,33 +46,36 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (transform != null)
-            {
-                int layerMask = LayerMask.GetMask("Terrain");
-                Physics.Raycast(pickingRay, out rayData, 3000.0f, layerMask);
-                SetTarget(rayData.point);
-            }
-
-            RaycastHit hitInfo = new RaycastHit();
-            bool hit = Physics.Raycast(pickingRay, out hitInfo);
-            if (hit)
-            {
-                if (hitInfo.transform.gameObject.tag == "Building")
+            //if (!EventSystem.current.IsPointerOverGameObject())
+            //{
+                Debug.Log("Not over UI");
+                if (transform != null)
                 {
-                    Debug.Log("It's working!");
-                    Transform[] posEs = hitInfo.transform.gameObject.GetComponentsInChildren<Transform>();
-                    foreach (Transform tForm in posEs)
+                    int layerMask = LayerMask.GetMask("Terrain");
+                    Physics.Raycast(pickingRay, out rayData, 3000.0f, layerMask);
+                    SetTarget(rayData.point);
+                }
+
+                RaycastHit hitInfo = new RaycastHit();
+                bool hit = Physics.Raycast(pickingRay, out hitInfo);
+                if (hit)
+                {
+                    if (hitInfo.transform.gameObject.tag == "Building")
                     {
-                        if(tForm.CompareTag("Waypoint"))
+                        Debug.Log("It's working!");
+                        Transform[] posEs = hitInfo.transform.gameObject.GetComponentsInChildren<Transform>();
+                        foreach (Transform tForm in posEs)
                         {
-                            Debug.Log("Found the waypoint.");
-                            SetTarget(tForm.position);
-                            break;
+                            if (tForm.CompareTag("Waypoint"))
+                            {
+                                Debug.Log("Found the waypoint.");
+                                SetTarget(tForm.position);
+                                break;
+                            }
                         }
                     }
-                    //SetTarget(mblackSmithWaypoint.position);
                 }
-            }
+            //}
         }
 
         //DecreaseTime();

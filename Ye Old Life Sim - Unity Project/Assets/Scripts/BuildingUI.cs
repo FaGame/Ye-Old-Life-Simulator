@@ -25,6 +25,7 @@ public class BuildingUI : MonoBehaviour
     private Text[] buyMenuText_; //Array of text for the Buy Items Menu
     private Text[] interactText_;
     private Text descriptionText_; //Building description text - the funny quip at the top of the building UI
+    private Text resultsText_; //Results description text - results of your work
     private SkillAndAmount jobGainedData_;
     private PlayerController playerController_; // Reenable the player after X'ing
 
@@ -39,6 +40,7 @@ public class BuildingUI : MonoBehaviour
         buildingMenuText_ = m_BuildingGUI.GetComponentsInChildren<Text>();
         
         descriptionText_ = buildingMenuText_[0];
+        resultsText_ = buildingMenuText_[1];
         m_BuildingGUI.SetActive(false);
 	}
 	
@@ -262,7 +264,23 @@ public class BuildingUI : MonoBehaviour
     //Button function - This function is called by the "Work" button in the Building Menu, it called the Work function in the Building's script.
     public void Work()
     {
-        selectedBuilding_.GetComponent<Building>().Work(m_PlayerData, m_PlayerData.m_Job);
+        if (m_PlayerData.m_Job.m_SkillGain.Length == 3)
+        {
+            resultsText_.text = "You earned " + m_PlayerData.m_Job.m_Wage.ToString("F0") + " shillings, " + m_PlayerData.m_Job.m_SkillGain[0].m_Amount + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[0].m_Skill + ", " +
+                                m_PlayerData.m_Job.m_SkillGain[1].m_Amount + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[1].m_Skill + ", and " + m_PlayerData.m_Job.m_SkillGain[2].m_Amount + " point(s) in " + 
+                                m_PlayerData.m_Job.m_SkillGain[2].m_Skill + ".";
+        }
+        else if (m_PlayerData.m_Job.m_SkillGain.Length == 2)
+        {
+            resultsText_.text = "You earned " + m_PlayerData.m_Job.m_Wage.ToString("F0") + " shillings, " + m_PlayerData.m_Job.m_SkillGain[0].m_Amount + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[0].m_Skill + " and " +
+                                m_PlayerData.m_Job.m_SkillGain[1].m_Amount + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[1].m_Skill + ".";
+        }
+        else
+        {
+            resultsText_.text = "You earned " + m_PlayerData.m_Job.m_Wage.ToString("F0") + " shillings, " + m_PlayerData.m_Job.m_SkillGain[0].m_Amount + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[0].m_Skill + ".";
+        }
+
+            selectedBuilding_.GetComponent<Building>().Work(m_PlayerData, m_PlayerData.m_Job);
     }
 
     //Button function - This function is called by the giant "X" in the top right corner of the building UI.
@@ -299,6 +317,7 @@ public class BuildingUI : MonoBehaviour
         }
         else if (buildingsActive_)
         {
+            resultsText_.text = "";
             buildingsActive_ = false;
             playerController_.enabled = true;
         }
