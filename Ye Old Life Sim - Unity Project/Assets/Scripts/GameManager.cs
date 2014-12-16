@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public PlayerData m_AIData;
     public PlayerData m_PlayerData;
     public BuildingUI m_BuildingUI;
+    public RestartUI m_RestartUI;
 
     private bool isPlayerTurn_;
     private bool isAiTurn_;
@@ -151,6 +152,7 @@ public class GameManager : MonoBehaviour
         if(m_PlayerData.m_HungerMeter >= m_PlayerData.m_MaxHunger)
         {
             Debug.Log("You have died, alone and forgotten behind the most uninspiring shrubbery");
+            m_RestartUI.PlayerDied();
         }
     }
 

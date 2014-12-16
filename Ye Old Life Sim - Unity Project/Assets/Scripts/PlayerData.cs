@@ -45,7 +45,7 @@ public class PlayerData : MonoBehaviour
         m_Job = null;
         m_Building = null;
         playerController_ = GetComponent<PlayerController>();
-
+        m_MaxHunger = ValueConstants.PLAYER_MAX_HUNGER;
     }
 	
 	void Update () 
