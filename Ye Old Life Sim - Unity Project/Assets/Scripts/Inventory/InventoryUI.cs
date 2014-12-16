@@ -8,6 +8,7 @@ public class InventoryUI : MonoBehaviour
     //temp code------------------------------------------
     public UseableItemInventory m_InventoryScript;
     //---------------------------------------------------
+    public PlayerController m_PlayerController;
     public float m_yScale = .25f;
     public float m_buttonYSeperationDistance = 25.0f;
     public float m_buttonYMovement = -50.0f;
@@ -38,6 +39,8 @@ public class InventoryUI : MonoBehaviour
     {
         if(!inventoryDisplayed_)
         {
+            //disable player movement
+            m_PlayerController.enabled = false;
             //display inventory
             inventoryPanel.SetActive(true);
 
@@ -68,6 +71,8 @@ public class InventoryUI : MonoBehaviour
         }
         else
         {
+            //enable player movement
+            m_PlayerController.enabled = true;
             //remove inventory
             for (int i = 0; i < currentButtons.Count; ++i)
             {
