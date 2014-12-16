@@ -5,9 +5,9 @@ public class GameManager : MonoBehaviour
 {
     public GameObject m_Player;
     public GameObject m_EmptyObjPlayer;
-    public GameObject m_EmptyObjAI;
-    public GameObject m_AI;
-    public PlayerData m_AIData;
+    //public GameObject m_EmptyObjAI;
+    //public GameObject m_AI;
+    //public PlayerData m_AIData;
     public PlayerData m_PlayerData;
 
     private bool isPlayerTurn_;
@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private float maxCurrency_;
     private float maxHappy_;
     private float maxTurns_;
+    private float Players_;
     private int Turns_;
     private int IncrementTurns_ = 1;
     private bool turnsGame_ = false;
@@ -26,14 +27,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         m_PlayerData = m_EmptyObjPlayer.GetComponent<PlayerData>();
-        m_AIData = m_EmptyObjAI.GetComponent<PlayerData>();
+        //m_AIData = m_EmptyObjAI.GetComponent<PlayerData>();
 
         isPlayerTurn_ = true;
         isAiTurn_ = false;
-
-        GameMenu.m_isTurnGame = turnsGame_;
-        GameMenu.m_isSandboxGame = sandboxGame_;
-        GameMenu.m_isObjectivesGame = objectivesGame_;
 
         //starts player at current home
         //m_Player.transform.position = m_PlayerData.m_Home.transform.position;
@@ -46,11 +43,17 @@ public class GameManager : MonoBehaviour
         SetObjGame();
         SetTurnsGame();
         CheckForLoss();
+        SetGameBools();
+        SetPlayers();
+        Debug.Log(maxHappy_);
+        Debug.Log(maxCurrency_);
+        Debug.Log(maxRep_);
     }
 
     void TurnManager()
     {
-        //Debug.Log(m_PlayerData.m_CurrTime);
+        Debug.Log(m_PlayerData.m_CurrTime);
+       
         //Debug.Log(m_AIData.m_CurrTime);
         //start turn is the player, once their time runs out, disables player and activates AI and AI turn
         if (isPlayerTurn_ == true)
@@ -72,7 +75,7 @@ public class GameManager : MonoBehaviour
         }
 
 
-        if (isAiTurn_ == true)
+        /*if (isAiTurn_ == true)
         {
             //When player turn is over the AI does the same as the player above
             m_AI.SetActive(true);
@@ -87,7 +90,7 @@ public class GameManager : MonoBehaviour
 
                 m_AIData.StartTurn();
             }
-        }
+        }*/
     }
 
     void CheckForObjWin()
@@ -95,7 +98,7 @@ public class GameManager : MonoBehaviour
         if (m_PlayerData.m_Happiness >= maxHappy_ && m_PlayerData.m_Reputation >= (int)maxRep_ && m_PlayerData.m_Shillings >= (int)maxCurrency_)
         {
             //You Win Objectives gametype, do shit
-            Debug.Log("You Win!!");
+            Debug.Log("You Win Objectives Game!!");
         }
     }
 
@@ -104,7 +107,7 @@ public class GameManager : MonoBehaviour
        if(Turns_ >= maxTurns_)
        {
            //You Win Turns gametype, do shit
-           Debug.Log("You Win!!");
+           Debug.Log("You Win Turns Game!!");
        }
     }
 
@@ -146,5 +149,17 @@ public class GameManager : MonoBehaviour
         {
             //drink your woes away in obscurity, try some narcotics
         }
+    }
+
+    void SetGameBools()
+    {
+        turnsGame_ = GameMenu.m_isTurnGame;
+        objectivesGame_ = GameMenu.m_isObjectivesGame;
+        sandboxGame_ = GameMenu.m_isSandboxGame;
+    }
+
+    void SetPlayers()
+    {
+        Players_ = GameMenu.m_Players;
     }
 }

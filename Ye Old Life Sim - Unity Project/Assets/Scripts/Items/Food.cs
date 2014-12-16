@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Food : Item 
 {
+    UseableItemInventory m_Inventory;
     public ItemEffect m_Effect;
    
     public bool m_IsPerishable = false;
@@ -11,6 +12,8 @@ public class Food : Item
     public float m_HungerAmount = 0.0f;     //how much you want to subtract from player hunger
     public float m_SpeedModifier = 1.0f;    //scalar to change player speed
     public float m_Happiness = 0.0f;        //used to increase player's happiness
+
+    public string m_FoodName = "";
 
     void Start()
     {
@@ -33,5 +36,12 @@ public class Food : Item
         }       
     }
 
-
+    public void RemoveFood()
+    {
+        if(m_IsPerishable)
+        {
+            //remove the food item after the player turn when the item is perishable
+            m_Inventory.RemoveFromInventory(m_FoodName);
+        }
+    }
 }

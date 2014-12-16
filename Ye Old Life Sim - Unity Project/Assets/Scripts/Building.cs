@@ -7,6 +7,8 @@ public class Building : MonoBehaviour
     public string[] m_Description;
     public Texture2D m_Image;
     public JobData[] m_JobData;
+    public Item[] m_Items;
+    public SpecialEffect[] m_SpecialEffects;
     public bool m_PlayerWorksHere;
     public BuildingUI m_BuildingUI;
 
@@ -71,19 +73,21 @@ public class Building : MonoBehaviour
     {
         SkillAndAmount failedSkill = null;
 
+        // If there is a skill requirement and the player has no skill, they are an idiot.
+        if((jData.m_SkillRequirement.Length > 0) && (pData.m_Skills.Count == 0))
+        {
+            failedSkill = new SkillAndAmount(jData.m_SkillRequirement[0].m_Skill, jData.m_SkillRequirement[0].m_Amount);
+            return failedSkill;
+        }
+
         for (int i = 0; i < jData.m_SkillRequirement.Length; ++i)
         {
             for(int j = 0; j < pData.m_Skills.Count; ++j)
             {
-                if(jData.m_SkillRequirement[i].m_Skill == pData.m_Skills[j].m_Skill)
+                if((jData.m_SkillRequirement[i].m_Skill == pData.m_Skills[j].m_Skill) && (jData.m_SkillRequirement[i].m_Amount > pData.m_Skills[j].m_Amount))
                 {
-                    if(jData.m_SkillRequirement[i].m_Amount > pData.m_Skills[j].m_Amount)
-                    {
-                        failedSkill.m_Skill = jData.m_SkillRequirement[i].m_Skill;
-                        failedSkill.m_Amount = jData.m_SkillRequirement[i].m_Amount - pData.m_Skills[j].m_Amount;
-                        return failedSkill;
-                    }
-                    continue;
+                    failedSkill = new SkillAndAmount(jData.m_SkillRequirement[i].m_Skill, jData.m_SkillRequirement[i].m_Amount);
+                    return failedSkill;
                 }
             }
         }

@@ -89,10 +89,12 @@
     <Compile Include="Assets\Scripts\Inventory\UseableItemInventory.cs" />
     <Compile Include="Assets\Scripts\Items\Elixir.cs" />
     <Compile Include="Assets\Scripts\Items\Food.cs" />
+    <Compile Include="Assets\Scripts\Items\IceBox.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Items\ItemEffect.cs" />
     <Compile Include="Assets\Scripts\Items\Possession.cs" />
     <Compile Include="Assets\Scripts\JobData.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\MusicShuffle.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerData.cs" />
@@ -111,6 +113,7 @@
     <Compile Include="Assets\Scripts\State.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
     <Compile Include="Assets\Scripts\ValueConstants.cs" />
+    <Compile Include="Assets\Scripts\VolumeControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3D Models\Medieval Environment\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\DLAA.shader" />

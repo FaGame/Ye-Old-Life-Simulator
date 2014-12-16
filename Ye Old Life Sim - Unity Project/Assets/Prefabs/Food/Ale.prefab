@@ -40,10 +40,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 5
+  m_UseCount: 1
+  m_Description: Test string for now
   m_IsPerishable: 0
   m_Timer: 0
   m_HungerAmount: 1
   m_SpeedModifier: 1
+  m_Happiness: 0
+  m_FoodName: Ale
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
