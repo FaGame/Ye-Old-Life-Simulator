@@ -8,12 +8,14 @@ public class PlayerController : MonoBehaviour
     public Camera mCamera;
     public Terrain mTerrain;
     public Transform mblackSmithWaypoint;
+    public bool m_IsMoving;
 
     private Vector3 currTarget_;
     private bool atCurrTarget_;
     private Animator animator_;
     private NavMeshAgent navAgent_;
     private float lastRot_;
+    private float hungerTimer_;
 
     public void SetTarget(Vector3 target)
     {
@@ -72,7 +74,16 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        DecreaseTime();
+        //DecreaseTime();
+
+        if(navAgent_.velocity.magnitude > 0.0f)
+        {
+            m_IsMoving = true;
+        }
+        else
+        {
+            m_IsMoving = false;
+        }
 
         navAgent_.speed = m_PlayerData.GetComponent<PlayerData>().m_Speed;
     }
@@ -95,6 +106,12 @@ public class PlayerController : MonoBehaviour
         if (navAgent_.velocity.magnitude > 0.0f && m_PlayerData.m_CurrTime != 0.0f)
         {
             m_PlayerData.m_CurrTime -= Time.deltaTime;
+            hungerTimer_ += Time.deltaTime;
+            if(hungerTimer_ >= 1.0f)
+            {
+                m_PlayerData.m_HungerMeter += 1.0f;
+                hungerTimer_ = 0.0f;
+            }
         }
     }
 }
