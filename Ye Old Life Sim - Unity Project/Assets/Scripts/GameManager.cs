@@ -152,6 +152,11 @@ public class GameManager : MonoBehaviour
         {
             //drink your woes away in obscurity, try some narcotics
         }
+
+        if(m_PlayerData.m_HungerMeter >= m_PlayerData.m_MaxHunger)
+        {
+            Debug.Log("You have died, alone and forgotten behind the most uninspiring shrubbery");
+        }
     }
 
     void SetGameBools()
