@@ -45,6 +45,7 @@ public class Building : MonoBehaviour
                 pData.m_Skills.Add(new SkillAndAmount(jData.m_SkillGain[i].m_Skill, jData.m_SkillGain[i].m_Amount * actualWorkTime));
             }
         }
+        pData.m_CurrTime -= actualWorkTime;
         pData.m_Shillings += (int)(jData.GetWage() * actualWorkTime);
     }
 

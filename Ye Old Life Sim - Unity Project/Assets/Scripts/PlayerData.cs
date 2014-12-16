@@ -66,10 +66,6 @@ public class PlayerData : MonoBehaviour
 
     public void StartTurn()
     {
-        if(m_UseableInventory == null)
-        {
-            return;
-        }
         //loop through the player's inventory and find objects with the food script
         if(m_UseableInventory != null)
         {
