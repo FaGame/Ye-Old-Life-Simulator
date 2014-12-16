@@ -71,15 +71,18 @@ public class PlayerData : MonoBehaviour
             return;
         }
         //loop through the player's inventory and find objects with the food script
-        foreach (KeyValuePair<string, UseableItemInventory.ItemInventoryEntry> entry in m_UseableInventory.m_UseableItemInventory)
+        if(m_UseableInventory != null)
         {
-            if (entry.Value.item is Food)
+            foreach (KeyValuePair<string, UseableItemInventory.ItemInventoryEntry> entry in m_UseableInventory.m_UseableItemInventory)
             {
-                //set the food variable if the entry is a food type
-                playerFood_ = (Food)entry.Value.item;
-                playerFood_.RemoveFood();   //removes perishable food item
-            }
-        }  
+                if (entry.Value.item is Food)
+                {
+                    //set the food variable if the entry is a food type
+                    playerFood_ = (Food)entry.Value.item;
+                    playerFood_.RemoveFood();   //removes perishable food item
+                }
+            } 
+        }
         m_EarningScalar = ValueConstants.PLAYER_DEFAULT_MONEY_SCALAR;
         //calculate the curr time 
         //Temp commented out since we dont have those penalties set up yet
