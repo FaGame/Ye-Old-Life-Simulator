@@ -11,7 +11,7 @@ GameObject:
   - 222: {fileID: 22265472}
   - 114: {fileID: 11465472}
   m_Layer: 0
-  m_Name: InventoryButtonText
+  m_Name: InventoryItemButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,8 +64,9 @@ GameObject:
   - 222: {fileID: 22265478}
   - 114: {fileID: 11465484}
   - 114: {fileID: 11465482}
+  - 114: {fileID: 11490762}
   m_Layer: 0
-  m_Name: InventoryButton
+  m_Name: InventoryItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,8 +102,6 @@ GameObject:
   - 114: {fileID: 11465488}
   - 114: {fileID: 11465496}
   - 114: {fileID: 11465494}
-  - 114: {fileID: 11465492}
-  - 114: {fileID: 11465498}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -135,7 +134,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Inventory
+  m_Text: Close Inventory
 --- !u!114 &11465474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -254,7 +253,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11465484}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11490762}
+        m_MethodName: UseItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: PlayerData, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11465484
@@ -336,31 +347,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &11465492
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71827ff3055017949b7a5d016f0a4572, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Cost: 0
-  m_Enemy: {fileID: 0}
-  m_PlayerTimeSpeedScalar: 1
-  m_EnemyTimeSpeedScalar: 1
-  m_PlayerTimeEarningsScalar: 1
-  m_EnemyTimeEarningsScalar: 1
-  m_PlayerSpeedTimer: 0
-  m_EnemySpeedTimer: 0
-  m_PlayerEarningsTimer: 0
-  m_EnemyEarningsTimer: 0
-  m_PlayerSpeedModifier: 0
-  m_EnemySpeedModifier: 0
-  m_PlayerEarningsModifier: 1
-  m_EnemyEarningModifier: 1
 --- !u!114 &11465494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -373,24 +359,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Names:
-  - Elixir
+  - Ale
   - Food
   - Elixir
   - Elixir
   - Elixir
   - Elixir
   m_InspectorInventory:
-  - item: {fileID: 11465492}
+  - item: {fileID: 11400000, guid: 9125e2840f5546e4a80942e44d40d1a4, type: 2}
     count: 1
-  - item: {fileID: 11465498}
+  - item: {fileID: 11400000, guid: d0741c64cc97c2e459619861861f82bc, type: 2}
     count: 1
-  - item: {fileID: 11465492}
+  - item: {fileID: 11400000, guid: 4d553706910dda741a1796572c62a26e, type: 2}
     count: 1
-  - item: {fileID: 11465492}
+  - item: {fileID: 11400000, guid: ff520f25cab3a9d4b9e5afab103a03f6, type: 2}
     count: 1
-  - item: {fileID: 11465492}
+  - item: {fileID: 11400000, guid: c9159c8b5d9c638499056f577006e652, type: 2}
     count: 1
-  - item: {fileID: 11465492}
+  - item: {fileID: 11400000, guid: 960723608d96c4b4095b24195e22b8db, type: 2}
     count: 1
 --- !u!114 &11465496
 MonoBehaviour:
@@ -403,26 +389,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299e8a4693fbc254bbba063c4cad45d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_inventoryScript: {fileID: 11465494}
+  m_InventoryScript: {fileID: 11465494}
   m_yScale: .25
-  m_buttonYSeperationDistance: -42
-  m_buttonYMovement: -210
---- !u!114 &11465498
+  m_buttonYSeperationDistance: -85
+  m_buttonYMovement: -168
+--- !u!114 &11490762
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165482}
+  m_GameObject: {fileID: 165478}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ac79831da344dd45876920d3b2058ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 418e405bad0ad2f458a73824b5ec692f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Cost: 0
-  m_IsPerishable: 0
-  m_Timer: 0
-  m_HungerAmount: 0
-  m_SpeedModifier: 1
+  m_InventoryScript: {fileID: 11465494}
 --- !u!222 &22265472
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -469,7 +451,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
 --- !u!224 &22465472
 RectTransform:
   m_ObjectHideFlags: 1
