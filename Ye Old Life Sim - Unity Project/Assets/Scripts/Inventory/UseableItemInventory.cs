@@ -61,7 +61,7 @@ public class UseableItemInventory : MonoBehaviour
             item.count--;
             m_UseableItemInventory[name] = item;
 
-            if(m_UseableItemInventory.Count <= 0)
+            if(m_UseableItemInventory.Count >= 0)
             {
                 m_UseableItemInventory.Remove(name);
             }
