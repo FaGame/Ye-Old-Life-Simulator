@@ -28,6 +28,11 @@ public class BuildingUI : MonoBehaviour
     private SkillAndAmount jobGainedData_;
     private PlayerController playerController_; // Reenable the player after X'ing
 
+    public bool BuildingUIActive
+    {
+        get { return buildingsActive_; }
+    }
+
 	// Use this for initialization
 	void Start () 
     {

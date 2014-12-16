@@ -24,13 +24,17 @@ public class UseableItemInventory : MonoBehaviour
         m_UseableItemInventory = new Dictionary<string, ItemInventoryEntry>();
 
         //loops through the array of names and InspectorInventory, then adds them to the m_UseableItemInventory list
-        for (int i = 0; i < m_InspectorInventory.Length; ++i)
+        if(m_Names.Length != m_InspectorInventory.Length)
         {
-            for(int j = 0; j < m_Names.Length; ++j)
+            Debug.Log("Names and InspectorInventory lenghts do not match. Shit.");
+        }
+        else
+        {
+            for (int i = 0; i < m_Names.Length; ++i)
             {
-                AddToInventory(m_Names[j], m_InspectorInventory[i]);
+                AddToInventory(m_Names[i], m_InspectorInventory[i]);
             }    
-        }     
+        }      
     }
 
     public void AddToInventory(string name, ItemInventoryEntry item)

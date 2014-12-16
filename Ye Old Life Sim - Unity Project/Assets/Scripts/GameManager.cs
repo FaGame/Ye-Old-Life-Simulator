@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public GameObject m_AI;
     public PlayerData m_AIData;
     public PlayerData m_PlayerData;
+    public BuildingUI m_BuildingUI;
 
     private bool isPlayerTurn_;
     private bool isAiTurn_;
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     private float maxHappy_;
     private float maxTurns_;
     private float Players_;
+    private float hungerTimer_;
     private int Turns_;
     private int IncrementTurns_ = 1;
     private bool turnsGame_ = false;
@@ -40,6 +42,7 @@ public class GameManager : MonoBehaviour
         CheckForLoss();
         SetGameBools();
         SetPlayers();
+        DecreaseTime();
         Debug.Log(maxHappy_);
         Debug.Log(maxCurrency_);
         Debug.Log(maxRep_);
@@ -144,6 +147,11 @@ public class GameManager : MonoBehaviour
         {
             //drink your woes away in obscurity, try some narcotics
         }
+
+        if(m_PlayerData.m_HungerMeter >= m_PlayerData.m_MaxHunger)
+        {
+            Debug.Log("You have died, alone and forgotten behind the most uninspiring shrubbery");
+        }
     }
 
     void SetGameBools()
@@ -156,5 +164,32 @@ public class GameManager : MonoBehaviour
     void SetPlayers()
     {
         Players_ = GameMenu.m_Players;
+    }
+
+    //Use this DecreaseTime function for movement only
+    public void DecreaseTime()
+    {
+        if (m_PlayerData.m_CurrTime != 0.0f)
+        {
+            if (m_Player.GetComponent<PlayerController>().m_IsMoving)
+            {
+                m_PlayerData.m_CurrTime -= Time.deltaTime;
+                hungerTimer_ += Time.deltaTime;
+                if (hungerTimer_ >= 1.0f)
+                {
+                    m_PlayerData.m_HungerMeter += 1.0f;
+                    hungerTimer_ = 0.0f;
+                }
+            }
+        }
+    }
+
+    //Use this DecreaseTime for UI functions, to control the amount of time is decremented on each call
+    public void DecreaseTime(float timeToDecrease)
+    {
+        if (m_PlayerData.m_CurrTime != 0.0f)
+        {
+            m_PlayerData.m_CurrTime -= timeToDecrease;
+        }
     }
 }

@@ -39,6 +39,7 @@ public class PlayerData : MonoBehaviour
 
     void Start()
     {
+        m_CurrTime = m_MaxTime;
         m_Speed = m_DefaultSpeed;
         StartTurn();
         m_Job = null;
