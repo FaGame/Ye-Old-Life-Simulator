@@ -4,10 +4,8 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     public GameObject m_Player;
-    public GameObject m_EmptyObjPlayer;
-    //public GameObject m_EmptyObjAI;
-    //public GameObject m_AI;
-    //public PlayerData m_AIData;
+    public GameObject m_AI;
+    public PlayerData m_AIData;
     public PlayerData m_PlayerData;
 
     private bool isPlayerTurn_;
@@ -26,9 +24,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        m_PlayerData = m_EmptyObjPlayer.GetComponent<PlayerData>();
-        //m_AIData = m_EmptyObjAI.GetComponent<PlayerData>();
-
         isPlayerTurn_ = true;
         isAiTurn_ = false;
 
@@ -53,8 +48,8 @@ public class GameManager : MonoBehaviour
     void TurnManager()
     {
         Debug.Log(m_PlayerData.m_CurrTime);
-       
-        //Debug.Log(m_AIData.m_CurrTime);
+        Debug.Log(m_AIData.m_CurrTime);
+
         //start turn is the player, once their time runs out, disables player and activates AI and AI turn
         if (isPlayerTurn_ == true)
         {
@@ -75,7 +70,7 @@ public class GameManager : MonoBehaviour
         }
 
 
-        /*if (isAiTurn_ == true)
+        if (isAiTurn_ == true)
         {
             //When player turn is over the AI does the same as the player above
             m_AI.SetActive(true);
@@ -90,7 +85,7 @@ public class GameManager : MonoBehaviour
 
                 m_AIData.StartTurn();
             }
-        }*/
+        }
     }
 
     void CheckForObjWin()
