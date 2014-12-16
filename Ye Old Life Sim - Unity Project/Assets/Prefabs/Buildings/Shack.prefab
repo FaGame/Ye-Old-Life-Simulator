@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &148556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 448556}
+  - 65: {fileID: 6548556}
+  m_Layer: 0
+  m_Name: Waypoint
+  m_TagString: Waypoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &167058
 GameObject:
   m_ObjectHideFlags: 0
@@ -26,7 +42,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 467060}
-  - 114: {fileID: 11467060}
   - 65: {fileID: 6567060}
   - 114: {fileID: 11475420}
   m_Layer: 0
@@ -36,6 +51,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &448556
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148556}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .769999981, y: .340000004, z: -5.69000006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 467060}
+  m_RootOrder: 1
 --- !u!4 &467058
 Transform:
   m_ObjectHideFlags: 1
@@ -54,11 +81,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167060}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 508.100006, y: .0599999987, z: 322.399994}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: .087155737, z: 0, w: .99619472}
+  m_LocalPosition: {x: 543, y: 5, z: 334}
+  m_LocalScale: {x: 1, y: 1, z: .99999994}
   m_Children:
   - {fileID: 467058}
+  - {fileID: 448556}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2367060
@@ -105,6 +133,18 @@ MeshCollider:
   m_SmoothSphereCollisions: 0
   m_Convex: 0
   m_Mesh: {fileID: 4300010, guid: 502c0066a239043219daeb1f6b27a1e2, type: 3}
+--- !u!65 &6548556
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148556}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6567060
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -117,27 +157,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 12.3000002, y: 6, z: 7}
   m_Center: {x: 2, y: 3, z: 0}
---- !u!114 &11467060
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 167060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb90059e40cc41b4ca498dc1b85a7944, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: Shack
-  m_Description:
-  - "For when you can\u2019t even afford that nice pile of mud at the stables\r\n"
-  - "This shack is a little ol\u2019 place where we can get together"
-  - "Don\u2019t bother taking off your shoes. The floor is just dirt anyways"
-  - Your mother used to work in a shack like this
-  - On the plus side, indoor plants grow very well with all this natural light
-  m_Image: {fileID: 0}
-  m_JobData: []
-  m_PlayerWorksHere: 0
 --- !u!114 &11475420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -150,7 +169,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Rent: 10
-  m_Rating: 1
+  m_Description: []
+  m_HabitatUI: {fileID: 0}
+  m_PlayerLivesHere: 0
+  m_Rating: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

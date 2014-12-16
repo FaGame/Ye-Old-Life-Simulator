@@ -4,18 +4,85 @@ using UnityEngine.UI;
 
 public class HabitatUI : MonoBehaviour 
 {
-    private PlayerData m_Habitat;
-    private Habitat m_RentVal;
+    public GameObject m_HabitatGUI;
+    public Button m_RentButton;
+    public Text m_RentValue;//the cost of current dwelling
+    public Text m_TimePenalty;//the time penalty of current dwelling
+    public  PlayerData m_PlayerData;
 
-    public Text m_RentValue;
-    public Text m_TimePenalty;
+    private Habitat m_Habitat;
+    private GameObject selectedHome_;//current dwelling
+    private Text descriptionText_;
+    private Text[] habitatMenuText_;
+    private PlayerController playerController_;
 
-    private float timePenalty_;
-    private float rentValue_;
+    private float timePenalty_;//actual value of current dwelling
+    private float rentValue_;//actual value of current dwelling
+
+    private bool habitatIsActive_ = false;
+
+    public bool HabitatUIActive
+    {
+        get{  return habitatIsActive_;}
+    }
+
+    void Start()
+    {
+        m_HabitatGUI.SetActive(false);
+    }
 
     public void FixedUpdate()
     {
-        m_TimePenalty.text = m_Habitat.m_Home.m_Rating.ToString();
-        m_RentValue.text = m_RentVal.m_Rent.ToString();
+        m_HabitatGUI.SetActive(habitatIsActive_);
+
+        if(selectedHome_ != null)
+        {
+            LoadHabitatData(playerController_, selectedHome_);
+
+            timePenalty_ = (float)selectedHome_.GetComponent<Habitat>().m_Rating;
+            rentValue_ = selectedHome_.GetComponent<Habitat>().m_Rent;
+
+            m_RentValue.text = rentValue_.ToString();
+            m_TimePenalty.text = timePenalty_.ToString();
+        }
+    }
+
+    public void LoadHabitatData(/*string name*/PlayerController pController, GameObject gObj)
+    {
+        habitatIsActive_ = true;
+        selectedHome_ = gObj;
+        //descriptionText_.text = selectedHome_.GetComponent<Habitat>().GetDescription();
+
+        if (selectedHome_.GetComponent<Habitat>().m_PlayerLivesHere)
+        {
+            m_RentButton.interactable = true;
+        }
+        else
+        {
+            m_RentButton.interactable = false;
+        }
+
+        playerController_ = pController;
+    }
+
+    public void SetRentValue()
+    {
+        m_RentValue.text = rentValue_.ToString();
+    }
+
+    public void SetTimePenalty()
+    {
+        m_TimePenalty.text = timePenalty_.ToString();
+    }
+
+    public void SetHabitat()
+    {
+        m_Habitat.m_Rating = selectedHome_.GetComponent<Habitat>().m_Rating;
+    }
+
+    public void CloseCurrentMenu()
+    {
+        habitatIsActive_ = false;
+        playerController_.enabled = true;
     }
 }

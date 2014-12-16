@@ -45,7 +45,7 @@ public class PlayerData : MonoBehaviour
         m_Job = null;
         m_Building = null;
         playerController_ = GetComponent<PlayerController>();
-        m_MaxHunger = ValueConstants.PLAYER_MAX_HUNGER;
+
     }
 	
 	void Update () 
@@ -134,6 +134,13 @@ public class PlayerData : MonoBehaviour
             {
                 playerController_.enabled = false;
                 building.m_BuildingUI.LoadBuildingData(playerController_, other.gameObject.transform.parent.gameObject);
+            }
+
+            Habitat habitat = other.gameObject.transform.parent.gameObject.GetComponent<Habitat>();
+            if (habitat != null)
+            {
+                playerController_.enabled = false;
+                habitat.m_HabitatUI.LoadHabitatData(playerController_, other.gameObject.transform.parent.gameObject);
             }
         }
     }

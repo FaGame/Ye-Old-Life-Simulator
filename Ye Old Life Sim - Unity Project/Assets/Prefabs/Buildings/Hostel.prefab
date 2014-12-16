@@ -382,7 +382,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 471964}
-  - 114: {fileID: 11471920}
   - 65: {fileID: 6571920}
   - 114: {fileID: 11418454}
   m_Layer: 0
@@ -643,6 +642,22 @@ GameObject:
   m_Layer: 0
   m_Name: HouseLevel2
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &179244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 479244}
+  - 65: {fileID: 6579244}
+  m_Layer: 0
+  m_Name: Waypoint
+  m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -917,8 +932,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171964}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 328.51001, y: 0, z: 330}
+  m_LocalRotation: {x: 0, y: -.382683486, z: 0, w: .923879564}
+  m_LocalPosition: {x: 443.100006, y: 5.82000017, z: 341.299988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 471930}
@@ -958,6 +973,7 @@ Transform:
   - {fileID: 471940}
   - {fileID: 471934}
   - {fileID: 471984}
+  - {fileID: 479244}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &471966
@@ -1140,6 +1156,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 471964}
   m_RootOrder: 15
+--- !u!4 &479244
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179244}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.0710001, y: .0900000036, z: 1.38999999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 471964}
+  m_RootOrder: 37
 --- !u!23 &2371920
 Renderer:
   m_ObjectHideFlags: 1
@@ -2160,6 +2188,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 12.5, y: 8, z: 9}
   m_Center: {x: 2, y: 4, z: -3.5}
+--- !u!65 &6579244
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179244}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11418454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2172,29 +2212,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Rent: 25
-  m_Rating: 2
---- !u!114 &11471920
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 171964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb90059e40cc41b4ca498dc1b85a7944, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: Hostel
-  m_Description:
-  - For when the shack is just a little too lonely
-  - "We have a higher mortality rate than the Butcher\u2026 But still lower than the
-    Hospital!"
-  - Word from the wise; Avoid the blue acid
-  - Your mother stayed at a hostel like this.
-  - Free bed bugs!
-  m_Image: {fileID: 2800000, guid: a52086db16f4c0641b03bb99f8901013, type: 3}
-  m_JobData: []
-  m_PlayerWorksHere: 0
+  m_Description: []
+  m_HabitatUI: {fileID: 0}
+  m_PlayerLivesHere: 0
+  m_Rating: 3
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
