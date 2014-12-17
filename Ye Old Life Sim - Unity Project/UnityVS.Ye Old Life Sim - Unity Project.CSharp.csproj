@@ -52,6 +52,9 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Assembly-UnityScript-firstpass">
+      <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UnityVS.Ye Old Life Sim - Unity Project.CSharp.Plugins.csproj">
@@ -79,6 +82,26 @@
     <Compile Include="Assets\CloudSystem\Instractions\Standard Assets\Scripts\Utility Scripts\MeshCombineUtility.cs" />
     <Compile Include="Assets\Scripts\Building.cs" />
     <Compile Include="Assets\Scripts\BuildingUI.cs" />
+    <Compile Include="Assets\Scripts\CursorEffects.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\BarrelOfMead.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\BitByRats.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\CircusComesToTown.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\ExperimentGoneWrong.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\FindASack.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\FindAStarvingChild.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\Fire.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\FootAndMouth.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\FoundShillings.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\KingdomAtWar.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\REvntScript.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\RandomEventManager.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\Robbed.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\Stampede.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\ThePlague.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\Tournament.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\WeekendJob.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\WitnessAWitchBurning.cs" />
+    <Compile Include="Assets\Scripts\EventScripts\WitnessAnExecution.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameMenu.cs" />
     <Compile Include="Assets\Scripts\HUDScript.cs" />
@@ -100,9 +123,11 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Requirement.cs" />
+    <Compile Include="Assets\Scripts\RestartUI.cs" />
     <Compile Include="Assets\Scripts\Skill.cs" />
     <Compile Include="Assets\Scripts\SkillAndAmount.cs" />
     <Compile Include="Assets\Scripts\SkillGain.cs" />
+    <Compile Include="Assets\Scripts\Sound\RandomBackgroundMusic.cs" />
     <Compile Include="Assets\Scripts\SpecialEffects\AnimCurveTest.cs" />
     <Compile Include="Assets\Scripts\SpecialEffects\ChapelDonation.cs" />
     <Compile Include="Assets\Scripts\SpecialEffects\CurePlague.cs" />
@@ -186,11 +211,15 @@
     <None Include="Assets\3D Models\Medieval Environment\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\TwirlEffect.shader" />
     <None Include="Assets\3D Models\Medieval Environment\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\VignettingShader.shader" />
     <None Include="Assets\3D Models\Medieval Environment\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\VortexEffect.shader" />
-    <None Include="Assets\3D Models\Medieval Environment\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
     <None Include="Assets\3D Models\Medieval Environment\Standard Assets\Skyboxes\_skybox info.txt" />
     <None Include="Assets\Horse\SoftAlpha.shader" />
     <None Include="Assets\PlayerAssets\Medieval_Toon_Character\ReadMe.txt" />
     <None Include="Assets\readme.txt" />
+    <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+    <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
+    <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
+    <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
+    <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
     <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
     <None Include="Assets\Test.txt" />
     <None Include="Assets\Textures\Forest Grounds - Terrain Texture Pack\Readme.txt" />
