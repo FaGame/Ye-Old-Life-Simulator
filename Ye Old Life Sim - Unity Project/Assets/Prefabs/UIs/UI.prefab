@@ -339,7 +339,7 @@ GameObject:
   - 114: {fileID: 11474850}
   m_Layer: 5
   m_Name: Journal
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -610,7 +610,7 @@ GameObject:
   - 114: {fileID: 11424848}
   m_Layer: 5
   m_Name: UI
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1060,7 +1060,7 @@ GameObject:
   - 114: {fileID: 11474932}
   m_Layer: 5
   m_Name: CurrJobSign
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4168,6 +4168,7 @@ MonoBehaviour:
   m_Stats: {fileID: 174888}
   m_Goals: {fileID: 174872}
   m_Skills: {fileID: 174954}
+  m_GameManager: {fileID: 0}
   m_PlayerData: {fileID: 0}
   m_CurrJobText: {fileID: 11474820}
   m_ShillingText: {fileID: 11474860}
@@ -4199,6 +4200,7 @@ MonoBehaviour:
   m_InteractButton: {fileID: 11474930}
   m_BuyButton: {fileID: 11424852}
   m_PlayerData: {fileID: 0}
+  m_GameManager: {fileID: 0}
 --- !u!114 &11493678
 MonoBehaviour:
   m_ObjectHideFlags: 1

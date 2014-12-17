@@ -280,23 +280,26 @@ public class BuildingUI : MonoBehaviour
     public void Work()
     {
         backgroundMusic_.Play();
+
+        float actualWorkTime = selectedBuilding_.GetComponent<Building>().Work(m_PlayerData, m_PlayerData.m_Job);
+
         if (m_PlayerData.m_Job.m_SkillGain.Length == 3)
         {
-            resultsText_.text = "You earned " + m_PlayerData.m_Job.m_Wage.ToString("F0") + " shillings, " + m_PlayerData.m_Job.m_SkillGain[0].m_Amount + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[0].m_Skill + ", " +
-                                m_PlayerData.m_Job.m_SkillGain[1].m_Amount + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[1].m_Skill + ", and " + m_PlayerData.m_Job.m_SkillGain[2].m_Amount + " point(s) in " + 
+            resultsText_.text = "You earned " + (m_PlayerData.m_Job.m_Wage * actualWorkTime).ToString("F0") + " shillings, " + m_PlayerData.m_Job.m_SkillGain[0].m_Amount * actualWorkTime + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[0].m_Skill + ", " +
+                                m_PlayerData.m_Job.m_SkillGain[1].m_Amount * actualWorkTime + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[1].m_Skill + ", and " + m_PlayerData.m_Job.m_SkillGain[2].m_Amount * actualWorkTime + " point(s) in " + 
                                 m_PlayerData.m_Job.m_SkillGain[2].m_Skill + ".";
         }
         else if (m_PlayerData.m_Job.m_SkillGain.Length == 2)
         {
-            resultsText_.text = "You earned " + m_PlayerData.m_Job.m_Wage.ToString("F0") + " shillings, " + m_PlayerData.m_Job.m_SkillGain[0].m_Amount + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[0].m_Skill + " and " +
-                                m_PlayerData.m_Job.m_SkillGain[1].m_Amount + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[1].m_Skill + ".";
+            resultsText_.text = "You earned " + (m_PlayerData.m_Job.m_Wage * actualWorkTime).ToString("F0") + " shillings, " + m_PlayerData.m_Job.m_SkillGain[0].m_Amount * actualWorkTime + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[0].m_Skill + " and " +
+                                m_PlayerData.m_Job.m_SkillGain[1].m_Amount * actualWorkTime  + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[1].m_Skill + ".";
         }
         else
         {
-            resultsText_.text = "You earned " + m_PlayerData.m_Job.m_Wage.ToString("F0") + " shillings, " + m_PlayerData.m_Job.m_SkillGain[0].m_Amount + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[0].m_Skill + ".";
+            resultsText_.text = "You earned " + (m_PlayerData.m_Job.m_Wage * actualWorkTime).ToString("F0") + " shillings, " + m_PlayerData.m_Job.m_SkillGain[0].m_Amount * ValueConstants.WORK_TIME + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[0].m_Skill + ".";
         }
 
-            selectedBuilding_.GetComponent<Building>().Work(m_PlayerData, m_PlayerData.m_Job);
+            
     }
 
     //Button function - This function is called by the giant "X" in the top right corner of the building UI.

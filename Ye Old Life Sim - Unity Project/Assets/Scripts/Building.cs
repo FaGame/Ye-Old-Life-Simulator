@@ -25,7 +25,7 @@ public class Building : MonoBehaviour
 	
 	}
 
-    public void Work(PlayerData pData, JobData jData)
+    public float Work(PlayerData pData, JobData jData)
     {
         bool isSkillFound = false;
         float actualWorkTime = pData.m_CurrTime < ValueConstants.WORK_TIME ? pData.m_CurrTime : ValueConstants.WORK_TIME;
@@ -48,6 +48,7 @@ public class Building : MonoBehaviour
         }
         pData.m_CurrTime -= actualWorkTime;
         pData.m_Shillings += (int)(jData.GetWage() * actualWorkTime);
+        return actualWorkTime;
     }
 
     public void BuildingInteraction()
