@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Building : MonoBehaviour 
 {
+    public AudioSource m_BackgroundSound;
     public string m_BuildingName;
     public string[] m_Description;
     public Texture2D m_Image;

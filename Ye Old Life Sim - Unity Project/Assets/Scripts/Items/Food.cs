@@ -3,8 +3,9 @@ using System.Collections;
 
 public class Food : Item 
 {
-    UseableItemInventory m_Inventory;
+    public UseableItemInventory m_Inventory;
     public ItemEffect m_Effect;
+    public AudioClip m_FoodSound;
    
     public bool m_IsPerishable = false;
 
@@ -27,6 +28,7 @@ public class Food : Item
     {
         if (m_UseCount != 0)
         {
+            AudioSource.PlayClipAtPoint(m_FoodSound, transform.position);
             m_UseCount--;  //subtract 1 from the count of uses
 
             //uses the AddEffect function which sets all values based on the ItemEffect specified 

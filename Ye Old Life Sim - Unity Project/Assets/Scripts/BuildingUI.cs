@@ -29,6 +29,8 @@ public class BuildingUI : MonoBehaviour
     private SkillAndAmount jobGainedData_;
     private PlayerController playerController_; // Reenable the player after X'ing
 
+    private AudioSource backgroundMusic_;
+
     public bool BuildingUIActive
     {
         get { return buildingsActive_; }
@@ -83,8 +85,11 @@ public class BuildingUI : MonoBehaviour
     //This function loads the building data based on which building was clicked
     public void LoadBuildingData(/*string name*/PlayerController pController, GameObject gObj)
     {
+       
         buildingsActive_ = true;
         selectedBuilding_ = gObj;
+        backgroundMusic_ = selectedBuilding_.GetComponent<AudioSource>();
+
         //selectedBuilding_ = GameObject.Find(name);
         descriptionText_.text = selectedBuilding_.GetComponent<Building>().GetDescription();
 
@@ -264,6 +269,7 @@ public class BuildingUI : MonoBehaviour
     //Button function - This function is called by the "Work" button in the Building Menu, it called the Work function in the Building's script.
     public void Work()
     {
+        backgroundMusic_.Play();
         if (m_PlayerData.m_Job.m_SkillGain.Length == 3)
         {
             resultsText_.text = "You earned " + m_PlayerData.m_Job.m_Wage.ToString("F0") + " shillings, " + m_PlayerData.m_Job.m_SkillGain[0].m_Amount + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[0].m_Skill + ", " +
@@ -320,6 +326,7 @@ public class BuildingUI : MonoBehaviour
             resultsText_.text = "";
             buildingsActive_ = false;
             playerController_.enabled = true;
+            backgroundMusic_.Stop();
         }
     }
 }
