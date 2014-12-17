@@ -103,11 +103,11 @@ public float m_HappinessObjective;
 	// Update is called once per frame
 	void Update ()
     {
-        if(m_GameManager.AITurn)
+        if(m_GameManager.AITurn == true)
         {
             m_PlayerData = m_GameManager.m_AIData;
         }
-        else if(m_GameManager.PlayerTurn)
+        else if(m_GameManager.PlayerTurn == true)
         {
             m_PlayerData = m_GameManager.m_PlayerData;
         }
