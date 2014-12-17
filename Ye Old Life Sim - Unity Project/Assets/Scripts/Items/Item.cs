@@ -16,8 +16,8 @@ public abstract class Item : MonoBehaviour
 
     public string m_Description = "Test string for now";
 
-    public override string GetDescription()
+   /* public override string GetDescription()
     {
         return m_Description;
-    }
+    }*/
 }
