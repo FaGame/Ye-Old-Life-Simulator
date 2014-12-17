@@ -3,14 +3,11 @@ using System.Collections;
 
 public class KingdomAtWar : RandomEventManager
 {
+	public void PlayEvent()
+	{
+		//Money from all jobs (with the exception of the Barracks) now pay half
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		//Barracks pay doubles
+
 	}
 }

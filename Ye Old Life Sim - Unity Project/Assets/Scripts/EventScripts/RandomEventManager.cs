@@ -7,6 +7,8 @@ public class RandomEventManager : MonoBehaviour
 {
     public int m_RndEvent;
     public int m_EventIndex;
+	public int m_MoneyLost;
+	public int m_MoneyGained;
 
     public GameObject[] m_EventList;
 

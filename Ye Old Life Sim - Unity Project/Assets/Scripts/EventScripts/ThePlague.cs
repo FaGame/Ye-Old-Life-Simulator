@@ -3,14 +3,10 @@ using System.Collections;
 
 public class ThePlague : RandomEventManager
 {
+	public void PlayEvent()
+	{
+		GetComponent<PlayerData>().m_IsInfected = true;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		m_EventText.text = "You've caught the plague.";
 	}
 }

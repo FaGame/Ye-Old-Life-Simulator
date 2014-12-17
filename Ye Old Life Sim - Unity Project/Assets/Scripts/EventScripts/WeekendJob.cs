@@ -4,13 +4,9 @@ using System.Collections;
 public class WeekendJob : RandomEventManager
 {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public void PlayEvent()
+	{
+		//The player gets 5-25 xp in a random skill based upon a randomly selected day job.
+		m_EventText.text = ".";
 	}
 }

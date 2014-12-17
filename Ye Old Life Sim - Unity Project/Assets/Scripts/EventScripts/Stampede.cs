@@ -3,14 +3,13 @@ using System.Collections;
 
 public class Stampede : RandomEventManager
 {
+	private float TimeLost_;
 
-	// Use this for initialization
-	void Start () {
+	public void PlayEvent()
+	{
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		m_EventText.text = "A stampede is running towards you, and you cleverly decide to RUN. After running for a while, you are now able to go where you like. "
+						+ " .";
+		//Place the player in a random place on the map and make them lose 10 seconds of their turn.
 	}
 }

@@ -3,14 +3,9 @@ using System.Collections;
 
 public class WitnessAnExecution : RandomEventManager
 {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public void PlayEvent()
+	{
+		//The player loses 5 seconds on the clock but gain -5 - 10 happiness based upon how much you liked the person.
+		m_EventText.text = ".";
 	}
 }
