@@ -11,7 +11,6 @@ GameObject:
   - 33: {fileID: 3344778}
   - 23: {fileID: 2344778}
   - 64: {fileID: 6444778}
-  - 111: {fileID: 11144778}
   - 114: {fileID: 11444778}
   - 65: {fileID: 6599042}
   m_Layer: 0
@@ -127,20 +126,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 4, z: 6}
   m_Center: {x: 1, y: 2, z: 0}
---- !u!111 &11144778
-Animation:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 144778}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!114 &11444778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -156,7 +141,7 @@ MonoBehaviour:
   m_Description:
   - It will keep you dry, mostly!
   m_HabitatUI: {fileID: 0}
-  m_PlayerLivesHere: 0
+  m_PlayerData: {fileID: 0}
   m_Rating: 1
 --- !u!1001 &100100000
 Prefab:

@@ -933,8 +933,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171964}
   m_LocalRotation: {x: 0, y: -.382683486, z: 0, w: .923879564}
-  m_LocalPosition: {x: 443.100006, y: 5.82000017, z: 341.299988}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 443.100006, y: 5, z: 341.299988}
+  m_LocalScale: {x: .99999994, y: 1, z: .99999994}
   m_Children:
   - {fileID: 471930}
   - {fileID: 471942}
@@ -2212,9 +2212,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Rent: 25
-  m_Description: []
+  m_Description:
+  - Moving up in the world
   m_HabitatUI: {fileID: 0}
-  m_PlayerLivesHere: 0
+  m_PlayerData: {fileID: 0}
   m_Rating: 3
 --- !u!1001 &100100000
 Prefab:

@@ -51,7 +51,7 @@ public class HabitatUI : MonoBehaviour
     {
         habitatIsActive_ = true;
         selectedHome_ = gObj;
-        //descriptionText_.text = selectedHome_.GetComponent<Habitat>().GetDescription();
+        descriptionText_.text = selectedHome_.GetComponent<Habitat>().GetDescription();
 
         if (selectedHome_.GetComponent<Habitat>().m_Rating != m_PlayerData.m_Home.m_Rating)
         {
@@ -79,14 +79,12 @@ public class HabitatUI : MonoBehaviour
     {
         CurrHome_ = (float)selectedHome_.GetComponent<Habitat>().m_Rating;
         m_PlayerData.m_Home.m_Rating = (Habitat.BuildingRating)CurrHome_;
+        Debug.Log("Player's rent rating is Now" + CurrHome_);
     }
 
     public void CloseCurrentUI()
     {
-        if(habitatIsActive_)
-        {
-            habitatIsActive_ = false;
-            playerController_.enabled = true;
-        }
+        habitatIsActive_ = false;
+        playerController_.enabled = true;
     }
 }
