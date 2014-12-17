@@ -40,6 +40,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 50
+  m_UseCount: 1
+  m_Description: Test string for now
+  m_ExilirSound: {fileID: 8300000, guid: 43ae6eebdfa0f2e44ac1686f598c09be, type: 3}
   m_Enemy: {fileID: 0}
   m_PlayerTimeSpeedScalar: 1
   m_EnemyTimeSpeedScalar: 1

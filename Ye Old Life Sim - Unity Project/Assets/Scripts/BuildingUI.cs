@@ -17,6 +17,7 @@ public class BuildingUI : MonoBehaviour
     public Button m_InteractButton; //Building UI "interact" button
     public Button m_BuyButton; //Building UI "buy items" button
     public PlayerData m_PlayerData;
+    public GameManager m_GameManager;
 
     private bool buildingsActive_ = false; //Flag to turn on and off the building UI
     private GameObject selectedBuilding_; //Selected building GameObject
@@ -28,6 +29,8 @@ public class BuildingUI : MonoBehaviour
     private Text resultsText_; //Results description text - results of your work
     private SkillAndAmount jobGainedData_;
     private PlayerController playerController_; // Reenable the player after X'ing
+
+    private AudioSource backgroundMusic_;
 
     public bool BuildingUIActive
     {
@@ -48,6 +51,15 @@ public class BuildingUI : MonoBehaviour
 	void Update ()
     {
         m_BuildingGUI.SetActive(buildingsActive_);
+
+        if(m_GameManager.AITurn)
+        {
+            m_PlayerData = m_GameManager.m_AIData;
+        }
+        else if(m_GameManager.PlayerTurn)
+        {
+            m_PlayerData = m_GameManager.m_PlayerData;
+        }
 
         //-------------TEMP CODE-------------
         /*if (Input.GetMouseButtonDown(0) && !buildingsActive_)
@@ -83,8 +95,11 @@ public class BuildingUI : MonoBehaviour
     //This function loads the building data based on which building was clicked
     public void LoadBuildingData(/*string name*/PlayerController pController, GameObject gObj)
     {
+       
         buildingsActive_ = true;
         selectedBuilding_ = gObj;
+        backgroundMusic_ = selectedBuilding_.GetComponent<AudioSource>();
+
         //selectedBuilding_ = GameObject.Find(name);
         descriptionText_.text = selectedBuilding_.GetComponent<Building>().GetDescription();
 
@@ -264,6 +279,7 @@ public class BuildingUI : MonoBehaviour
     //Button function - This function is called by the "Work" button in the Building Menu, it called the Work function in the Building's script.
     public void Work()
     {
+        backgroundMusic_.Play();
         if (m_PlayerData.m_Job.m_SkillGain.Length == 3)
         {
             resultsText_.text = "You earned " + m_PlayerData.m_Job.m_Wage.ToString("F0") + " shillings, " + m_PlayerData.m_Job.m_SkillGain[0].m_Amount + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[0].m_Skill + ", " +
@@ -320,6 +336,7 @@ public class BuildingUI : MonoBehaviour
             resultsText_.text = "";
             buildingsActive_ = false;
             playerController_.enabled = true;
+            backgroundMusic_.Stop();
         }
     }
 }

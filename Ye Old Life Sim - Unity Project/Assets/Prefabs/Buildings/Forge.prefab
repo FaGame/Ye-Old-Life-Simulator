@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 412694}
   - 114: {fileID: 11412794}
   - 65: {fileID: 6512794}
+  - 82: {fileID: 8200000}
   m_Layer: 8
   m_Name: Forge
   m_TagString: Building
@@ -2923,6 +2924,64 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 10, z: 12}
   m_Center: {x: 2.75, y: 4, z: -2}
+--- !u!82 &8200000
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112694}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 2596ff68ba23be74bba8bc6141346049, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &11412794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2934,6 +2993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb90059e40cc41b4ca498dc1b85a7944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_BackgroundSound: {fileID: 8200000}
   m_BuildingName: 
   m_Description:
   - 
@@ -2961,6 +3021,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0980155cbfbdbcb4491704e761d281aa, type: 2}
   - {fileID: 11400000, guid: e19ba1ae36038664395c662b64e35e17, type: 2}
   - {fileID: 11400000, guid: e3e9bfbf15d8baa4d95eb058a5d7691a, type: 2}
+  m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 0}
 --- !u!1001 &100100000

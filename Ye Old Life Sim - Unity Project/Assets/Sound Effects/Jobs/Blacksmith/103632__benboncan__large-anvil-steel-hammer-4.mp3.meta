@@ -1,15 +1,11 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Ye Old Life Sim - Unity Project/Assets/Sound Effects/Jobs/Blacksmith/103632__benboncan__large-anvil-steel-hammer-4.mp3.meta
 guid: 2596ff68ba23be74bba8bc6141346049
-=======
-guid: 9d16a064e7a4fe24e95ad80681aac123
->>>>>>> origin/master:Ye Old Life Sim - Unity Project/Assets/Sound Effects/Jobs/91924__benboncan__till-with-bell.wav.meta
 AudioImporter:
   serializedVersion: 4
   format: 0
-  quality: -1
+  quality: .5
   stream: 1
-  3D: 1
+  3D: 0
   forceToMono: 0
   useHardware: 0
   loopable: 0

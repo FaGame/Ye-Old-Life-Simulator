@@ -42,6 +42,8 @@ MonoBehaviour:
   m_Cost: 2
   m_UseCount: 1
   m_Description: Test string for now
+  m_Inventory: {fileID: 0}
+  m_FoodSound: {fileID: 8300000, guid: dda2ed9f09decf341bebd6655ac31108, type: 3}
   m_IsPerishable: 0
   m_Timer: 0
   m_HungerAmount: 10

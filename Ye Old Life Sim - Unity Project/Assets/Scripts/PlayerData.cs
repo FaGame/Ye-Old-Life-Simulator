@@ -28,6 +28,7 @@ public class PlayerData : MonoBehaviour
     public float m_EarningScalar = ValueConstants.PLAYER_DEFAULT_MONEY_SCALAR;    //scalar that is used to determine how much the player will earn that turn for work
 
     public bool m_IsInfected = false;       //variable used for when the player catches a disease
+	public bool m_HasMount = false;			//variable used for when the player has a mount
 
     public List<ItemEffect> m_StatusEffects = new List<ItemEffect>();
 

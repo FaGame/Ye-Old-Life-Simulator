@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Elixir : Item 
 {
+    public AudioClip m_ExilirSound;
     public PlayerData m_Enemy;                              //this is what the enemy will be assigned to
     public ItemEffect m_PlayerSpeedEffect;                  //effect for player's speed
     public ItemEffect m_PlayerEarningsEffect;               //effect for player's earnings 
@@ -57,6 +58,7 @@ public class Elixir : Item
     {
         if (m_UseCount != 0)
         {
+            AudioSource.PlayClipAtPoint(m_ExilirSound, transform.position);
             m_UseCount--;  //subtract 1 from the count of uses
             //uses the AddEffect function which sets all values based on the ItemEffect specified 
             playerData.AddEffect(m_PlayerSpeedEffect);
