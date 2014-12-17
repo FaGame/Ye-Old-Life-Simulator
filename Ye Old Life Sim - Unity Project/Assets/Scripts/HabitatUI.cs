@@ -12,7 +12,7 @@ public class HabitatUI : MonoBehaviour
 
     private Habitat m_Habitat;
     private GameObject selectedHome_;//current habitat highlighted
-    private GameObject CurrHome_;
+    private float CurrHome_;
     private Text descriptionText_;
     private Text[] habitatMenuText_;
     private PlayerController playerController_;
@@ -30,7 +30,7 @@ public class HabitatUI : MonoBehaviour
     void Start()
     {
         m_HabitatGUI.SetActive(false);
-        CurrHome_ = null;
+        
     }
 
     public void Update()
@@ -53,7 +53,7 @@ public class HabitatUI : MonoBehaviour
         selectedHome_ = gObj;
         //descriptionText_.text = selectedHome_.GetComponent<Habitat>().GetDescription();
 
-        if (!selectedHome_.GetComponent<Habitat>().m_PlayerLivesHere)
+        if (selectedHome_.GetComponent<Habitat>().m_Rating != m_PlayerData.m_Home.m_Rating)
         {
             m_RentButton.interactable = true;
         }
@@ -65,20 +65,20 @@ public class HabitatUI : MonoBehaviour
         playerController_ = pController;
     }
 
-    public void SetRentValue()
+    public void DisplayRentValue()
     {
         m_RentValue.text = rentValue_.ToString();
     }
 
-    public void SetTimePenalty()
+    public void DisplayTimePenalty()
     {
         m_TimePenalty.text = timePenalty_.ToString();
     }
 
     public void SetHabitat()
     {
-        selectedHome_.GetComponent<Habitat>().m_PlayerLivesHere = true;
-        CurrHome_ = selectedHome_;
+        CurrHome_ = (float)selectedHome_.GetComponent<Habitat>().m_Rating;
+        m_PlayerData.m_Home.m_Rating = (Habitat.BuildingRating)CurrHome_;
     }
 
     public void CloseCurrentUI()
