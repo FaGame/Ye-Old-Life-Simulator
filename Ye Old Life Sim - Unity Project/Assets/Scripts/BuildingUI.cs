@@ -17,6 +17,7 @@ public class BuildingUI : MonoBehaviour
     public Button m_InteractButton; //Building UI "interact" button
     public Button m_BuyButton; //Building UI "buy items" button
     public PlayerData m_PlayerData;
+    public GameManager m_GameManager;
 
     private bool buildingsActive_ = false; //Flag to turn on and off the building UI
     private GameObject selectedBuilding_; //Selected building GameObject
@@ -50,6 +51,15 @@ public class BuildingUI : MonoBehaviour
 	void Update ()
     {
         m_BuildingGUI.SetActive(buildingsActive_);
+
+        if(m_GameManager.AITurn)
+        {
+            m_PlayerData = m_GameManager.m_AIData;
+        }
+        else if(m_GameManager.PlayerTurn)
+        {
+            m_PlayerData = m_GameManager.m_PlayerData;
+        }
 
         //-------------TEMP CODE-------------
         /*if (Input.GetMouseButtonDown(0) && !buildingsActive_)
