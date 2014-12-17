@@ -11,7 +11,8 @@ public class HabitatUI : MonoBehaviour
     public  PlayerData m_PlayerData;
 
     private Habitat m_Habitat;
-    private GameObject selectedHome_;//current dwelling
+    private GameObject selectedHome_;//current habitat highlighted
+    private GameObject CurrHome_;
     private Text descriptionText_;
     private Text[] habitatMenuText_;
     private PlayerController playerController_;
@@ -21,24 +22,23 @@ public class HabitatUI : MonoBehaviour
 
     private bool habitatIsActive_ = false;
 
-    public bool HabitatUIActive
+    /*public bool HabitatUIActive
     {
         get{  return habitatIsActive_;}
-    }
+    }*/
 
     void Start()
     {
         m_HabitatGUI.SetActive(false);
+        CurrHome_ = null;
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
         m_HabitatGUI.SetActive(habitatIsActive_);
 
         if(selectedHome_ != null)
         {
-            LoadHabitatData(playerController_, selectedHome_);
-
             timePenalty_ = (float)selectedHome_.GetComponent<Habitat>().m_Rating;
             rentValue_ = selectedHome_.GetComponent<Habitat>().m_Rent;
 
@@ -53,7 +53,7 @@ public class HabitatUI : MonoBehaviour
         selectedHome_ = gObj;
         //descriptionText_.text = selectedHome_.GetComponent<Habitat>().GetDescription();
 
-        if (selectedHome_.GetComponent<Habitat>().m_PlayerLivesHere)
+        if (!selectedHome_.GetComponent<Habitat>().m_PlayerLivesHere)
         {
             m_RentButton.interactable = true;
         }
@@ -77,16 +77,16 @@ public class HabitatUI : MonoBehaviour
 
     public void SetHabitat()
     {
-        m_Habitat.m_Rating = selectedHome_.GetComponent<Habitat>().m_Rating;
+        selectedHome_.GetComponent<Habitat>().m_PlayerLivesHere = true;
+        CurrHome_ = selectedHome_;
     }
 
-    public void CloseCurrentMenu()
+    public void CloseCurrentUI()
     {
         if(habitatIsActive_)
         {
             habitatIsActive_ = false;
             playerController_.enabled = true;
         }
-        
     }
 }

@@ -10,6 +10,7 @@ public class Habitat : MonoBehaviour
     public HabitatUI m_HabitatUI;
 
     public bool m_PlayerLivesHere;
+    public PlayerData m_PlayerData;
 
 
     void Start()
@@ -53,10 +54,21 @@ public class Habitat : MonoBehaviour
         return 0;
     }
 
-    /*public string GetDescription()
+    public string GetDescription()
     {
         return m_Description[Random.Range(0, m_Description.Length)];
-    }*/
+    }
 
+    public void SetHome()
+    {
+        if(m_PlayerData.m_Home.m_Rating == null)
+        {
+            Debug.Log("No Habitat set, This should not happen");
+        }
 
+        if(m_PlayerData.m_Home.m_Rating != null)
+        {
+            m_HabitatUI.SetHabitat();
+        }
+    }
 }
