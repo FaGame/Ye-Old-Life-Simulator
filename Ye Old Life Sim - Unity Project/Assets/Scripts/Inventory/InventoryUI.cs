@@ -14,11 +14,13 @@ public class InventoryUI : MonoBehaviour
     public float m_buttonYMovement = -50.0f;
 
     private GameObject inventoryPanel;
+    private List<Text> buttonTexts_;
     private List<GameObject> currentButtons;
     private bool inventoryDisplayed_;
 
     void Start()
     {
+        buttonTexts_ = new List<Text>();
         currentButtons = new List<GameObject>();
         inventoryDisplayed_ = false;
         inventoryPanel = GameObject.Find("Inventory");
@@ -59,6 +61,11 @@ public class InventoryUI : MonoBehaviour
                     buttonYMovement += (1) * m_buttonYSeperationDistance;
                     GameObject tempButton = Instantiate(inventoryButton, new Vector3(inventoryButton.transform.localPosition.x, inventoryButton.transform.localPosition.y + buttonYMovement, inventoryButton.transform.localPosition.z), Quaternion.identity) as GameObject;
                     tempButton.GetComponentInChildren<Text>().text = currentItem.Key;
+                    //foreach(Text text in tempButton)
+                    //{
+
+                    //}
+                    //buttonTexts_.Add(tempButton.GetComponentsInChildren<Text>();
                     tempButton.transform.SetParent(backgroundImage.transform, false);
                     tempButton.name = currentItem.Key;
                     currentButtons.Add(tempButton);
