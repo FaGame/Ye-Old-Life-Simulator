@@ -82,7 +82,11 @@ public class HabitatUI : MonoBehaviour
 
     public void CloseCurrentMenu()
     {
-        habitatIsActive_ = false;
-        playerController_.enabled = true;
+        if(habitatIsActive_)
+        {
+            habitatIsActive_ = false;
+            playerController_.enabled = true;
+        }
+        
     }
 }

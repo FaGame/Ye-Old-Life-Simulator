@@ -11,6 +11,7 @@ public class HUDScript : MonoBehaviour
     public GameObject m_Stats; //The stat's panel
     public GameObject m_Goals; //The goals panel
     public GameObject m_Skills; //The skills panel
+    public GameManager m_GameManager;
     public PlayerData m_PlayerData; //The player's data
     public Text m_CurrJobText; //The player's current job text
     public Text m_ShillingText; //The player's current shillings
@@ -102,6 +103,15 @@ public float m_HappinessObjective;
 	// Update is called once per frame
 	void Update ()
     {
+        if(m_GameManager.AITurn)
+        {
+            m_PlayerData = m_GameManager.m_AIData;
+        }
+        else if(m_GameManager.PlayerTurn)
+        {
+            m_PlayerData = m_GameManager.m_PlayerData;
+        }
+
         timeSlider_.value = m_PlayerData.m_CurrTime;
         hungerSlider_.value = m_PlayerData.m_HungerMeter;
 

@@ -25,6 +25,16 @@ public class GameManager : MonoBehaviour
     private bool objectivesGame_ = false;
     private bool sandboxGame_ = false;
 
+    public bool PlayerTurn
+    {
+        get { return isPlayerTurn_; }
+    }
+
+    public bool AITurn
+    {
+        get { return isAiTurn_; }
+    }
+
     void Start()
     {
         isPlayerTurn_ = true;
