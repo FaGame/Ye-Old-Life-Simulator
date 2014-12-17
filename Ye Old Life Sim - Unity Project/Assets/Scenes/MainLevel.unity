@@ -5547,7 +5547,7 @@ GameObject:
   - 114: {fileID: 366959474}
   m_Layer: 5
   m_Name: Journal
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5752,7 +5752,7 @@ GameObject:
   - 114: {fileID: 382939767}
   m_Layer: 5
   m_Name: CurrJobSign
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8676,7 +8676,7 @@ MonoBehaviour:
   m_Rent: 10
   m_Description: []
   m_HabitatUI: {fileID: 0}
-  m_PlayerLivesHere: 0
+  m_PlayerData: {fileID: 0}
   m_Rating: 2
 --- !u!65 &604814488
 BoxCollider:
@@ -12017,7 +12017,7 @@ MonoBehaviour:
   m_Rent: 25
   m_Description: []
   m_HabitatUI: {fileID: 0}
-  m_PlayerLivesHere: 0
+  m_PlayerData: {fileID: 0}
   m_Rating: 3
 --- !u!65 &898228382
 BoxCollider:
@@ -14584,7 +14584,7 @@ MonoBehaviour:
   m_Rent: 0
   m_Description: []
   m_HabitatUI: {fileID: 0}
-  m_PlayerLivesHere: 0
+  m_PlayerData: {fileID: 0}
   m_Rating: 0
 --- !u!54 &1078853320
 Rigidbody:
@@ -14612,6 +14612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0750a89031ee84f854f342a75e7289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PlayerRunning: {fileID: 0}
   m_PlayerData: {fileID: 1078853318}
   mCamera: {fileID: 1052255808}
   mTerrain: {fileID: 715305267}
@@ -21540,7 +21541,7 @@ GameObject:
   - 114: {fileID: 1583590507}
   m_Layer: 5
   m_Name: UI
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21580,6 +21581,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -24761,7 +24763,7 @@ MonoBehaviour:
   m_Description:
   - It will keep you dry, mostly!
   m_HabitatUI: {fileID: 0}
-  m_PlayerLivesHere: 0
+  m_PlayerData: {fileID: 0}
   m_Rating: 1
 --- !u!111 &1845238882
 Animation:
@@ -25617,7 +25619,7 @@ MonoBehaviour:
   m_Rent: 200
   m_Description: []
   m_HabitatUI: {fileID: 0}
-  m_PlayerLivesHere: 0
+  m_PlayerData: {fileID: 0}
   m_Rating: 5
 --- !u!65 &1903289242
 BoxCollider:
@@ -26816,7 +26818,7 @@ MonoBehaviour:
   m_Description:
   - 
   m_HabitatUI: {fileID: 0}
-  m_PlayerLivesHere: 0
+  m_PlayerData: {fileID: 0}
   m_Rating: 4
 --- !u!65 &1955591037
 BoxCollider:
@@ -27517,6 +27519,7 @@ GameObject:
   - 114: {fileID: 2007613437}
   - 114: {fileID: 2007613441}
   - 54: {fileID: 2007613442}
+  - 82: {fileID: 2007613443}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -27616,6 +27619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0750a89031ee84f854f342a75e7289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PlayerRunning: {fileID: 2007613443}
   m_PlayerData: {fileID: 2007613437}
   mCamera: {fileID: 1052255808}
   mTerrain: {fileID: 715305267}
@@ -27670,7 +27674,7 @@ MonoBehaviour:
   m_Rent: 0
   m_Description: []
   m_HabitatUI: {fileID: 0}
-  m_PlayerLivesHere: 0
+  m_PlayerData: {fileID: 0}
   m_Rating: 0
 --- !u!54 &2007613442
 Rigidbody:
@@ -27687,6 +27691,64 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &2007613443
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2007613432}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 80be9caa750944e48b9d176681f5449d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &2012810027
 GameObject:
   m_ObjectHideFlags: 0
@@ -29216,7 +29278,7 @@ MonoBehaviour:
   m_Rent: 100
   m_Description: []
   m_HabitatUI: {fileID: 0}
-  m_PlayerLivesHere: 0
+  m_PlayerData: {fileID: 0}
   m_Rating: 4
 --- !u!65 &2120276820
 BoxCollider:
