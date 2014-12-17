@@ -131,6 +131,10 @@
     <None Include="Assets\Horse\SoftAlpha.shader" />
     <None Include="Assets\PlayerAssets\Medieval_Toon_Character\ReadMe.txt" />
     <None Include="Assets\readme.txt" />
+    <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
+    <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
+    <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
+    <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
     <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
     <None Include="Assets\Test.txt" />
     <None Include="Assets\Textures\Forest Grounds - Terrain Texture Pack\Readme.txt" />
