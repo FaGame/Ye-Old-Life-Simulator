@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public BuildingUI m_BuildingUI;
     public RestartUI m_RestartUI;
 
+	public int m_Turns;
+
     private bool isPlayerTurn_;
     private bool isAiTurn_;
 
@@ -19,7 +21,6 @@ public class GameManager : MonoBehaviour
     private float maxTurns_;
     private float Players_;
     private float hungerTimer_;
-    private int Turns_;
     private int IncrementTurns_ = 1;
     private bool turnsGame_ = false;
     private bool objectivesGame_ = false;
@@ -71,7 +72,7 @@ public class GameManager : MonoBehaviour
 
             if (m_PlayerData.m_CurrTime <= 0)
             {
-                Turns_ += IncrementTurns_;
+                m_Turns += IncrementTurns_;
 
                 m_Player.SetActive(false);
 
@@ -113,7 +114,7 @@ public class GameManager : MonoBehaviour
 
     void CheckForTurnWin()
     {
-       if(Turns_ >= maxTurns_)
+       if(m_Turns >= maxTurns_)
        {
            //You Win Turns gametype, do shit
            Debug.Log("You Win Turns Game!!");
