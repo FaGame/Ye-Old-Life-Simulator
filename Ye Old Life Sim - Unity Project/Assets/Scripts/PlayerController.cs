@@ -5,6 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(NavMeshAgent))]
 public class PlayerController : MonoBehaviour 
 {
+    public AudioSource m_PlayerRunning;
     public PlayerData m_PlayerData;     //object to hold the player data, if that wasn't obvious 
     public Camera mCamera;
     public Terrain mTerrain;
@@ -93,8 +94,10 @@ public class PlayerController : MonoBehaviour
         {
             m_IsMoving = false;
         }
-
+    
         navAgent_.speed = m_PlayerData.GetComponent<PlayerData>().m_Speed;
+
+        UpdateWalkSound();
     }
 
     private void UpdateAnimation()
@@ -121,6 +124,14 @@ public class PlayerController : MonoBehaviour
                 m_PlayerData.m_HungerMeter += 1.0f;
                 hungerTimer_ = 0.0f;
             }
+        }
+    }
+
+    private void UpdateWalkSound()
+    {
+        if(m_IsMoving && !m_PlayerRunning.isPlaying)
+        {
+            m_PlayerRunning.Play();
         }
     }
 }
