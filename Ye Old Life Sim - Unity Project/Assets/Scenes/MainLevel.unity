@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb90059e40cc41b4ca498dc1b85a7944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_BackgroundSound: {fileID: 0}
   m_BuildingName: 
   m_Description:
   - "Where all the important people are. You wouldn\u2019t know any of them.\r\n"
@@ -6201,7 +6202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &421053088
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8258,6 +8259,14 @@ Prefab:
       propertyPath: m_PlayerData
       value: 
       objectReference: {fileID: 2007613437}
+    - target: {fileID: 11488054, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
+    - target: {fileID: 11488056, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
   m_RootGameObject: {fileID: 1583590499}
@@ -10657,8 +10666,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -36.5, y: 2.5}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 40, y: -136}
+  m_SizeDelta: {x: 500, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &794741793
 MonoBehaviour:
@@ -10686,7 +10695,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &794741794
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11577,6 +11586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb90059e40cc41b4ca498dc1b85a7944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_BackgroundSound: {fileID: 0}
   m_BuildingName: 
   m_Description:
   - Ask about our insurance policy!
@@ -13635,6 +13645,7 @@ GameObject:
   - 4: {fileID: 1031574683}
   - 114: {fileID: 1031574685}
   - 65: {fileID: 1031574684}
+  - 82: {fileID: 1031574686}
   m_Layer: 0
   m_Name: Tavern
   m_TagString: Building
@@ -13733,6 +13744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb90059e40cc41b4ca498dc1b85a7944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_BackgroundSound: {fileID: 0}
   m_BuildingName: 
   m_Description:
   - Sometimes you want to go, where nobody knows your name.
@@ -13759,6 +13771,65 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+--- !u!82 &1031574686
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8200000, guid: 32c61f09b3e987043affb162e26715dd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1422810110}
+  m_GameObject: {fileID: 1031574682}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 45adec9839f39da4d8a7223d17f37af5, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1036317346
 GameObject:
   m_ObjectHideFlags: 0
@@ -14497,6 +14568,7 @@ MonoBehaviour:
   m_Shillings: 0
   m_EarningScalar: 1
   m_IsInfected: 0
+  m_HasMount: 0
   m_UseableInventory: {fileID: 0}
 --- !u!114 &1078853319
 MonoBehaviour:
@@ -14535,7 +14607,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1078853317}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d0750a89031ee84f854f342a75e7289, type: 3}
   m_Name: 
@@ -14966,7 +15038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1109647298
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19458,6 +19530,7 @@ MonoBehaviour:
   m_PlayerData: {fileID: 2007613437}
   m_BuildingUI: {fileID: 1583590505}
   m_RestartUI: {fileID: 1583590507}
+  m_Turns: 0
 --- !u!4 &1405834718
 Transform:
   m_ObjectHideFlags: 0
@@ -21569,6 +21642,7 @@ MonoBehaviour:
   m_Stats: {fileID: 743506753}
   m_Goals: {fileID: 854745679}
   m_Skills: {fileID: 1930204439}
+  m_GameManager: {fileID: 1405834717}
   m_PlayerData: {fileID: 2007613437}
   m_CurrJobText: {fileID: 1195571785}
   m_ShillingText: {fileID: 1954455689}
@@ -21601,6 +21675,7 @@ MonoBehaviour:
   m_InteractButton: {fileID: 1517928580}
   m_BuyButton: {fileID: 1944513559}
   m_PlayerData: {fileID: 2007613437}
+  m_GameManager: {fileID: 1405834717}
 --- !u!114 &1583590506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22741,6 +22816,7 @@ GameObject:
   - 4: {fileID: 1680139985}
   - 114: {fileID: 1680139987}
   - 65: {fileID: 1680139986}
+  - 82: {fileID: 1680139988}
   m_Layer: 8
   m_Name: Forge
   m_TagString: Building
@@ -22836,6 +22912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb90059e40cc41b4ca498dc1b85a7944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_BackgroundSound: {fileID: 1680139988}
   m_BuildingName: 
   m_Description:
   - Gumby and Pokey were here.
@@ -22866,6 +22943,65 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+--- !u!82 &1680139988
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8200000, guid: af6f129a2806bb742902794a9efc8643,
+    type: 2}
+  m_PrefabInternal: {fileID: 1766401637}
+  m_GameObject: {fileID: 1680139984}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 2596ff68ba23be74bba8bc6141346049, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1685704120
 GameObject:
   m_ObjectHideFlags: 0
@@ -25432,6 +25568,7 @@ GameObject:
   - 114: {fileID: 1903289243}
   - 65: {fileID: 1903289242}
   - 114: {fileID: 1903289241}
+  - 82: {fileID: 1903289244}
   m_Layer: 0
   m_Name: Barracks
   m_TagString: Building
@@ -25507,6 +25644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb90059e40cc41b4ca498dc1b85a7944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_BackgroundSound: {fileID: 1903289244}
   m_BuildingName: 
   m_Description:
   - "To serve country and king, and, to seek glory and honor, join us. Before we draft
@@ -25532,6 +25670,65 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+--- !u!82 &1903289244
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8200000, guid: 51afd7274b17af548a7f12550713b016,
+    type: 2}
+  m_PrefabInternal: {fileID: 1342079257}
+  m_GameObject: {fileID: 1903289239}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: ed3ed5242468a884ba40b38051a65ee5, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1908276903
 GameObject:
   m_ObjectHideFlags: 0
@@ -26616,7 +26813,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Rent: 50
-  m_Description: []
+  m_Description:
+  - 
   m_HabitatUI: {fileID: 0}
   m_PlayerLivesHere: 0
   m_Rating: 4
@@ -27405,6 +27603,7 @@ MonoBehaviour:
   m_Shillings: 0
   m_EarningScalar: 1
   m_IsInfected: 0
+  m_HasMount: 0
   m_UseableInventory: {fileID: 0}
 --- !u!114 &2007613438
 MonoBehaviour:
@@ -28944,6 +29143,7 @@ GameObject:
   - 114: {fileID: 2120276821}
   - 65: {fileID: 2120276820}
   - 114: {fileID: 2120276819}
+  - 82: {fileID: 2120276822}
   m_Layer: 0
   m_Name: Farm
   m_TagString: Building
@@ -29043,6 +29243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb90059e40cc41b4ca498dc1b85a7944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_BackgroundSound: {fileID: 2120276822}
   m_BuildingName: 
   m_Description:
   - Our last farm hand spent a little too much time in the hay.
@@ -29064,6 +29265,65 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+--- !u!82 &2120276822
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8200000, guid: 9dfe4285361da0b4f993abca79679e75,
+    type: 2}
+  m_PrefabInternal: {fileID: 243452356}
+  m_GameObject: {fileID: 2120276817}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 1c851f323ec6ded49aba65e678f17427, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &2125311419
 GameObject:
   m_ObjectHideFlags: 0

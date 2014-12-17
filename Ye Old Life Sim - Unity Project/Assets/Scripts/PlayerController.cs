@@ -36,6 +36,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void OnDisable()
+    {
+        m_IsMoving = false;
+    }
+
     void Update()
     {
         UpdateAnimation();
