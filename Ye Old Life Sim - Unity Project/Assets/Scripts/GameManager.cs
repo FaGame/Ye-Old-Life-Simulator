@@ -184,13 +184,23 @@ public class GameManager : MonoBehaviour
     {
         if (m_PlayerData.m_CurrTime != 0.0f)
         {
-            if (m_Player.GetComponent<PlayerController>().m_IsMoving)
+            if (m_Player.GetComponent<PlayerController>().m_IsMoving && isPlayerTurn_ == true)
             {
                 m_PlayerData.m_CurrTime -= Time.deltaTime;
                 hungerTimer_ += Time.deltaTime;
                 if (hungerTimer_ >= 1.0f)
                 {
                     m_PlayerData.m_HungerMeter += 1.0f;
+                    hungerTimer_ = 0.0f;
+                }
+            }
+            if (m_AI.GetComponent<PlayerController>().m_IsMoving && isAiTurn_ == true)
+            {
+                m_AIData.m_CurrTime -= Time.deltaTime;
+                hungerTimer_ += Time.deltaTime;
+                if (hungerTimer_ >= 1.0f)
+                {
+                    m_AIData.m_HungerMeter += 1.0f;
                     hungerTimer_ = 0.0f;
                 }
             }
