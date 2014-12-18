@@ -39,9 +39,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb61c0ef4eb393438d9192ca3324d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Cost: 0
+  m_UseCount: 1
+  m_Description: Test string for now
   m_Player: {fileID: 0}
-  m_InitialCost: 50
-  m_ResellValue: 20
   m_ReputationBonus: 5
   m_SkillValueNeeded: 10
   m_SkillNeeded: 7

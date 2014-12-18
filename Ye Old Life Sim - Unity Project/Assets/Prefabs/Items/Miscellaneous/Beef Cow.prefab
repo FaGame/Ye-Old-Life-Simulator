@@ -41,6 +41,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Cost: 100
   m_UseCount: 1
+  m_Description: Test string for now
   m_Player: {fileID: 0}
   m_ReputationBonus: 0
   m_SkillValueNeeded: 50

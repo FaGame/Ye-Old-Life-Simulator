@@ -37,7 +37,7 @@ AudioSource:
   m_GameObject: {fileID: 117990}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: a1b8ac28d415307459092d0d10fe7f27, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ed9211fcdbcc9f44bb39d12584b0ab8f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -100,19 +100,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AudioSource: {fileID: 8200000}
   m_SkillRequirement:
-  - m_Skill: 2
-    m_Amount: 300
-  - m_Skill: 6
-    m_Amount: 100
-  m_SkillGain:
-  - m_Skill: 6
-    m_Amount: .5
   - m_Skill: 12
-    m_Amount: 1
+    m_Amount: 1500
+  m_SkillGain:
+  - m_Skill: 12
+    m_Amount: 2
   m_JobDescription: 
-  m_Wage: 10
+  m_Wage: 0
   m_MinWage: 0
-  m_MaxWage: 0
+  m_MaxWage: 10
   m_ReputationGain: 100
 --- !u!1001 &100100000
 Prefab:
