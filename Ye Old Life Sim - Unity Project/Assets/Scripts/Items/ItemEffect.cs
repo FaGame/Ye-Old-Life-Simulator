@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
 public class ItemEffect 
-{
+{ 
     public enum EffectType
     {
         SPEED,
