@@ -10,6 +10,7 @@ public class FindASack : RandomEventManager
 	public GameObject[] m_ReputationItems;
 
 	public Item m_ItemType;
+	public PlayerData m_PlayerData;
 
 	private int RandomNumber_;
 	public GameObject m_FoundItem;
@@ -25,7 +26,8 @@ public class FindASack : RandomEventManager
 		{
 			int ElixirGiven = Random.Range(1, m_Elixirs.Length -1 );
 			m_FoundItem = m_Elixirs[ElixirGiven];
-		//	m_ItemType(Elixir);
+//			m_FoundItem as Elixir;
+//			m_ItemType as Elixir;
 			
 		}
 		else if(RandomNumber_ >= 50)
@@ -45,10 +47,12 @@ public class FindASack : RandomEventManager
 		}
 
 		//public void AddToInventory(string name, ItemInventoryEntry item)
-//		GetComponent<PossessionInventory>().AddToInventory(m_FoundItem.name, m_ItemType); //add the found item into the player's inventory
+		m_PlayerData.m_UseableInventory.AddToInventory(m_FoundItem.name, GetComponent<AnItem>().m_SingleItem);
+//		GetComponent<PossessionInventory>().AddToInventory(m_FoundItem.name, m_FoundItem as Item); //add the found item into the player's inventory
 		//If someone else wants to make the above line work, be my guest.
 
 		m_EventText.text = "You found a sack lying on the ground. Searching inside reveals... A " + m_FoundItem.name.ToString() + "!";
 
 	}
+	//
 }

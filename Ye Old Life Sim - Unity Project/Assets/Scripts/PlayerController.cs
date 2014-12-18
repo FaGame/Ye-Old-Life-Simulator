@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     public Terrain mTerrain;
     public Transform mblackSmithWaypoint;
     public bool m_IsMoving;
+	public float m_v;                   //1 = walk animiation
+                                        //0 = idle animation
+                                        //TODO: Make Enum
 
     private Vector3 currTarget_;
     private bool atCurrTarget_;
@@ -18,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private NavMeshAgent navAgent_;
     private float lastRot_;
     private float hungerTimer_;
+    private GameObject waypointObject_;
 
     public void SetTarget(Vector3 target)
     {
@@ -29,12 +33,21 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        currTarget_ = Vector3.zero;
-        atCurrTarget_ = true;
         animator_ = GetComponent<Animator>();
         navAgent_ = GetComponent<NavMeshAgent>();
+        currTarget_ = Vector3.zero;
+        atCurrTarget_ = true;
         lastRot_ = transform.rotation.eulerAngles.y;
-
+        TargetReached();
+        //SetTarget(m_PlayerData.transform.position);
+    }
+	
+	void TargetReached()
+    {
+        //currTarget_ = Vector3.zero;
+        atCurrTarget_ = true;
+        lastRot_ = transform.rotation.eulerAngles.y;
+        waypointObject_ = null;
     }
 
     void OnDisable()
@@ -59,17 +72,18 @@ public class PlayerController : MonoBehaviour
                 {
                     int layerMask = LayerMask.GetMask("Terrain");
                     Physics.Raycast(pickingRay, out rayData, 3000.0f, layerMask);
-                    SetTarget(rayData.point);
+                    //SetTarget(rayData.point);
                 }
 
                 RaycastHit hitInfo = new RaycastHit();
                 bool hit = Physics.Raycast(pickingRay, out hitInfo);
                 if (hit)
                 {
-                    if (hitInfo.transform.gameObject.tag == "Building")
+					waypointObject_ = hitInfo.transform.gameObject;
+                    if (waypointObject_.tag == "Building")
                     {
                         Debug.Log("It's working!");
-                        Transform[] posEs = hitInfo.transform.gameObject.GetComponentsInChildren<Transform>();
+                        Transform[] posEs = waypointObject_.GetComponentsInChildren<Transform>();
                         foreach (Transform tForm in posEs)
                         {
                             if (tForm.CompareTag("Waypoint"))
@@ -85,7 +99,11 @@ public class PlayerController : MonoBehaviour
         }
 
         //DecreaseTime();
-
+		if(!atCurrTarget_)
+        {
+            GetDistenceToWaypoint(waypointObject_);
+        }
+		
         if(navAgent_.velocity.magnitude > 0.0f)
         {
             m_IsMoving = true;
@@ -100,16 +118,35 @@ public class PlayerController : MonoBehaviour
         UpdateWalkSound();
     }
 
+    void GetDistenceToWaypoint(GameObject waypointObject_)
+    {
+        float distenceToObjectX = (m_PlayerData.transform.position.x - waypointObject_.transform.position.x);
+        float distenceToObjectZ = (m_PlayerData.transform.position.z - waypointObject_.transform.position.z);
+        float distenceToWaypoint = Mathf.Sqrt((distenceToObjectX * distenceToObjectX) + (distenceToObjectZ * distenceToObjectZ));
+
+        if(distenceToWaypoint > 5.0f)
+        {
+            m_v = 1;
+        }
+        else if (distenceToWaypoint < 5.0f)
+        {
+            m_v = 0;
+            TargetReached();
+        }
+    }
+
     private void UpdateAnimation()
     {
-        float speedRatio = navAgent_.velocity.magnitude / navAgent_.speed;
-        float angularSpeed = transform.rotation.eulerAngles.y - lastRot_;
-        lastRot_ = transform.rotation.eulerAngles.y;
-        animator_.SetFloat("speed", speedRatio);
-        animator_.SetFloat("xDir", 0.0f);
-        animator_.SetFloat("yDir", speedRatio);
-        animator_.SetFloat("rotation", Mathf.Min(1.0f, Mathf.Abs(angularSpeed / (navAgent_.angularSpeed * Time.deltaTime))));
-        animator_.SetFloat("rotDir", Mathf.Clamp(angularSpeed / (navAgent_.angularSpeed * Time.deltaTime), -1.0f, 1.0f));
+        //float speedRatio = navAgent_.velocity.magnitude / navAgent_.speed;
+        //float angularSpeed = transform.rotation.eulerAngles.y - lastRot_;
+        //lastRot_ = transform.rotation.eulerAngles.y;
+        //animator_.SetFloat("speed", speedRatio);
+        //animator_.SetFloat("xDir", 0.0f);
+        //animator_.SetFloat("yDir", speedRatio);
+        //animator_.SetFloat("rotation", Mathf.Min(1.0f, Mathf.Abs(angularSpeed / (navAgent_.angularSpeed * Time.deltaTime))));
+        //animator_.SetFloat("rotDir", Mathf.Clamp(angularSpeed / (navAgent_.angularSpeed * Time.deltaTime), -1.0f, 1.0f));
+
+        animator_.SetFloat("Walk", m_v);
     }
 
     private void DecreaseTime()

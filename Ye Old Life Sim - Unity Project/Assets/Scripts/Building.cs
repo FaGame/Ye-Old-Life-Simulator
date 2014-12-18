@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Building : MonoBehaviour 
 {
-    public AudioSource m_BackgroundSound;
+    public PlayerData m_Player;
+
     public string m_BuildingName;
     public string[] m_Description;
     public Texture2D m_Image;
@@ -48,6 +49,7 @@ public class Building : MonoBehaviour
         }
         pData.m_CurrTime -= actualWorkTime;
         pData.m_Shillings += (int)(jData.GetWage() * actualWorkTime);
+        jData.m_AudioSource.Play();
         return actualWorkTime;
     }
 

@@ -35,4 +35,5 @@ public class Fire : RandomEventManager
 		m_EventText.text = "YOUR HOUSE CAUGHT FIRE. You lost all your food and  " + m_MoneyLost.ToString() + " shillings.";
 		//pop up window
 	}
+	//
 }

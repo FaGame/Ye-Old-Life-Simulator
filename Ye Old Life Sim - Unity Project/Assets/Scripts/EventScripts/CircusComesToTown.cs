@@ -14,6 +14,7 @@ public class CircusComesToTown : RandomEventManager
 
 	public GameObject m_FoundItem;
 	public GameObject[] m_Items;
+	public PlayerData m_PlayerData;
 
 	public void PlayEvent()
 	{
@@ -44,11 +45,12 @@ public class CircusComesToTown : RandomEventManager
 
 		}
 		//GetComponent<PossessionInventory>().AddToInventory()
+		m_PlayerData.m_UseableInventory.AddToInventory(m_FoundItem.name, GetComponent<AnItem>().m_SingleItem);
 //		GetComponent<PossessionInventory>().AddToInventory(m_FoundItem.name, m_ItemType); //add the found item into the player's inventory
 		//If someone else wants to make the above line work, be my guest.
 
 		m_EventText.text = "The circus has come to town, lose " + m_MoneyLost.ToString() + " shillings. No ifs ands or buts. " + m_TicketCostMessage
 				+ " On the bright side, you ended up winning " + m_FoundItem.name.ToString() + ".";
-
+		//
 	}
 }

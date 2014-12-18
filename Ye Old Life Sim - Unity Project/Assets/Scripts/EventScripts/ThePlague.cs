@@ -9,4 +9,5 @@ public class ThePlague : RandomEventManager
 
 		m_EventText.text = "You've caught the plague.";
 	}
+	//
 }

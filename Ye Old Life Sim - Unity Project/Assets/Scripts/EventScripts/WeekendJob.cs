@@ -14,24 +14,17 @@ public class WeekendJob : RandomEventManager
 	{
 		m_ExperienceGained = Random.Range(5, 26);
 
-		bool isSkillFound = false;
-
-		for (int i = 0; i < jData.m_SkillGain.Length; ++i)
+		SkillSelect_ = Random.Range(1, GetComponent<PlayerData>().m_Skills.Count);
+		if(SkillSelect_ == 0)
 		{
-			for (int j = 0; j < pData.m_Skills.Count; ++j)
-			{
-				if (jData.m_SkillGain[i].m_Skill == pData.m_Skills[j].m_Skill)
-				{
-					pData.m_Skills[j].m_Amount += jData.m_SkillGain[i].m_Amount = m_ExperienceGained; //really not sure if this is right
-					isSkillFound = true;
-				}
-				continue;
-			}
-			if (!isSkillFound)
-			{
-				pData.m_Skills.Add(new SkillAndAmount(jData.m_SkillGain[i].m_Skill, jData.m_SkillGain[i].m_Amount = m_ExperienceGained)); //same here
-			}
+			return;
 		}
+		else
+		{
+			pData.m_Skills[SkillSelect_].m_Amount += m_ExperienceGained;
+		}
+		
+		
 
 
 //		SkillSelect_ = Random.Range(1, GetComponent<Skill>().m_Skills.Length);
@@ -43,4 +36,5 @@ public class WeekendJob : RandomEventManager
 
 //Finishing this requires being able to increase your skill level
 	}
+	//
 }

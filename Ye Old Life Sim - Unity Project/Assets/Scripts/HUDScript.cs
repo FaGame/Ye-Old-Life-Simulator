@@ -20,6 +20,8 @@ public class HUDScript : MonoBehaviour
     public Text m_ShillingText; //The player's current shillings
 
     private bool statsActive_ = false; //This bool determines whether or not the the stats window is open
+    private bool inventoryActive_ = false;
+    private bool HUDActive_ = false;
     private float timer_; //Turn timer
     private Slider[] sliderArray_; //Array containing the HUD sliders
     private Slider[] objSliderArray_; //Array of objective sliders
@@ -32,6 +34,11 @@ public class HUDScript : MonoBehaviour
     private Text[] skillsText_; //Array of text for the skills screen
     private string skillString_; //String that will contain and display the skill names
     private List<float> playerStats_ = new List<float>(); //List of the player stats
+
+    public bool HUDActive
+    {
+        get { return HUDActive_; }
+    }
 
     //All values in the following temp code should be set from the player rather than in here
     //This will be all plugged in once the player is in a state where this can happen
@@ -113,6 +120,25 @@ public float m_HappinessObjective;
         else if(m_GameManager.PlayerTurn == true)
         {
             m_PlayerData = m_GameManager.m_PlayerData;
+        }
+
+        if (statsActive_ || inventoryActive_)
+        {
+            HUDActive_ = true;
+        }
+        else
+        {
+            HUDActive_ = false;
+        }
+
+        if (statsActive_)
+        {
+            statsActive_ = false;
+            m_StatsScreen.SetActive(statsActive_);
+        }
+        else if (inventoryActive_)
+        {
+            inventoryActive_ = false;
         }
 
         timeSlider_.value = m_PlayerData.m_CurrTime;

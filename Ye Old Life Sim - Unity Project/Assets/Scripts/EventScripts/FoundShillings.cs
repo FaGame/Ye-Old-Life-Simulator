@@ -16,5 +16,6 @@ public class FoundShillings : RandomEventManager
 		m_EventText.text = "You find a dead beggar and search his person for belongings. You found " + m_MoneyGained.ToString() +
 							" shillings! You shake the man's hand and go off on your business.";
     }
+	//
 
 }

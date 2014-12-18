@@ -17,4 +17,5 @@ public class Tournament : RandomEventManager
 		GetComponent<PlayerData>().m_Shillings -= m_MoneyLost;
 		m_EventText.text = "You go to see a tournament, the ticket was " + m_MoneyLost.ToString() + " shillings. But you had a great time.";
 	}
+	//
 }
