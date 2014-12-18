@@ -17,4 +17,5 @@ public class FootAndMouth : RandomEventManager
 			m_EventText.text = "There's a horse spittin' sickness goin' 'round these parts.";
 		}
 	}
+	//
 }

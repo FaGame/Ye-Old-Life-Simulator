@@ -3,10 +3,12 @@ using System.Collections;
 
 public class KingdomAtWar : RandomEventManager
 {
-	public string m_BuildingName;//Probably better to check against the jobs available than the building itself, but this is how it is for now.
+//	public string m_BuildingName;//Probably better to check against the jobs available than the building itself, but this is how it is for now.
 	public JobData[] m_JobData;
 	public PlayerData pData;
 	public JobData jData;
+
+	public Building m_Building;
 
 	private int EndOfWar_;
 
@@ -17,14 +19,13 @@ public class KingdomAtWar : RandomEventManager
 
 		//Money from all jobs (with the exception of the Barracks) now pay half
 
-		if (m_BuildingName == "BARRACKS")
+		if(GetComponent<PlayerData>().m_Building.m_BuildingName == "Barracks")
 		{
-			GetComponent<JobData>().m_Wage *= 2;
+			GetComponent<PlayerData>().m_EarningScalar = 2;
 		}
-		
 		else
 		{
-			GetComponent<JobData>().m_Wage *= (int)0.5;
+			GetComponent<PlayerData>().m_EarningScalar = (int)0.5;
 		}
 
 		//Barracks pay doubles
@@ -33,19 +34,17 @@ public class KingdomAtWar : RandomEventManager
 
 	public void Update()
 	{
-		if(GetComponent<GameManager>().m_Turns == EndOfWar_)
+		if(GetComponent<PlayerData>().m_Building.m_BuildingName == "Barracks")
 		{
-			if (m_BuildingName == "BARRACKS")
-			{
-				GetComponent<JobData>().m_Wage *= (int)0.5;
-			}
-
-			else
-			{
-				GetComponent<JobData>().m_Wage *= 2;
-			}
-			m_EventText.text = "The war has ended. Who won doesn't matter, what matters is all the jobs pay their usual amount again. Probably.";
-
+			GetComponent<PlayerData>().m_EarningScalar = 1;
 		}
+		else
+		{
+			GetComponent<PlayerData>().m_EarningScalar = 1;
+		}
+		m_EventText.text = "The war has ended. Who won doesn't matter, what matters is all the jobs pay their usual amount again. Probably.";
+
+		
 	}
+	//
 }

@@ -49,6 +49,6 @@ public class CircusComesToTown : RandomEventManager
 
 		m_EventText.text = "The circus has come to town, lose " + m_MoneyLost.ToString() + " shillings. No ifs ands or buts. " + m_TicketCostMessage
 				+ " On the bright side, you ended up winning " + m_FoundItem.name.ToString() + ".";
-
+		//
 	}
 }

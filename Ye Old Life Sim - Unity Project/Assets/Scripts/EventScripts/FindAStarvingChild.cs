@@ -18,4 +18,5 @@ public class FindAStarvingChild : RandomEventManager
 		m_EventText.text = "You come accross a starving child. Its teary eyes are too sad for you to ignore and you give them " + m_MoneyLost.ToString() + " shillings.";
 		//pop up window
 	}
+	//
 }

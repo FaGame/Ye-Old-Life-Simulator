@@ -24,6 +24,7 @@ public class BarrelOfMead : RandomEventManager
 			GetComponentInChildren<PlayerData>().m_CurrTime -= m_TimeChange; //Time player loses on their net turn
 			//pop up window
 			m_EventText.text = "Your hangover has lost you quite a bit of time.";
+			//
 		}
 	}
 		

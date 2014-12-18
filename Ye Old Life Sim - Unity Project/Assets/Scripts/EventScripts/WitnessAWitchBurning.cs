@@ -28,4 +28,5 @@ public class WitnessAWitchBurning : RandomEventManager
 		GetComponent<PlayerData>().m_CurrTime += m_TimeChange;
 		m_EventText.text = "A witch has been found! They're burning her and all you can say is: " + FeelingTowardWitch_;
 	}
+	//
 }
