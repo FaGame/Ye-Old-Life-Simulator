@@ -9,6 +9,9 @@ public class RandomEventManager : MonoBehaviour
     public int m_EventIndex;
 	public int m_MoneyLost;
 	public int m_MoneyGained;
+	public float m_ExperienceGained;
+	public float m_HappinesChange;
+	public float m_TimeChange;
 
     public GameObject[] m_EventList;
 

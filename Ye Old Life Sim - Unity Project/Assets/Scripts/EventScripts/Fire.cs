@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Fire : RandomEventManager
 {
+	public UseableItemInventory m_UseableInventory;
+	private Food playerFood_;
+
 	public void PlayEvent()
 	{
 
@@ -14,7 +18,21 @@ public class Fire : RandomEventManager
 		{
 			m_MoneyLost = GetComponent<PlayerData>().m_Shillings;
 		}
-		m_EventText.text = "YOUR HOUSE CAUGHT FIRE. You lost all you food and  " + m_MoneyLost.ToString() + " shillings.";
+
+		if (m_UseableInventory != null)
+		{
+			foreach (KeyValuePair<string, UseableItemInventory.ItemInventoryEntry> entry in m_UseableInventory.m_UseableItemInventory)
+			{
+				if (entry.Value.item is Food)
+				{
+					//set the food variable if the entry is a food type
+					playerFood_ = (Food)entry.Value.item;
+					playerFood_.RemoveFood();   //removes perishable food item
+				}
+			}
+		}
+
+		m_EventText.text = "YOUR HOUSE CAUGHT FIRE. You lost all your food and  " + m_MoneyLost.ToString() + " shillings.";
 		//pop up window
 	}
 }
