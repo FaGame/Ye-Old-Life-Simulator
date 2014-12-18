@@ -10,6 +10,7 @@ public class FindASack : RandomEventManager
 	public GameObject[] m_ReputationItems;
 
 	public Item m_ItemType;
+	public PlayerData m_PlayerData;
 
 	private int RandomNumber_;
 	public GameObject m_FoundItem;
@@ -46,6 +47,7 @@ public class FindASack : RandomEventManager
 		}
 
 		//public void AddToInventory(string name, ItemInventoryEntry item)
+		m_PlayerData.m_UseableInventory.AddToInventory(m_FoundItem.name, GetComponent<AnItem>().m_SingleItem);
 //		GetComponent<PossessionInventory>().AddToInventory(m_FoundItem.name, m_FoundItem as Item); //add the found item into the player's inventory
 		//If someone else wants to make the above line work, be my guest.
 
