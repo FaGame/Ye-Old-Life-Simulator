@@ -13,14 +13,14 @@ public class InventoryUI : MonoBehaviour
     public float m_buttonYSeperationDistance = 25.0f;
     public float m_buttonYMovement = -50.0f;
 
+    private Text[] buttonTexts_;
     private GameObject inventoryPanel;
-    private List<Text> buttonTexts_;
     private List<GameObject> currentButtons;
     private bool inventoryDisplayed_;
 
     void Start()
     {
-        buttonTexts_ = new List<Text>();
+        buttonTexts_ = new Text[2];
         currentButtons = new List<GameObject>();
         inventoryDisplayed_ = false;
         inventoryPanel = GameObject.Find("Inventory");
@@ -59,15 +59,27 @@ public class InventoryUI : MonoBehaviour
                 foreach(KeyValuePair<string, UseableItemInventory.ItemInventoryEntry> currentItem in inventoryScript.m_UseableItemInventory)
                 {
                     buttonYMovement += (1) * m_buttonYSeperationDistance;
+                    //create the new button
                     GameObject tempButton = Instantiate(inventoryButton, new Vector3(inventoryButton.transform.localPosition.x, inventoryButton.transform.localPosition.y + buttonYMovement, inventoryButton.transform.localPosition.z), Quaternion.identity) as GameObject;
-                    tempButton.GetComponentInChildren<Text>().text = currentItem.Key;
-                    //foreach(Text text in tempButton)
-                    //{
-
-                    //}
-                    //buttonTexts_.Add(tempButton.GetComponentsInChildren<Text>();
+                    //tempButton.GetComponentInChildren<Text>().text = currentItem.Key;
+                    //set the name and count of the item
+                    buttonTexts_ = tempButton.GetComponentsInChildren<Text>();
+                    for (int l = 0; l < buttonTexts_.Length; ++l)
+                    {
+                        if(buttonTexts_[l].name == "InventoryItemButtonText")
+                        {
+                            buttonTexts_[l].text = currentItem.Key;
+                        }
+                        else if(buttonTexts_[l].name == "ItemCount")
+                        {
+                            buttonTexts_[l].text = currentItem.Value.count.ToString();
+                        }
+                    }
+                    //set the parent of the button
                     tempButton.transform.SetParent(backgroundImage.transform, false);
+                    //set the name of the button
                     tempButton.name = currentItem.Key;
+                    //add the button the the button list
                     currentButtons.Add(tempButton);
                     imageScale.y += m_yScale;
                     ++i;
