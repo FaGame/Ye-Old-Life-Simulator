@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c786cd230a09e4ba95a6072d5a1a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AudioSource: {fileID: 0}
+  m_AudioSource: {fileID: 8200000}
   m_SkillRequirement:
   - m_Skill: 0
     m_Amount: 100
