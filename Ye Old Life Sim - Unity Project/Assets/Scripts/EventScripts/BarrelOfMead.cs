@@ -6,7 +6,6 @@ public class BarrelOfMead : RandomEventManager
 {
 	private int HangoverTurn_;
 	private int currTurn_;
-	private float HangoverTime_ = 15.0f;
 
 	public void PlayEvent()
 	{
@@ -21,7 +20,8 @@ public class BarrelOfMead : RandomEventManager
 	{
 		if(GetComponent<GameManager>().m_Turns == HangoverTurn_)
 		{
-			GetComponentInChildren<PlayerData>().m_CurrTime -= HangoverTime_; //Time player loses on their net turn
+			m_TimeChange = -15.0f;
+			GetComponentInChildren<PlayerData>().m_CurrTime -= m_TimeChange; //Time player loses on their net turn
 			//pop up window
 			m_EventText.text = "Your hangover has lost you quite a bit of time.";
 		}
