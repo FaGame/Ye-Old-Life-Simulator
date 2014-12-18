@@ -21,3 +21,5 @@ C:\code\YoOldLifeSimulator\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project
 C:\code\YoOldLifeSimulator\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\obj\Debug\UnityVS.Ye Old Life Sim - Unity Project.CSharp.csprojResolveAssemblyReference.cache
 C:\code\YoOldLifeSimulator\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\obj\Debug\Assembly-CSharp.dll
 C:\code\YoOldLifeSimulator\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\obj\Debug\Assembly-CSharp.pdb
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\Temp\UnityVS_bin\Debug\Assembly-UnityScript-firstpass.dll
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\Temp\UnityVS_bin\Debug\Assembly-CSharp-firstpass.pdb

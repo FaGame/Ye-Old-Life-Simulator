@@ -9,3 +9,14 @@ C:\code\YoOldLifeSimulator\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project
 C:\code\YoOldLifeSimulator\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\obj\Debug\UnityVS.Ye Old Life Sim - Unity Project.CSharp.Plugins.csprojResolveAssemblyReference.cache
 C:\code\YoOldLifeSimulator\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\obj\Debug\Assembly-CSharp-firstpass.dll
 C:\code\YoOldLifeSimulator\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\obj\Debug\Assembly-CSharp-firstpass.pdb
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\Temp\UnityVS_bin\Debug\Assembly-CSharp-firstpass.dll
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\Temp\UnityVS_bin\Debug\Assembly-CSharp-firstpass.pdb
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\Temp\UnityVS_bin\Debug\UnityEditor.dll
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.dll
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.UI.dll
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.xml
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\Temp\UnityVS_bin\Debug\UnityEditor.xml
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\Temp\UnityVS_bin\Debug\UnityEngine.UI.xml
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\obj\Debug\UnityVS.Ye Old Life Sim - Unity Project.CSharp.Plugins.csprojResolveAssemblyReference.cache
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\obj\Debug\Assembly-CSharp-firstpass.dll
+E:\GitHub\Ye-Old-Life-Simulator\Ye Old Life Sim - Unity Project\obj\Debug\Assembly-CSharp-firstpass.pdb

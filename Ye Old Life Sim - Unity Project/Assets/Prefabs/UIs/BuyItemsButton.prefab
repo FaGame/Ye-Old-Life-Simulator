@@ -60,6 +60,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22432992}
+  - 114: {fileID: 11438832}
   m_Layer: 5
   m_Name: BuyItemsButton
   m_TagString: Untagged
@@ -193,6 +194,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11438832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3ef9428db5695419135074d5083ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_SingleItem:
+    item: {fileID: 0}
+    count: 0
 --- !u!222 &22232986
 CanvasRenderer:
   m_ObjectHideFlags: 1

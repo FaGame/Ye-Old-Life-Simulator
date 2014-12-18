@@ -125,6 +125,19 @@ public class PlayerData : MonoBehaviour
         }
     }
 
+    public bool RemoveSchillings(int amount)
+    {
+        if(m_Shillings < amount)
+        {
+            return false;
+        }
+        else
+        {
+            m_Shillings -= amount;
+            return true;
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Waypoint")
