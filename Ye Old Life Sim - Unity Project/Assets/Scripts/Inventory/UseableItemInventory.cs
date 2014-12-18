@@ -19,12 +19,12 @@ public class UseableItemInventory : MonoBehaviour
 
     public Dictionary<string, UseableItemInventory.ItemInventoryEntry> m_UseableItemInventory;
 
-    void Start()
+    void Awake()
     {
         m_UseableItemInventory = new Dictionary<string, ItemInventoryEntry>();
 
         //loops through the array of names and InspectorInventory, then adds them to the m_UseableItemInventory list
-        if(m_Names.Length != m_InspectorInventory.Length)
+        if (m_Names.Length != m_InspectorInventory.Length)
         {
             Debug.Log("Names and InspectorInventory lenghts do not match. Shit.");
         }
@@ -33,8 +33,12 @@ public class UseableItemInventory : MonoBehaviour
             for (int i = 0; i < m_Names.Length; ++i)
             {
                 AddToInventory(m_Names[i], m_InspectorInventory[i]);
-            }    
-        }      
+            }
+        }
+    }
+
+    void Start()
+    {
     }
 
     public void AddToInventory(string name, ItemInventoryEntry item)
