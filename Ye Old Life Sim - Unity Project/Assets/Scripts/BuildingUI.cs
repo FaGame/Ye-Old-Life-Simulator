@@ -140,7 +140,7 @@ public class BuildingUI : MonoBehaviour
         {
             GameObject go = (GameObject)Instantiate(m_BuyButtonPrefab, new Vector3(0, startYPos, 0), Quaternion.identity);
             go.gameObject.transform.SetParent(m_BuyMenuScrollMask.transform, false);
-            go.GetComponent<AnItem>().m_Name = selectedBuilding_.GetComponent<Building>().m_Items[i].name;
+            go.GetComponent<AnItem>().m_ItemName = selectedBuilding_.GetComponent<Building>().m_Items[i].name;
             go.GetComponent<AnItem>().m_SingleItem.item = selectedBuilding_.GetComponent<Building>().m_Items[i];
             go.GetComponent<AnItem>().m_SingleItem.count = 1;
             go.GetComponentInChildren<Button>().onClick.AddListener(delegate { BuyItems(go); });
@@ -270,7 +270,7 @@ public class BuildingUI : MonoBehaviour
     {
         if (m_PlayerData.RemoveSchillings(go.GetComponent<AnItem>().m_SingleItem.item.m_Cost))
         {
-            m_PlayerData.m_UseableInventory.AddToInventory(go.GetComponent<AnItem>().m_Name, go.GetComponent<AnItem>().m_SingleItem);
+            m_PlayerData.m_UseableInventory.AddToInventory(go.GetComponent<AnItem>().m_ItemName, go.GetComponent<AnItem>().m_SingleItem);
         }
         else
         {
