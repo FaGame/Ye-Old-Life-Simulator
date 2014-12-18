@@ -811,7 +811,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Priority: 128
   DopplerLevel: 1
@@ -907,7 +907,7 @@ MonoBehaviour:
   m_Rent: 200
   m_Description: []
   m_HabitatUI: {fileID: 0}
-  m_PlayerLivesHere: 0
+  m_PlayerData: {fileID: 0}
   m_Rating: 5
 --- !u!1001 &100100000
 Prefab:

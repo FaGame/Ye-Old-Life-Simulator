@@ -6,6 +6,9 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Canvas))]
 public class HUDScript : MonoBehaviour 
 {
+    public AudioSource m_JournalSound;
+    public AudioSource m_CloseMenu;
+
     public Canvas m_PlayerHUD; //Player's HUD canvas
     public GameObject m_StatsScreen; //Game object containing the stats panels
     public GameObject m_Stats; //The stat's panel
@@ -135,6 +138,7 @@ public float m_HappinessObjective;
     //Button function - Opens the stats screen on press
     public void OpenStatsMenu()
     {
+        m_JournalSound.Play();
         statsActive_ = true;
         m_StatsScreen.SetActive(statsActive_);
         PopulateStats();
@@ -145,6 +149,7 @@ public float m_HappinessObjective;
     //Button function - Closes the stats screen on press
     public void CloseMenu()
     {
+        m_CloseMenu.Play();
         statsActive_ = false;
         m_StatsScreen.SetActive(statsActive_);
     }
