@@ -131,16 +131,6 @@ public float m_HappinessObjective;
             HUDActive_ = false;
         }
 
-        if (statsActive_)
-        {
-            statsActive_ = false;
-            m_StatsScreen.SetActive(statsActive_);
-        }
-        else if (inventoryActive_)
-        {
-            inventoryActive_ = false;
-        }
-
         timeSlider_.value = m_PlayerData.m_CurrTime;
         hungerSlider_.value = m_PlayerData.m_HungerMeter;
 

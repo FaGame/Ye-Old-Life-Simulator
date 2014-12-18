@@ -65,37 +65,34 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            //if (!EventSystem.current.IsPointerOverGameObject())
-            //{
-                Debug.Log("Not over UI");
-                if (transform != null)
-                {
-                    int layerMask = LayerMask.GetMask("Terrain");
-                    Physics.Raycast(pickingRay, out rayData, 3000.0f, layerMask);
-                    //SetTarget(rayData.point);
-                }
+            Debug.Log("Not over UI");
+            if (transform != null)
+            {
+                int layerMask = LayerMask.GetMask("Terrain");
+                Physics.Raycast(pickingRay, out rayData, 3000.0f, layerMask);
+                //SetTarget(rayData.point);
+            }
 
-                RaycastHit hitInfo = new RaycastHit();
-                bool hit = Physics.Raycast(pickingRay, out hitInfo);
-                if (hit)
+            RaycastHit hitInfo = new RaycastHit();
+            bool hit = Physics.Raycast(pickingRay, out hitInfo);
+            if (hit)
+            {
+				waypointObject_ = hitInfo.transform.gameObject;
+                if (waypointObject_.tag == "Building")
                 {
-					waypointObject_ = hitInfo.transform.gameObject;
-                    if (waypointObject_.tag == "Building")
+                    Debug.Log("It's working!");
+                    Transform[] posEs = waypointObject_.GetComponentsInChildren<Transform>();
+                    foreach (Transform tForm in posEs)
                     {
-                        Debug.Log("It's working!");
-                        Transform[] posEs = waypointObject_.GetComponentsInChildren<Transform>();
-                        foreach (Transform tForm in posEs)
+                        if (tForm.CompareTag("Waypoint"))
                         {
-                            if (tForm.CompareTag("Waypoint"))
-                            {
-                                Debug.Log("Found the waypoint.");
-                                SetTarget(tForm.position);
-                                break;
-                            }
+                            Debug.Log("Found the waypoint.");
+                            SetTarget(tForm.position);
+                            break;
                         }
                     }
                 }
-            //}
+            }
         }
 
         //DecreaseTime();
