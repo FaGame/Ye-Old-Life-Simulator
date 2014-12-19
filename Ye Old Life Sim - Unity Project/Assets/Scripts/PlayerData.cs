@@ -14,7 +14,7 @@ public class PlayerData : MonoBehaviour
 
     public Canvas m_PlayerCanvas;
 
-    public ParticleSystem m_InfectedParticle;
+    public ParticleEmitter m_InfectedParticle;
 
     public float m_DefaultSpeed = 10.0f;
     public float m_CurrTime = 0.0f;
@@ -72,6 +72,7 @@ public class PlayerData : MonoBehaviour
 
     public void StartTurn()
     {
+        m_IsDead = false;
         //loop through the player's inventory and find objects with the food script
         if(m_UseableInventory != null)
         {
@@ -90,7 +91,7 @@ public class PlayerData : MonoBehaviour
         //Temp commented out since we dont have those penalties set up yet
         m_CurrTime = m_MaxTime; //- m_Home.CalculateHomePenalty() - m_FoodPenalty;
 
-       // UpdatePlayerInfectedStatus(m_InfectedParticle);         //checks to see if the player is infected or not
+        UpdatePlayerInfectedStatus(m_InfectedParticle);         //checks to see if the player is infected or not
     }
 
     public void AddEffect(ItemEffect itemEffect)
@@ -165,27 +166,32 @@ public class PlayerData : MonoBehaviour
         }
     }
 
-    void UpdatePlayerInfectedStatus(ParticleSystem particle)
+    void UpdatePlayerInfectedStatus(ParticleEmitter particle)
     {
         int timeToDie = 5;
 
         if(m_IsInfected)
         {
             //when the player is infected increase the infected turn counter and enable the particle system for being infected
-            particle.enableEmission = true;
+            particle.emit = true;
             m_InfectedTurnCounter++;
         }
         else
         {
-            //disable particle sytem and reset infected turn counter
-            particle.enableEmission = false;
-            m_InfectedTurnCounter = 0;
+            StopInfectedEmission(particle);
         }
 
         if (m_InfectedTurnCounter >= timeToDie)
         {
-            particle.enableEmission = false;
+            StopInfectedEmission(particle);
             m_IsDead = true;
         }
+    }
+
+    public void StopInfectedEmission(ParticleEmitter particle)
+    {
+        //disable particle sytem and reset infected turn counter
+        particle.emit = false;
+        m_InfectedTurnCounter = 0;
     }
 }
