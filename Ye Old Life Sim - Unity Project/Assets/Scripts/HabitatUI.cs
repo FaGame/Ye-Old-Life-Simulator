@@ -14,7 +14,7 @@ public class HabitatUI : MonoBehaviour
     private GameObject selectedHome_;//current habitat highlighted
     private GameObject CurrHome_;
     private Text descriptionText_;
-    private Text[] habitatMenuText_;
+    private Text[] habitatDescText_;
     private PlayerController playerController_;
 
     private float timePenalty_;//actual value of current dwelling
@@ -29,8 +29,10 @@ public class HabitatUI : MonoBehaviour
 
     void Start()
     {
+       // habitatDescText_ =
+
+        descriptionText_ = m_HabitatGUI.GetComponentInChildren<Text>();
         m_HabitatGUI.SetActive(false);
-        
     }
 
     public void Update()
@@ -51,7 +53,7 @@ public class HabitatUI : MonoBehaviour
     {
         habitatIsActive_ = true;
         selectedHome_ = gObj;
-        //descriptionText_.text = selectedHome_.GetComponent<Habitat>().GetDescription().ToString();
+        descriptionText_.text = selectedHome_.GetComponent<Habitat>().GetDescription();
 
         if(selectedHome_.GetComponent<Habitat>() != m_PlayerData.GetComponent<Habitat>())
         {
