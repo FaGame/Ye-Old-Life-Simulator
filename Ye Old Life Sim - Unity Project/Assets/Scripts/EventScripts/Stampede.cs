@@ -24,7 +24,7 @@ public class Stampede : RandomEventManager
 		return tData;
 	}
 
-	public override string Update(PlayerData m_Player, string m_EventDesc)
+	public override string UpdateEvent(PlayerData m_Player, string m_EventDesc)
 	{
 		throw new System.NotImplementedException();
 	}

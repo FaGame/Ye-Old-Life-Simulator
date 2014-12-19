@@ -89,6 +89,10 @@ public class ValueConstants : MonoBehaviour
 	public const int BURNING_MESSAGE_ALRIGHT = 5;
 
 	//Random Event Range Values:::
+	public const int RANDOM_EVENT_HAPPENS_AT_LESS_THAN_THIS = 51;
+	public const int RANDOM_EVENT_CHANCE_MAX = 101;
+	public const int D100_MAX = 101;
+
 	public const int MAX_RANDOM_CHANCE_TO_FIND_SHILLINGS = 6;
 	public const int MAX_RANDOM_CHANCE_TO_BE_BITTEN_BITTEN_BY_RATS = 11;
 	public const int MAX_RANDOM_CHANCE_TO_FIND_A_SACK = 21;

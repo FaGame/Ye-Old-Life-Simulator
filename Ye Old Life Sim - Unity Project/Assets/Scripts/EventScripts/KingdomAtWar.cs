@@ -32,7 +32,7 @@ public class KingdomAtWar : RandomEventManager
 		return tData;
 	}
 
-	public override string Update(PlayerData pData, string tData)
+	public override string UpdateEvent(PlayerData pData, string tData)
 	{
 		if(GetComponent<PlayerData>().m_Building.m_BuildingName == "Barracks")
 		{

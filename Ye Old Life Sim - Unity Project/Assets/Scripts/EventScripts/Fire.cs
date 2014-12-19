@@ -37,7 +37,7 @@ public class Fire : RandomEventManager
 		//pop up window
 	}
 
-	public override string Update(PlayerData m_Player, string m_EventDesc)
+	public override string UpdateEvent(PlayerData m_Player, string m_EventDesc)
 	{
 		throw new System.NotImplementedException();
 	}

@@ -18,7 +18,7 @@ public class Tournament : RandomEventManager
 		tData = "You go to see a tournament, the ticket was " + m_MoneyLost.ToString() + " shillings. But you had a great time.";
 		return tData;
 	}
-	public override string Update(PlayerData m_Player, string m_EventDesc)
+	public override string UpdateEvent(PlayerData m_Player, string m_EventDesc)
 	{
 		throw new System.NotImplementedException();
 	}

@@ -16,7 +16,7 @@ public class BarrelOfMead : RandomEventManager
 		return tData;
 	}
 
-	public override string Update(PlayerData pData, string tData)
+	public override string UpdateEvent(PlayerData pData, string tData)
 	{
 		if(GetComponent<GameManager>().m_Turns == HangoverTurn_)
 		{
