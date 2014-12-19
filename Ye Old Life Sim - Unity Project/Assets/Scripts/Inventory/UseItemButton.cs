@@ -26,10 +26,6 @@ public class UseItemButton : MonoBehaviour
                     currentItem.Value.item.UseItem(playerData);
                     m_InventoryScript.RemoveFromInventory(currentItem.Key);
                 }
-                else
-                {
-                    return;
-                }
             }
             return;
         }
