@@ -50,4 +50,57 @@ public class Food : Item
             m_Inventory.RemoveFromInventory(m_FoodName);
         }
     }
+
+    public float MORE_HUNGER = 40;
+    public float MEDIOCRE_HUNGER = 20;
+    public float LITTLE_HUNGER = 5;
+
+    public float MORE_HAPPINESS = 40;
+    public float MEDIOCRE_HAPPINESS = 20;
+    public float LITTLE_HAPPINESS = 5;
+
+    public override string GetDescription()
+    {
+        string retval = "";
+        
+        //HUNGER
+        if(m_HungerAmount > MORE_HUNGER)
+        {
+            retval = "Very filling food item. ";
+        }
+        else if(m_HungerAmount > MEDIOCRE_HUNGER)
+        {
+            retval = "Satisfies hunger. ";
+        }
+        else if(m_HungerAmount > LITTLE_HUNGER)
+        {
+            retval = "Not filling at all. ";
+        }
+
+        //HAPPINESS
+        if(m_Happiness > MORE_HAPPINESS)
+        {
+            retval += "Fills you with joy! ";
+        }
+        else if(m_Happiness > MEDIOCRE_HAPPINESS)
+        {
+            retval += "Makes you happy. ";
+        }
+        else if(m_Happiness > LITTLE_HAPPINESS)
+        {
+            retval += "This happiness won't last. ";
+        }
+
+        //SPEED
+        if(m_SpeedModifier == 1.0f)
+        {
+            retval += "Things are going to slow down. ";
+        }
+        else if(m_SpeedModifier < 1.0f)
+        {
+            retval += "Can time go this slow?! ";
+        }
+
+        return retval;
+    }
 }
