@@ -22837,6 +22837,7 @@ GameObject:
   - 124: {fileID: 1052255806}
   - 81: {fileID: 1052255805}
   - 114: {fileID: 1052255810}
+  - 82: {fileID: 1052255811}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -22915,15 +22916,72 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1052255804}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f28e2900be8d9b4b8d97490800d22f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 879d60e3fe5cf4a4094c7c505fb1dd6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Music: []
-  m_Track1: {fileID: 0}
-  m_Track2: {fileID: 0}
-  m_Track3: {fileID: 0}
+  m_BackGroundSound1: {fileID: 8300000, guid: 50ec3a0cec1468f4888851afa400b9b3, type: 3}
+  m_BackGroundSound2: {fileID: 8300000, guid: 718661bc7c29d874487d6912adda6a2a, type: 3}
+  m_BackGroundSound3: {fileID: 8300000, guid: 427146b093d86914dbcae43dbb529711, type: 3}
+--- !u!82 &1052255811
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1052255804}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1062968080
 GameObject:
   m_ObjectHideFlags: 0
