@@ -14,14 +14,15 @@ public class HUDScript : MonoBehaviour
     public GameObject m_Stats; //The stat's panel
     public GameObject m_Goals; //The goals panel
     public GameObject m_Skills; //The skills panel
-    public GameManager m_GameManager;
+    public GameManager m_GameManager; //The game manager
     public PlayerData m_PlayerData; //The player's data
     public Text m_CurrJobText; //The player's current job text
     public Text m_ShillingText; //The player's current shillings
+    public Text m_BuildingHovered; //The building the player is currently hovering
 
     private bool statsActive_ = false; //This bool determines whether or not the the stats window is open
-    private bool inventoryActive_ = false;
-    private bool HUDActive_ = false;
+    private bool inventoryActive_ = false; //This bool determines whether or not the inventory is currently open
+    private bool HUDActive_ = false; //This bool determines whether any HUD elements are active
     private float timer_; //Turn timer
     private Slider[] sliderArray_; //Array containing the HUD sliders
     private Slider[] objSliderArray_; //Array of objective sliders
@@ -34,6 +35,8 @@ public class HUDScript : MonoBehaviour
     private Text[] skillsText_; //Array of text for the skills screen
     private string skillString_; //String that will contain and display the skill names
     private List<float> playerStats_ = new List<float>(); //List of the player stats
+    private Ray buildingHoverRay_;
+    private RaycastHit buildingRayHit_;
 
     public bool HUDActive
     {
@@ -58,7 +61,9 @@ public float m_HappinessObjective;
         objSliderArray_ = m_Goals.GetComponentsInChildren<Slider>();
         SetUpObjectiveSliders();
 
+        m_BuildingHovered.text = "";
         m_CurrJobText.text = "Unemployed";
+        
 
         //Load the player stats list with the player's stats
         playerStats_.Add((float)m_PlayerData.m_Home.m_Rating);
@@ -145,11 +150,21 @@ public float m_HappinessObjective;
         {
             m_CurrJobText.text = m_PlayerData.m_Job.name;
         }
-	}
 
-    void FixedUpdate()
-    {
-    }
+        buildingHoverRay_ = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if(Physics.Raycast(buildingHoverRay_, out buildingRayHit_))
+        {
+            if (buildingRayHit_.collider.gameObject.GetComponent<Building>() || buildingRayHit_.collider.gameObject.GetComponent<Habitat>())
+            {
+                m_BuildingHovered.text = buildingRayHit_.collider.name;
+            }
+            else
+            {
+                m_BuildingHovered.text = "";
+            }
+        }
+	}
 
     //Button function - Opens the stats screen on press
     public void OpenStatsMenu()
