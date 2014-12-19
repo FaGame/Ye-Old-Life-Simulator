@@ -17,7 +17,7 @@ public class FindASack : RandomEventManager
 
 //	private string ItemName_;
 
-	public void PlayEvent()
+	public string PlayEvent(PlayerData pData, string tData)
 	{
 		//pop up window
 		//You found a sack, after checking inside you find...
@@ -51,8 +51,8 @@ public class FindASack : RandomEventManager
 //		GetComponent<PossessionInventory>().AddToInventory(m_FoundItem.name, m_FoundItem as Item); //add the found item into the player's inventory
 		//If someone else wants to make the above line work, be my guest.
 
-		m_EventText.text = "You found a sack lying on the ground. Searching inside reveals... A " + m_FoundItem.name.ToString() + "!";
-
+		tData = "You found a sack lying on the ground. Searching inside reveals... A " + m_FoundItem.name.ToString() + "!";
+		return tData;
 	}
 	//
 }

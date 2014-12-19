@@ -10,14 +10,14 @@ public class WeekendJob : RandomEventManager
 
 	private int SkillSelect_;
 
-	public void PlayEvent()
+	public string PlayEvent(PlayerData pData, string tData)
 	{
 		m_ExperienceGained = Random.Range(5, 26);
 
 		SkillSelect_ = Random.Range(1, GetComponent<PlayerData>().m_Skills.Count);
 		if(SkillSelect_ == 0)
 		{
-			return;
+			
 		}
 		else
 		{
@@ -32,8 +32,8 @@ public class WeekendJob : RandomEventManager
 		//The player gets 5-25 xp in a random skill based upon a randomly selected day job.
 //		GetComponent<SkillGain>().ImproveSkill(SkillTrainedIn_, m_ExperienceGained);
 
-		m_EventText.text = "During your downtime you work a little bit harder and get some extra experience.";
-
+		tData = "During your downtime you work a little bit harder and get some extra experience.";
+		return tData;
 //Finishing this requires being able to increase your skill level
 	}
 	//

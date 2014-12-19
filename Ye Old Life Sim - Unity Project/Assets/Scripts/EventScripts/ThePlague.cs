@@ -3,11 +3,12 @@ using System.Collections;
 
 public class ThePlague : RandomEventManager
 {
-	public void PlayEvent()
+	public string PlayEvent(PlayerData pData, string tData)
 	{
 		GetComponent<PlayerData>().m_IsInfected = true;
 
-		m_EventText.text = "You've caught the plague.";
+		tData = "You've caught the plague.";
+		return tData;
 	}
 	//
 }

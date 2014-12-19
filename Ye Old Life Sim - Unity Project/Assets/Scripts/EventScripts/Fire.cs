@@ -7,7 +7,7 @@ public class Fire : RandomEventManager
 	public UseableItemInventory m_UseableInventory;
 	private Food playerFood_;
 
-	public void PlayEvent()
+	public string PlayEvent(PlayerData pData, string tData)
 	{
 
 		if (GetComponent<PlayerData>().m_Shillings >= 500)
@@ -32,7 +32,8 @@ public class Fire : RandomEventManager
 			}
 		}
 
-		m_EventText.text = "YOUR HOUSE CAUGHT FIRE. You lost all your food and  " + m_MoneyLost.ToString() + " shillings.";
+		tData = "YOUR HOUSE CAUGHT FIRE. You lost all your food and  " + m_MoneyLost.ToString() + " shillings.";
+		return tData;
 		//pop up window
 	}
 	//

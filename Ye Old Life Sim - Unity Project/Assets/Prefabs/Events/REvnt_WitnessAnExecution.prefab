@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 474524}
   - 114: {fileID: 11444974}
+  - 114: {fileID: 11436182}
   m_Layer: 0
   m_Name: REvnt_WitnessAnExecution
   m_TagString: Untagged
@@ -28,6 +29,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11436182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba2911a00451744ab2ddb3067c242e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RndEvent: 0
+  m_EventIndex: 0
+  m_MoneyLost: 0
+  m_MoneyGained: 0
+  m_ExperienceGained: 0
+  m_HappinesChange: 0
+  m_TimeChange: 0
+  m_Player: {fileID: 0}
+  m_EventList: []
+  m_EventFlyer: {fileID: 0}
+  m_EventText: {fileID: 0}
+  m_EventDesc: 
+  m_EventTextTimer: 0
 --- !u!114 &11444974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -39,6 +64,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc50b1025b48dc4481ffd1bfa12beb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EventScroll: {fileID: 0}
+  m_EventText: {fileID: 0}
+  m_EventList: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

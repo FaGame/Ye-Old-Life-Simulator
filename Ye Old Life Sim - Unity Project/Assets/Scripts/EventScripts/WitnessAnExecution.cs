@@ -5,7 +5,7 @@ public class WitnessAnExecution : RandomEventManager
 {
 	private string FeelingTowardHead_;
 
-	public void PlayEvent()
+	public string PlayEvent(PlayerData pData, string tData)
 	{
 		//The player loses 5 seconds on the clock but gain -5 - 10 happiness based upon how much you liked the person.
 		m_TimeChange = -5.0f;
@@ -26,7 +26,8 @@ public class WitnessAnExecution : RandomEventManager
 
 		GetComponent<PlayerData>().m_Happiness += m_HappinesChange;
 		GetComponent<PlayerData>().m_CurrTime += m_TimeChange;
-		m_EventText.text = "There's an execution today, after watching the head roll you think " + FeelingTowardHead_;
+		tData = "There's an execution today, after watching the head roll you think " + FeelingTowardHead_;
+		return tData;
 	}
 	//
 }

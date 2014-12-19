@@ -14,15 +14,11 @@ public class ExperimentGoneWrong : RandomEventManager
 	public int[] m_ItemsInInventory;
 	public UseableItemInventory m_UseableInventory;
 
-	public void PlayEvent()
+	public string PlayEvent(PlayerData pData, string tData)
 	{
 		//Check player's current career
 		NameChecker_ = GetComponent<PlayerData>().m_Job.ToString();
-		if(NameChecker_ == "Alchemist") //if Alchemist then nothing happens
-		{
-			return;
-		}
-		else//if not an alchemist, remove random item from player's inventory
+		if(NameChecker_ != "Alchemist") //if Alchemist then nothing happens
 		{
 			RandomNumber_ = Random.Range(1, m_ItemsInInventory.Length - 1);
 
@@ -36,10 +32,16 @@ public class ExperimentGoneWrong : RandomEventManager
 					{
 						GetComponent<UseableItemInventory>().RemoveFromInventory(ItemToBeRemoved_.name.ToString());
 					}
-					return;
+					tData = "As the result of a terrible experiment you've lost " + ItemToBeRemoved_.name + ", such a shame.";
+					
 				}
 			}
 		}
+		else//if not an alchemist, remove random item from player's inventory
+		{
+			tData = "One of your experiments has gone horribly wrong! It could have gone a lot worse if you didn't make that antidote already.";
+		}
+		return tData;
 	}
 	//
 

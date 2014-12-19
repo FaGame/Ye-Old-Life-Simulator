@@ -5,7 +5,7 @@ public class WitnessAWitchBurning : RandomEventManager
 {
 	private string FeelingTowardWitch_;
 
-	public void PlayEvent()
+	public string PlayEvent(PlayerData pData, string tData)
 	{
 		//The player loses 10 seconds on the clock but gain 5 - 20 happiness seeing justice being carried out.
 		m_TimeChange = -10.0f;
@@ -26,7 +26,8 @@ public class WitnessAWitchBurning : RandomEventManager
 
 		GetComponent<PlayerData>().m_Happiness += m_HappinesChange;
 		GetComponent<PlayerData>().m_CurrTime += m_TimeChange;
-		m_EventText.text = "A witch has been found! They're burning her and all you can say is: " + FeelingTowardWitch_;
+		tData = "A witch has been found! They're burning her and all you can say is: " + FeelingTowardWitch_;
+		return tData;
 	}
 	//
 }

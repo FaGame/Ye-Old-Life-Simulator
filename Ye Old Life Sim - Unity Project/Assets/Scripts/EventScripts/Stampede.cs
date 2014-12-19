@@ -3,13 +3,11 @@ using System.Collections;
 
 public class Stampede : RandomEventManager
 {
-	public GameObject m_Player;
-
 	private Vector3 m_PlayerPos;
 	private float m_XPos;
 	private float m_ZPos;
 
-	public void PlayEvent()
+	public string PlayEvent(PlayerData pData, string tData)
 	{
 		m_TimeChange = -10.0f;
 
@@ -20,9 +18,10 @@ public class Stampede : RandomEventManager
 
 		m_PlayerPos = new Vector3(m_Player.rigidbody.position.x + m_XPos, m_Player.rigidbody.position.y, m_Player.rigidbody.position.z + m_ZPos);
 
-		m_EventText.text = "A stampede is running towards you, and you cleverly decide to RUN. After running for a while, you are now able to go where you like. "
+		tData = "A stampede is running towards you, and you cleverly decide to RUN. After running for a while, you are now able to go where you like. "
 						+ " .";
 		//Place the player in a random place on the map and make them lose 10 seconds of their turn.
+		return tData;
 	}
 	//
 }

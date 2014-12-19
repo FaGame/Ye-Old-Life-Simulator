@@ -5,14 +5,13 @@ public class KingdomAtWar : RandomEventManager
 {
 //	public string m_BuildingName;//Probably better to check against the jobs available than the building itself, but this is how it is for now.
 	public JobData[] m_JobData;
-	public PlayerData pData;
 	public JobData jData;
 
 	public Building m_Building;
 
 	private int EndOfWar_;
 
-	public void PlayEvent()
+	public string PlayEvent(PlayerData pData, string tData)
 	{
 		int TurnsUntilWarEnds = Random.Range(1, 6);
 		EndOfWar_ = GetComponent<GameManager>().m_Turns += TurnsUntilWarEnds;
@@ -29,10 +28,11 @@ public class KingdomAtWar : RandomEventManager
 		}
 
 		//Barracks pay doubles
-		m_EventText.text = "A war has started and the kingdom's funds are being redirected to the war effort, unless you're a soldier, you probably won't be making any money.";
+		tData = "A war has started and the kingdom's funds are being redirected to the war effort, unless you're a soldier, you probably won't be making any money.";
+		return tData;
 	}
 
-	public void Update()
+	public string Update(string tData)
 	{
 		if(GetComponent<PlayerData>().m_Building.m_BuildingName == "Barracks")
 		{
@@ -42,8 +42,8 @@ public class KingdomAtWar : RandomEventManager
 		{
 			GetComponent<PlayerData>().m_EarningScalar = 1;
 		}
-		m_EventText.text = "The war has ended. Who won doesn't matter, what matters is all the jobs pay their usual amount again. Probably.";
-
+		tData = "The war has ended. Who won doesn't matter, what matters is all the jobs pay their usual amount again. Probably.";
+		return tData;
 		
 	}
 	//
