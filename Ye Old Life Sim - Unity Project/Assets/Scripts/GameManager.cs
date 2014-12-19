@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour
             //drink your woes away in obscurity, try some narcotics
         }
 
-        if(m_PlayerData.m_HungerMeter >= m_PlayerData.m_MaxHunger)
+        if(m_PlayerData.m_HungerMeter >= m_PlayerData.m_MaxHunger || m_Player.GetComponent<PlayerData>().m_IsDead)
         {
             Debug.Log("You have died, alone and forgotten behind the most uninspiring shrubbery");
             m_RestartUI.PlayerDied();

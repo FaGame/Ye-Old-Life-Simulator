@@ -1164,7 +1164,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 180100}
   m_LocalRotation: {x: 0, y: -.382683486, z: 0, w: .923879564}
-  m_LocalPosition: {x: 472.799988, y: 6, z: 329.100006}
+  m_LocalPosition: {x: 472.799988, y: 6.17000008, z: 329.100006}
   m_LocalScale: {x: 1.43941629, y: .441926986, z: 1.43941665}
   m_Children:
   - {fileID: 480164}
@@ -1613,8 +1613,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.27400017, y: -.860000014, z: -4.4829998}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -8.27000046, y: -.519999981, z: -4.61999989}
+  m_LocalScale: {x: 1, y: 1, z: 1.20059264}
   m_Children: []
   m_Father: {fileID: 480100}
   m_RootOrder: 52
@@ -3074,7 +3074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Rent: 50
   m_Description:
-  - Finally spcae of your own, sort of
+  - Finally space of your own, sort of
   m_HabitatUI: {fileID: 0}
   m_PlayerData: {fileID: 0}
   m_Rating: 4

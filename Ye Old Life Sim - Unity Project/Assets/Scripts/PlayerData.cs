@@ -14,6 +14,10 @@ public class PlayerData : MonoBehaviour
 
     public Canvas m_PlayerCanvas;
 
+
+    public ParticleEmitter m_InfectedParticle;
+
+
     public float m_DefaultSpeed = 10.0f;
     public float m_CurrTime = 0.0f;
     public float m_MaxTime = ValueConstants.PLAYER_MAX_TIME;
@@ -23,10 +27,12 @@ public class PlayerData : MonoBehaviour
     public float m_Happiness = 0.0f;
     public float m_Speed;
 
+    public int m_InfectedTurnCounter = 0;
     public int m_Reputation = 0;
     public int m_Shillings = 0;
     public float m_EarningScalar = ValueConstants.PLAYER_DEFAULT_MONEY_SCALAR;    //scalar that is used to determine how much the player will earn that turn for work
 
+    public bool m_IsDead = false;
     public bool m_IsInfected = false;       //variable used for when the player catches a disease
 	public bool m_HasMount = false;			//variable used for when the player has a mount
 
@@ -68,6 +74,7 @@ public class PlayerData : MonoBehaviour
 
     public void StartTurn()
     {
+        m_IsDead = false;
         //loop through the player's inventory and find objects with the food script
         if(m_UseableInventory != null)
         {
@@ -85,6 +92,8 @@ public class PlayerData : MonoBehaviour
         //calculate the curr time 
         //Temp commented out since we dont have those penalties set up yet
         m_CurrTime = m_MaxTime; //- m_Home.CalculateHomePenalty() - m_FoodPenalty;
+
+        UpdatePlayerInfectedStatus(m_InfectedParticle);         //checks to see if the player is infected or not
     }
 
     public void AddEffect(ItemEffect itemEffect)
@@ -157,5 +166,34 @@ public class PlayerData : MonoBehaviour
                 habitat.m_HabitatUI.LoadHabitatData(playerController_, other.gameObject.transform.parent.gameObject);
             }
         }
+    }
+
+    void UpdatePlayerInfectedStatus(ParticleEmitter particle)
+    {
+        int timeToDie = 5;
+
+        if(m_IsInfected)
+        {
+            //when the player is infected increase the infected turn counter and enable the particle system for being infected
+            particle.emit = true;
+            m_InfectedTurnCounter++;
+        }
+        else
+        {
+            StopInfectedEmission(particle);
+        }
+
+        if (m_InfectedTurnCounter >= timeToDie)
+        {
+            StopInfectedEmission(particle);
+            m_IsDead = true;
+        }
+    }
+
+    public void StopInfectedEmission(ParticleEmitter particle)
+    {
+        //disable particle sytem and reset infected turn counter
+        particle.emit = false;
+        m_InfectedTurnCounter = 0;
     }
 }
