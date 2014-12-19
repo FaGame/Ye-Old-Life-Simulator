@@ -48,9 +48,9 @@ public class CursorEffects : MonoBehaviour
                 //If the HUD element is not active, play the first particle emitter if the ground is clicked
                 if (!m_HUDUI.HUDActive)
                 {
-                    mPEmitter.emit = true;
                     if (Physics.Raycast(cursor, out hit))
                     {
+                        mPEmitter.emit = true;
                         /*switch (hit.collider.tag)
                         {
                             case "Ground":
@@ -86,8 +86,8 @@ public class CursorEffects : MonoBehaviour
                             Debug.Log("Left Screen Space: " + left);
 
 
-                            if (hit.point.x > left && hit.point.y < top &&
-                            hit.point.x < left + statsImage_.rectTransform.rect.width && hit.point.y > top - statsImage_.rectTransform.rect.height)
+                            if (hit.point.x > left && hit.point.y > top &&
+                            hit.point.x < left + statsImage_.rectTransform.rect.width && hit.point.y < top + statsImage_.rectTransform.rect.height)
                             {
                                 Debug.Log("Inside the HUD");
                                 m_ParticleTwo.transform.position = cursor.GetPoint(100);
