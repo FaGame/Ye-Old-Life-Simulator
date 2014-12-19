@@ -11,20 +11,20 @@ public class KingdomAtWar : RandomEventManager
 
 	private int EndOfWar_;
 
-	public string PlayEvent(PlayerData pData, string tData)
+	public override string PlayEvent(PlayerData pData, string tData)
 	{
-		int TurnsUntilWarEnds = Random.Range(1, 6);
+		int TurnsUntilWarEnds = Random.Range(ValueConstants.MIN_DAYS_UNTIL_WAR_ENDS, ValueConstants.MAX_DAYS_UNTIL_WAR_ENDS);
 		EndOfWar_ = GetComponent<GameManager>().m_Turns += TurnsUntilWarEnds;
 
 		//Money from all jobs (with the exception of the Barracks) now pay half
 
 		if(GetComponent<PlayerData>().m_Building.m_BuildingName == "Barracks")
 		{
-			GetComponent<PlayerData>().m_EarningScalar = 2;
+			GetComponent<PlayerData>().m_EarningScalar = ValueConstants.EARNING_SCALAR_CHANGE_FOR_BARRACK_KAW;
 		}
 		else
 		{
-			GetComponent<PlayerData>().m_EarningScalar = (int)0.5;
+			GetComponent<PlayerData>().m_EarningScalar = ValueConstants.EARNING_SCALAR_CHANGE_FOR_BUILDINGS_KAW;
 		}
 
 		//Barracks pay doubles
@@ -32,19 +32,19 @@ public class KingdomAtWar : RandomEventManager
 		return tData;
 	}
 
-	/*public string Update(string tData)
+	public override string Update(PlayerData pData, string tData)
 	{
 		if(GetComponent<PlayerData>().m_Building.m_BuildingName == "Barracks")
 		{
-			GetComponent<PlayerData>().m_EarningScalar = 1;
+			GetComponent<PlayerData>().m_EarningScalar = ValueConstants.EARNING_SCALAR_CHANGE_FOR_BARRACK_KAW_ENDS;
 		}
 		else
 		{
-			GetComponent<PlayerData>().m_EarningScalar = 1;
+			GetComponent<PlayerData>().m_EarningScalar = ValueConstants.EARNING_SCALAR_CHANGE_FOR_BUILDINGS_KAW_ENDS;
 		}
 		tData = "The war has ended. Who won doesn't matter, what matters is all the jobs pay their usual amount again. Probably.";
 		return tData;
 		
-	}*/
+	}
 	//
 }

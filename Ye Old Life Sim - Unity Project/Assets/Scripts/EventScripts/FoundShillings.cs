@@ -3,13 +3,11 @@ using System.Collections;
 
 public class FoundShillings : RandomEventManager 
 {
-    public string PlayEvent(PlayerData pData, string tData)
+    public override string PlayEvent(PlayerData pData, string tData)
     {
-		m_MoneyGained = Random.Range(5, 1001); //Amount of money the player finds
-	
-		//get current Shillings and then give the player the amount of money found
-//		GetComponent<PlayerData>().m_Shillings += m_MoneyGained;
-		pData.m_Shillings += m_MoneyGained;
+		m_MoneyGained = Random.Range(ValueConstants.MIN_SHILLINGS_FOUND, ValueConstants.MAX_SHILLINGS_FOUND); //Amount of money the player finds
+
+		pData.m_Shillings += m_MoneyGained; //give the player the money they found
 
 		//could add if statements in here to change the message depending on the amount of money found
 
@@ -19,6 +17,11 @@ public class FoundShillings : RandomEventManager
 		//return tData;
 		return	tData;
     }
+
+	public override string Update(PlayerData m_Player, string m_EventDesc)
+	{
+		throw new System.NotImplementedException();
+	}
 	//
 
 }

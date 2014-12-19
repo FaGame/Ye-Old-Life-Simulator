@@ -5,7 +5,7 @@ public class FootAndMouth : RandomEventManager
 {
 
 	// Use this for initialization
-	public string PlayEvent(PlayerData pData, string tData)
+	public override string PlayEvent(PlayerData pData, string tData)
 	{
 		if(GetComponent<PlayerData>().m_HasMount)
 		{
@@ -17,6 +17,11 @@ public class FootAndMouth : RandomEventManager
 			tData = "There's a horse spittin' sickness goin' 'round these parts.";
 		}
 		return tData;
+	}
+
+	public override string Update(PlayerData m_Player, string m_EventDesc)
+	{
+		throw new System.NotImplementedException();
 	}
 	//
 }

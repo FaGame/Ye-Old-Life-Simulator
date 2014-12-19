@@ -3,12 +3,12 @@ using System.Collections;
 
 public class FindAStarvingChild : RandomEventManager 
 {
-	public string PlayEvent(PlayerData pData, string tData)
+	public override string PlayEvent(PlayerData pData, string tData)
 	{
 		
-		if(GetComponent<PlayerData>().m_Shillings >= 50)
+		if(GetComponent<PlayerData>().m_Shillings >= ValueConstants.MONEY_GIVEN_TO_STARVING_CHILD)
 		{
-			m_MoneyLost = 50;
+			m_MoneyLost = ValueConstants.MONEY_GIVEN_TO_STARVING_CHILD;
 		}
 		else
 		{
@@ -18,6 +18,11 @@ public class FindAStarvingChild : RandomEventManager
 		tData = "You come accross a starving child. Its teary eyes are too sad for you to ignore and you give them " + m_MoneyLost.ToString() + " shillings.";
 		return tData;
 		//pop up window
+	}
+
+	public override string Update(PlayerData m_Player, string m_EventDesc)
+	{
+		throw new System.NotImplementedException();
 	}
 	//
 }

@@ -6,23 +6,21 @@ using System.Collections.Generic;
 public class ExperimentGoneWrong : RandomEventManager 
 {
 	private string NameChecker_;
-	private int RandomNumber_;
 
 	private Item ItemToBeRemoved_;
-	private int ItemIndex_;
 
 	public int[] m_ItemsInInventory;
 	public UseableItemInventory m_UseableInventory;
 
-	public string PlayEvent(PlayerData pData, string tData)
+	public override string PlayEvent(PlayerData pData, string tData)
 	{
 		//Check player's current career
 		NameChecker_ = GetComponent<PlayerData>().m_Job.ToString();
 		if(NameChecker_ != "Alchemist") //if Alchemist then nothing happens
 		{
-			RandomNumber_ = Random.Range(1, m_ItemsInInventory.Length - 1);
+			int randomNumber = Random.Range(1, m_ItemsInInventory.Length - 1);
 
-			ItemIndex_ = m_ItemsInInventory[RandomNumber_];
+			int itemIndex = m_ItemsInInventory[randomNumber];
 
 			if (m_UseableInventory != null)
 			{
@@ -42,6 +40,11 @@ public class ExperimentGoneWrong : RandomEventManager
 			tData = "One of your experiments has gone horribly wrong! It could have gone a lot worse if you didn't make that antidote already.";
 		}
 		return tData;
+	}
+
+	public override string Update(PlayerData m_Player, string m_EventDesc)
+	{
+		throw new System.NotImplementedException();
 	}
 	//
 
