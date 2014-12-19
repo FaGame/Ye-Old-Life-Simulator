@@ -79,6 +79,17 @@ public class CursorEffects : MonoBehaviour
                         {
                             Debug.Log("Click point " + Input.mousePosition);
 
+                            Vector2 pos;
+                            RectTransformUtility.ScreenPointToLocalPointInRectangle(statsImage_.rectTransform, Input.mousePosition, m_StatsCanvas.camera, out pos);
+                            if (statsImage_.rectTransform.rect.Contains(pos))
+                            {
+                                Debug.Log("IN");
+                                m_ParticleTwo.transform.position = cursor.GetPoint(75);
+                                m_ParticleTwo.transform.LookAt(Camera.main.transform);
+                                m_ParticleTwo.transform.rotation = Quaternion.AngleAxis(90.0f, new Vector3(1.0f, 0.0f, 0.0f));
+                                m_ParticleTwo.emit = true;
+                            }
+
                             float left = Camera.main.WorldToScreenPoint(m_StatsCanvas.position).x - (statsImage_.rectTransform.rect.width / 2.0f) * statsImage_.rectTransform.localScale.x;
                             float bottom = Camera.main.WorldToScreenPoint(m_StatsCanvas.position).y - (statsImage_.rectTransform.rect.height / 2.0f) * statsImage_.rectTransform.localScale.y;
                             float right = Camera.main.WorldToScreenPoint(m_StatsCanvas.position).x + (statsImage_.rectTransform.rect.width / 2.0f) * statsImage_.rectTransform.localScale.x;
