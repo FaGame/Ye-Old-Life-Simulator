@@ -34,6 +34,10 @@ public class Food : Item
             //uses the AddEffect function which sets all values based on the ItemEffect specified 
             playerData.AddEffect(m_Effect);
             playerData.m_HungerMeter -= m_HungerAmount;     //subtract from player's hunger
+            if(playerData.m_HungerMeter < 0.0f)
+            {
+                playerData.m_HungerMeter = 0.0f;
+            }
             playerData.m_Happiness += m_Happiness;          //add to player's happiness
         }
     }

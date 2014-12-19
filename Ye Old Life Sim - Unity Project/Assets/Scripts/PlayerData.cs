@@ -14,8 +14,6 @@ public class PlayerData : MonoBehaviour
 
     public Canvas m_PlayerCanvas;
 
-    public ParticleSystem m_InfectedParticle;
-
     public float m_DefaultSpeed = 10.0f;
     public float m_CurrTime = 0.0f;
     public float m_MaxTime = ValueConstants.PLAYER_MAX_TIME;
@@ -159,10 +157,5 @@ public class PlayerData : MonoBehaviour
                 habitat.m_HabitatUI.LoadHabitatData(playerController_, other.gameObject.transform.parent.gameObject);
             }
         }
-    }
-
-    void UpdatePlayerInfectedStatus(ParticleSystem particle)
-    {
-        
     }
 }
