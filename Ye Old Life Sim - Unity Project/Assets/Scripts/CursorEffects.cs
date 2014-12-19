@@ -69,7 +69,7 @@ public class CursorEffects : MonoBehaviour
                             if (hit.point.x > bUIImage_.rectTransform.position.x && hit.point.y < bUIImage_.rectTransform.position.y &&
                             hit.point.x < bUIImage_.rectTransform.position.x + bUIImage_.rectTransform.rect.width && hit.point.y > bUIImage_.rectTransform.position.y + bUIImage_.rectTransform.rect.height)
                             {
-                                m_ParticleTwo.transform.position = cursor.GetPoint(100);
+                                m_ParticleTwo.transform.position = cursor.GetPoint(10);
                                 m_ParticleTwo.transform.LookAt(Camera.main.transform);
                                 m_ParticleTwo.transform.Rotate(new Vector3(90.0f, 0.0f, 0.0f));
                                 m_ParticleTwo.emit = true;
@@ -77,20 +77,19 @@ public class CursorEffects : MonoBehaviour
                         }
                         if (statsImage_ != null)
                         {
-                            Debug.Log("Click point " + hit.point);
+                            Debug.Log("Click point " + Input.mousePosition);
 
                             float left = Camera.main.WorldToScreenPoint(m_StatsCanvas.position).x - (statsImage_.rectTransform.rect.width / 2.0f) * statsImage_.rectTransform.localScale.x;
-                            float top = Camera.main.WorldToScreenPoint(m_StatsCanvas.position).y - (statsImage_.rectTransform.rect.height / 2.0f) * statsImage_.rectTransform.localScale.y;
+                            float bottom = Camera.main.WorldToScreenPoint(m_StatsCanvas.position).y - (statsImage_.rectTransform.rect.height / 2.0f) * statsImage_.rectTransform.localScale.y;
+                            float right = Camera.main.WorldToScreenPoint(m_StatsCanvas.position).x + (statsImage_.rectTransform.rect.width / 2.0f) * statsImage_.rectTransform.localScale.x;
+                            float top = Camera.main.WorldToScreenPoint(m_StatsCanvas.position).y + (statsImage_.rectTransform.rect.height / 2.0f) * statsImage_.rectTransform.localScale.y;
 
-                            Debug.Log("Screen space top: " + top);
-                            Debug.Log("Left Screen Space: " + left);
+                            Debug.Log("Top: " + top + " Left: " + left + " Right: " + right + " Bottom: " + bottom);
 
-
-                            if (hit.point.x > left && hit.point.y > top &&
-                            hit.point.x < left + statsImage_.rectTransform.rect.width && hit.point.y < top + statsImage_.rectTransform.rect.height)
+                            if (hit.point.x > left && hit.point.y < top && hit.point.x < right && hit.point.y > bottom)
                             {
                                 Debug.Log("Inside the HUD");
-                                m_ParticleTwo.transform.position = cursor.GetPoint(100);
+                                m_ParticleTwo.transform.position = cursor.GetPoint(75);
                                 m_ParticleTwo.transform.LookAt(Camera.main.transform);
                                 m_ParticleTwo.transform.rotation = Quaternion.AngleAxis(90.0f, new Vector3(1.0f, 0.0f, 0.0f));
                                 m_ParticleTwo.emit = true;
