@@ -12,7 +12,7 @@ public class HabitatUI : MonoBehaviour
 
     private Habitat m_Habitat;
     private GameObject selectedHome_;//current habitat highlighted
-    private float CurrHome_;
+    private GameObject CurrHome_;
     private Text descriptionText_;
     private Text[] habitatMenuText_;
     private PlayerController playerController_;
@@ -51,9 +51,9 @@ public class HabitatUI : MonoBehaviour
     {
         habitatIsActive_ = true;
         selectedHome_ = gObj;
-        descriptionText_.text = selectedHome_.GetComponent<Habitat>().GetDescription();
+        //descriptionText_.text = selectedHome_.GetComponent<Habitat>().GetDescription().ToString();
 
-        if (selectedHome_.GetComponent<Habitat>().m_Rating != m_PlayerData.m_Home.m_Rating)
+        if(selectedHome_.GetComponent<Habitat>() != m_PlayerData.GetComponent<Habitat>())
         {
             m_RentButton.interactable = true;
         }
@@ -77,9 +77,8 @@ public class HabitatUI : MonoBehaviour
 
     public void SetHabitat()
     {
-        CurrHome_ = (float)selectedHome_.GetComponent<Habitat>().m_Rating;
-        m_PlayerData.m_Home.m_Rating = (Habitat.BuildingRating)CurrHome_;
-        Debug.Log("Player's rent rating is Now" + CurrHome_);
+        m_PlayerData.GetComponent<PlayerData>().m_Home = selectedHome_.GetComponent<Habitat>();
+        Debug.Log("Player is now renting " + selectedHome_);
     }
 
     public void CloseCurrentUI()

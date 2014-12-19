@@ -14,7 +14,9 @@ public class PlayerData : MonoBehaviour
 
     public Canvas m_PlayerCanvas;
 
+
     public ParticleEmitter m_InfectedParticle;
+
 
     public float m_DefaultSpeed = 10.0f;
     public float m_CurrTime = 0.0f;
@@ -25,12 +27,12 @@ public class PlayerData : MonoBehaviour
     public float m_Happiness = 0.0f;
     public float m_Speed;
 
-    public int m_InfectedTurnCounter = 0;       //this will increase for every turn the player is infected
+    public int m_InfectedTurnCounter = 0;
     public int m_Reputation = 0;
     public int m_Shillings = 0;
     public float m_EarningScalar = ValueConstants.PLAYER_DEFAULT_MONEY_SCALAR;    //scalar that is used to determine how much the player will earn that turn for work
 
-    public bool m_IsDead = false;           //used to determine when the player has died 
+    public bool m_IsDead = false;
     public bool m_IsInfected = false;       //variable used for when the player catches a disease
 	public bool m_HasMount = false;			//variable used for when the player has a mount
 
