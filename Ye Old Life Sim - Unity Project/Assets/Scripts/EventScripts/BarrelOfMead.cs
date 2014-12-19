@@ -17,7 +17,7 @@ public class BarrelOfMead : RandomEventManager
 		return tData;
 	}
 
-	public string Update(PlayerData pData, string tData)
+	/*public string Update(PlayerData pData, string tData)
 	{
 		if(GetComponent<GameManager>().m_Turns == HangoverTurn_)
 		{
@@ -29,7 +29,7 @@ public class BarrelOfMead : RandomEventManager
 		}
 		return tData;
 		
-	}
+	}*/
 		
 
 }

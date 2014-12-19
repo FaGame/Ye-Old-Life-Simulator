@@ -32,7 +32,7 @@ public class KingdomAtWar : RandomEventManager
 		return tData;
 	}
 
-	public string Update(string tData)
+	/*public string Update(string tData)
 	{
 		if(GetComponent<PlayerData>().m_Building.m_BuildingName == "Barracks")
 		{
@@ -45,6 +45,6 @@ public class KingdomAtWar : RandomEventManager
 		tData = "The war has ended. Who won doesn't matter, what matters is all the jobs pay their usual amount again. Probably.";
 		return tData;
 		
-	}
+	}*/
 	//
 }
