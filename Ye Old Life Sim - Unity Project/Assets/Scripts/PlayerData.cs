@@ -14,9 +14,9 @@ public class PlayerData : MonoBehaviour
 
     public Canvas m_PlayerCanvas;
 
+    public PlayerData m_Opponent;   //oppents data 
 
     public ParticleEmitter m_InfectedParticle;
-
 
     public float m_DefaultSpeed = 10.0f;
     public float m_CurrTime = 0.0f;
@@ -27,11 +27,13 @@ public class PlayerData : MonoBehaviour
     public float m_Happiness = 0.0f;
     public float m_Speed;
 
+    public int m_BetterCategoryCounter = 0;     //increases when you have a better stat than the opponent 
     public int m_InfectedTurnCounter = 0;
     public int m_Reputation = 0;
     public int m_Shillings = 0;
     public float m_EarningScalar = ValueConstants.PLAYER_DEFAULT_MONEY_SCALAR;    //scalar that is used to determine how much the player will earn that turn for work
 
+    public bool m_DidPlayerWin = false;
     public bool m_IsDead = false;
     public bool m_IsInfected = false;       //variable used for when the player catches a disease
 	public bool m_HasMount = false;			//variable used for when the player has a mount
@@ -195,5 +197,24 @@ public class PlayerData : MonoBehaviour
         //disable particle sytem and reset infected turn counter
         particle.emit = false;
         m_InfectedTurnCounter = 0;
+    }
+
+    public void CheckScoresBetweenPlayers()
+    {
+        if(m_Happiness > m_Opponent.m_Happiness)
+        {
+            m_BetterCategoryCounter++;
+            
+        }
+
+        if(m_Shillings > m_Opponent.m_Shillings)
+        {
+            m_BetterCategoryCounter++;
+        }
+
+        if(m_Reputation > m_Opponent.m_Reputation)
+        {
+            m_BetterCategoryCounter++;
+        }
     }
 }

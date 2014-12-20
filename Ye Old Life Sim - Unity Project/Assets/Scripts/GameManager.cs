@@ -51,7 +51,8 @@ public class GameManager : MonoBehaviour
         TurnManager();
         SetObjGame();
         SetTurnsGame();
-        CheckForLoss();
+        //CheckForWin();
+        //CheckForLoss();
         SetGameBools();
         SetPlayers();
         DecreaseTime();
@@ -143,8 +144,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void CheckForWin()
+    {
+        int winValue = 2;
+
+        m_PlayerData.CheckScoresBetweenPlayers();
+
+        if (m_PlayerData.m_BetterCategoryCounter >= winValue)
+        {   
+            m_RestartUI.PlayerWon();
+        }
+    }
+
     void CheckForLoss()
     {
+        int lossAmount = 2;
+        m_AIData.CheckScoresBetweenPlayers();
+
         if(m_PlayerData.m_Happiness <= 0.0f)
         {
             //commit suicide
@@ -160,9 +176,9 @@ public class GameManager : MonoBehaviour
             //drink your woes away in obscurity, try some narcotics
         }
 
-        if(m_PlayerData.m_HungerMeter >= m_PlayerData.m_MaxHunger || m_Player.GetComponent<PlayerData>().m_IsDead)
+        if (m_PlayerData.m_HungerMeter >= m_PlayerData.m_MaxHunger || m_Player.GetComponent<PlayerData>().m_IsDead || m_AIData.m_BetterCategoryCounter >= lossAmount)
         {
-            Debug.Log("You have died, alone and forgotten behind the most uninspiring shrubbery");
+            Debug.Log("You have died, alone and forgotten behind the most uninspiring shrubbery");      
             m_RestartUI.PlayerDied();
         }
     }
