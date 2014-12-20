@@ -3378,6 +3378,7 @@ MonoBehaviour:
   m_Job: {fileID: 0}
   m_Building: {fileID: 0}
   m_PlayerCanvas: {fileID: 0}
+  m_InfectedParticle: {fileID: 1505004, guid: 7388452c399cec24a80ebaec74033fb0, type: 2}
   m_DefaultSpeed: 10
   m_CurrTime: 0
   m_MaxTime: 45
@@ -3386,9 +3387,11 @@ MonoBehaviour:
   m_FoodPenalty: 0
   m_Happiness: 0
   m_Speed: 0
+  m_InfectedTurnCounter: 0
   m_Reputation: 0
   m_Shillings: 0
   m_EarningScalar: 1
+  m_IsDead: 0
   m_IsInfected: 0
   m_HasMount: 0
   m_StatusEffects: []

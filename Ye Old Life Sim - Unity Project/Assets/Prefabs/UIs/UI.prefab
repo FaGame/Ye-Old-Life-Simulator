@@ -68,7 +68,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &135824
 GameObject:
   m_ObjectHideFlags: 1
@@ -683,7 +683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &174884
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,7 +939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &174914
 GameObject:
   m_ObjectHideFlags: 1
@@ -1491,7 +1491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &193682
 GameObject:
   m_ObjectHideFlags: 1
@@ -4456,8 +4456,6 @@ MonoBehaviour:
   m_CurrJobText: {fileID: 11474820}
   m_ShillingText: {fileID: 11474860}
   m_BuildingHovered: {fileID: 11448990}
-  m_BuildingArray: []
-  m_HabitatArray: []
   m_ReputationObjective: 200
   m_CurrencyObjective: 200
   m_HappinessObjective: 200
