@@ -19,7 +19,7 @@ public class RestartUI : MonoBehaviour
 
     public void PlayerDied()
     {
-        m_Description.text = "You have decided that it was not a good day to die.";
+        m_Description.text = "You have decided that it was not a good day to win.";
         m_WhoWon.text = "Enemy has won";
         m_ObjectiveScores.text = "Player's Happiness: " + m_Player.m_Happiness +
                                  "\nPlayer's Shillings " + m_Player.m_Shillings +
@@ -32,7 +32,7 @@ public class RestartUI : MonoBehaviour
 
     public void PlayerWon()
     {
-        m_Description.text = "You have decided that it was a good day to win.";
+        m_Description.text = "You have decided that it was not a good day to die.";
         m_WhoWon.text = "Player has won";
         m_ObjectiveScores.text = "Player's Happiness: " + m_Player.m_Happiness +
                                  "\nPlayer's Shillings " + m_Player.m_Shillings +

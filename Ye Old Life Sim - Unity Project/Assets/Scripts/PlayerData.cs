@@ -36,7 +36,6 @@ public class PlayerData : MonoBehaviour
     public bool m_CanCheckHappiness = true;
     public bool m_CanCheckReputation = true;
     public bool m_CanCheckShillings = true;
-    public bool m_DidPlayerWin = false;
     public bool m_IsDead = false;
     public bool m_IsInfected = false;       //variable used for when the player catches a disease
 	public bool m_HasMount = false;			//variable used for when the player has a mount
