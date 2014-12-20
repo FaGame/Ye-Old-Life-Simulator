@@ -33,6 +33,9 @@ public class PlayerData : MonoBehaviour
     public int m_Shillings = 0;
     public float m_EarningScalar = ValueConstants.PLAYER_DEFAULT_MONEY_SCALAR;    //scalar that is used to determine how much the player will earn that turn for work
 
+    public bool m_CanCheckHappiness = true;
+    public bool m_CanCheckReputation = true;
+    public bool m_CanCheckShillings = true;
     public bool m_DidPlayerWin = false;
     public bool m_IsDead = false;
     public bool m_IsInfected = false;       //variable used for when the player catches a disease
@@ -202,19 +205,34 @@ public class PlayerData : MonoBehaviour
     public void CheckScoresBetweenPlayers()
     {
         //when one of the categories beats the opponents increase the counter by 1
-        if(m_Happiness > m_Opponent.m_Happiness)
+        if(m_Happiness > m_Opponent.m_Happiness && m_CanCheckHappiness)
         {
-            m_BetterCategoryCounter++;      
+            //increase the player's counter and decrease the opponent's
+            m_BetterCategoryCounter++;
+            m_Opponent.m_BetterCategoryCounter--;
+            //flips the player's and oppents checks so the counter doesn't keep getting incremented
+            m_CanCheckHappiness = false;
+            m_Opponent.m_CanCheckHappiness = true;
         }
 
-        if(m_Shillings > m_Opponent.m_Shillings)
+        if(m_Shillings > m_Opponent.m_Shillings && m_CanCheckShillings)
         {
+            //increase the player's counter and decrease the opponent's
             m_BetterCategoryCounter++;
+            m_Opponent.m_BetterCategoryCounter--;
+            //flips the player's and oppents checks so the counter doesn't keep getting incremented
+            m_CanCheckShillings = false;
+            m_Opponent.m_CanCheckShillings = true;
         }
 
-        if(m_Reputation > m_Opponent.m_Reputation)
+        if(m_Reputation > m_Opponent.m_Reputation && m_CanCheckReputation)
         {
+            //increase the player's counter and decrease the opponent's
             m_BetterCategoryCounter++;
+            m_Opponent.m_BetterCategoryCounter--;
+            //flips the player's and oppents checks so the counter doesn't keep getting incremented
+            m_CanCheckReputation = false;
+            m_Opponent.m_CanCheckReputation = true;
         }
     }
 }

@@ -51,8 +51,8 @@ public class GameManager : MonoBehaviour
         TurnManager();
         SetObjGame();
         SetTurnsGame();
-        //CheckForWin();
-        //CheckForLoss();
+        CheckForWin();
+        CheckForLoss();
         SetGameBools();
         SetPlayers();
         DecreaseTime();
