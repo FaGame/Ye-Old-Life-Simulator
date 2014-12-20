@@ -201,10 +201,10 @@ public class PlayerData : MonoBehaviour
 
     public void CheckScoresBetweenPlayers()
     {
+        //when one of the categories beats the opponents increase the counter by 1
         if(m_Happiness > m_Opponent.m_Happiness)
         {
-            m_BetterCategoryCounter++;
-            
+            m_BetterCategoryCounter++;      
         }
 
         if(m_Shillings > m_Opponent.m_Shillings)
