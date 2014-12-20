@@ -23,6 +23,7 @@ public class HUDScript : MonoBehaviour
     private bool statsActive_ = false; //This bool determines whether or not the the stats window is open
     private bool inventoryActive_ = false; //This bool determines whether or not the inventory is currently open
     private bool HUDActive_ = false; //This bool determines whether any HUD elements are active
+    private bool wasHighlighted_ = false;
     private float timer_; //Turn timer
     private Slider[] sliderArray_; //Array containing the HUD sliders
     private Slider[] objSliderArray_; //Array of objective sliders
@@ -37,6 +38,9 @@ public class HUDScript : MonoBehaviour
     private List<float> playerStats_ = new List<float>(); //List of the player stats
     private Ray buildingHoverRay_;
     private RaycastHit buildingRayHit_;
+    private Color startColour_;
+    private GameObject highlightedObject_;
+    private List<Color> originalColours_ = new List<Color>();
 
     public bool HUDActive
     {
@@ -155,12 +159,23 @@ public float m_HappinessObjective;
 
         if(Physics.Raycast(buildingHoverRay_, out buildingRayHit_))
         {
-            if (buildingRayHit_.collider.gameObject.GetComponent<Building>() || buildingRayHit_.collider.gameObject.GetComponent<Habitat>())
+            highlightedObject_ = buildingRayHit_.collider.gameObject;
+            if (highlightedObject_.GetComponent<Building>() || highlightedObject_.GetComponent<Habitat>())
             {
-                m_BuildingHovered.text = buildingRayHit_.collider.name;
+                m_BuildingHovered.text = highlightedObject_.name;
+                /*for (int i = 0; i < highlightedObject_.GetComponentsInChildren<Renderer>().Length; ++i)
+                {
+                    originalColours_.Add(highlightedObject_.GetComponentsInChildren<Renderer>()[i].renderer.material.color);
+                    highlightedObject_.GetComponentsInChildren<Renderer>()[i].renderer.material.color = Color.yellow;
+                }
+                wasHighlighted_ = true;*/
             }
-            else
+            else if(wasHighlighted_)
             {
+                /*for(int i = 0; i < originalColours_.Count; ++i)
+                {
+
+                }*/
                 m_BuildingHovered.text = "";
             }
         }
@@ -228,5 +243,10 @@ public float m_HappinessObjective;
         repObjSlider_.value = m_PlayerData.m_Reputation;
         currObjSlider_.value = m_PlayerData.m_Shillings;
         happyObjSlider_.value = m_PlayerData.m_Happiness;
+    }
+
+    void OnMouseOver()
+    {
+
     }
 }

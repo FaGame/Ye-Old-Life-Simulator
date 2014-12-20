@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Building : MonoBehaviour 
 {
@@ -14,10 +15,20 @@ public class Building : MonoBehaviour
     public bool m_PlayerWorksHere;
     public BuildingUI m_BuildingUI;
 
+    private bool isHighlighted_;
+    private Renderer[] renderers_;
+    private List<Color> originalColours_ = new List<Color>();
+
 	// Use this for initialization
 	void Start () 
     {
         m_PlayerWorksHere = false;
+        renderers_ = GetComponentsInChildren<Renderer>();
+
+        for(int i = 0; i < renderers_.Length; ++i)
+        {
+            originalColours_.Add(renderers_[i].renderer.material.color);
+        }
 	}
 	
 	// Update is called once per frame
@@ -118,5 +129,21 @@ public class Building : MonoBehaviour
         }
 
         return failedSkill;
+    }
+
+    void OnMouseEnter()
+    {
+        for(int i = 0; i < GetComponentsInChildren<Renderer>().Length; ++i)
+        {
+            GetComponentsInChildren<Renderer>()[i].renderer.material.color = Color.yellow;
+        }
+    }
+
+    void OnMouseExit()
+    {
+        for(int i = 0; i < GetComponentsInChildren<Renderer>().Length; ++i)
+        {
+            GetComponentsInChildren<Renderer>()[i].renderer.material.color = originalColours_[i];
+        }
     }
 }
