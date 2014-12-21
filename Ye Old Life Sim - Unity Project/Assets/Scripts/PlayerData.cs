@@ -18,6 +18,9 @@ public class PlayerData : MonoBehaviour
 
     public ParticleEmitter m_InfectedParticle;
 
+    public float m_MaxHappiness = 1000;
+    public float m_MaxReputation = 1000;
+    public float m_MaxShillings = 1000;
     public float m_DefaultSpeed = 10.0f;
     public float m_CurrTime = 0.0f;
     public float m_MaxTime = ValueConstants.PLAYER_MAX_TIME;
@@ -204,7 +207,7 @@ public class PlayerData : MonoBehaviour
     public void CheckScoresBetweenPlayers()
     {
         //when one of the categories beats the opponents increase the counter by 1
-        if(m_Happiness > m_Opponent.m_Happiness && m_CanCheckHappiness)
+        if (m_Happiness > m_Opponent.m_Happiness && m_CanCheckHappiness && m_Happiness >= m_MaxHappiness)
         {
             //increase the player's counter and decrease the opponent's
             m_BetterCategoryCounter++;
@@ -214,7 +217,7 @@ public class PlayerData : MonoBehaviour
             m_Opponent.m_CanCheckHappiness = true;
         }
 
-        if(m_Shillings > m_Opponent.m_Shillings && m_CanCheckShillings)
+        if(m_Shillings > m_Opponent.m_Shillings && m_CanCheckShillings && m_Shillings >= m_MaxShillings)
         {
             //increase the player's counter and decrease the opponent's
             m_BetterCategoryCounter++;
@@ -223,8 +226,8 @@ public class PlayerData : MonoBehaviour
             m_CanCheckShillings = false;
             m_Opponent.m_CanCheckShillings = true;
         }
-
-        if(m_Reputation > m_Opponent.m_Reputation && m_CanCheckReputation)
+            
+        if(m_Reputation > m_Opponent.m_Reputation && m_CanCheckReputation && m_Reputation >= m_MaxReputation)
         {
             //increase the player's counter and decrease the opponent's
             m_BetterCategoryCounter++;
