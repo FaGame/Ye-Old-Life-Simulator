@@ -18,6 +18,7 @@ public class BuildingUI : MonoBehaviour
     public Button m_BuyButton; //Building UI "buy items" button
     public PlayerData m_PlayerData;
     public GameManager m_GameManager;
+    public CanvasRenderer m_CanvasRenderer;
 
     private bool buildingsActive_ = false; //Flag to turn on and off the building UI
     private GameObject selectedBuilding_; //Selected building GameObject
@@ -29,6 +30,9 @@ public class BuildingUI : MonoBehaviour
     private Text resultsText_; //Results description text - results of your work
     private SkillAndAmount jobGainedData_;
     private PlayerController playerController_; // Reenable the player after X'ing
+    private bool transitionToVisible_;
+    private bool isIransitioning_;
+    private float transitionAlpha_;
 
     public bool BuildingUIActive
     {
@@ -43,12 +47,18 @@ public class BuildingUI : MonoBehaviour
         descriptionText_ = buildingMenuText_[0];
         resultsText_ = buildingMenuText_[1];
         m_BuildingGUI.SetActive(false);
+        transitionToVisible_ = false;
+        isIransitioning_ = false;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        m_BuildingGUI.SetActive(buildingsActive_);
+        /*if (isIransitioning_ && !buildingsActive_)
+        {
+            m_BuildingGUI.SetActive(buildingsActive_);
+        }*/
+        transitionGUI();
 
         if(m_GameManager.AITurn)
         {
@@ -95,6 +105,8 @@ public class BuildingUI : MonoBehaviour
     {
        
         buildingsActive_ = true;
+        kickoffTransitionGUI(true);
+        m_BuildingGUI.SetActive(buildingsActive_);
         selectedBuilding_ = gObj;
 
         //selectedBuilding_ = GameObject.Find(name);
@@ -344,7 +356,36 @@ public class BuildingUI : MonoBehaviour
         {
             resultsText_.text = "";
             buildingsActive_ = false;
+            kickoffTransitionGUI(false);
             playerController_.enabled = true;
+        }
+    }
+
+    void kickoffTransitionGUI(bool toVisible)
+    {
+        if(!isIransitioning_)
+        {
+            transitionToVisible_ = toVisible;
+            transitionAlpha_ = transitionToVisible_ ? 0.0f : 1.0f;
+            m_CanvasRenderer.SetAlpha(transitionAlpha_);
+            isIransitioning_ = true;
+        }
+    }
+
+    void transitionGUI()
+    {
+        if(isIransitioning_)
+        {
+            transitionAlpha_ += transitionToVisible_ ? Time.deltaTime : -Time.deltaTime;
+            m_CanvasRenderer.SetAlpha(transitionAlpha_);
+            if((transitionAlpha_ <= 0.0f) || (transitionAlpha_ >= 1.0f))
+            {
+                isIransitioning_ = false;
+                if(!transitionToVisible_)
+                {
+                    m_BuildingGUI.SetActive(buildingsActive_);
+                }
+            }
         }
     }
 }

@@ -24869,6 +24869,10 @@ Prefab:
       propertyPath: m_PlayerData
       value: 
       objectReference: {fileID: 1679451513}
+    - target: {fileID: 11488056, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_CanvasRenderer
+      value: 
+      objectReference: {fileID: 857479026}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
   m_RootGameObject: {fileID: 1583590499}
@@ -39250,7 +39254,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -39350,6 +39353,7 @@ MonoBehaviour:
   m_BuyButton: {fileID: 1944513559}
   m_PlayerData: {fileID: 1679451513}
   m_GameManager: {fileID: 1405834717}
+  m_CanvasRenderer: {fileID: 857479026}
 --- !u!114 &1583590506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44380,7 +44384,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:

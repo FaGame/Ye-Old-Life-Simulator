@@ -82,6 +82,7 @@
     <Compile Include="Assets\CloudSystem\Instractions\Standard Assets\Scripts\Utility Scripts\MeshCombineUtility.cs" />
     <Compile Include="Assets\Scripts\Building.cs" />
     <Compile Include="Assets\Scripts\BuildingUI.cs" />
+    <Compile Include="Assets\Scripts\Cam.cs" />
     <Compile Include="Assets\Scripts\CursorEffects.cs" />
     <Compile Include="Assets\Scripts\EventScripts\BarrelOfMead.cs" />
     <Compile Include="Assets\Scripts\EventScripts\BitByRats.cs" />
@@ -120,9 +121,11 @@
     <Compile Include="Assets\Scripts\Items\ItemEffect.cs" />
     <Compile Include="Assets\Scripts\Items\Possession.cs" />
     <Compile Include="Assets\Scripts\JobData.cs" />
+    <Compile Include="Assets\Scripts\LoadScenes.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerData.cs" />
+    <Compile Include="Assets\Scripts\RPGCamera.cs" />
     <Compile Include="Assets\Scripts\Requirement.cs" />
     <Compile Include="Assets\Scripts\RestartUI.cs" />
     <Compile Include="Assets\Scripts\Skill.cs" />
