@@ -81,7 +81,6 @@
     <Compile Include="Assets\CloudSystem\Instractions\Standard Assets\Scripts\Utility Scripts\CombineChildren.cs" />
     <Compile Include="Assets\CloudSystem\Instractions\Standard Assets\Scripts\Utility Scripts\MeshCombineUtility.cs" />
     <Compile Include="Assets\Scripts\Building.cs" />
-    <Compile Include="Assets\Scripts\BuildingUI.cs" />
     <Compile Include="Assets\Scripts\Cam.cs" />
     <Compile Include="Assets\Scripts\CursorEffects.cs" />
     <Compile Include="Assets\Scripts\EventScripts\BarrelOfMead.cs" />
@@ -105,9 +104,7 @@
     <Compile Include="Assets\Scripts\EventScripts\WitnessAnExecution.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameMenu.cs" />
-    <Compile Include="Assets\Scripts\HUDScript.cs" />
     <Compile Include="Assets\Scripts\Habitat.cs" />
-    <Compile Include="Assets\Scripts\HabitatUI.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\Inventory\PossessionInventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\TestInventoryUI.cs" />
@@ -127,7 +124,6 @@
     <Compile Include="Assets\Scripts\PlayerData.cs" />
     <Compile Include="Assets\Scripts\RPGCamera.cs" />
     <Compile Include="Assets\Scripts\Requirement.cs" />
-    <Compile Include="Assets\Scripts\RestartUI.cs" />
     <Compile Include="Assets\Scripts\Skill.cs" />
     <Compile Include="Assets\Scripts\SkillAndAmount.cs" />
     <Compile Include="Assets\Scripts\SkillGain.cs" />
@@ -142,6 +138,11 @@
     <Compile Include="Assets\Scripts\SpecialEffects\Training.cs" />
     <Compile Include="Assets\Scripts\State.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\UI\BuildingUI.cs" />
+    <Compile Include="Assets\Scripts\UI\HUDScript.cs" />
+    <Compile Include="Assets\Scripts\UI\HabitatUI.cs" />
+    <Compile Include="Assets\Scripts\UI\RestartUI.cs" />
+    <Compile Include="Assets\Scripts\UI\TransitionDisplay.cs" />
     <Compile Include="Assets\Scripts\ValueConstants.cs" />
     <Compile Include="Assets\Scripts\VolumeControl.cs" />
   </ItemGroup>

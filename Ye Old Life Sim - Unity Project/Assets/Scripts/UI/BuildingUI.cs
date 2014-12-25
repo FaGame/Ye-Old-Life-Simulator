@@ -18,6 +18,7 @@ public class BuildingUI : MonoBehaviour
     public Button m_BuyButton; //Building UI "buy items" button
     public PlayerData m_PlayerData;
     public GameManager m_GameManager;
+    public TransitionDisplay m_TransitionDisplay;
     public CanvasRenderer m_CanvasRenderer;
 
     private bool buildingsActive_ = false; //Flag to turn on and off the building UI
@@ -58,7 +59,7 @@ public class BuildingUI : MonoBehaviour
         {
             m_BuildingGUI.SetActive(buildingsActive_);
         }*/
-        transitionGUI();
+        //transitionGUI();
 
         if(m_GameManager.AITurn)
         {
@@ -105,8 +106,9 @@ public class BuildingUI : MonoBehaviour
     {
        
         buildingsActive_ = true;
-        kickoffTransitionGUI(true);
-        m_BuildingGUI.SetActive(buildingsActive_);
+        //kickoffTransitionGUI(true);
+        //m_BuildingGUI.SetActive(buildingsActive_);
+        m_TransitionDisplay.FadeIn();
         selectedBuilding_ = gObj;
 
         //selectedBuilding_ = GameObject.Find(name);
@@ -356,7 +358,9 @@ public class BuildingUI : MonoBehaviour
         {
             resultsText_.text = "";
             buildingsActive_ = false;
-            kickoffTransitionGUI(false);
+            //kickoffTransitionGUI(false);
+            //m_BuildingGUI.SetActive(buildingsActive_);
+            m_TransitionDisplay.FadeOut();
             playerController_.enabled = true;
         }
     }

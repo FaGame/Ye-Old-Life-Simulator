@@ -21160,6 +21160,7 @@ GameObject:
   - 224: {fileID: 857479024}
   - 222: {fileID: 857479026}
   - 114: {fileID: 857479025}
+  - 114: {fileID: 857479027}
   m_Layer: 5
   m_Name: BuildingUI
   m_TagString: Untagged
@@ -21224,6 +21225,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 1023844789}
   m_GameObject: {fileID: 857479023}
+--- !u!114 &857479027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 857479023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c464a6c2ca54d554bbfb4b5443147f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &862712832
 GameObject:
   m_ObjectHideFlags: 0
@@ -24873,6 +24885,10 @@ Prefab:
       propertyPath: m_CanvasRenderer
       value: 
       objectReference: {fileID: 857479026}
+    - target: {fileID: 11488056, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_TransitionDisplay
+      value: 
+      objectReference: {fileID: 857479027}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
   m_RootGameObject: {fileID: 1583590499}
@@ -39353,6 +39369,7 @@ MonoBehaviour:
   m_BuyButton: {fileID: 1944513559}
   m_PlayerData: {fileID: 1679451513}
   m_GameManager: {fileID: 1405834717}
+  m_TransitionDisplay: {fileID: 857479027}
   m_CanvasRenderer: {fileID: 857479026}
 --- !u!114 &1583590506
 MonoBehaviour:
