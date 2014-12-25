@@ -9,6 +9,7 @@ public class HabitatUI : MonoBehaviour
     public Text m_RentValue;//the cost of current dwelling
     public Text m_TimePenalty;//the time penalty of current dwelling
     public  PlayerData m_PlayerData;
+    public TransitionDisplay m_TransitionDisplay;
 
     private Habitat m_Habitat;
     private GameObject selectedHome_;//current habitat highlighted
@@ -37,7 +38,7 @@ public class HabitatUI : MonoBehaviour
 
     public void Update()
     {
-        m_HabitatGUI.SetActive(habitatIsActive_);
+        //m_HabitatGUI.SetActive(habitatIsActive_);
 
         if(selectedHome_ != null)
         {
@@ -52,6 +53,7 @@ public class HabitatUI : MonoBehaviour
     public void LoadHabitatData(/*string name*/PlayerController pController, GameObject gObj)
     {
         habitatIsActive_ = true;
+        m_TransitionDisplay.FadeIn();
         selectedHome_ = gObj;
         descriptionText_.text = selectedHome_.GetComponent<Habitat>().GetDescription();
 
@@ -86,6 +88,7 @@ public class HabitatUI : MonoBehaviour
     public void CloseCurrentUI()
     {
         habitatIsActive_ = false;
+        m_TransitionDisplay.FadeOut();
         playerController_.enabled = true;
     }
 }

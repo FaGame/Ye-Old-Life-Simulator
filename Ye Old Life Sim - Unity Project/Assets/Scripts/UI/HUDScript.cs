@@ -19,6 +19,7 @@ public class HUDScript : MonoBehaviour
     public Text m_CurrJobText; //The player's current job text
     public Text m_ShillingText; //The player's current shillings
     public Text m_BuildingHovered; //The building the player is currently hovering
+    public TransitionDisplay m_StatsTransitionDisplay;
 
     private bool statsActive_ = false; //This bool determines whether or not the the stats window is open
     private bool inventoryActive_ = false; //This bool determines whether or not the inventory is currently open
@@ -186,7 +187,8 @@ public float m_HappinessObjective;
     {
         m_JournalSound.Play();
         statsActive_ = true;
-        m_StatsScreen.SetActive(statsActive_);
+        //m_StatsScreen.SetActive(statsActive_);
+        m_StatsTransitionDisplay.FadeIn();
         PopulateStats();
         PopulateSkills();
         UpdateSliders();
@@ -197,7 +199,8 @@ public float m_HappinessObjective;
     {
         m_CloseMenu.Play();
         statsActive_ = false;
-        m_StatsScreen.SetActive(statsActive_);
+        //m_StatsScreen.SetActive(statsActive_);
+        m_StatsTransitionDisplay.FadeOut();
     }
 
     //This function gets the latest stats when the player opens the stats menu

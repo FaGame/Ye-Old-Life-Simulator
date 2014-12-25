@@ -3,6 +3,8 @@ using System.Collections;
 
 public class TransitionDisplay : MonoBehaviour 
 {
+    public float m_TransitionSpeedMultiplier = 4.0f;
+
     private CanvasRenderer canvasRenderer_;
     private bool transitionToVisible_;
     private bool isIransitioning_;
@@ -80,7 +82,7 @@ public class TransitionDisplay : MonoBehaviour
     {
         if (isIransitioning_)
         {
-            transitionAlpha_ += transitionToVisible_ ? Time.deltaTime : -Time.deltaTime;
+            transitionAlpha_ += (transitionToVisible_ ? Time.deltaTime : -Time.deltaTime) * m_TransitionSpeedMultiplier;
             canvasRenderer_.SetAlpha(transitionAlpha_);
             if ((transitionAlpha_ <= 0.0f) || (transitionAlpha_ >= 1.0f))
             {

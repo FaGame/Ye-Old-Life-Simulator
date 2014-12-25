@@ -10,6 +10,7 @@ public class RestartUI : MonoBehaviour
     public Text m_ObjectiveScores;
     public PlayerData m_Player;
     public PlayerData m_Opponent;
+    public TransitionDisplay m_TransitionDisplay;
 
 	// Use this for initialization
 	void Start () 
@@ -27,7 +28,8 @@ public class RestartUI : MonoBehaviour
                                  "\nOpponent's Happiness: " + m_Opponent.m_Happiness +
                                  "\nOpponent's Shillings " + m_Opponent.m_Shillings +
                                  "\nOpponent's Reputation " + m_Opponent.m_Reputation;
-        m_RestartGUI.SetActive(true);
+        //m_RestartGUI.SetActive(true);
+        m_TransitionDisplay.FadeIn();
     }
 
     public void PlayerWon()
@@ -41,11 +43,13 @@ public class RestartUI : MonoBehaviour
                                  "\nOpponent's Shillings " + m_Opponent.m_Shillings +
                                  "\nOpponent's Reputation " + m_Opponent.m_Reputation;
 
-        m_RestartGUI.SetActive(true);
+        //m_RestartGUI.SetActive(true);
+        m_TransitionDisplay.FadeIn();
     }
 	
     public void RestartGame()
     {
+        m_TransitionDisplay.FadeOut();
         Application.LoadLevel(0);
     }
 }

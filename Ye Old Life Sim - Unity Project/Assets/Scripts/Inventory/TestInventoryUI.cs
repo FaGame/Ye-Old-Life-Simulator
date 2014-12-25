@@ -10,6 +10,7 @@ public class TestInventoryUI : MonoBehaviour
     public GameObject m_InventoryButtonPrefab; //Prefab for the Buy Items buttons to Instantiate later
     public GameObject m_InventoryMenuScrollMask; //Gameobject that is to have the item information as a parent to allow for scrolling
     public PlayerData m_PlayerData;
+    public TransitionDisplay m_TransitionDisplay;
 
 	// Use this for initialization
 	void Start () 
@@ -30,7 +31,8 @@ public class TestInventoryUI : MonoBehaviour
         Dictionary<string, UseableItemInventory.ItemInventoryEntry> inventory = m_PlayerData.m_UseableInventory.m_UseableItemInventory;
         Text[] invMenuText;
 
-        m_InventoryMenu.SetActive(true);
+        //m_InventoryMenu.SetActive(true);
+        m_TransitionDisplay.FadeIn();
         invMenuText = m_InventoryMenu.GetComponentsInChildren<Text>();
 
         int i = 0;
@@ -53,5 +55,10 @@ public class TestInventoryUI : MonoBehaviour
     {
         go.GetComponent<AnItem>().m_SingleItem.item.UseItem(m_PlayerData);
         m_PlayerData.m_UseableInventory.RemoveFromInventory(go.GetComponent<AnItem>().m_ItemName);
+    }
+
+    public void CloseCurrentMenu()
+    {
+        m_TransitionDisplay.FadeOut();
     }
 }

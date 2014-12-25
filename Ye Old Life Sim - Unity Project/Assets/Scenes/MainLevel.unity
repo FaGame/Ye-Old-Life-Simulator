@@ -10303,6 +10303,7 @@ GameObject:
   - 224: {fileID: 421053088}
   - 222: {fileID: 421053090}
   - 114: {fileID: 421053089}
+  - 114: {fileID: 421053091}
   m_Layer: 5
   m_Name: RestartUI
   m_TagString: Untagged
@@ -10362,6 +10363,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 1023844789}
   m_GameObject: {fileID: 421053087}
+--- !u!114 &421053091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 421053087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c464a6c2ca54d554bbfb4b5443147f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &424388625
 GameObject:
   m_ObjectHideFlags: 0
@@ -16931,6 +16943,7 @@ GameObject:
   - 224: {fileID: 678571946}
   - 222: {fileID: 678571948}
   - 114: {fileID: 678571947}
+  - 114: {fileID: 678571949}
   m_Layer: 5
   m_Name: Stats
   m_TagString: Untagged
@@ -16989,6 +17002,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 1023844789}
   m_GameObject: {fileID: 678571945}
+--- !u!114 &678571949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 678571945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c464a6c2ca54d554bbfb4b5443147f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &679886518
 GameObject:
   m_ObjectHideFlags: 0
@@ -24889,6 +24913,18 @@ Prefab:
       propertyPath: m_TransitionDisplay
       value: 
       objectReference: {fileID: 857479027}
+    - target: {fileID: 11427062, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_TransitionDisplay
+      value: 
+      objectReference: {fileID: 1109647301}
+    - target: {fileID: 11424848, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_TransitionDisplay
+      value: 
+      objectReference: {fileID: 421053091}
+    - target: {fileID: 11488054, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_StatsTransitionDisplay
+      value: 
+      objectReference: {fileID: 678571949}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
   m_RootGameObject: {fileID: 1583590499}
@@ -27277,6 +27313,7 @@ GameObject:
   - 224: {fileID: 1109647298}
   - 222: {fileID: 1109647300}
   - 114: {fileID: 1109647299}
+  - 114: {fileID: 1109647301}
   m_Layer: 5
   m_Name: HabitatUI
   m_TagString: Untagged
@@ -27337,6 +27374,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 1023844789}
   m_GameObject: {fileID: 1109647297}
+--- !u!114 &1109647301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1109647297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c464a6c2ca54d554bbfb4b5443147f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1113371773
 GameObject:
   m_ObjectHideFlags: 0
@@ -39339,6 +39387,7 @@ MonoBehaviour:
   m_CurrJobText: {fileID: 1195571785}
   m_ShillingText: {fileID: 1954455689}
   m_BuildingHovered: {fileID: 484246773}
+  m_StatsTransitionDisplay: {fileID: 678571949}
   m_ReputationObjective: 200
   m_CurrencyObjective: 200
   m_HappinessObjective: 200
@@ -39370,7 +39419,6 @@ MonoBehaviour:
   m_PlayerData: {fileID: 1679451513}
   m_GameManager: {fileID: 1405834717}
   m_TransitionDisplay: {fileID: 857479027}
-  m_CanvasRenderer: {fileID: 857479026}
 --- !u!114 &1583590506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39388,6 +39436,7 @@ MonoBehaviour:
   m_RentValue: {fileID: 145018224}
   m_TimePenalty: {fileID: 1727167600}
   m_PlayerData: {fileID: 1679451513}
+  m_TransitionDisplay: {fileID: 1109647301}
 --- !u!114 &1583590507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39406,6 +39455,7 @@ MonoBehaviour:
   m_ObjectiveScores: {fileID: 1484529483}
   m_Player: {fileID: 1679451513}
   m_Opponent: {fileID: 1078853318}
+  m_TransitionDisplay: {fileID: 421053091}
 --- !u!82 &1583590508
 AudioSource:
   m_ObjectHideFlags: 0
@@ -39541,6 +39591,7 @@ MonoBehaviour:
     type: 2}
   m_InventoryMenuScrollMask: {fileID: 814143619}
   m_PlayerData: {fileID: 1679451513}
+  m_TransitionDisplay: {fileID: 0}
 --- !u!114 &1583590511
 MonoBehaviour:
   m_ObjectHideFlags: 0
