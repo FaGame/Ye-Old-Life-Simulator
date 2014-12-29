@@ -22,6 +22,10 @@ public class BuildingUI : MonoBehaviour
     //public CanvasRenderer m_CanvasRenderer;
 
     private bool buildingsActive_ = false; //Flag to turn on and off the building UI
+    private int buyMenuNumChildren_ = 1; //Buy menu's children (number of items for sale) -- this is set to 1 as the for loop it is used in is 0 based
+    private int applyMenuNumChildren_ = 1; //Apply for Job menu's children (number of jobs to apply to) -- this is set to 1 as the for loop it is used in is 0 based
+    private float applyMenuYClamp_; //Clamping the apply for job menu's Y position for scrolling
+    private float buyMenuYClamp_; //Clamping the buy menu's Y position for scrolling
     private GameObject selectedBuilding_; //Selected building GameObject
     private Text[] buildingMenuText_; //Array of text on the building UI element (Buy Items, Interact, etc)..
     private Text[] applyMenuText_; //Array of text for the Apply For Job Menu
@@ -70,23 +74,6 @@ public class BuildingUI : MonoBehaviour
             m_PlayerData = m_GameManager.m_PlayerData;
         }
 
-        //-------------TEMP CODE-------------
-        /*if (Input.GetMouseButtonDown(0) && !buildingsActive_)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit rayHit;
-            if (Physics.Raycast(ray, out rayHit))
-            {
-                if (rayHit.collider.tag == "Building")
-                {
-                    Debug.Log("Name: " + rayHit.collider.name);
-                    LoadBuildingData(rayHit.collider.name);
-                }
-            }
-        }*/
-        //-------------END TEMP CODE-------------
-
-
         if(selectedBuilding_ != null)
         {
             CheckForEmployment();
@@ -98,11 +85,39 @@ public class BuildingUI : MonoBehaviour
             {
                 m_InteractButton.interactable = false;
             }
+
+            if(m_BuyMenu != null)
+            {
+                buyMenuYClamp_ = 45 * buyMenuNumChildren_;
+
+                if(m_BuyMenuScrollMask.transform.position.y >= buyMenuYClamp_)
+                {
+                    m_BuyMenuScrollMask.transform.position = new Vector3(m_BuyMenuScrollMask.transform.position.x, buyMenuYClamp_, m_BuyMenuScrollMask.transform.position.z);
+                }
+                if(m_BuyMenuScrollMask.transform.position.y <= 0.0f)
+                {
+                    m_BuyMenuScrollMask.transform.position = new Vector3(m_BuyMenuScrollMask.transform.position.x, 0.0f, m_BuyMenuScrollMask.transform.position.z);
+                }
+            }
+
+            if(m_ApplyMenu != null)
+            {
+                applyMenuYClamp_ = 45 * applyMenuNumChildren_;
+
+                if(m_ApplyMenuScrollMask.transform.position.y >= applyMenuYClamp_)
+                {
+                    m_ApplyMenuScrollMask.transform.position = new Vector3(m_ApplyMenuScrollMask.transform.position.x, applyMenuYClamp_, m_ApplyMenuScrollMask.transform.position.z);
+                }
+                if(m_ApplyMenuScrollMask.transform.position.y <= 0.0f)
+                {
+                    m_ApplyMenuScrollMask.transform.position = new Vector3(m_ApplyMenuScrollMask.transform.position.x, 0.0f, m_ApplyMenuScrollMask.transform.position.z);
+                }
+            }
         }
 	}
 
     //This function loads the building data based on which building was clicked
-    public void LoadBuildingData(/*string name*/PlayerController pController, GameObject gObj)
+    public void LoadBuildingData(PlayerController pController, GameObject gObj)
     {
        
         buildingsActive_ = true;
@@ -159,6 +174,7 @@ public class BuildingUI : MonoBehaviour
             go.GetComponent<AnItem>().m_SingleItem.count = 1;
             go.GetComponentInChildren<Button>().onClick.AddListener(delegate { BuyItems(go); });
             startYPos -= yPosOffset;
+            buyMenuNumChildren_++;
         }
 
         buyMenuText_ = m_BuyMenu.GetComponentsInChildren<Text>();
@@ -217,6 +233,7 @@ public class BuildingUI : MonoBehaviour
             go.gameObject.transform.SetParent(m_ApplyMenuScrollMask.transform, false);
             go.GetComponentInChildren<Button>().onClick.AddListener(delegate { ApplyForJob(go); });
             startYPos -= yPosOffset;
+            applyMenuNumChildren_++;
         }
 
         applyMenuText_ = m_ApplyMenu.GetComponentsInChildren<Text>();
