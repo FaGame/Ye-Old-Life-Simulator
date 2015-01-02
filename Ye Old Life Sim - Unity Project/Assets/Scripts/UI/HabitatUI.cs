@@ -88,7 +88,7 @@ public class HabitatUI : MonoBehaviour
     public void CloseCurrentUI()
     {
         habitatIsActive_ = false;
-        m_TransitionDisplay.FadeOut();
+        m_TransitionDisplay.FadeOut(null);
         playerController_.enabled = true;
     }
 }

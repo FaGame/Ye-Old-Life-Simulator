@@ -200,7 +200,7 @@ public float m_HappinessObjective;
         m_CloseMenu.Play();
         statsActive_ = false;
         //m_StatsScreen.SetActive(statsActive_);
-        m_StatsTransitionDisplay.FadeOut();
+        m_StatsTransitionDisplay.FadeOut(null);
     }
 
     //This function gets the latest stats when the player opens the stats menu

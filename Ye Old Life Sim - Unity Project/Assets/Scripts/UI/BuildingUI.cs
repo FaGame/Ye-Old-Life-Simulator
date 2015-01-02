@@ -18,7 +18,10 @@ public class BuildingUI : MonoBehaviour
     public Button m_BuyButton; //Building UI "buy items" button
     public PlayerData m_PlayerData;
     public GameManager m_GameManager;
-    public TransitionDisplay m_TransitionDisplay;
+    public TransitionDisplay m_BuildingTransitionDisplay;
+    public TransitionDisplay m_BuyItemsTransitionDisplay;
+    public TransitionDisplay m_InteractTransitionDisplay;
+    public TransitionDisplay m_ApplyJobTransitionDisplay;
     //public CanvasRenderer m_CanvasRenderer;
 
     private bool buildingsActive_ = false; //Flag to turn on and off the building UI
@@ -123,7 +126,7 @@ public class BuildingUI : MonoBehaviour
         buildingsActive_ = true;
         //kickoffTransitionGUI(true);
         //m_BuildingGUI.SetActive(buildingsActive_);
-        m_TransitionDisplay.FadeIn();
+        m_BuildingTransitionDisplay.FadeIn();
         selectedBuilding_ = gObj;
 
         //selectedBuilding_ = GameObject.Find(name);
@@ -163,7 +166,8 @@ public class BuildingUI : MonoBehaviour
         float startYPos = 180.0f;
         float yPosOffset = 70.0f;
 
-        m_BuyMenu.SetActive(true);
+        //m_BuyMenu.SetActive(true);
+        m_BuyItemsTransitionDisplay.PrepareForFadeIn();
 
         for(int i = 0; i < selectedBuilding_.GetComponent<Building>().m_Items.Length; ++i)
         {
@@ -186,6 +190,7 @@ public class BuildingUI : MonoBehaviour
             buyMenuText_[i + 1].text = selectedBuilding_.GetComponent<Building>().m_Items[j].GetDescription();
             j++;
         }
+        m_BuyItemsTransitionDisplay.FadeIn();
     }
 
     //Button function - This function is called by the "Interact" button
@@ -195,13 +200,16 @@ public class BuildingUI : MonoBehaviour
         float startYPos = 180.0f;
         float yPosOffset = 70.0f;
 
-        m_InteractMenu.SetActive(true);
+        //m_InteractMenu.SetActive(true);
+        m_InteractTransitionDisplay.PrepareForFadeIn();
 
         for(int i = 0; i < selectedBuilding_.GetComponent<Building>().m_SpecialEffects.Length; ++i)
         {
             GameObject go = (GameObject)Instantiate(m_BuyButtonPrefab, new Vector3(0, startYPos, 0), Quaternion.identity);
             go.gameObject.transform.SetParent(m_InteractMenuScrollMask.transform, false);
-            go.GetComponentInChildren<Button>().onClick.AddListener(delegate { Interact(go); });
+            Button bton = go.GetComponentInChildren<Button>();
+            bton.onClick.AddListener(delegate { Interact(go); });
+            //go.GetComponentInChildren<Button>().onClick.AddListener(delegate { Interact(go); });
             startYPos -= yPosOffset;
         }
 
@@ -215,6 +223,7 @@ public class BuildingUI : MonoBehaviour
             interactText_[i + 1].text = "Temp string";
             j++;
         }
+        m_InteractTransitionDisplay.FadeIn();
     }
 
     //Button Function - This function is called by the "Apply for Job" button
@@ -223,7 +232,8 @@ public class BuildingUI : MonoBehaviour
     {
         float startYPos = 180.0f;
         float yPosOffset = 70.0f;
-        m_ApplyMenu.SetActive(true);
+        //m_ApplyMenu.SetActive(true);
+        m_ApplyJobTransitionDisplay.PrepareForFadeIn();
 
         //Create the necessary amount of buttons to display on screen
         Debug.Log(selectedBuilding_.GetComponent<Building>().m_JobData.Length.ToString());
@@ -276,6 +286,8 @@ public class BuildingUI : MonoBehaviour
             }
             j++;
         }
+
+        m_ApplyJobTransitionDisplay.FadeIn();
     }
 
     //Button function - The object passed into the function is the button itself to get the appropriate information
@@ -346,30 +358,18 @@ public class BuildingUI : MonoBehaviour
     {
         if (m_ApplyMenu.activeSelf)
         {
-            foreach (RectTransform child in m_ApplyMenuScrollMask.transform)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
-
-            m_ApplyMenu.SetActive(false);
+            //m_ApplyMenu.SetActive(false);
+            m_ApplyJobTransitionDisplay.FadeOut(delegate { cleanupApplyMenu(); });
         }
         else if(m_BuyMenu.activeSelf)
         {
-            foreach(RectTransform child in m_BuyMenuScrollMask.transform)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
-
-            m_BuyMenu.SetActive(false);
+            //m_BuyMenu.SetActive(false);
+            m_BuyItemsTransitionDisplay.FadeOut(delegate { cleanupBuyMenu(); });
         }
         else if(m_InteractMenu.activeSelf)
         {
-            foreach(RectTransform child in m_InteractMenuScrollMask.transform)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
-
-            m_InteractMenu.SetActive(false);
+            //m_InteractMenu.SetActive(false);
+            m_InteractTransitionDisplay.FadeOut(delegate { cleanupInteractMenu(); });
         }
         else if (buildingsActive_)
         {
@@ -377,8 +377,30 @@ public class BuildingUI : MonoBehaviour
             buildingsActive_ = false;
             //kickoffTransitionGUI(false);
             //m_BuildingGUI.SetActive(buildingsActive_);
-            m_TransitionDisplay.FadeOut();
+            m_BuildingTransitionDisplay.FadeOut(null);
             playerController_.enabled = true;
+        }
+    }
+
+    void cleanupApplyMenu()
+    {
+        foreach (RectTransform child in m_ApplyMenuScrollMask.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+    }
+    void cleanupBuyMenu()
+    {
+        foreach (RectTransform child in m_BuyMenuScrollMask.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+    }
+    void cleanupInteractMenu()
+    {
+        foreach (RectTransform child in m_InteractMenuScrollMask.transform)
+        {
+            GameObject.Destroy(child.gameObject);
         }
     }
 }

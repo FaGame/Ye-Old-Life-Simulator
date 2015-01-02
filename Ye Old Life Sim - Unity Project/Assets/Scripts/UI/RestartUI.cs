@@ -49,7 +49,7 @@ public class RestartUI : MonoBehaviour
 	
     public void RestartGame()
     {
-        m_TransitionDisplay.FadeOut();
+        m_TransitionDisplay.FadeOut(null);
         Application.LoadLevel(0);
     }
 }

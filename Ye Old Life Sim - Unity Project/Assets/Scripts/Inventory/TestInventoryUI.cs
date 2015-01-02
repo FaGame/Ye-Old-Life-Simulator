@@ -59,6 +59,6 @@ public class TestInventoryUI : MonoBehaviour
 
     public void CloseCurrentMenu()
     {
-        m_TransitionDisplay.FadeOut();
+        m_TransitionDisplay.FadeOut(null);
     }
 }

@@ -156,7 +156,7 @@ public class PlayerData : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Waypoint")
+        if (other.tag == "Waypoint" && playerController_.enabled)
         {
             Debug.Log("Name: " + other.gameObject.transform.parent.name);
             Building building = other.gameObject.transform.parent.gameObject.GetComponent<Building>();
@@ -173,6 +173,11 @@ public class PlayerData : MonoBehaviour
                 habitat.m_HabitatUI.LoadHabitatData(playerController_, other.gameObject.transform.parent.gameObject);
             }
         }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        //Debug.Log("Exited");
     }
 
     void UpdatePlayerInfectedStatus(ParticleEmitter particle)
