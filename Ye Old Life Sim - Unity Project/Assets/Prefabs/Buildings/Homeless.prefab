@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 443330}
   - 114: {fileID: 11443330}
   m_Layer: 0
-  m_Name: Homeless(start this way)
+  m_Name: Homeless
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

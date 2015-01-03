@@ -918,6 +918,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &189668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 489668}
+  - 65: {fileID: 6589668}
+  m_Layer: 0
+  m_Name: Waypoint
+  m_TagString: Waypoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &477684
 Transform:
   m_ObjectHideFlags: 1
@@ -1441,7 +1457,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 177770}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: 475, y: 1.25999999, z: 319}
+  m_LocalPosition: {x: 500, y: 6.26000023, z: 319}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 477736}
@@ -1497,6 +1513,7 @@ Transform:
   - {fileID: 477772}
   - {fileID: 477704}
   - {fileID: 477758}
+  - {fileID: 489668}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &477772
@@ -1619,6 +1636,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477770}
   m_RootOrder: 9
+--- !u!4 &489668
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189668}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.970000029, y: -.75, z: 2.6400001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 477770}
+  m_RootOrder: 53
 --- !u!23 &2377686
 Renderer:
   m_ObjectHideFlags: 1
@@ -3064,8 +3093,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 18, y: 8, z: 13.5}
+  m_Size: {x: 16.5200005, y: 8, z: 13.5}
   m_Center: {x: -2.5, y: 2.79999995, z: -4.5}
+--- !u!65 &6589668
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189668}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11477790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3087,13 +3128,13 @@ MonoBehaviour:
   - I've been called ugly, pug ugly, fugly, pug fugly, but never ugly ugly.
   m_Image: {fileID: 2800000, guid: a832abfa6677fd94e97cd7a610240420, type: 3}
   m_JobData:
-  - {fileID: 11400000, guid: 2b1ea643b9da0c64f894f43736c3b86e, type: 2}
-  - {fileID: 11400000, guid: ad948ef18b0227945a71df112c8c6a7b, type: 2}
-  - {fileID: 11400000, guid: 2cfb321f5f0020a448886bd586a420d5, type: 2}
-  - {fileID: 11400000, guid: 4ee0f10963ebe5c47a389fbbddd92972, type: 2}
-  - {fileID: 11400000, guid: 8775ec0f991d59648992d93e136fbce6, type: 2}
-  - {fileID: 11400000, guid: a3a255d39fd08664ab735559013ffa52, type: 2}
-  - {fileID: 11400000, guid: 5c4badffbd7668a40b06320eaacef885, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_Items:
   - {fileID: 11400000, guid: f094355a027cfe041ad9cf8771bace3f, type: 2}
   - {fileID: 11400000, guid: 4792ce3ee6f038f439d5dc8761d8aa83, type: 2}

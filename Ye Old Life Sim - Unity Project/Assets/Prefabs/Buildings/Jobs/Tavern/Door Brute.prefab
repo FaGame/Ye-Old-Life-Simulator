@@ -37,14 +37,14 @@ AudioSource:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 45adec9839f39da4d8a7223d17f37af5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 11e539c408a401b45abc5c388490bd7e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 3.70000005
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -71,7 +71,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 1
+      value: .243000001
       inSlope: 0
       outSlope: 0
       tangentMode: 0
