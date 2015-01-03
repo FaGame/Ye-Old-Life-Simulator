@@ -118,6 +118,7 @@ public class TransitionDisplay : MonoBehaviour
                     }
                     //m_BuildingGUI.SetActive(buildingsActive_);
                 }
+                canvasRenderer_ = null;
             }
         }
     }

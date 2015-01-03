@@ -206,9 +206,9 @@ public class BuildingUI : MonoBehaviour
         for(int i = 0; i < selectedBuilding_.GetComponent<Building>().m_SpecialEffects.Length; ++i)
         {
             GameObject go = (GameObject)Instantiate(m_BuyButtonPrefab, new Vector3(0, startYPos, 0), Quaternion.identity);
-            go.gameObject.transform.SetParent(m_InteractMenuScrollMask.transform, false);
             Button bton = go.GetComponentInChildren<Button>();
             bton.onClick.AddListener(delegate { Interact(go); });
+            go.gameObject.transform.SetParent(m_InteractMenuScrollMask.transform, false);
             //go.GetComponentInChildren<Button>().onClick.AddListener(delegate { Interact(go); });
             startYPos -= yPosOffset;
         }

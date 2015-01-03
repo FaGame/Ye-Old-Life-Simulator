@@ -10323,6 +10323,7 @@ GameObject:
   - 224: {fileID: 421053088}
   - 222: {fileID: 421053090}
   - 114: {fileID: 421053089}
+  - 114: {fileID: 421053092}
   - 114: {fileID: 421053091}
   m_Layer: 5
   m_Name: RestartUI
@@ -10388,6 +10389,19 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 421053087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c464a6c2ca54d554bbfb4b5443147f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransitionSpeedMultiplier: 4
+--- !u!114 &421053092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11476902, guid: 0da20cfc5eb06ce41b05160ad758d32c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1023844789}
   m_GameObject: {fileID: 421053087}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -16964,6 +16978,7 @@ GameObject:
   - 224: {fileID: 678571946}
   - 222: {fileID: 678571948}
   - 114: {fileID: 678571947}
+  - 114: {fileID: 678571950}
   - 114: {fileID: 678571949}
   m_Layer: 5
   m_Name: Stats
@@ -17028,6 +17043,19 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 678571945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c464a6c2ca54d554bbfb4b5443147f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransitionSpeedMultiplier: 4
+--- !u!114 &678571950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11476904, guid: 0da20cfc5eb06ce41b05160ad758d32c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1023844789}
   m_GameObject: {fileID: 678571945}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -19628,7 +19656,7 @@ RectTransform:
   m_GameObject: {fileID: 798495788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .88585788, y: .885857582, z: .885857582}
   m_Children:
   - {fileID: 154030325}
   m_Father: {fileID: 816199099}
@@ -19636,7 +19664,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 7, y: 7}
-  m_SizeDelta: {x: 675, y: 445}
+  m_SizeDelta: {x: 675, y: 400}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &798495790
 MonoBehaviour:
@@ -21232,6 +21260,7 @@ GameObject:
   - 224: {fileID: 857479024}
   - 222: {fileID: 857479026}
   - 114: {fileID: 857479025}
+  - 114: {fileID: 857479028}
   - 114: {fileID: 857479027}
   m_Layer: 5
   m_Name: BuildingUI
@@ -21302,6 +21331,19 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 857479023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c464a6c2ca54d554bbfb4b5443147f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransitionSpeedMultiplier: 4
+--- !u!114 &857479028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11476906, guid: 0da20cfc5eb06ce41b05160ad758d32c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1023844789}
   m_GameObject: {fileID: 857479023}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -25003,6 +25045,10 @@ Prefab:
       propertyPath: m_ApplyJobTransitionDisplay
       value: 
       objectReference: {fileID: 900226624}
+    - target: {fileID: 174952, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
   m_RootGameObject: {fileID: 1583590499}
@@ -26036,7 +26082,7 @@ RectTransform:
   m_GameObject: {fileID: 1073959011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .88585788, y: .885857582, z: .885857582}
   m_Children:
   - {fileID: 1932804496}
   m_Father: {fileID: 900226621}
@@ -26044,7 +26090,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 7, y: 7}
-  m_SizeDelta: {x: 675, y: 445}
+  m_SizeDelta: {x: 675, y: 400}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1073959013
 MonoBehaviour:
@@ -27391,6 +27437,7 @@ GameObject:
   - 224: {fileID: 1109647298}
   - 222: {fileID: 1109647300}
   - 114: {fileID: 1109647299}
+  - 114: {fileID: 1109647302}
   - 114: {fileID: 1109647301}
   m_Layer: 5
   m_Name: HabitatUI
@@ -27457,6 +27504,19 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1109647297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c464a6c2ca54d554bbfb4b5443147f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransitionSpeedMultiplier: 4
+--- !u!114 &1109647302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11476908, guid: 0da20cfc5eb06ce41b05160ad758d32c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1023844789}
   m_GameObject: {fileID: 1109647297}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -33043,7 +33103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1341570279
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33061,7 +33121,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 7, y: 7}
-  m_SizeDelta: {x: 675, y: 445}
+  m_SizeDelta: {x: 675, y: 400}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1341570280
 MonoBehaviour:
