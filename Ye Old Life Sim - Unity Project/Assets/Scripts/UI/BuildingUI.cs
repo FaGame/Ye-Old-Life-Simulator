@@ -58,9 +58,15 @@ public class BuildingUI : MonoBehaviour
     {
         buildingMenuText_ = m_BuildingGUI.GetComponentsInChildren<Text>();
 
+        applyMenuInitialPos_ = m_ApplyMenuScrollMask.transform.position;
+        buyMenuInitialPos_ = m_BuyMenuScrollMask.transform.position;
+
         descriptionText_ = buildingMenuText_[0];
         resultsText_ = buildingMenuText_[1];
         m_BuildingGUI.SetActive(false);
+        m_BuyMenu.SetActive(false);
+        m_InteractMenu.SetActive(false);
+        m_ApplyMenu.SetActive(false);
         //transitionToVisible_ = false;
         //isIransitioning_ = false;
 	}
@@ -123,6 +129,7 @@ public class BuildingUI : MonoBehaviour
 
                 //Get the number of children beyond the max there are and clamp based on how many there are
                 applyMenuYClamp_ = subMenuYOffset_ * Mathf.Abs(applyMenuNumChildren_ - maxNumChildrenOnScreen_) + applyMenuInitialPos_.y + 10.0f;
+                Debug.Log(m_ApplyMenuScrollMask.transform.position);
 
                 if (applyMenuNumChildren_ > maxNumChildrenOnScreen_)
                 {
@@ -187,8 +194,6 @@ public class BuildingUI : MonoBehaviour
     public void BuyItemsMenu()
     {
         float startYPos = 180.0f;
-
-        buyMenuInitialPos_ = m_BuyMenuScrollMask.transform.position;
 
         //m_BuyMenu.SetActive(true);
         m_BuyItemsTransitionDisplay.PrepareForFadeIn();
@@ -255,7 +260,6 @@ public class BuildingUI : MonoBehaviour
     {
         float startYPos = 180.0f;
         
-        applyMenuInitialPos_ = m_ApplyMenuScrollMask.transform.position;
         //m_ApplyMenu.SetActive(true);
         m_ApplyJobTransitionDisplay.PrepareForFadeIn();
 
