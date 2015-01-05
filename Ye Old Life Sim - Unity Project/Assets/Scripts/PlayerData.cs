@@ -118,6 +118,11 @@ public class PlayerData : MonoBehaviour
         }
     }
 
+    public void AddMountSpeed(ItemEffect itemEffect)
+    {
+        m_Speed *= itemEffect.m_Value;
+    }
+
     public void UpdateStatusEffects()
     {
         for (int i = 0; i < m_StatusEffects.Count; ++i)

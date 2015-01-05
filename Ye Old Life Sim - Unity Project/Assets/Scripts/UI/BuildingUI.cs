@@ -313,7 +313,14 @@ public class BuildingUI : MonoBehaviour
     {
         if (m_PlayerData.RemoveSchillings(go.GetComponent<AnItem>().m_SingleItem.item.m_Cost))
         {
-            m_PlayerData.m_UseableInventory.AddToInventory(go.GetComponent<AnItem>().m_ItemName, go.GetComponent<AnItem>().m_SingleItem);
+            if (go.GetComponent<AnItem>().m_ItemName == "Horse")
+            {
+                go.GetComponent<AnItem>().m_SingleItem.item.UseItem(m_PlayerData);
+            }
+            else
+            {
+                m_PlayerData.m_UseableInventory.AddToInventory(go.GetComponent<AnItem>().m_ItemName, go.GetComponent<AnItem>().m_SingleItem);
+            }
         }
         else
         {

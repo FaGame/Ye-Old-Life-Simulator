@@ -3380,6 +3380,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11477790, guid: 32c61f09b3e987043affb162e26715dd, type: 2}
+      propertyPath: m_Items.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 477770, guid: 32c61f09b3e987043affb162e26715dd, type: 2}
       propertyPath: m_LocalPosition.x
       value: 500
@@ -3451,6 +3455,18 @@ Prefab:
       propertyPath: m_BuildingUI
       value: 
       objectReference: {fileID: 1583590505}
+    - target: {fileID: 11477790, guid: 32c61f09b3e987043affb162e26715dd, type: 2}
+      propertyPath: m_Items.Array.data[6]
+      value: 
+      objectReference: {fileID: 1142443328}
+    - target: {fileID: 11477790, guid: 32c61f09b3e987043affb162e26715dd, type: 2}
+      propertyPath: m_Items.Array.data[5]
+      value: 
+      objectReference: {fileID: 1149290296}
+    - target: {fileID: 11477790, guid: 32c61f09b3e987043affb162e26715dd, type: 2}
+      propertyPath: m_Items.Array.data[0]
+      value: 
+      objectReference: {fileID: 1142443328}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 32c61f09b3e987043affb162e26715dd, type: 2}
   m_RootGameObject: {fileID: 1031574682}
@@ -3518,6 +3534,18 @@ Prefab:
     - target: {fileID: 11429232, guid: 6363f9699f9597f46a98480bccb82784, type: 2}
       propertyPath: m_IsDead
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19576472, guid: 6363f9699f9597f46a98480bccb82784, type: 2}
+      propertyPath: m_Speed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11429232, guid: 6363f9699f9597f46a98480bccb82784, type: 2}
+      propertyPath: m_Speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11429232, guid: 6363f9699f9597f46a98480bccb82784, type: 2}
+      propertyPath: m_DefaultSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6363f9699f9597f46a98480bccb82784, type: 2}
@@ -14897,6 +14925,7 @@ Transform:
   - {fileID: 1122322594}
   - {fileID: 828591548}
   - {fileID: 1848819424}
+  - {fileID: 1142443327}
   m_Father: {fileID: 0}
   m_RootOrder: 24
 --- !u!1 &594728286
@@ -25310,12 +25339,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a3a255d39fd08664ab735559013ffa52, type: 2}
   - {fileID: 11400000, guid: 5c4badffbd7668a40b06320eaacef885, type: 2}
   m_Items:
-  - {fileID: 11400000, guid: f094355a027cfe041ad9cf8771bace3f, type: 2}
+  - {fileID: 1142443328}
   - {fileID: 11400000, guid: 4792ce3ee6f038f439d5dc8761d8aa83, type: 2}
   - {fileID: 11400000, guid: c9159c8b5d9c638499056f577006e652, type: 2}
   - {fileID: 11400000, guid: 9125e2840f5546e4a80942e44d40d1a4, type: 2}
   - {fileID: 11400000, guid: 960723608d96c4b4095b24195e22b8db, type: 2}
-  - {fileID: 11400000, guid: 6584e0bd94109e24c82905bc3f9f4df7, type: 2}
+  - {fileID: 1149290296}
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
@@ -25827,7 +25856,7 @@ Prefab:
       objectReference: {fileID: 1612327286}
     - target: {fileID: 165482, guid: 2210f5dc05750464082d297b6bbf78b2, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11465494, guid: 2210f5dc05750464082d297b6bbf78b2, type: 2}
@@ -28345,6 +28374,55 @@ MeshFilter:
   m_PrefabInternal: {fileID: 243452356}
   m_GameObject: {fileID: 1135597956}
   m_Mesh: {fileID: 4300026, guid: bd968b4f2459dc94ab4bc9603f31e72a, type: 3}
+--- !u!1 &1142443326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100830, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
+  m_PrefabInternal: {fileID: 1712026665}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1142443327}
+  - 114: {fileID: 1142443328}
+  m_Layer: 0
+  m_Name: Horse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1142443327
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400830, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
+  m_PrefabInternal: {fileID: 1712026665}
+  m_GameObject: {fileID: 1142443326}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 590889063}
+  m_RootOrder: 17
+--- !u!114 &1142443328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11481086, guid: 4445ae6dcb062cc4cbc1451fb0644578,
+    type: 2}
+  m_PrefabInternal: {fileID: 1712026665}
+  m_GameObject: {fileID: 1142443326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082c74dc1fa709a458104ac855a1ec03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Cost: 10
+  m_UseCount: 1
+  m_Description: Horse
+  m_Effect:
+    m_Type: 0
+    m_Timer: 0
+    m_Value: 0
+  m_BoughtHorse: 0
+  m_PlayerSpeedModifier: 10
 --- !u!1 &1149290294
 GameObject:
   m_ObjectHideFlags: 0
@@ -42577,6 +42655,58 @@ Prefab:
   m_RootGameObject: {fileID: 1612327285}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1001 &1712026665
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 590889063}
+    m_Modifications:
+    - target: {fileID: 400830, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400830, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400830, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400830, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400830, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400830, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400830, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400830, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481086, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
+      propertyPath: m_Cost
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481086, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
+      propertyPath: m_Description
+      value: Horse
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
+  m_RootGameObject: {fileID: 1142443326}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1714531219
 GameObject:
   m_ObjectHideFlags: 0
@@ -44550,7 +44680,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1806476326
 RectTransform:
   m_ObjectHideFlags: 0
