@@ -4938,6 +4938,8 @@ MonoBehaviour:
   m_ApplyMenuScrollMask: {fileID: 135826}
   m_BuyMenuScrollMask: {fileID: 193682}
   m_InteractMenuScrollMask: {fileID: 174930}
+  m_BuyMenuScrollRect: {fileID: 11497870}
+  m_ApplyMenuScrollRect: {fileID: 11435826}
   m_WorkButton: {fileID: 11474872}
   m_InteractButton: {fileID: 11474930}
   m_BuyButton: {fileID: 11424852}
