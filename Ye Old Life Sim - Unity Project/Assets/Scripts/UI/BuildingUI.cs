@@ -13,6 +13,8 @@ public class BuildingUI : MonoBehaviour
     public GameObject m_ApplyMenuScrollMask; //Gameobject that is to have the job information as a parent to allow for scrolling
     public GameObject m_BuyMenuScrollMask; //Gameobject that is to have the item information as a parent to allow for scrolling
     public GameObject m_InteractMenuScrollMask; //Gameobject that is to have the item information as a parent to allow for scrolling
+    public ScrollRect m_BuyMenuScrollRect;
+    public ScrollRect m_ApplyMenuScrollRect;
     public Button m_WorkButton; //Building UI "work" button
     public Button m_InteractButton; //Building UI "interact" button
     public Button m_BuyButton; //Building UI "buy items" button
@@ -25,10 +27,12 @@ public class BuildingUI : MonoBehaviour
     //public CanvasRenderer m_CanvasRenderer;
 
     private bool buildingsActive_ = false; //Flag to turn on and off the building UI
-    private int buyMenuNumChildren_ = 1; //Buy menu's children (number of items for sale) -- this is set to 1 as the for loop it is used in is 0 based
-    private int applyMenuNumChildren_ = 1; //Apply for Job menu's children (number of jobs to apply to) -- this is set to 1 as the for loop it is used in is 0 based
+    private int buyMenuNumChildren_ = 0; //Buy menu's children (number of items for sale) -- this is set to 1 as the for loop it is used in is 0 based
+    private int applyMenuNumChildren_ = 0; //Apply for Job menu's children (number of jobs to apply to) -- this is set to 1 as the for loop it is used in is 0 based
+    private int maxNumChildrenOnScreen_ = 6; //Maximum number of children that are fully visible on screen at one time
     private float applyMenuYClamp_; //Clamping the apply for job menu's Y position for scrolling
     private float buyMenuYClamp_; //Clamping the buy menu's Y position for scrolling
+    private float subMenuYOffset_ = 70.0f; //Offset Y position for each element in the sub menus
     private GameObject selectedBuilding_; //Selected building GameObject
     private Text[] buildingMenuText_; //Array of text on the building UI element (Buy Items, Interact, etc)..
     private Text[] applyMenuText_; //Array of text for the Apply For Job Menu
@@ -38,6 +42,8 @@ public class BuildingUI : MonoBehaviour
     private Text resultsText_; //Results description text - results of your work
     private SkillAndAmount jobGainedData_;
     private PlayerController playerController_; // Reenable the player after X'ing
+    private Vector3 applyMenuInitialPos_;
+    private Vector3 buyMenuInitialPos_;
     //private bool transitionToVisible_;
     //private bool isIransitioning_;
     //private float transitionAlpha_;
@@ -51,7 +57,7 @@ public class BuildingUI : MonoBehaviour
 	void Start () 
     {
         buildingMenuText_ = m_BuildingGUI.GetComponentsInChildren<Text>();
-        
+
         descriptionText_ = buildingMenuText_[0];
         resultsText_ = buildingMenuText_[1];
         m_BuildingGUI.SetActive(false);
@@ -91,29 +97,47 @@ public class BuildingUI : MonoBehaviour
 
             if(m_BuyMenu != null)
             {
-                buyMenuYClamp_ = 45 * buyMenuNumChildren_;
+                if (buyMenuNumChildren_ > maxNumChildrenOnScreen_)
+                {
+                    buyMenuYClamp_ = subMenuYOffset_ * Mathf.Abs(buyMenuNumChildren_ - maxNumChildrenOnScreen_) + applyMenuInitialPos_.y + 10.0f;
+                    m_BuyMenuScrollRect.vertical = true;
 
-                if(m_BuyMenuScrollMask.transform.position.y >= buyMenuYClamp_)
-                {
-                    m_BuyMenuScrollMask.transform.position = new Vector3(m_BuyMenuScrollMask.transform.position.x, buyMenuYClamp_, m_BuyMenuScrollMask.transform.position.z);
+                    if (m_BuyMenuScrollMask.transform.position.y >= buyMenuYClamp_)
+                    {
+                        m_BuyMenuScrollMask.transform.position = new Vector3(m_BuyMenuScrollMask.transform.position.x, buyMenuYClamp_, m_BuyMenuScrollMask.transform.position.z);
+                    }
+                    if(m_BuyMenuScrollMask.transform.position.y <= buyMenuInitialPos_.y)
+                    {
+                        m_BuyMenuScrollMask.transform.position = new Vector3(m_BuyMenuScrollMask.transform.position.x, buyMenuInitialPos_.y, m_BuyMenuScrollMask.transform.position.z);
+                    }
                 }
-                if(m_BuyMenuScrollMask.transform.position.y <= 0.0f)
+                else
                 {
-                    m_BuyMenuScrollMask.transform.position = new Vector3(m_BuyMenuScrollMask.transform.position.x, 0.0f, m_BuyMenuScrollMask.transform.position.z);
+                    m_BuyMenuScrollRect.vertical = false;
                 }
             }
 
             if(m_ApplyMenu != null)
             {
-                applyMenuYClamp_ = 45 * applyMenuNumChildren_;
+                m_ApplyMenuScrollRect.vertical = true;
 
-                if(m_ApplyMenuScrollMask.transform.position.y >= applyMenuYClamp_)
+                //Get the number of children beyond the max there are and clamp based on how many there are
+                applyMenuYClamp_ = subMenuYOffset_ * Mathf.Abs(applyMenuNumChildren_ - maxNumChildrenOnScreen_) + applyMenuInitialPos_.y + 10.0f;
+
+                if (applyMenuNumChildren_ > maxNumChildrenOnScreen_)
                 {
-                    m_ApplyMenuScrollMask.transform.position = new Vector3(m_ApplyMenuScrollMask.transform.position.x, applyMenuYClamp_, m_ApplyMenuScrollMask.transform.position.z);
+                    if (m_ApplyMenuScrollMask.transform.position.y >= applyMenuYClamp_)
+                    {
+                        m_ApplyMenuScrollMask.transform.position = new Vector3(m_ApplyMenuScrollMask.transform.position.x, applyMenuYClamp_, m_ApplyMenuScrollMask.transform.position.z);
+                    }
+                    if (m_ApplyMenuScrollMask.transform.position.y <= applyMenuInitialPos_.y)
+                    {
+                        m_ApplyMenuScrollMask.transform.position = new Vector3(m_ApplyMenuScrollMask.transform.position.x, applyMenuInitialPos_.y, m_ApplyMenuScrollMask.transform.position.z);
+                    }
                 }
-                if(m_ApplyMenuScrollMask.transform.position.y <= 0.0f)
+                else
                 {
-                    m_ApplyMenuScrollMask.transform.position = new Vector3(m_ApplyMenuScrollMask.transform.position.x, 0.0f, m_ApplyMenuScrollMask.transform.position.z);
+                    m_ApplyMenuScrollRect.vertical = false;
                 }
             }
         }
@@ -122,7 +146,6 @@ public class BuildingUI : MonoBehaviour
     //This function loads the building data based on which building was clicked
     public void LoadBuildingData(PlayerController pController, GameObject gObj)
     {
-       
         buildingsActive_ = true;
         //kickoffTransitionGUI(true);
         //m_BuildingGUI.SetActive(buildingsActive_);
@@ -164,7 +187,8 @@ public class BuildingUI : MonoBehaviour
     public void BuyItemsMenu()
     {
         float startYPos = 180.0f;
-        float yPosOffset = 70.0f;
+
+        buyMenuInitialPos_ = m_BuyMenuScrollMask.transform.position;
 
         //m_BuyMenu.SetActive(true);
         m_BuyItemsTransitionDisplay.PrepareForFadeIn();
@@ -177,7 +201,7 @@ public class BuildingUI : MonoBehaviour
             go.GetComponent<AnItem>().m_SingleItem.item = selectedBuilding_.GetComponent<Building>().m_Items[i];
             go.GetComponent<AnItem>().m_SingleItem.count = 1;
             go.GetComponentInChildren<Button>().onClick.AddListener(delegate { BuyItems(go); });
-            startYPos -= yPosOffset;
+            startYPos -= subMenuYOffset_;
             buyMenuNumChildren_++;
         }
 
@@ -198,7 +222,6 @@ public class BuildingUI : MonoBehaviour
     public void InteractionMenu()
     {
         float startYPos = 180.0f;
-        float yPosOffset = 70.0f;
 
         //m_InteractMenu.SetActive(true);
         m_InteractTransitionDisplay.PrepareForFadeIn();
@@ -210,7 +233,7 @@ public class BuildingUI : MonoBehaviour
             bton.onClick.AddListener(delegate { Interact(go); });
             go.gameObject.transform.SetParent(m_InteractMenuScrollMask.transform, false);
             //go.GetComponentInChildren<Button>().onClick.AddListener(delegate { Interact(go); });
-            startYPos -= yPosOffset;
+            startYPos -= subMenuYOffset_;
         }
 
         interactText_ = m_InteractMenu.GetComponentsInChildren<Text>();
@@ -231,18 +254,18 @@ public class BuildingUI : MonoBehaviour
     public void ApplyMenu()
     {
         float startYPos = 180.0f;
-        float yPosOffset = 70.0f;
+        
+        applyMenuInitialPos_ = m_ApplyMenuScrollMask.transform.position;
         //m_ApplyMenu.SetActive(true);
         m_ApplyJobTransitionDisplay.PrepareForFadeIn();
 
         //Create the necessary amount of buttons to display on screen
-        Debug.Log(selectedBuilding_.GetComponent<Building>().m_JobData.Length.ToString());
         for (int i = 0; i < selectedBuilding_.GetComponent<Building>().m_JobData.Length; ++i)
         {
             GameObject go = (GameObject)Instantiate(m_ApplyMenuButtonPrefab, new Vector3(0, startYPos, 0), Quaternion.identity);
             go.gameObject.transform.SetParent(m_ApplyMenuScrollMask.transform, false);
             go.GetComponentInChildren<Button>().onClick.AddListener(delegate { ApplyForJob(go); });
-            startYPos -= yPosOffset;
+            startYPos -= subMenuYOffset_;
             applyMenuNumChildren_++;
         }
 
