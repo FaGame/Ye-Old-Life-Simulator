@@ -25468,7 +25468,7 @@ Prefab:
       objectReference: {fileID: 1612327286}
     - target: {fileID: 165482, guid: 2210f5dc05750464082d297b6bbf78b2, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11465494, guid: 2210f5dc05750464082d297b6bbf78b2, type: 2}
@@ -39135,7 +39135,7 @@ RectTransform:
   - {fileID: 1109647298}
   - {fileID: 421053088}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -41685,7 +41685,7 @@ Transform:
   - {fileID: 1497812797}
   - {fileID: 1802361138}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 17
 --- !u!65 &1680139986
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44299,7 +44299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1806476326
 RectTransform:
   m_ObjectHideFlags: 0
