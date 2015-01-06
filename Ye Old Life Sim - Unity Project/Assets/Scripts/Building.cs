@@ -65,7 +65,8 @@ public class Building : MonoBehaviour
         }
         pData.m_CurrTime -= actualWorkTime;
         pData.m_Shillings += (int)(jData.GetWage() * actualWorkTime);
-        jData.m_AudioSource.Play();
+        AudioSource.PlayClipAtPoint(jData.m_AudioClip, pData.transform.position);
+        //jData.m_AudioSource.Play();
         return actualWorkTime;
     }
 

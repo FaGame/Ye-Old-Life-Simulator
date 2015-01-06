@@ -3,7 +3,8 @@ using System.Collections;
 
 public class JobData : MonoBehaviour 
 {
-    public AudioSource m_AudioSource;
+    //public AudioSource m_AudioSource;
+    public AudioClip m_AudioClip;
     public SkillAndAmount[] m_SkillRequirement;
     public SkillAndAmount[] m_SkillGain;
 
