@@ -7,12 +7,14 @@ public class GameManager : MonoBehaviour
     public GameObject m_AI;
     public PlayerData m_AIData;
     public PlayerData m_PlayerData;
+    public PlayerData m_PlayerTwoData;
     public BuildingUI m_BuildingUI;
     public RestartUI m_RestartUI;
 
 	public int m_Turns;
 
     private bool isPlayerTurn_;
+    private bool isPlayerTwoTurn_;
     private bool isAiTurn_;
 
     private float maxRep_;
@@ -25,6 +27,9 @@ public class GameManager : MonoBehaviour
     private bool turnsGame_ = false;
     private bool objectivesGame_ = false;
     private bool sandboxGame_ = false;
+
+    private bool AIBeingUsed_ = false;
+    private bool TwoPlayerGame_ = false;
 
     public bool PlayerTurn
     {
@@ -54,7 +59,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         isPlayerTurn_ = true;
+        isPlayerTwoTurn_ = false;
         isAiTurn_ = false;
+        //check to see if the AI is being used
+        AIBeingUsed_ = GameMenu.m_AIBeingUsed;
+        //check to see if it is a two player game
+        TwoPlayerGame_ = GameMenu.m_TwoPlayerGame;
 
         //starts player at current home
         //m_Player.transform.position = m_PlayerData.m_Home.transform.position;
@@ -84,47 +94,60 @@ public class GameManager : MonoBehaviour
         //start turn is the player, once their time runs out, disables player and activates AI and AI turn
         if (isPlayerTurn_ == true)
         {
-            // Set in StartTurn(), should only need to be called once
-            //m_Player.SetActive(true);
-
             if (m_PlayerData.m_CurrTime <= 0)
             {
                 m_Turns += IncrementTurns_;
 
-                // Set in EndTurn()
-                //m_Player.SetActive(false);
+                if(TwoPlayerGame_)
+                {
+                    //if it is a two player game, end the first persons turn and start the next person's turn
+                    isPlayerTurn_ = false;
+                    isPlayerTwoTurn_ = true;
 
-                isPlayerTurn_ = false;
+                    m_PlayerData.EndTurn();
+                    m_PlayerTwoData.StartTurn();
+                }
+                else if (AIBeingUsed_)
+                {
+                    //if the AI is being used, end the player's turn and start the AI's turn
+                    isPlayerTurn_ = false;
+                    isAiTurn_ = true;
 
-                isAiTurn_ = true;
-
-                m_PlayerData.EndTurn();
-                m_AIData.StartTurn();
-                // Not sure why we would want to start the player's turn when it is ending...
-                //m_PlayerData.StartTurn();
+                    m_PlayerData.EndTurn();
+                    m_AIData.StartTurn();
+                }
+                else
+                {
+                     //if it is a single player game, start the player's next turn
+                     m_PlayerData.EndTurn();
+                     m_PlayerData.StartTurn();
+                }
             }
         }
-
-
+ 
         if (isAiTurn_ == true)
         {
-            //When player turn is over the AI does the same as the player above
-            // Set in StartTurn(), should only need to be called once
-            //m_AI.SetActive(true);
-
             if (m_AIData.m_CurrTime <= 0)
             {
-                // Set in EndTurn()
-                //m_AI.SetActive(false);
-
-                isAiTurn_ = false;
-
+                //end the AI's turn and start the player's turn
                 isPlayerTurn_ = true;
+                isAiTurn_ = false;
 
                 m_AIData.EndTurn();
                 m_PlayerData.StartTurn();
-                // Not sure why we would want to start the AI's turn when it is ending...
-                //m_AIData.StartTurn();
+            }
+        }
+
+        if (isPlayerTwoTurn_ == true)
+        {
+            if (m_PlayerTwoData.m_CurrTime <= 0)
+            {
+                //end the second player's turn and start the player's turn
+                isPlayerTurn_ = true;
+                isPlayerTwoTurn_ = false;
+
+                m_PlayerTwoData.EndTurn();
+                m_PlayerData.StartTurn();
             }
         }
     }
