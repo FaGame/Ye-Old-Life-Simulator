@@ -26,22 +26,12 @@ public class Elixir : Item
     {
         string retval = "";
 
-        //SPEED
-        if(m_PlayerSpeedEffect.m_Value > m_PlayerSpeedModifier) //IF EFFECT IS GREATER THAN PLAYER'S SPEED
+        if(m_PlayerSpeedModifier == 0)
         {
-            retval = "Strap in for a wild ride!";
-        }
-        else if (m_PlayerSpeedEffect.m_Value < m_PlayerSpeedModifier) //IF EFFECT IS LESS THAN PLAYER'S SPEED
-        {
-            retval = "Could be cool, I suppose.";
-        }
-        else if (m_PlayerSpeedEffect.m_Value == m_PlayerSpeedModifier) ////IF EFFECT IS EQUAL TO PLAYER'S SPEED
-        {
-            retval = "Yeah.... nothing's gonna happen dude.";
+            retval = "";
         }
 
-        return retval;
-
+        return ""; 
     }
 
     void Start()

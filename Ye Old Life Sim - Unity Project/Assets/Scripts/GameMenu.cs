@@ -43,9 +43,6 @@ public class GameMenu : MonoBehaviour
     public static bool m_isTurnGame = false;
     public static bool m_isSandboxGame = false;
 
-    public static bool m_AIBeingUsed = false;
-    public static bool m_TwoPlayerGame = false;
-
     void Update()
     {
         SetValues();
