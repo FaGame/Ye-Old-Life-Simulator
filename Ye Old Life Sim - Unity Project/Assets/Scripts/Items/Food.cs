@@ -13,6 +13,7 @@ public class Food : Item
     public float m_HungerAmount = 0.0f;     //how much you want to subtract from player hunger
     public float m_SpeedModifier = 1.0f;    //scalar to change player speed
     public float m_Happiness = 0.0f;        //used to increase player's happiness
+    public float m_HungerSpeed = 0.0f;      //this is for items that increase "Rate of Hunger returning"
 
     public string m_FoodName = "";
 
@@ -99,6 +100,16 @@ public class Food : Item
         else if(m_SpeedModifier < 1.0f)
         {
             retval += "Can time go this slow?! ";
+        }
+
+        //hungerRATE
+        if(m_HungerSpeed == 0)
+        {
+            retval += "This isn't going to help your Hunger. ";
+        }
+        else if(m_HungerSpeed < 0)
+        {
+            retval += "Feeding your appetite is a better idea.. ";
         }
 
         return retval;

@@ -14,10 +14,6 @@ public abstract class Item : MonoBehaviour
 
     public int m_UseCount = 1; //this is how many times an item can be used
 
-    public string m_Description = "Test string for now";
+    public string m_Description = "Not Overridden";
 
-   /* public override string GetDescription()
-    {
-        return m_Description;
-    }*/
 }
