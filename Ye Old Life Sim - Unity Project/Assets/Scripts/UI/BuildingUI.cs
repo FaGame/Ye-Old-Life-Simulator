@@ -105,7 +105,7 @@ public class BuildingUI : MonoBehaviour
             {
                 if (buyMenuNumChildren_ > maxNumChildrenOnScreen_)
                 {
-                    buyMenuYClamp_ = subMenuYOffset_ * Mathf.Abs(buyMenuNumChildren_ - maxNumChildrenOnScreen_) + applyMenuInitialPos_.y + 10.0f;
+                    buyMenuYClamp_ = subMenuYOffset_ * Mathf.Abs(buyMenuNumChildren_ - maxNumChildrenOnScreen_) + buyMenuInitialPos_.y + 10.0f;
                     m_BuyMenuScrollRect.vertical = true;
 
                     if (m_BuyMenuScrollMask.transform.position.y >= buyMenuYClamp_)
@@ -398,11 +398,13 @@ public class BuildingUI : MonoBehaviour
         if (m_ApplyMenu.activeSelf)
         {
             //m_ApplyMenu.SetActive(false);
+            applyMenuNumChildren_ = 0;
             m_ApplyJobTransitionDisplay.FadeOut(delegate { cleanupApplyMenu(); });
         }
         else if(m_BuyMenu.activeSelf)
         {
             //m_BuyMenu.SetActive(false);
+            buyMenuNumChildren_ = 0;
             m_BuyItemsTransitionDisplay.FadeOut(delegate { cleanupBuyMenu(); });
         }
         else if(m_InteractMenu.activeSelf)
