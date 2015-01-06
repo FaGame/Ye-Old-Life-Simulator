@@ -32,7 +32,7 @@ public class TestInventoryUI : MonoBehaviour
         Text[] invMenuText;
 
         //m_InventoryMenu.SetActive(true);
-        m_TransitionDisplay.FadeIn();
+        m_TransitionDisplay.PrepareForFadeIn();
         invMenuText = m_InventoryMenu.GetComponentsInChildren<Text>();
 
         int i = 0;
@@ -49,6 +49,7 @@ public class TestInventoryUI : MonoBehaviour
             go.GetComponentInChildren<Text>().text = pair.Key;
             ++i;
         }
+        m_TransitionDisplay.FadeIn();
     }
 
     public void UseItem(GameObject go)
@@ -59,6 +60,14 @@ public class TestInventoryUI : MonoBehaviour
 
     public void CloseCurrentMenu()
     {
-        m_TransitionDisplay.FadeOut(null);
+        m_TransitionDisplay.FadeOut(cleanupInventoryMenu);
+    }
+
+    void cleanupInventoryMenu()
+    {
+        foreach (RectTransform child in m_InventoryMenuScrollMask.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
     }
 }

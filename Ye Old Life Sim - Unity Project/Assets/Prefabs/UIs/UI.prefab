@@ -1347,7 +1347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &174954
 GameObject:
   m_ObjectHideFlags: 1
@@ -1670,6 +1670,7 @@ GameObject:
   - 224: {fileID: 22497866}
   - 222: {fileID: 22297868}
   - 114: {fileID: 11497862}
+  - 114: {fileID: 11408826}
   m_Layer: 5
   m_Name: InventoryItemsMenu
   m_TagString: Untagged
@@ -1990,6 +1991,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683ec6a8fe73d9b40b510d1f8fcbd009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11408826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c464a6c2ca54d554bbfb4b5443147f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransitionSpeedMultiplier: 4
 --- !u!114 &11424848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5089,7 +5102,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11488056}
+      - m_Target: {fileID: 11497860}
         m_MethodName: CloseCurrentMenu
         m_Mode: 1
         m_Arguments:
@@ -5119,7 +5132,7 @@ MonoBehaviour:
     type: 2}
   m_InventoryMenuScrollMask: {fileID: 197870}
   m_PlayerData: {fileID: 0}
-  m_TransitionDisplay: {fileID: 0}
+  m_TransitionDisplay: {fileID: 11408826}
 --- !u!114 &11497862
 MonoBehaviour:
   m_ObjectHideFlags: 1
