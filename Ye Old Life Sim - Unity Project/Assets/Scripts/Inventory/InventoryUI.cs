@@ -5,10 +5,8 @@ using System.Collections.Generic;
 
 public class InventoryUI : MonoBehaviour 
 {
-    //temp code------------------------------------------
-    public UseableItemInventory m_InventoryScript;
-    //---------------------------------------------------
     public PlayerController m_PlayerController;
+    public GameManager m_GameManager;
     public float m_yScale = .25f;
     public float m_buttonYSeperationDistance = 25.0f;
     public float m_buttonYMovement = -50.0f;
@@ -18,6 +16,11 @@ public class InventoryUI : MonoBehaviour
     private List<GameObject> currentButtons_;
     private Image[] imagesInButton_;
     private bool inventoryDisplayed_;
+
+    public bool InventoryActive
+    {
+        get { return inventoryDisplayed_; }
+    }
 
     void Start()
     {
@@ -31,17 +34,11 @@ public class InventoryUI : MonoBehaviour
 
 	void Update () 
     {
-        //temp code-------------------------------------
-	    if(Input.GetKeyDown(KeyCode.I))
-        {
-            DisplayInventry(m_InventoryScript);
-        }
-        //---------------------------------------------
 	}
 
     public void DisplayInventry(UseableItemInventory inventoryScript)
     {
-        if(!inventoryDisplayed_)
+        if(!inventoryDisplayed_ && !m_GameManager.m_BuildingUI.BuildingUIActive)
         {
             //disable player movement
             m_PlayerController.enabled = false;

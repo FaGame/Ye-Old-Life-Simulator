@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Robbed : RandomEventManager
+public class Robbed : RandomEventBaseClass
 {
 
 	public override string PlayEvent(PlayerData pData, string tData)

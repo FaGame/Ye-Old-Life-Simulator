@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FindASack : RandomEventManager 
+public class FindASack : RandomEventBaseClass
 {
 	public GameObject[] m_ItemCategories;
 	public GameObject[] m_Elixirs;
 	public GameObject[] m_Food;
 	public GameObject[] m_Drink;
 	public GameObject[] m_ReputationItems;
+	public AnItem m_AnItemScript;
 
 	public Item m_ItemType;
-	public PlayerData m_PlayerData;
+//	public PlayerData m_PlayerData;
 
 	public GameObject m_FoundItem;
 
@@ -45,7 +46,7 @@ public class FindASack : RandomEventManager
 			Debug.Log("Something went wrong, no Category of Item found.");
 		}
 
-		m_PlayerData.m_UseableInventory.AddToInventory(m_FoundItem.name, GetComponent<AnItem>().m_SingleItem);
+		pData.m_UseableInventory.AddToInventory(m_FoundItem.name, m_AnItemScript.GetComponent<AnItem>().m_SingleItem);
 //		GetComponent<PossessionInventory>().AddToInventory(m_FoundItem.name, m_FoundItem as Item); //add the found item into the player's inventory
 
 		tData = "You found a sack lying on the ground. Searching inside reveals... A " + m_FoundItem.name.ToString() + "!";

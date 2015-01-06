@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FoundShillings : RandomEventManager 
+public class FoundShillings : RandomEventBaseClass
 {
     public override string PlayEvent(PlayerData pData, string tData)
     {

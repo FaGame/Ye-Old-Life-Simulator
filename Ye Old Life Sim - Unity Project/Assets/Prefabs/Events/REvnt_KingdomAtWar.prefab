@@ -55,6 +55,7 @@ MonoBehaviour:
   m_EventTextTimer: 0
   m_JobData: []
   jData: {fileID: 0}
+  gData: {fileID: 0}
   m_Building: {fileID: 0}
 --- !u!114 &11451284
 MonoBehaviour:

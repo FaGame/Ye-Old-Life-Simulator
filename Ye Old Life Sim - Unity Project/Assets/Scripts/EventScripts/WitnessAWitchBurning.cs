@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WitnessAWitchBurning : RandomEventManager
+public class WitnessAWitchBurning : RandomEventBaseClass
 {
 	private string FeelingTowardWitch_;
 
@@ -24,8 +24,8 @@ public class WitnessAWitchBurning : RandomEventManager
 			FeelingTowardWitch_ = "Burn baby burn.";
 		}
 
-		GetComponent<PlayerData>().m_Happiness += m_HappinesChange;
-		GetComponent<PlayerData>().m_CurrTime += m_TimeChange;
+		pData.m_Happiness += m_HappinesChange;
+		pData.m_CurrTime += m_TimeChange;
 		tData = "A witch has been found! They're burning her and all you can say is: " + FeelingTowardWitch_;
 		return tData;
 	}

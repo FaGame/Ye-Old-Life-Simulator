@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ThePlague : RandomEventManager
+public class ThePlague : RandomEventBaseClass
 {
 	public override string PlayEvent(PlayerData pData, string tData)
 	{
-		GetComponent<PlayerData>().m_IsInfected = true;
+		pData.m_IsInfected = true;
 
 		tData = "You've caught the plague.";
 		return tData;

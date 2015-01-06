@@ -89,6 +89,8 @@ public class BuildingUI : MonoBehaviour
             m_PlayerData = m_GameManager.m_PlayerData;
         }
 
+        
+
         if(selectedBuilding_ != null)
         {
             CheckForEmployment();
@@ -419,7 +421,7 @@ public class BuildingUI : MonoBehaviour
             //kickoffTransitionGUI(false);
             //m_BuildingGUI.SetActive(buildingsActive_);
             m_BuildingTransitionDisplay.FadeOut(null);
-            playerController_.enabled = true;
+            playerController_.enabled = false;
         }
     }
 

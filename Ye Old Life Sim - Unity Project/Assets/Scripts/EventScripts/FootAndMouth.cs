@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FootAndMouth : RandomEventManager
+public class FootAndMouth : RandomEventBaseClass
 {
 
 	// Use this for initialization
 	public override string PlayEvent(PlayerData pData, string tData)
 	{
-		if(GetComponent<PlayerData>().m_HasMount)
+		if(pData.m_HasMount)
 		{
-			GetComponent<PlayerData>().m_HasMount = false;
+			pData.m_HasMount = false;
 			tData = "Your mount contracted a disease and is now dead.";
 		}
 		else

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-public class ExperimentGoneWrong : RandomEventManager 
+public class ExperimentGoneWrong : RandomEventBaseClass
 {
 	private string NameChecker_;
 
@@ -11,11 +11,12 @@ public class ExperimentGoneWrong : RandomEventManager
 
 	public int[] m_ItemsInInventory;
 	public UseableItemInventory m_UseableInventory;
+	public GameObject m_InventoryData;
 
 	public override string PlayEvent(PlayerData pData, string tData)
 	{
 		//Check player's current career
-		NameChecker_ = GetComponent<PlayerData>().m_Job.ToString();
+		NameChecker_ = pData.m_Job.ToString();
 		if(NameChecker_ != "Alchemist") //if Alchemist then nothing happens
 		{
 			int randomNumber = Random.Range(1, m_ItemsInInventory.Length - 1);
@@ -28,7 +29,7 @@ public class ExperimentGoneWrong : RandomEventManager
 				{
 					if (entry.Value.item is Item)
 					{
-						GetComponent<UseableItemInventory>().RemoveFromInventory(ItemToBeRemoved_.name.ToString());
+						m_InventoryData.GetComponent<UseableItemInventory>().RemoveFromInventory(ItemToBeRemoved_.name.ToString());
 					}
 					tData = "As the result of a terrible experiment you've lost " + ItemToBeRemoved_.name + ", such a shame.";
 					

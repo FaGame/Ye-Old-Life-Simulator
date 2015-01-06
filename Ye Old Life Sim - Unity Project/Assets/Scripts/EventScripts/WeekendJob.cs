@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WeekendJob : RandomEventManager
+public class WeekendJob : RandomEventBaseClass
 {
 	private Skill SkillTrainedIn_;
 	public JobData[] m_JobData;
@@ -14,7 +14,7 @@ public class WeekendJob : RandomEventManager
 	{
 		m_ExperienceGained = Random.Range(ValueConstants.EXPERIENCE_FROM_WEEKEND_JOB_MIN, ValueConstants.EXPERIENCE_FROM_WEEKEND_JOB_MAX);
 
-		SkillSelect_ = Random.Range(ValueConstants.LOWEST_RANGE_NUMBER, GetComponent<PlayerData>().m_Skills.Count);
+		SkillSelect_ = Random.Range(ValueConstants.LOWEST_RANGE_NUMBER, pData.m_Skills.Count);
 		if(SkillSelect_ != 0)
 		{
 			pData.m_Skills[SkillSelect_].m_Amount += m_ExperienceGained;

@@ -4,12 +4,13 @@ using System.Collections;
 using System.Collections.Generic;
 
 //Come back when item list exists
-public class CircusComesToTown : RandomEventManager 
+public class CircusComesToTown : RandomEventBaseClass
 {
 	private string m_TicketCostMessage;
 
 	public GameObject m_FoundItem;
 	public GameObject[] m_Items;
+	public AnItem m_AnItemScript;
 	public PlayerData m_PlayerData;
 
 	public override string PlayEvent(PlayerData pData, string tData)
@@ -18,17 +19,17 @@ public class CircusComesToTown : RandomEventManager
 
 		//pop up window
 		//Check the player's current Shilling count
-		if(GetComponentInChildren<PlayerData>().m_Shillings <= m_MoneyLost)
+		if(pData.m_Shillings <= m_MoneyLost)
 		{
 			m_TicketCostMessage = "Hand over yer money, and here's your ticket.";
-			m_MoneyLost = GetComponentInChildren<PlayerData>().m_Shillings;
+			m_MoneyLost = pData.m_Shillings;
 		}
 		else
 		{
 			m_TicketCostMessage = "100 Shillings for your ticket.";
 		}
 
-		GetComponentInChildren<PlayerData>().m_Shillings -= m_MoneyLost; //If the player doesn't have enough money then they go into debt and have a negative amount of money
+		pData.m_Shillings -= m_MoneyLost; //If the player doesn't have enough money then they go into debt and have a negative amount of money
 		
 
 		
@@ -39,7 +40,7 @@ public class CircusComesToTown : RandomEventManager
 			int ItemGiven = Random.Range(1, m_Items.Length - 1);
 			m_FoundItem = m_Items[ItemGiven];
 		}
-		m_PlayerData.m_UseableInventory.AddToInventory(m_FoundItem.name, GetComponent<AnItem>().m_SingleItem); //give player the random item
+		m_PlayerData.m_UseableInventory.AddToInventory(m_FoundItem.name, m_AnItemScript.GetComponent<AnItem>().m_SingleItem); //give player the random item
 //		GetComponent<PossessionInventory>().AddToInventory(m_FoundItem.name, m_ItemType); //add the found item into the player's inventory
 
 		tData = "The circus has come to town, lose " + m_MoneyLost.ToString() + " shillings. No ifs ands or buts. " + m_TicketCostMessage
