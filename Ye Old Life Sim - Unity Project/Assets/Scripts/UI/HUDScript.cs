@@ -48,14 +48,6 @@ public class HUDScript : MonoBehaviour
         get { return HUDActive_; }
     }
 
-    //All values in the following temp code should be set from the player rather than in here
-    //This will be all plugged in once the player is in a state where this can happen
-    //-------------TEMP CODE-------------
-public float m_ReputationObjective;
-public float m_CurrencyObjective;
-public float m_HappinessObjective;
-    //-------------END TEMP CODE------------- 
-
 	// Use this for initialization
 	void Start () 
     {
@@ -110,13 +102,13 @@ public float m_HappinessObjective;
         currObjSlider_ = objSliderArray_[1];
         happyObjSlider_ = objSliderArray_[2];
 
-        repObjSlider_.maxValue = m_ReputationObjective;
+        repObjSlider_.maxValue = m_GameManager.MaxRep;
         repObjSlider_.minValue = 0.0f;
 
-        currObjSlider_.maxValue = m_CurrencyObjective;
+        currObjSlider_.maxValue = m_GameManager.MaxCurrency;
         currObjSlider_.minValue = 0.0f;
 
-        happyObjSlider_.maxValue = m_HappinessObjective;
+        happyObjSlider_.maxValue = m_GameManager.MaxHappy;
         happyObjSlider_.minValue = 0.0f;
     }
 	

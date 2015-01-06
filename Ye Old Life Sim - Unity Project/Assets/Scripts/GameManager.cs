@@ -36,6 +36,21 @@ public class GameManager : MonoBehaviour
         get { return isAiTurn_; }
     }
 
+    public float MaxRep
+    {
+        get { return maxRep_; }
+    }
+
+    public float MaxCurrency
+    {
+        get { return maxCurrency_; }
+    }
+
+    public float MaxHappy
+    {
+        get { return maxHappy_; }
+    }
+
     void Start()
     {
         isPlayerTurn_ = true;

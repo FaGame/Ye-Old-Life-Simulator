@@ -3428,6 +3428,10 @@ Prefab:
       propertyPath: m_DefaultSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 11429232, guid: 6363f9699f9597f46a98480bccb82784, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6363f9699f9597f46a98480bccb82784, type: 2}
   m_RootGameObject: {fileID: 1679451510}
@@ -26070,6 +26074,7 @@ MonoBehaviour:
   m_Skills: []
   m_Job: {fileID: 0}
   m_Building: {fileID: 0}
+  m_GameManager: {fileID: 0}
   m_PlayerCanvas: {fileID: 0}
   m_Opponent: {fileID: 1679451513}
   m_InfectedParticle: {fileID: 1505004, guid: 7388452c399cec24a80ebaec74033fb0, type: 2}
@@ -39237,9 +39242,6 @@ MonoBehaviour:
   m_ShillingText: {fileID: 1954455689}
   m_BuildingHovered: {fileID: 484246773}
   m_StatsTransitionDisplay: {fileID: 678571949}
-  m_ReputationObjective: 200
-  m_CurrencyObjective: 200
-  m_HappinessObjective: 200
 --- !u!114 &1583590505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41563,12 +41565,13 @@ MonoBehaviour:
   m_Skills: []
   m_Job: {fileID: 0}
   m_Building: {fileID: 0}
+  m_GameManager: {fileID: 1405834717}
   m_PlayerCanvas: {fileID: 0}
   m_Opponent: {fileID: 1078853318}
   m_InfectedParticle: {fileID: 589360118}
-  m_MaxHappiness: 1000
-  m_MaxReputation: 1000
-  m_MaxShillings: 1000
+  m_MaxHappiness: 0
+  m_MaxReputation: 0
+  m_MaxShillings: 0
   m_DefaultSpeed: 10
   m_CurrTime: 0
   m_MaxTime: 45
@@ -49457,12 +49460,13 @@ MonoBehaviour:
   m_Skills: []
   m_Job: {fileID: 0}
   m_Building: {fileID: 0}
+  m_GameManager: {fileID: 0}
   m_PlayerCanvas: {fileID: 0}
   m_Opponent: {fileID: 0}
   m_InfectedParticle: {fileID: 0}
-  m_MaxHappiness: 1000
-  m_MaxReputation: 1000
-  m_MaxShillings: 1000
+  m_MaxHappiness: 0
+  m_MaxReputation: 0
+  m_MaxShillings: 0
   m_DefaultSpeed: 10
   m_CurrTime: 0
   m_MaxTime: 45

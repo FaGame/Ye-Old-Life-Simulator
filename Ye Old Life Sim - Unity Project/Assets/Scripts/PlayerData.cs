@@ -11,6 +11,7 @@ public class PlayerData : MonoBehaviour
 
     public JobData m_Job;
     public Building m_Building;
+    public GameManager m_GameManager;
 
     public Canvas m_PlayerCanvas;
 
@@ -18,9 +19,9 @@ public class PlayerData : MonoBehaviour
 
     public ParticleEmitter m_InfectedParticle;
 
-    public float m_MaxHappiness = 1000;
-    public float m_MaxReputation = 1000;
-    public float m_MaxShillings = 1000;
+    public float m_MaxHappiness = 0.0f;
+    public float m_MaxReputation = 0.0f;
+    public float m_MaxShillings = 0.0f;
     public float m_DefaultSpeed = 10.0f;
     public float m_CurrTime = 0.0f;
     public float m_MaxTime = ValueConstants.PLAYER_MAX_TIME;
@@ -68,6 +69,13 @@ public class PlayerData : MonoBehaviour
 	
 	void Update () 
     {
+        if(m_GameManager != null)
+        {
+            m_MaxHappiness = m_GameManager.MaxHappy;
+            m_MaxReputation = m_GameManager.MaxRep;
+            m_MaxShillings = m_GameManager.MaxCurrency;
+        }
+
         UpdateStatusEffects();
 	}
 

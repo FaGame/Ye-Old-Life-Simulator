@@ -21,7 +21,7 @@ public class Possession : Item
     void Start()
     {
         skills_ = m_Player.m_Skills;    //assigns the skills variable to the player's skills
-        ApplyValueChange();
+        //ApplyValueChange();
     }
 
     public void ApplyValueChange()
