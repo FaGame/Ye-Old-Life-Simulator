@@ -15,7 +15,9 @@ public class HUDScript : MonoBehaviour
     public GameObject m_Goals; //The goals panel
     public GameObject m_Skills; //The skills panel
     public GameManager m_GameManager; //The game manager
+    public InventoryUI m_Inventory; // The inventory UI
     public PlayerData m_PlayerData; //The player's data
+    public PlayerController m_PlayerController; //The player's controller
     public Text m_CurrJobText; //The player's current job text
     public Text m_ShillingText; //The player's current shillings
     public Text m_BuildingHovered; //The building the player is currently hovering
@@ -159,19 +161,9 @@ public class HUDScript : MonoBehaviour
             if (highlightedObject_.GetComponent<Building>() || highlightedObject_.GetComponent<Habitat>())
             {
                 m_BuildingHovered.text = highlightedObject_.name;
-                /*for (int i = 0; i < highlightedObject_.GetComponentsInChildren<Renderer>().Length; ++i)
-                {
-                    originalColours_.Add(highlightedObject_.GetComponentsInChildren<Renderer>()[i].renderer.material.color);
-                    highlightedObject_.GetComponentsInChildren<Renderer>()[i].renderer.material.color = Color.yellow;
-                }
-                wasHighlighted_ = true;*/
             }
             else if(wasHighlighted_)
             {
-                /*for(int i = 0; i < originalColours_.Count; ++i)
-                {
-
-                }*/
                 m_BuildingHovered.text = "";
             }
         }
@@ -180,13 +172,17 @@ public class HUDScript : MonoBehaviour
     //Button function - Opens the stats screen on press
     public void OpenStatsMenu()
     {
-        m_JournalSound.Play();
-        statsActive_ = true;
-        //m_StatsScreen.SetActive(statsActive_);
-        m_StatsTransitionDisplay.FadeIn();
-        PopulateStats();
-        PopulateSkills();
-        UpdateSliders();
+        if (!m_GameManager.m_BuildingUI.BuildingUIActive && !m_Inventory.InventoryActive)
+        {
+            m_PlayerController.enabled = false;
+            m_JournalSound.Play();
+            statsActive_ = true;
+            //m_StatsScreen.SetActive(statsActive_);
+            m_StatsTransitionDisplay.FadeIn();
+            PopulateStats();
+            PopulateSkills();
+            UpdateSliders();
+        }
     }
 
     //Button function - Closes the stats screen on press
