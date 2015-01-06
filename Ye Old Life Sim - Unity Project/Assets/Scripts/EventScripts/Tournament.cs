@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Tournament : RandomEventManager
+public class Tournament : RandomEventBaseClass
 {
 	private int MaxLostMoney_;
 
 	public override string PlayEvent(PlayerData pData, string tData)
 	{
-		if (GetComponent<PlayerData>().m_Shillings < ValueConstants.TOURNAMENT_COST_MAX)
+		if (pData.m_Shillings < ValueConstants.TOURNAMENT_COST_MAX)
 		{
-			MaxLostMoney_ = GetComponent<PlayerData>().m_Shillings;
+			MaxLostMoney_ = pData.m_Shillings;
 		}
 
 		m_MoneyLost = Random.Range(ValueConstants.TOURNAMENT_COST_MIN, MaxLostMoney_);
 
-		GetComponent<PlayerData>().m_Shillings -= m_MoneyLost;
+		pData.m_Shillings -= m_MoneyLost;
 		tData = "You go to see a tournament, the ticket was " + m_MoneyLost.ToString() + " shillings. But you had a great time.";
 		return tData;
 	}

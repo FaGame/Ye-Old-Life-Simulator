@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WitnessAnExecution : RandomEventManager
+public class WitnessAnExecution : RandomEventBaseClass
 {
 	private string FeelingTowardHead_;
 
@@ -24,8 +24,8 @@ public class WitnessAnExecution : RandomEventManager
 			FeelingTowardHead_ = "No! Not THAT guy! You really liked that guy! Right? ... Yeah. You're less happy now.";
 		}
 
-		GetComponent<PlayerData>().m_Happiness += m_HappinesChange;
-		GetComponent<PlayerData>().m_CurrTime += m_TimeChange;
+		pData.m_Happiness += m_HappinesChange;
+		pData.m_CurrTime += m_TimeChange;
 		tData = "There's an execution today, after watching the head roll you think " + FeelingTowardHead_;
 		return tData;
 	}

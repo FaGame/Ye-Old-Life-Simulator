@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Stampede : RandomEventManager
+public class Stampede : RandomEventBaseClass
 {
 	private Vector3 m_PlayerPos;
 	private float m_XPos;
@@ -11,7 +11,7 @@ public class Stampede : RandomEventManager
 	{
 		m_TimeChange = ValueConstants.TIME_CHANGE_FROM_STAMPEDE;
 
-		GetComponent<PlayerData>().m_CurrTime += m_TimeChange;
+		pData.m_CurrTime += m_TimeChange;
 
 		m_XPos = Random.Range(ValueConstants.XPOS_CHANGE_MIN, ValueConstants.XPOS_CHANGE_MAX);
 		m_ZPos = Random.Range(ValueConstants.ZPOS_CHANGE_MIN, ValueConstants.ZPOS_CHANGE_MAX);

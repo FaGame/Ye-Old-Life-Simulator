@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Fire : RandomEventManager
+public class Fire : RandomEventBaseClass
 {
 	public UseableItemInventory m_UseableInventory;
 	private Food playerFood_;
@@ -10,13 +10,13 @@ public class Fire : RandomEventManager
 	public override string PlayEvent(PlayerData pData, string tData)
 	{
 
-		if (GetComponent<PlayerData>().m_Shillings >= ValueConstants.MONEY_LOST_FROM_FIRE)
+		if (pData.m_Shillings >= ValueConstants.MONEY_LOST_FROM_FIRE)
 		{
 			m_MoneyLost = ValueConstants.MONEY_LOST_FROM_FIRE;
 		}
 		else
 		{
-			m_MoneyLost = GetComponent<PlayerData>().m_Shillings;
+			m_MoneyLost = pData.m_Shillings;
 		}
 
 		if (m_UseableInventory != null)
