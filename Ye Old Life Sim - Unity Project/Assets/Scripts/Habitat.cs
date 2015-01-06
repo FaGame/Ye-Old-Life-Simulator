@@ -11,10 +11,19 @@ public class Habitat : MonoBehaviour
 
     public PlayerData m_PlayerData;
 
+    private bool isHighlighted_;
+    private Renderer[] renderers_;
+    private List<Color> originalColours_ = new List<Color>();
 
     void Start()
     {
         CalculateHomePenalty();
+        renderers_ = GetComponentsInChildren<Renderer>();
+
+        for (int i = 0; i < renderers_.Length; ++i)
+        {
+            originalColours_.Add(renderers_[i].renderer.material.color);
+        }
     }
     public enum BuildingRating
     {
@@ -73,6 +82,23 @@ public class Habitat : MonoBehaviour
         if(m_PlayerData.m_Home.m_Rating != null)
         {
             m_HabitatUI.SetHabitat();
+        }
+    }
+
+
+    void OnMouseEnter()
+    {
+        for (int i = 0; i < GetComponentsInChildren<Renderer>().Length; ++i)
+        {
+            GetComponentsInChildren<Renderer>()[i].renderer.material.color = Color.yellow;
+        }
+    }
+
+    void OnMouseExit()
+    {
+        for (int i = 0; i < GetComponentsInChildren<Renderer>().Length; ++i)
+        {
+            GetComponentsInChildren<Renderer>()[i].renderer.material.color = originalColours_[i];
         }
     }
 }
