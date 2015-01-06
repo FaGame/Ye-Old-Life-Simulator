@@ -2978,13 +2978,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11497860}
-        m_MethodName: DisplayInventory
-        m_Mode: 1
+      - m_Target: {fileID: 0}
+        m_MethodName: DisplayInventry
+        m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UseableItemInventory, Assembly-CSharp,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4927,9 +4927,6 @@ MonoBehaviour:
   m_ShillingText: {fileID: 11474860}
   m_BuildingHovered: {fileID: 11448990}
   m_StatsTransitionDisplay: {fileID: 11435888}
-  m_ReputationObjective: 200
-  m_CurrencyObjective: 200
-  m_HappinessObjective: 200
 --- !u!114 &11488056
 MonoBehaviour:
   m_ObjectHideFlags: 1
