@@ -56,34 +56,37 @@ public class GameManager : MonoBehaviour
         SetGameBools();
         SetPlayers();
         DecreaseTime();
-        Debug.Log(maxHappy_);
-        Debug.Log(maxCurrency_);
-        Debug.Log(maxRep_);
+        //Debug.Log(maxHappy_);
+        //Debug.Log(maxCurrency_);
+        //Debug.Log(maxRep_);
     }
 
     void TurnManager()
     {
-        Debug.Log(m_PlayerData.m_CurrTime);
-        Debug.Log(m_AIData.m_CurrTime);
+        //Debug.Log(m_PlayerData.m_CurrTime);
+        //Debug.Log(m_AIData.m_CurrTime);
 
         //start turn is the player, once their time runs out, disables player and activates AI and AI turn
         if (isPlayerTurn_ == true)
         {
-            m_Player.SetActive(true);
+            // Set in StartTurn(), should only need to be called once
+            //m_Player.SetActive(true);
 
             if (m_PlayerData.m_CurrTime <= 0)
             {
-                m_AIData.EndTurn();
-
                 m_Turns += IncrementTurns_;
 
-                m_Player.SetActive(false);
+                // Set in EndTurn()
+                //m_Player.SetActive(false);
 
                 isPlayerTurn_ = false;
 
                 isAiTurn_ = true;
 
-                m_PlayerData.StartTurn();
+                m_PlayerData.EndTurn();
+                m_AIData.StartTurn();
+                // Not sure why we would want to start the player's turn when it is ending...
+                //m_PlayerData.StartTurn();
             }
         }
 
@@ -91,19 +94,22 @@ public class GameManager : MonoBehaviour
         if (isAiTurn_ == true)
         {
             //When player turn is over the AI does the same as the player above
-            m_AI.SetActive(true);
+            // Set in StartTurn(), should only need to be called once
+            //m_AI.SetActive(true);
 
             if (m_AIData.m_CurrTime <= 0)
             {
-                m_PlayerData.EndTurn();
-
-                m_AI.SetActive(false);
+                // Set in EndTurn()
+                //m_AI.SetActive(false);
 
                 isAiTurn_ = false;
 
                 isPlayerTurn_ = true;
 
-                m_AIData.StartTurn();
+                m_AIData.EndTurn();
+                m_PlayerData.StartTurn();
+                // Not sure why we would want to start the AI's turn when it is ending...
+                //m_AIData.StartTurn();
             }
         }
     }

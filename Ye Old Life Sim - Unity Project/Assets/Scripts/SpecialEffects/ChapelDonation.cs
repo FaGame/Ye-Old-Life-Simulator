@@ -22,6 +22,6 @@ public class ChapelDonation : SpecialEffect
 
     public override void TurnEnded()
     {
-        Debug.Log("Chapel Donation End Turn");
+        //Debug.Log("Chapel Donation End Turn");
     }
 }

@@ -85,6 +85,7 @@ public class PlayerData : MonoBehaviour
 
     public void StartTurn()
     {
+        gameObject.SetActive(true);
         m_IsDead = false;
         //loop through the player's inventory and find objects with the food script
         if(m_UseableInventory != null)
@@ -114,6 +115,7 @@ public class PlayerData : MonoBehaviour
             endTurnCode_();
         }
         endTurnCode_ = null;
+        gameObject.SetActive(false);
     }
 
     public void AddEffect(ItemEffect itemEffect)
@@ -174,7 +176,14 @@ public class PlayerData : MonoBehaviour
 
     public void AddEndOfTurnCode(EndOfTurnCode eCode)
     {
-        endTurnCode_ += eCode;
+        if(endTurnCode_ == null)
+        {
+            endTurnCode_ = eCode;
+        }
+        else
+        {
+            endTurnCode_ += eCode;
+        }
     }
 
     void OnTriggerEnter(Collider other)

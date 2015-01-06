@@ -129,7 +129,7 @@ public class BuildingUI : MonoBehaviour
 
                 //Get the number of children beyond the max there are and clamp based on how many there are
                 applyMenuYClamp_ = subMenuYOffset_ * Mathf.Abs(applyMenuNumChildren_ - maxNumChildrenOnScreen_) + applyMenuInitialPos_.y + 10.0f;
-                Debug.Log(m_ApplyMenuScrollMask.transform.position);
+                //Debug.Log(m_ApplyMenuScrollMask.transform.position);
 
                 if (applyMenuNumChildren_ > maxNumChildrenOnScreen_)
                 {

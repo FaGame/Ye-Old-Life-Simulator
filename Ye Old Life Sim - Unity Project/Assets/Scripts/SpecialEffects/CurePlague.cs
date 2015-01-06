@@ -22,6 +22,6 @@ public class CurePlague : SpecialEffect
 
     public override void TurnEnded()
     {
-        Debug.Log("Cure Plague End Turn");
+        //Debug.Log("Cure Plague End Turn");
     }
 }
