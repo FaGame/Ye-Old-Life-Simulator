@@ -237,6 +237,9 @@ public class BuildingUI : MonoBehaviour
             Button bton = go.GetComponentInChildren<Button>();
             bton.onClick.AddListener(delegate { Interact(go); });
             go.gameObject.transform.SetParent(m_InteractMenuScrollMask.transform, false);
+            SpecialEffect sBuildingEffect = selectedBuilding_.GetComponent<Building>().m_SpecialEffects[i];
+            SpecialEffect sEffect = go.AddComponent(sBuildingEffect.name) as SpecialEffect;
+            //sEffect = sBuildingEffect;
             //go.GetComponentInChildren<Button>().onClick.AddListener(delegate { Interact(go); });
             startYPos -= subMenuYOffset_;
         }
@@ -357,7 +360,9 @@ public class BuildingUI : MonoBehaviour
 
     public void Interact(GameObject go)
     {
-
+        SpecialEffect sEffect = go.GetComponent<SpecialEffect>();
+        sEffect.DoSpecialEffect(m_PlayerData);
+        m_PlayerData.AddEndOfTurnCode(sEffect.TurnEnded);
     }
 
     //Button function - This function is called by the "Work" button in the Building Menu, it called the Work function in the Building's script.

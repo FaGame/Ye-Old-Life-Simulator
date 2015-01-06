@@ -47,9 +47,12 @@ public class PlayerData : MonoBehaviour
 
     public UseableItemInventory m_UseableInventory;
 
+    public delegate void EndOfTurnCode();
+
     private PlayerController playerController_;
 
     private Food playerFood_;
+    private EndOfTurnCode endTurnCode_;
 
     void Start()
     {
@@ -60,6 +63,7 @@ public class PlayerData : MonoBehaviour
         m_Building = null;
         playerController_ = GetComponent<PlayerController>();
         m_MaxHunger = ValueConstants.PLAYER_MAX_HUNGER;
+        endTurnCode_ = null;
     }
 	
 	void Update () 
@@ -101,6 +105,15 @@ public class PlayerData : MonoBehaviour
         m_CurrTime = m_MaxTime; //- m_Home.CalculateHomePenalty() - m_FoodPenalty;
 
         UpdatePlayerInfectedStatus(m_InfectedParticle);         //checks to see if the player is infected or not
+    }
+
+    public void EndTurn()
+    {
+        if(endTurnCode_ != null)
+        {
+            endTurnCode_();
+        }
+        endTurnCode_ = null;
     }
 
     public void AddEffect(ItemEffect itemEffect)
@@ -157,6 +170,11 @@ public class PlayerData : MonoBehaviour
             m_Shillings -= amount;
             return true;
         }
+    }
+
+    public void AddEndOfTurnCode(EndOfTurnCode eCode)
+    {
+        endTurnCode_ += eCode;
     }
 
     void OnTriggerEnter(Collider other)

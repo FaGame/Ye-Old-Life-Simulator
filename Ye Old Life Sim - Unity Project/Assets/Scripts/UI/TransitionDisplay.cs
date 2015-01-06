@@ -13,7 +13,7 @@ public class TransitionDisplay : MonoBehaviour
     //private bool initialEnable_ = true;
     //private bool initialDisable_ = true;
     private float transitionAlpha_;
-    CleanupCode cleanupCode_;
+    private CleanupCode cleanupCode_;
 
     void Start()
     {

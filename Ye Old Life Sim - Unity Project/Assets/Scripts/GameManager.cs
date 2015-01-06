@@ -73,6 +73,8 @@ public class GameManager : MonoBehaviour
 
             if (m_PlayerData.m_CurrTime <= 0)
             {
+                m_AIData.EndTurn();
+
                 m_Turns += IncrementTurns_;
 
                 m_Player.SetActive(false);
@@ -93,6 +95,8 @@ public class GameManager : MonoBehaviour
 
             if (m_AIData.m_CurrTime <= 0)
             {
+                m_PlayerData.EndTurn();
+
                 m_AI.SetActive(false);
 
                 isAiTurn_ = false;
