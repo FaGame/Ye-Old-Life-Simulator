@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class BuildingUI : MonoBehaviour 
 {
@@ -9,6 +10,7 @@ public class BuildingUI : MonoBehaviour
     public GameObject m_ApplyMenuButtonPrefab; //Prefab for the Apply Menu Button to Instantiate later
     public GameObject m_BuyMenu; //Menu that appears after pressing "Buy Items"
     public GameObject m_BuyButtonPrefab; //Prefab for the Buy Items buttons to Instantiate later
+    public GameObject m_UniversityButtonPrefab; //Prefab for the Buy Items buttons to Instantiate later
     public GameObject m_InteractMenu; //Menu that appears after pressing "Interact"
     public GameObject m_ApplyMenuScrollMask; //Gameobject that is to have the job information as a parent to allow for scrolling
     public GameObject m_BuyMenuScrollMask; //Gameobject that is to have the item information as a parent to allow for scrolling
@@ -33,6 +35,7 @@ public class BuildingUI : MonoBehaviour
     private float applyMenuYClamp_; //Clamping the apply for job menu's Y position for scrolling
     private float buyMenuYClamp_; //Clamping the buy menu's Y position for scrolling
     private float subMenuYOffset_ = 70.0f; //Offset Y position for each element in the sub menus
+    private float subMenuXOffset_ = 200.0f; //Offset X position for each element in the sub menus
     private GameObject selectedBuilding_; //Selected building GameObject
     private Text[] buildingMenuText_; //Array of text on the building UI element (Buy Items, Interact, etc)..
     private Text[] applyMenuText_; //Array of text for the Apply For Job Menu
@@ -226,33 +229,90 @@ public class BuildingUI : MonoBehaviour
     //If pressed, it will populate and show the Interact menu, from which you can choose any of the special interactions the building has to offer
     public void InteractionMenu()
     {
-        float startYPos = 180.0f;
+        
+        if(selectedBuilding_.name == "University")
+        {
+            InteractWithUniversity();
+        }
+        else
+        {
+            float startYPos = 180.0f;
+
+            //m_InteractMenu.SetActive(true);
+            m_InteractTransitionDisplay.PrepareForFadeIn();
+
+            for (int i = 0; i < selectedBuilding_.GetComponent<Building>().m_SpecialEffects.Length; ++i)
+            {
+                GameObject go = (GameObject)Instantiate(m_BuyButtonPrefab, new Vector3(0, startYPos, 0), Quaternion.identity);
+                Button bton = go.GetComponentInChildren<Button>();
+                bton.onClick.AddListener(delegate { Interact(go); });
+                go.gameObject.transform.SetParent(m_InteractMenuScrollMask.transform, false);
+                SpecialEffect sBuildingEffect = selectedBuilding_.GetComponent<Building>().m_SpecialEffects[i];
+                SpecialEffect sEffect = go.AddComponent(sBuildingEffect.name) as SpecialEffect;
+                //sEffect = sBuildingEffect;
+                //go.GetComponentInChildren<Button>().onClick.AddListener(delegate { Interact(go); });
+                startYPos -= subMenuYOffset_;
+            }
+
+            interactText_ = m_InteractMenu.GetComponentsInChildren<Text>();
+
+            int j = 0;
+            for (int i = 0; i < selectedBuilding_.GetComponent<Building>().m_SpecialEffects.Length * 2; i += 2)
+            {
+                interactText_[i].text = selectedBuilding_.GetComponent<Building>().m_SpecialEffects[j].name;
+                //m_InteractMenuText[i + 1].text = selectedBuilding_.GetComponent<Building>().m_SpecialEffects[j].
+                interactText_[i + 1].text = "Temp string";
+                j++;
+            }
+            m_InteractTransitionDisplay.FadeIn();
+        }   
+    }
+
+    public void InteractWithUniversity()
+    {
+        int row = 2;
+        int it = 0;
+        float startYPos = 180.0f;      
+        float defaultXPos = -200.0f;
+        float startXPos = defaultXPos;
 
         //m_InteractMenu.SetActive(true);
         m_InteractTransitionDisplay.PrepareForFadeIn();
 
-        for(int i = 0; i < selectedBuilding_.GetComponent<Building>().m_SpecialEffects.Length; ++i)
+        for (int i = 0; i < (int)Skill.Skills.NUM_SKILLS; ++i)
         {
-            GameObject go = (GameObject)Instantiate(m_BuyButtonPrefab, new Vector3(0, startYPos, 0), Quaternion.identity);
+            GameObject go = (GameObject)Instantiate(m_UniversityButtonPrefab, new Vector3(startXPos, startYPos, 0), Quaternion.identity);
             Button bton = go.GetComponentInChildren<Button>();
             bton.onClick.AddListener(delegate { Interact(go); });
             go.gameObject.transform.SetParent(m_InteractMenuScrollMask.transform, false);
-            SpecialEffect sBuildingEffect = selectedBuilding_.GetComponent<Building>().m_SpecialEffects[i];
-            SpecialEffect sEffect = go.AddComponent(sBuildingEffect.name) as SpecialEffect;
-            //sEffect = sBuildingEffect;
-            //go.GetComponentInChildren<Button>().onClick.AddListener(delegate { Interact(go); });
-            startYPos -= subMenuYOffset_;
+            if (it != row)
+            {
+                startXPos += subMenuXOffset_;
+            }
+            else
+            {
+                startXPos = defaultXPos;
+                startYPos -= subMenuYOffset_;
+                //startXPos += subMenuXOffset_;
+                it = 0;
+            }     
+            it++;
         }
 
         interactText_ = m_InteractMenu.GetComponentsInChildren<Text>();
 
         int j = 0;
-        for(int i = 0; i < selectedBuilding_.GetComponent<Building>().m_SpecialEffects.Length * 2; i += 2)
+    
+
+        foreach (Skill.Skills enumValue in Enum.GetValues(typeof(Skill.Skills)))
         {
-            interactText_[i].text = selectedBuilding_.GetComponent<Building>().m_SpecialEffects[j].name;
-            //m_InteractMenuText[i + 1].text = selectedBuilding_.GetComponent<Building>().m_SpecialEffects[j].
-            interactText_[i + 1].text = "Temp string";
-            j++;
+            
+            if(j < 13)
+            {
+                interactText_[j].text = enumValue.ToString();  
+                j++;
+            }
+                 
         }
         m_InteractTransitionDisplay.FadeIn();
     }
