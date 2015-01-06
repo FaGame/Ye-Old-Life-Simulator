@@ -25,6 +25,7 @@ public class HUDScript : MonoBehaviour
     private bool inventoryActive_ = false; //This bool determines whether or not the inventory is currently open
     private bool HUDActive_ = false; //This bool determines whether any HUD elements are active
     private bool wasHighlighted_ = false;
+    private bool objectivesSetUp_ = false;
     private float timer_; //Turn timer
     private Slider[] sliderArray_; //Array containing the HUD sliders
     private Slider[] objSliderArray_; //Array of objective sliders
@@ -56,7 +57,7 @@ public class HUDScript : MonoBehaviour
         SetUpHUDSliders();
 
         objSliderArray_ = m_Goals.GetComponentsInChildren<Slider>();
-        SetUpObjectiveSliders();
+        //SetUpObjectiveSliders();
 
         m_BuildingHovered.text = "";
         m_CurrJobText.text = "Unemployed";
@@ -102,19 +103,21 @@ public class HUDScript : MonoBehaviour
         currObjSlider_ = objSliderArray_[1];
         happyObjSlider_ = objSliderArray_[2];
 
-        repObjSlider_.maxValue = m_GameManager.MaxRep;
+        repObjSlider_.maxValue = m_PlayerData.m_MaxReputation;
         repObjSlider_.minValue = 0.0f;
 
-        currObjSlider_.maxValue = m_GameManager.MaxCurrency;
+        currObjSlider_.maxValue = m_PlayerData.m_MaxShillings;
         currObjSlider_.minValue = 0.0f;
 
-        happyObjSlider_.maxValue = m_GameManager.MaxHappy;
+        happyObjSlider_.maxValue = m_PlayerData.m_MaxHappiness;
         happyObjSlider_.minValue = 0.0f;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        SetUpObjectiveSliders();
+
         if(m_GameManager.AITurn == true)
         {
             m_PlayerData = m_GameManager.m_AIData;
