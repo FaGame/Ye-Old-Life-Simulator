@@ -51,6 +51,8 @@ public class BuildingUI : MonoBehaviour
     //private bool isIransitioning_;
     //private float transitionAlpha_;
 
+    public Font m_CustomFont;
+
     public bool BuildingUIActive
     {
         get { return buildingsActive_; }
@@ -216,11 +218,11 @@ public class BuildingUI : MonoBehaviour
         buyMenuText_ = m_BuyMenu.GetComponentsInChildren<Text>();
 
         int j = 0;
-        for(int i = 0; i < selectedBuilding_.GetComponent<Building>().m_Items.Length * 3; i += 3)
+        for(int i = 0; i < selectedBuilding_.GetComponent<Building>().m_Items.Length * 2; i += 2)
         {
+            buyMenuText_[i].font = m_CustomFont;
             buyMenuText_[i].text = selectedBuilding_.GetComponent<Building>().m_Items[j].name;
             buyMenuText_[i + 1].text = selectedBuilding_.GetComponent<Building>().m_Items[j].GetDescription();
-            buyMenuText_[i + 2].text = "That'll be " + selectedBuilding_.GetComponent<Building>().m_Items[j].m_Cost.ToString() + " shillings.";
             j++;
         }
         m_BuyItemsTransitionDisplay.FadeIn();
@@ -279,15 +281,13 @@ public class BuildingUI : MonoBehaviour
 
         //m_InteractMenu.SetActive(true);
         m_InteractTransitionDisplay.PrepareForFadeIn();
-        foreach (Skill.Skills skill in Enum.GetValues(typeof(Skill.Skills)))
+
+        for (int i = 0; i < (int)Skill.Skills.NUM_SKILLS; ++i)
         {
             GameObject go = (GameObject)Instantiate(m_UniversityButtonPrefab, new Vector3(startXPos, startYPos, 0), Quaternion.identity);
             Button bton = go.GetComponentInChildren<Button>();
             bton.onClick.AddListener(delegate { Interact(go); });
             go.gameObject.transform.SetParent(m_InteractMenuScrollMask.transform, false);
-
-            SpecialEffect sEffect = go.AddComponent("Training") as SpecialEffect;
-            ((Training)sEffect).m_LearnedSkill = skill;
             if (it != row)
             {
                 startXPos += subMenuXOffset_;
@@ -298,20 +298,24 @@ public class BuildingUI : MonoBehaviour
                 startYPos -= subMenuYOffset_;
                 //startXPos += subMenuXOffset_;
                 it = 0;
-            }
+            }     
             it++;
         }
-       
-        interactText_ = m_InteractMenu.GetComponentsInChildren<Text>(); 
 
-        foreach (Skill.Skills skill in Enum.GetValues(typeof(Skill.Skills)))
-        {        
-             if(skill == Skill.Skills.NUM_SKILLS)
-             {
-                 //leave once the skill is at the number of skills in the enum 
-                 break;
-             } 
-             interactText_[(int)skill].text = skill.ToString();   
+        interactText_ = m_InteractMenu.GetComponentsInChildren<Text>();
+
+        int j = 0;
+    
+
+        foreach (Skill.Skills enumValue in Enum.GetValues(typeof(Skill.Skills)))
+        {
+            
+            if(j < 13)
+            {
+                interactText_[j].text = enumValue.ToString();  
+                j++;
+            }
+                 
         }
         m_InteractTransitionDisplay.FadeIn();
     }
@@ -336,7 +340,6 @@ public class BuildingUI : MonoBehaviour
         }
 
         applyMenuText_ = m_ApplyMenu.GetComponentsInChildren<Text>();
-
         /*
          * i -- Used to get and populate the text elements on the Apply for Job Menu
          *   -- It is incremented by 3 each iteration because there are 3 text elements in each button prefab, so in order to move on to the next prefab without altering other text elements
@@ -352,6 +355,7 @@ public class BuildingUI : MonoBehaviour
         int k = 0;
         for (int i = 0; i < selectedBuilding_.GetComponent<Building>().m_JobData.Length * 3; i += 3)
         {
+            applyMenuText_[i].font = m_CustomFont;
             applyMenuText_[i].text = selectedBuilding_.GetComponent<Building>().m_JobData[j].name;
             applyMenuText_[i + 1].text = selectedBuilding_.GetComponent<Building>().m_JobData[j].m_JobDescription;
             
