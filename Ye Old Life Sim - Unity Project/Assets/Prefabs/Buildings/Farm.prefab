@@ -662,6 +662,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &141746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 441746}
+  - 65: {fileID: 6541746}
+  m_Layer: 0
+  m_Name: Waypoint
+  m_TagString: Waypoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &410626
 Transform:
   m_ObjectHideFlags: 1
@@ -673,7 +689,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 435686}
-  m_RootOrder: 37
+  m_RootOrder: 38
 --- !u!4 &435632
 Transform:
   m_ObjectHideFlags: 1
@@ -1045,6 +1061,7 @@ Transform:
   - {fileID: 435694}
   - {fileID: 435656}
   - {fileID: 435644}
+  - {fileID: 441746}
   - {fileID: 410626}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1168,6 +1185,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 435686}
   m_RootOrder: 21
+--- !u!4 &441746
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141746}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: -4.37113883e-08}
+  m_LocalPosition: {x: .230000004, y: -.579999983, z: 3.54999995}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 435686}
+  m_RootOrder: 37
 --- !u!23 &2335632
 Renderer:
   m_ObjectHideFlags: 1
@@ -2201,6 +2230,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 15.0299997, y: 10, z: 4.3499999}
   m_Center: {x: 0, y: 4, z: .0799999982}
+--- !u!65 &6541746
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141746}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.63999999, y: 1, z: 1.23000002}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11435632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2222,12 +2263,12 @@ MonoBehaviour:
   - "Reap what you sow. Then i\u2019ll take it all and pay you minimum wage for it."
   m_Image: {fileID: 2800000, guid: 44911abe987a3f849ae866318c27c848, type: 3}
   m_JobData:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 719cb02d362d65345b2f28fb9f8037e4, type: 2}
+  - {fileID: 11400000, guid: f7dfa37adeafa8e4cb5071d6ab00a139, type: 2}
+  - {fileID: 11400000, guid: 90726b5b1ad9efe4b87efadcc6170727, type: 2}
+  - {fileID: 11400000, guid: 73254e9dd548b6540a7823113736f362, type: 2}
+  - {fileID: 11400000, guid: 719cb02d362d65345b2f28fb9f8037e4, type: 2}
+  - {fileID: 11400000, guid: 04391a60e48e1b74dbf0819295d02fe2, type: 2}
   m_Items:
   - {fileID: 11400000, guid: f3ca3e9aa3a0a5b45ac0f9d43e5c8ae6, type: 2}
   - {fileID: 11400000, guid: 51bda5fcdeda4f2459f1a4e19c173814, type: 2}

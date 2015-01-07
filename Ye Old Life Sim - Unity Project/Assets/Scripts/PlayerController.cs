@@ -6,6 +6,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour 
 {
     public AudioSource m_PlayerRunning;
+    public Horse m_Horse;
     public PlayerData m_PlayerData;     //object to hold the player data, if that wasn't obvious 
     public Camera mCamera;
     public Terrain mTerrain;
@@ -163,9 +164,19 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateWalkSound()
     {
-        if(m_IsMoving && !m_PlayerRunning.isPlaying)
+        if(m_PlayerData.m_HasMount == true)
         {
-            m_PlayerRunning.Play();
+            if (m_IsMoving && !m_Horse.m_HorseGallop.isPlaying)
+            {
+                m_Horse.m_HorseGallop.Play();
+            }
+        }
+        else
+        {
+            if (m_IsMoving && !m_PlayerRunning.isPlaying)
+            {
+                m_PlayerRunning.Play();
+            }
         }
     }
 }

@@ -7,6 +7,8 @@ public class Horse : Item
     public bool m_BoughtHorse;
     public float m_PlayerSpeedModifier = 0.0f;
 
+    public AudioSource m_HorseGallop;
+
 	void Start () 
     {
         m_BoughtHorse = false;

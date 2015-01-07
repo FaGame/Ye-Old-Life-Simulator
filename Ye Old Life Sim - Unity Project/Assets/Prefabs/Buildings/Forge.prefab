@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &111062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 411062}
+  - 65: {fileID: 6511062}
+  m_Layer: 8
+  m_Name: Waypoint
+  m_TagString: Waypoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &112694
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,14 +883,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &411062
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111062}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .25999999, y: -.829999983, z: 3.55999994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 412694}
+  m_RootOrder: 50
 --- !u!4 &412694
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112694}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: 452.670013, y: 1.07000005, z: 320.170013}
+  m_LocalRotation: {x: 0, y: .984807789, z: 0, w: -.173648208}
+  m_LocalPosition: {x: 569, y: 6, z: 349}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 412696}
@@ -927,6 +955,7 @@ Transform:
   - {fileID: 412790}
   - {fileID: 412792}
   - {fileID: 412794}
+  - {fileID: 411062}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &412696
@@ -2911,6 +2940,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112794}
   m_Mesh: {fileID: 4300094, guid: b81d1a70a84afaa4aac9403130ca49d1, type: 3}
+--- !u!65 &6511062
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111062}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.76999998, y: .879999995, z: 1.61000001}
+  m_Center: {x: 0, y: .150000006, z: -.119999997}
 --- !u!65 &6512794
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2921,8 +2962,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: 12}
-  m_Center: {x: 2.75, y: 4, z: -2}
+  m_Size: {x: 9.25, y: 9, z: 10}
+  m_Center: {x: 2.56999993, y: 3.4000001, z: -2.3599999}
 --- !u!114 &11412794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2937,10 +2978,10 @@ MonoBehaviour:
   m_Player: {fileID: 0}
   m_BuildingName: 
   m_Description:
-  - 
-  - 
-  - 
-  - 
+  - Gumby and Pokey were here.
+  - Don't hammer your nails.
+  - We forge ahead.
+  - Our swords are sharper than you.
   m_Image: {fileID: 2800000, guid: 68e5d26412463c242978c8e31d7f2aff, type: 3}
   m_JobData:
   - {fileID: 11400000, guid: b4d585fe2d70d694fa7544fe3b5885bd, type: 2}

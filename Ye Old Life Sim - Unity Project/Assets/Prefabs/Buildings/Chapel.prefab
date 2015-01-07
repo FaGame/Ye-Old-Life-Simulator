@@ -28,7 +28,7 @@ GameObject:
   - 65: {fileID: 6526562}
   m_Layer: 0
   m_Name: Chapel
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -290,7 +290,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126534}
   m_LocalRotation: {x: 0, y: .382683486, z: 0, w: .923879564}
-  m_LocalPosition: {x: 598.5, y: 5, z: 454.799988}
+  m_LocalPosition: {x: 594, y: 5, z: 468.299988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 426536}
@@ -907,11 +907,19 @@ MonoBehaviour:
   - "\u2018Oh, no, God! Oh, dear God in heaven!\u2019 - Stegosaurus"
   - Teachers of the one true way. Unlike that OTHER one true way!
   m_Image: {fileID: 2800000, guid: ea5b484c340f23645ba5616de48076e7, type: 3}
-  m_JobData: []
+  m_JobData:
+  - {fileID: 11400000, guid: fcd31d96c8149b745841933f164b8769, type: 2}
+  - {fileID: 11400000, guid: a1c496e2eb5ac4b4a932500b5f2fc85e, type: 2}
+  - {fileID: 11400000, guid: df30f0914429db447a6a47318fb02a9b, type: 2}
+  - {fileID: 11400000, guid: a285023ebbd5ef3448519328b8c20f9f, type: 2}
+  - {fileID: 11400000, guid: aeb4c818ec4ad0f43a753cc48661fa14, type: 2}
+  - {fileID: 11400000, guid: 9d583db72dc2f5e44944223040f79d97, type: 2}
   m_Items:
   - {fileID: 11400000, guid: 071930d6712e83145bb66a6caf6bb8f0, type: 2}
   - {fileID: 11400000, guid: d86327b7da1531c4da18a78673b86d59, type: 2}
-  m_SpecialEffects: []
+  m_SpecialEffects:
+  - {fileID: 11481786, guid: da10e462b2013934785613e2d4097a03, type: 2}
+  - {fileID: 11478870, guid: d3158441c25401e4a8002871b90b6bd4, type: 2}
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 0}
 --- !u!1001 &100100000
