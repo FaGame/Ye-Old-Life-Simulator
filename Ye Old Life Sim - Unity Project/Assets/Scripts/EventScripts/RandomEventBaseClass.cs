@@ -17,13 +17,4 @@ public abstract class RandomEventBaseClass
 	public abstract string PlayEvent(PlayerData m_Player, string m_EventDesc);
 	public abstract string UpdateEvent(PlayerData m_Player, string m_EventDesc);
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

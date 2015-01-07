@@ -10,7 +10,6 @@ public class BarrelOfMead : RandomEventBaseClass
 
 	public override string PlayEvent(PlayerData pData, string tData)
 	{
-//		GetComponent<PlayerData>();
 		int currTurn = m_GameManager.GetComponent<GameManager>().m_Turns;
 		HangoverTurn_ = currTurn + ValueConstants.HANGOVER_DAY;
 
