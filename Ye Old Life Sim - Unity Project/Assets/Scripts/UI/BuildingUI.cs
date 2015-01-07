@@ -216,10 +216,11 @@ public class BuildingUI : MonoBehaviour
         buyMenuText_ = m_BuyMenu.GetComponentsInChildren<Text>();
 
         int j = 0;
-        for(int i = 0; i < selectedBuilding_.GetComponent<Building>().m_Items.Length * 2; i += 2)
+        for(int i = 0; i < selectedBuilding_.GetComponent<Building>().m_Items.Length * 3; i += 3)
         {
             buyMenuText_[i].text = selectedBuilding_.GetComponent<Building>().m_Items[j].name;
             buyMenuText_[i + 1].text = selectedBuilding_.GetComponent<Building>().m_Items[j].GetDescription();
+            buyMenuText_[i + 2].text = "That'll be " + selectedBuilding_.GetComponent<Building>().m_Items[j].m_Cost.ToString() + " shillings.";
             j++;
         }
         m_BuyItemsTransitionDisplay.FadeIn();
