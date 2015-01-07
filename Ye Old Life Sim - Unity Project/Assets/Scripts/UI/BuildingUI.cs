@@ -302,17 +302,16 @@ public class BuildingUI : MonoBehaviour
             it++;
         }
        
-        interactText_ = m_InteractMenu.GetComponentsInChildren<Text>();
-
-        int j = 0;   
+        interactText_ = m_InteractMenu.GetComponentsInChildren<Text>(); 
 
         foreach (Skill.Skills skill in Enum.GetValues(typeof(Skill.Skills)))
-        {      
-            if(j < (int)Skill.Skills.NUM_SKILLS)
-            {
-                interactText_[j].text = skill.ToString();  
-                j++;
-            }      
+        {        
+             if(skill == Skill.Skills.NUM_SKILLS)
+             {
+                 //leave once the skill is at the number of skills in the enum 
+                 break;
+             } 
+             interactText_[(int)skill].text = skill.ToString();   
         }
         m_InteractTransitionDisplay.FadeIn();
     }
