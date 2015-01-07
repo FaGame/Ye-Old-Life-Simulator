@@ -36766,10 +36766,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Player: {fileID: 1679451510}
+  m_PlayerTwo: {fileID: 1679451510}
   m_AI: {fileID: 1078853317}
   m_AIData: {fileID: 1078853318}
   m_PlayerData: {fileID: 1679451513}
-  m_PlayerTwoData: {fileID: 0}
+  m_PlayerTwoData: {fileID: 1679451513}
   m_BuildingUI: {fileID: 1583590505}
   m_RestartUI: {fileID: 1583590507}
   m_Turns: 0

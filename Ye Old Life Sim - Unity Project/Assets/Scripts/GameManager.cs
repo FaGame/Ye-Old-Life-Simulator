@@ -4,6 +4,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     public GameObject m_Player;
+    public GameObject m_PlayerTwo;
     public GameObject m_AI;
     public PlayerData m_AIData;
     public PlayerData m_PlayerData;
@@ -265,6 +266,19 @@ public class GameManager : MonoBehaviour
                 if (hungerTimer_ >= 1.0f)
                 {
                     m_AIData.m_HungerMeter += 1.0f;
+                    hungerTimer_ = 0.0f;
+                }
+            }
+        }
+        if (m_PlayerTwoData.m_CurrTime != 0.0f)
+        {
+            if (m_PlayerTwo.GetComponent<PlayerController>().m_IsMoving && isPlayerTwoTurn_ == true)
+            {
+                m_PlayerTwoData.m_CurrTime -= Time.deltaTime;
+                hungerTimer_ += Time.deltaTime;
+                if (hungerTimer_ >= 1.0f)
+                {
+                    m_PlayerTwoData.m_HungerMeter += 1.0f;
                     hungerTimer_ = 0.0f;
                 }
             }
