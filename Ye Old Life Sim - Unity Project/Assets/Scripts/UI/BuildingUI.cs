@@ -304,12 +304,12 @@ public class BuildingUI : MonoBehaviour
         int j = 0;
     
 
-        foreach (Skill.Skills enumValue in Enum.GetValues(typeof(Skill.Skills)))
+        foreach (Skill.Skills skill in Enum.GetValues(typeof(Skill.Skills)))
         {
             
-            if(j < 13)
+            if(j < (int)Skill.Skills.NUM_SKILLS)
             {
-                interactText_[j].text = enumValue.ToString();  
+                interactText_[j].text = skill.ToString();  
                 j++;
             }
                  
