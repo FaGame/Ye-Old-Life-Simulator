@@ -13,8 +13,7 @@ public class Habitat : MonoBehaviour
 
     private bool isHighlighted_;
     private Renderer[] renderers_;
-    private List<Color> originalColours_ = new List<Color>();
-
+    private List<List<Color>> originalColours_ = new List<List<Color>>();
     void Start()
     {
         CalculateHomePenalty();
@@ -22,7 +21,12 @@ public class Habitat : MonoBehaviour
 
         for (int i = 0; i < renderers_.Length; ++i)
         {
-            originalColours_.Add(renderers_[i].renderer.material.color);
+            originalColours_.Add(new List<Color>());
+            for (int j = 0; j < renderers_[i].renderer.materials.Length; ++j)
+            {
+                originalColours_[i].Add(renderers_[i].renderer.materials[j].color);
+            }
+            //originalColours_.Add(renderers_[i].renderer.material.color);        
         }
     }
     public enum BuildingRating
@@ -90,7 +94,11 @@ public class Habitat : MonoBehaviour
     {
         for (int i = 0; i < GetComponentsInChildren<Renderer>().Length; ++i)
         {
-            GetComponentsInChildren<Renderer>()[i].renderer.material.color = Color.yellow;
+            for (int j = 0; j < GetComponentsInChildren<Renderer>()[i].renderer.materials.Length; ++j)
+            {
+                GetComponentsInChildren<Renderer>()[i].renderer.materials[j].color = Color.yellow;
+            }
+            //m_DisplayedBuilding.GetComponentsInChildren<Renderer>()[i].renderer.material.color = Color.yellow;
         }
     }
 
@@ -98,7 +106,12 @@ public class Habitat : MonoBehaviour
     {
         for (int i = 0; i < GetComponentsInChildren<Renderer>().Length; ++i)
         {
-            GetComponentsInChildren<Renderer>()[i].renderer.material.color = originalColours_[i];
+           for (int j = 0; j < renderers_[i].renderer.materials.Length; ++j)
+            {
+                GetComponentsInChildren<Renderer>()[i].renderer.materials[j].color = originalColours_[i][j];
+                //originalColours_[i].Add(renderers_[i].renderer.materials[j].color);
+            }
+            //m_DisplayedBuilding.GetComponentsInChildren<Renderer>()[i].renderer.material.color = originalColours_[i];
         }
     }
 }
