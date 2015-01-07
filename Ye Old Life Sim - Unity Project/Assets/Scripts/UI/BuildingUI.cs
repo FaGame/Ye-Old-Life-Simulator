@@ -279,13 +279,15 @@ public class BuildingUI : MonoBehaviour
 
         //m_InteractMenu.SetActive(true);
         m_InteractTransitionDisplay.PrepareForFadeIn();
-
-        for (int i = 0; i < (int)Skill.Skills.NUM_SKILLS; ++i)
+        foreach (Skill.Skills skill in Enum.GetValues(typeof(Skill.Skills)))
         {
             GameObject go = (GameObject)Instantiate(m_UniversityButtonPrefab, new Vector3(startXPos, startYPos, 0), Quaternion.identity);
             Button bton = go.GetComponentInChildren<Button>();
             bton.onClick.AddListener(delegate { Interact(go); });
             go.gameObject.transform.SetParent(m_InteractMenuScrollMask.transform, false);
+
+            SpecialEffect sEffect = go.AddComponent("Training") as SpecialEffect;
+            ((Training)sEffect).m_LearnedSkill = skill;
             if (it != row)
             {
                 startXPos += subMenuXOffset_;
@@ -296,24 +298,21 @@ public class BuildingUI : MonoBehaviour
                 startYPos -= subMenuYOffset_;
                 //startXPos += subMenuXOffset_;
                 it = 0;
-            }     
+            }
             it++;
         }
-
+       
         interactText_ = m_InteractMenu.GetComponentsInChildren<Text>();
 
-        int j = 0;
-    
+        int j = 0;   
 
         foreach (Skill.Skills skill in Enum.GetValues(typeof(Skill.Skills)))
-        {
-            
+        {      
             if(j < (int)Skill.Skills.NUM_SKILLS)
             {
                 interactText_[j].text = skill.ToString();  
                 j++;
-            }
-                 
+            }      
         }
         m_InteractTransitionDisplay.FadeIn();
     }
