@@ -26,7 +26,7 @@ public class BuildingUI : MonoBehaviour
     public TransitionDisplay m_BuyItemsTransitionDisplay;
     public TransitionDisplay m_InteractTransitionDisplay;
     public TransitionDisplay m_ApplyJobTransitionDisplay;
-    public Building m_BuildingScript;
+    //public Building m_BuildingScript;
     public Building.Buildings m_CurrBuildingEnum;
     public DataCollection m_DataCollection;
     

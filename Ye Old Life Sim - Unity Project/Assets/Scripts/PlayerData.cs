@@ -123,8 +123,8 @@ public class PlayerData : MonoBehaviour
         {
             endTurnCode_();
         }
-        m_DataCollection.AddTurns();
-        m_DataCollection.PopulateStats();
+        //m_DataCollection.AddTurns();
+        //m_DataCollection.PopulateStats();
         endTurnCode_ = null;
         gameObject.SetActive(false);
     }

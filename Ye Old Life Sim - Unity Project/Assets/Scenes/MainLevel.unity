@@ -6866,6 +6866,10 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1612327286}
+    - target: {fileID: 11488056, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_DataCollection
+      value: 
+      objectReference: {fileID: 1052255813}
     m_RemovedComponents:
     - {fileID: 11400010, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
@@ -7934,6 +7938,7 @@ MonoBehaviour:
   m_Job: {fileID: 0}
   m_Building: {fileID: 0}
   m_GameManager: {fileID: 1405834717}
+  m_DataCollection: {fileID: 0}
   m_PlayerCanvas: {fileID: 0}
   m_Opponent: {fileID: 1078853318}
   m_InfectedParticle: {fileID: 1497650404}
@@ -8062,7 +8067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerRunning: {fileID: 253958737}
-  m_Horse: {fileID: 0}
+  m_Horse: {fileID: 11409958, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
   m_PlayerData: {fileID: 253958734}
   mCamera: {fileID: 1052255808}
   mTerrain: {fileID: 715305267}
@@ -9153,6 +9158,7 @@ MonoBehaviour:
   - {fileID: 11478870, guid: d3158441c25401e4a8002871b90b6bd4, type: 2}
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_buildingEnum: 0
 --- !u!1 &286961620
 GameObject:
   m_ObjectHideFlags: 0
@@ -19096,6 +19102,7 @@ MonoBehaviour:
   m_HabitatUI: {fileID: 1583590506}
   m_PlayerData: {fileID: 1679451513}
   m_Rating: 2
+  m_CollectionRating: 0
 --- !u!65 &604814488
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20069,6 +20076,7 @@ MonoBehaviour:
   m_HabitatUI: {fileID: 0}
   m_PlayerData: {fileID: 0}
   m_Rating: 0
+  m_CollectionRating: 0
 --- !u!4 &633952153
 Transform:
   m_ObjectHideFlags: 0
@@ -21570,6 +21578,7 @@ MonoBehaviour:
   - {fileID: 11457322, guid: 1b9ed161ebaa10a4eb8b9f7b3ff3963f, type: 2}
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_buildingEnum: 0
 --- !u!1 &679886518
 GameObject:
   m_ObjectHideFlags: 0
@@ -25188,7 +25197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082c74dc1fa709a458104ac855a1ec03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Cost: 0
+  m_Cost: 10
   m_UseCount: 1
   m_Description: Not Overridden
   m_Effect:
@@ -25196,7 +25205,7 @@ MonoBehaviour:
     m_Timer: 0
     m_Value: 0
   m_BoughtHorse: 0
-  m_PlayerSpeedModifier: 0
+  m_PlayerSpeedModifier: 10
   m_HorseGallop: {fileID: 804202177}
 --- !u!95 &804202179
 Animator:
@@ -27670,6 +27679,7 @@ MonoBehaviour:
   m_HabitatUI: {fileID: 1583590506}
   m_PlayerData: {fileID: 1679451513}
   m_Rating: 3
+  m_CollectionRating: 0
 --- !u!65 &898228382
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29834,6 +29844,7 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_buildingEnum: 0
 --- !u!1 &984581192
 GameObject:
   m_ObjectHideFlags: 0
@@ -31435,6 +31446,7 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_buildingEnum: 0
 --- !u!1 &1031712653
 GameObject:
   m_ObjectHideFlags: 0
@@ -32136,6 +32148,7 @@ GameObject:
   - 114: {fileID: 1052255810}
   - 82: {fileID: 1052255811}
   - 114: {fileID: 1052255812}
+  - 114: {fileID: 1052255813}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -32297,10 +32310,25 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 05ae11b071f4ca7449425d9d0635e093, type: 3}
   - {fileID: 21300004, guid: 05ae11b071f4ca7449425d9d0635e093, type: 3}
   - {fileID: 21300002, guid: 05ae11b071f4ca7449425d9d0635e093, type: 3}
-  m_HotSpot: {x: 20, y: 20}
+  m_HotSpot: {x: 0, y: 30}
   m_CursorMode: 1
   m_FramesPerSecond: 15
   isMouseButtonDown_: 0
+--- !u!114 &1052255813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1052255804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c204df1dad5414f808a5f99c195f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlayerData: {fileID: 1679451513}
+  m_Game: {fileID: 1405834717}
+  m_BUI: {fileID: 1583590505}
+  m_HUI: {fileID: 1583590506}
 --- !u!1 &1055468684
 GameObject:
   m_ObjectHideFlags: 0
@@ -32829,6 +32857,7 @@ MonoBehaviour:
   m_Job: {fileID: 0}
   m_Building: {fileID: 0}
   m_GameManager: {fileID: 0}
+  m_DataCollection: {fileID: 0}
   m_PlayerCanvas: {fileID: 0}
   m_Opponent: {fileID: 1679451513}
   m_InfectedParticle: {fileID: 1505004, guid: 7388452c399cec24a80ebaec74033fb0, type: 2}
@@ -32872,6 +32901,7 @@ MonoBehaviour:
   m_HabitatUI: {fileID: 0}
   m_PlayerData: {fileID: 0}
   m_Rating: 0
+  m_CollectionRating: 0
 --- !u!54 &1078853320
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -35488,6 +35518,7 @@ MonoBehaviour:
   m_HabitatUI: {fileID: 1583590506}
   m_PlayerData: {fileID: 1679451513}
   m_Rating: 5
+  m_CollectionRating: 0
 --- !u!65 &1153590627
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -48511,7 +48542,10 @@ MonoBehaviour:
   m_BuyItemsTransitionDisplay: {fileID: 816199102}
   m_InteractTransitionDisplay: {fileID: 788745890}
   m_ApplyJobTransitionDisplay: {fileID: 900226624}
+  m_CurrBuildingEnum: 0
+  m_DataCollection: {fileID: 1052255813}
   m_CustomFont: {fileID: 12800000, guid: 9a399c0961e214c4483f3c3bc166039c, type: 3}
+  m_ActionTaken: 0
 --- !u!114 &1583590506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48530,6 +48564,7 @@ MonoBehaviour:
   m_TimePenalty: {fileID: 1727167600}
   m_PlayerData: {fileID: 1679451513}
   m_TransitionDisplay: {fileID: 1109647301}
+  m_DataCollection: {fileID: 0}
 --- !u!114 &1583590507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51403,6 +51438,7 @@ MonoBehaviour:
   m_Job: {fileID: 0}
   m_Building: {fileID: 0}
   m_GameManager: {fileID: 1405834717}
+  m_DataCollection: {fileID: 0}
   m_PlayerCanvas: {fileID: 0}
   m_Opponent: {fileID: 1078853318}
   m_InfectedParticle: {fileID: 589360118}
@@ -51443,7 +51479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerRunning: {fileID: 1679451522}
-  m_Horse: {fileID: 0}
+  m_Horse: {fileID: 11409958, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
   m_PlayerData: {fileID: 1679451513}
   mCamera: {fileID: 1052255808}
   mTerrain: {fileID: 715305267}
@@ -51714,6 +51750,7 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_buildingEnum: 0
 --- !u!1 &1685129143
 GameObject:
   m_ObjectHideFlags: 0
@@ -55956,6 +55993,7 @@ MonoBehaviour:
   m_HabitatUI: {fileID: 1583590506}
   m_PlayerData: {fileID: 1679451513}
   m_Rating: 1
+  m_CollectionRating: 0
 --- !u!64 &1845238883
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -57987,6 +58025,7 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_buildingEnum: 0
 --- !u!1 &1903713560
 GameObject:
   m_ObjectHideFlags: 0
@@ -59947,6 +59986,7 @@ MonoBehaviour:
   m_HabitatUI: {fileID: 1583590506}
   m_PlayerData: {fileID: 1679451513}
   m_Rating: 4
+  m_CollectionRating: 0
 --- !u!65 &1955591037
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -61454,6 +61494,7 @@ MonoBehaviour:
   m_Job: {fileID: 0}
   m_Building: {fileID: 0}
   m_GameManager: {fileID: 0}
+  m_DataCollection: {fileID: 0}
   m_PlayerCanvas: {fileID: 0}
   m_Opponent: {fileID: 0}
   m_InfectedParticle: {fileID: 0}
@@ -61555,6 +61596,7 @@ MonoBehaviour:
   m_HabitatUI: {fileID: 0}
   m_PlayerData: {fileID: 0}
   m_Rating: 0
+  m_CollectionRating: 0
 --- !u!54 &2007613442
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -64296,6 +64338,7 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_buildingEnum: 0
 --- !u!1 &2124604743
 GameObject:
   m_ObjectHideFlags: 0
