@@ -8,12 +8,14 @@ public class DataCollection : MonoBehaviour
     public GameManager m_Game;
     public BuildingUI m_BUI;
     public HabitatUI m_HUI;
+    public RandomEventManager1 m_REM;
 
     private List<float> playerStats_ = new List<float>();
     private List<int> buildingsInteractedWith_ = new List<int>();
     private List<int> actionsTaken_ = new List<int>();
     private List<int> Turns_ = new List<int>();
     private List<int> habitatsInteractedWith_ = new List<int>();
+    private List<int> RandomEvents_ = new List<int>();
     
 	public void PopulateStats()
     {
@@ -42,5 +44,10 @@ public class DataCollection : MonoBehaviour
     public void AddHabitats()
     {
         habitatsInteractedWith_.Add(m_HUI.ReturnHabitat());
+    }
+
+    public void AddRandomEvents()
+    {
+        RandomEvents_.Add(m_REM.ReturnRdmEvent());
     }
 }
