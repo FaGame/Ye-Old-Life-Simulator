@@ -97,7 +97,7 @@ public class PlayerData : MonoBehaviour
         gameObject.SetActive(true);
         m_IsDead = false;
         //loop through the player's inventory and find objects with the food script
-        if(m_UseableInventory != null)
+        if(m_UseableInventory.m_UseableItemInventory != null)
         {
             foreach (KeyValuePair<string, Item.ItemInventoryEntry> entry in m_UseableInventory.m_UseableItemInventory)
             {
