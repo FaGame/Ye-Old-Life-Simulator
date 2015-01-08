@@ -101,14 +101,8 @@ public class GameManager : MonoBehaviour
 
     void SetActivePlayers()
     {
-        if(AIBeingUsed_)
-        {
             m_AIData.EndTurn();
-        }
-        if(TwoPlayerGame_)
-        {
             m_PlayerTwoData.EndTurn();
-        }
     }
 
     void TurnManager()
