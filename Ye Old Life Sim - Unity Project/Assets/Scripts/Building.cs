@@ -19,6 +19,16 @@ public class Building : MonoBehaviour
     private Renderer[] renderers_;
     private List<List<Color>> originalColours_ = new List<List<Color>>();
 
+    public enum Buildings
+    {
+        BLACKSMITH = 0,
+        TAVERN = 1,
+        CHURCH = 2,
+        CASTLE = 3,
+        SEXSHOP = 4
+    };
+    public Buildings m_buildingEnum;
+
 	// Use this for initialization
 	void Start () 
     {
