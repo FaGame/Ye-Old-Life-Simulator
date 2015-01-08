@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
 	public int m_Turns;
 
+    public bool m_CanCheckWinLoss = true;       //set to true when you want to check the win/loss conditions 
+
     private bool isPlayerTurn_;
     private bool isPlayerTwoTurn_;
     private bool isAiTurn_;
@@ -77,8 +79,11 @@ public class GameManager : MonoBehaviour
         TurnManager();
         SetObjGame();
         SetTurnsGame();
-        CheckForWin();
-        CheckForLoss();
+        if (m_CanCheckWinLoss)
+        {
+            CheckForWin();
+            CheckForLoss();
+        }   
         SetGameBools();
         SetPlayers();
         DecreaseTime();
@@ -202,6 +207,7 @@ public class GameManager : MonoBehaviour
         if (m_PlayerData.m_BetterCategoryCounter >= winValue)
         {   
             m_RestartUI.PlayerWon();
+            m_CanCheckWinLoss = false;
         }
     }
 
@@ -229,6 +235,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("You have died, alone and forgotten behind the most uninspiring shrubbery");      
             m_RestartUI.PlayerDied();
+            m_CanCheckWinLoss = false;
         }
     }
 
