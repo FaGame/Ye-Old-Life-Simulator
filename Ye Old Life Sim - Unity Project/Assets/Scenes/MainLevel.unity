@@ -32292,15 +32292,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MouseNormalAnimate:
-  - {fileID: 21300000, guid: 25c41228351d32545b3d73a0e74b2419, type: 3}
+  - {fileID: 21300000, guid: 34a2a8021fee1744eaaa8edbf419bc81, type: 3}
   m_MouseClickAnimate:
-  - {fileID: 21300000, guid: 6f33023c7f5b583409dc4a214908ed44, type: 3}
-  - {fileID: 21300002, guid: 6f33023c7f5b583409dc4a214908ed44, type: 3}
-  - {fileID: 21300004, guid: 6f33023c7f5b583409dc4a214908ed44, type: 3}
-  - {fileID: 21300006, guid: 6f33023c7f5b583409dc4a214908ed44, type: 3}
-  - {fileID: 21300008, guid: 6f33023c7f5b583409dc4a214908ed44, type: 3}
-  - {fileID: 21300010, guid: 6f33023c7f5b583409dc4a214908ed44, type: 3}
-  m_HotSpot: {x: -125, y: 300}
+  - {fileID: 21300000, guid: 05ae11b071f4ca7449425d9d0635e093, type: 3}
+  - {fileID: 21300004, guid: 05ae11b071f4ca7449425d9d0635e093, type: 3}
+  - {fileID: 21300002, guid: 05ae11b071f4ca7449425d9d0635e093, type: 3}
+  m_HotSpot: {x: 20, y: 20}
   m_CursorMode: 1
   m_FramesPerSecond: 15
   isMouseButtonDown_: 0
