@@ -21,9 +21,9 @@ public class GameManager : MonoBehaviour
     private bool isPlayerTwoTurn_;
     private bool isAiTurn_;
 
-    private float maxRep_;
-    private float maxCurrency_;
-    private float maxHappy_;
+    private float maxRep_ = 1000.0f;
+    private float maxCurrency_ = 1000.0f;
+    private float maxHappy_ = 1000.0f;
     private float maxTurns_;
     private float Players_;
     private float hungerTimer_;
