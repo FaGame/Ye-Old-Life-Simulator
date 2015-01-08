@@ -8,15 +8,15 @@ public class InventoryUI : MonoBehaviour
     public PlayerController m_PlayerController;
     public GameManager m_GameManager;
     public GameObject m_InventoryPanel;
-    public float m_yScale = .25f;
-    public float m_buttonYSeperationDistance = 25.0f;
-    public float m_buttonYMovement = -50.0f;
+    public GameObject m_InventoryScrollMask;
+    public GameObject m_InventoryButtonPrefab;
 
     private Text[] buttonTexts_;
     private GameObject inventoryPanel_;
-    private List<GameObject> currentButtons_;
-    private Image[] imagesInButton_;
+    private Image itemImage_;
     private bool inventoryDisplayed_;
+    private float subMenuYOffset_ = 70.0f;
+    private int numChildren_;
 
     public bool InventoryActive
     {
@@ -26,14 +26,12 @@ public class InventoryUI : MonoBehaviour
     void Start()
     {
         buttonTexts_ = new Text[2];
-        imagesInButton_ = new Image[5];
-        currentButtons_ = new List<GameObject>();
         inventoryDisplayed_ = false;
         /*inventoryPanel_ = GameObject.Find("Inventory");
         inventoryPanel_.SetActive(false);*/
     }
 
-    public void DisplayInventry(UseableItemInventory inventoryScript)
+    public void DisplayInventory(UseableItemInventory inventoryScript)
     {
         if (!inventoryDisplayed_ && !m_GameManager.m_BuildingUI.BuildingUIActive)
         {
@@ -42,54 +40,45 @@ public class InventoryUI : MonoBehaviour
             //display inventory
             m_InventoryPanel.SetActive(true);
 
-            Image backgroundImage = GameObject.Find("BackgroundImage").GetComponent<Image>();
-            Vector3 imageScale = backgroundImage.rectTransform.localScale;
-            imageScale = new Vector3(1.0f, 1.0f, 1.0f);
-            GameObject inventoryButton = GameObject.Find("InventoryItemButton");
-
-            float buttonYMovement = m_buttonYMovement;
             int i = 0;
             if(inventoryScript.m_UseableItemInventory.Count != 0)
             {
+                float startYPos = 180.0f;
+
                 //loop through the inventory and display a button for each item.
-                foreach(KeyValuePair<string, Item.ItemInventoryEntry> currentItem in inventoryScript.m_UseableItemInventory)
+                foreach (KeyValuePair<string, Item.ItemInventoryEntry> currentItem in inventoryScript.m_UseableItemInventory)
                 {
-                    buttonYMovement += (1) * m_buttonYSeperationDistance;
-                    //create the new button
-                    GameObject tempButton = Instantiate(inventoryButton, new Vector3(inventoryButton.transform.localPosition.x, inventoryButton.transform.localPosition.y + buttonYMovement, inventoryButton.transform.localPosition.z), Quaternion.identity) as GameObject;
+                    GameObject go = (GameObject)Instantiate(m_InventoryButtonPrefab, new Vector3(0.0f, startYPos, 0.0f), Quaternion.identity);
+                    go.gameObject.transform.SetParent(m_InventoryScrollMask.transform, false);
+                    startYPos -= subMenuYOffset_;
+                    numChildren_++;
+
                     //set the name and count of the item
-                    buttonTexts_ = tempButton.GetComponentsInChildren<Text>();
-                    for (int l = 0; l < buttonTexts_.Length; ++l)
+                    buttonTexts_ = go.GetComponentsInChildren<Text>();
+
+                    buttonTexts_[0].text = currentItem.Key;
+                    buttonTexts_[1].text = currentItem.Value.count.ToString();
+                    /*for (int l = 0; l < buttonTexts_.Length; ++l)
                     {
-                        if(buttonTexts_[l].name == "InventoryItemButtonText")
+                        if (buttonTexts_[l].name == "InventoryItemButtonText")
                         {
                             buttonTexts_[l].text = currentItem.Key;
                         }
-                        else if(buttonTexts_[l].name == "ItemCount")
+                        else if (buttonTexts_[l].name == "ItemCount")
                         {
                             buttonTexts_[l].text = currentItem.Value.count.ToString();
                         }
-                    }
+                    }*/
                     //set the button image
-                    imagesInButton_ = tempButton.GetComponentsInChildren<Image>();
-                    for (int l = 0; l < imagesInButton_.Length; ++l)
-                    {
-                        if (imagesInButton_[l].name == "ItemImage")
-                        {
-                            GameObject currentObject = GameObject.Find(currentItem.Key);
-                            imagesInButton_[l].sprite = currentObject.GetComponent<Image>().sprite;
-                        }
-                    }
-                    //set the parent of the button
-                    tempButton.transform.SetParent(backgroundImage.transform, false);
+                    itemImage_ = go.GetComponentInChildren<Image>();
+
+                    itemImage_.sprite = GameObject.Find(currentItem.Key).GetComponent<Image>().sprite;
+
                     //set the name of the button
-                    tempButton.name = currentItem.Key;
-                    //add the button the the button list
-                    currentButtons_.Add(tempButton);
-                    imageScale.y += m_yScale;
+                    //go.name = currentItem.Key;
+
                     ++i;
                 }
-                backgroundImage.rectTransform.localScale = imageScale;
             }
             inventoryDisplayed_ = true;
         }
@@ -97,11 +86,6 @@ public class InventoryUI : MonoBehaviour
         {
             //enable player movement
             m_PlayerController.enabled = true;
-            //remove inventory
-            for (int i = 0; i < currentButtons_.Count; ++i)
-            {
-                Destroy(currentButtons_[i]);
-            }
             m_InventoryPanel.SetActive(false);
             inventoryDisplayed_ = false;
         }
