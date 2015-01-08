@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public PlayerData m_PlayerTwoData;
     public BuildingUI m_BuildingUI;
     public RestartUI m_RestartUI;
+    public DataCollection m_DataCollection;
 
 	public int m_Turns;
 
@@ -138,6 +139,8 @@ public class GameManager : MonoBehaviour
                 else
                 {
                      //if it is a single player game, start the player's next turn
+                     m_DataCollection.AddTurns();
+                     m_DataCollection.PopulateStats();
                      m_PlayerData.EndTurn();
                      m_PlayerData.StartTurn();
                 }
