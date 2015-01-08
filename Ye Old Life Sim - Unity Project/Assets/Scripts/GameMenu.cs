@@ -15,6 +15,8 @@ public class GameMenu : MonoBehaviour
 
     public Toggle m_playersOne;
     public Toggle m_playersTwo;
+    public Toggle m_AI;
+    public Toggle m_Human;
 
     public Toggle m_Objectives;
     public Toggle m_Turns;
@@ -27,6 +29,7 @@ public class GameMenu : MonoBehaviour
     public Text m_repText;
     public Text m_happyText;
     public Text m_turnsText;
+    public Text m_isHumanText;
 
     public static float m_selectedRep;
     public static float m_selectedCurrency;
@@ -76,6 +79,11 @@ public class GameMenu : MonoBehaviour
         if(m_playersTwo.isOn)
         {
             m_Players = 2;
+            m_isHumanText.gameObject.SetActive(true);
+        }
+        else
+        {
+            m_isHumanText.gameObject.SetActive(false);
         }
     }
 
@@ -83,14 +91,16 @@ public class GameMenu : MonoBehaviour
     {
         if (m_Players == 2)
         {
-            //if(AI is being used)
-            //{
-            //      m_AIBeingUsed = true;
-            //}
-            //else
-            //{ 
-            m_TwoPlayerGame = true;
-            //}
+            if(m_AI.isOn)
+            {
+                  m_AIBeingUsed = true;
+                  m_TwoPlayerGame = false;
+            }
+            else
+            { 
+                m_TwoPlayerGame = true;
+                m_AIBeingUsed = false;
+            }
         }
     }
 
