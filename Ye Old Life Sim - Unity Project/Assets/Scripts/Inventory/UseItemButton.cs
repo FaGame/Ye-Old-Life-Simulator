@@ -19,7 +19,7 @@ public class UseItemButton : MonoBehaviour
         }
         else
         {
-            foreach (KeyValuePair<string, UseableItemInventory.ItemInventoryEntry> currentItem in m_InventoryScript.m_UseableItemInventory)
+            foreach (KeyValuePair<string, Item.ItemInventoryEntry> currentItem in m_InventoryScript.m_UseableItemInventory)
             {
                 if(currentItem.Key == nameOfObject)
                 {

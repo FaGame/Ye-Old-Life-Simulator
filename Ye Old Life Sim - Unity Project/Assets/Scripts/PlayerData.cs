@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class PlayerData : MonoBehaviour 
 {
-    //test
     public Habitat m_Home;
 
     public List<SkillAndAmount> m_Skills;
@@ -19,6 +18,13 @@ public class PlayerData : MonoBehaviour
 
     public ParticleEmitter m_InfectedParticle;
 
+    public List<ItemEffect> m_StatusEffects = new List<ItemEffect>();
+
+    public UseableItemInventory m_UseableInventory;
+    public PossessionInventory m_PossessionInventory;
+
+    public delegate void EndOfTurnCode();
+
     public float m_MaxHappiness = 0.0f;
     public float m_MaxReputation = 0.0f;
     public float m_MaxShillings = 0.0f;
@@ -30,12 +36,12 @@ public class PlayerData : MonoBehaviour
     public float m_FoodPenalty = 0.0f;
     public float m_Happiness = 0.0f;
     public float m_Speed;
+    public float m_EarningScalar = ValueConstants.PLAYER_DEFAULT_MONEY_SCALAR;    //scalar that is used to determine how much the player will earn that turn for work
 
     public int m_BetterCategoryCounter = 0;     //increases when you have a better stat than the opponent 
     public int m_InfectedTurnCounter = 0;
     public int m_Reputation = 0;
     public int m_Shillings = 0;
-    public float m_EarningScalar = ValueConstants.PLAYER_DEFAULT_MONEY_SCALAR;    //scalar that is used to determine how much the player will earn that turn for work
 
     public bool m_CanCheckHappiness = true;
     public bool m_CanCheckReputation = true;
@@ -43,12 +49,6 @@ public class PlayerData : MonoBehaviour
     public bool m_IsDead = false;
     public bool m_IsInfected = false;       //variable used for when the player catches a disease
 	public bool m_HasMount = false;			//variable used for when the player has a mount
-
-    public List<ItemEffect> m_StatusEffects = new List<ItemEffect>();
-
-    public UseableItemInventory m_UseableInventory;
-
-    public delegate void EndOfTurnCode();
 
     private PlayerController playerController_;
 
@@ -98,7 +98,7 @@ public class PlayerData : MonoBehaviour
         //loop through the player's inventory and find objects with the food script
         if(m_UseableInventory != null)
         {
-            foreach (KeyValuePair<string, UseableItemInventory.ItemInventoryEntry> entry in m_UseableInventory.m_UseableItemInventory)
+            foreach (KeyValuePair<string, Item.ItemInventoryEntry> entry in m_UseableInventory.m_UseableItemInventory)
             {
                 if (entry.Value.item is Food)
                 {

@@ -7,6 +7,7 @@ public class InventoryUI : MonoBehaviour
 {
     public PlayerController m_PlayerController;
     public GameManager m_GameManager;
+    public GameObject m_InventoryPanel;
     public float m_yScale = .25f;
     public float m_buttonYSeperationDistance = 25.0f;
     public float m_buttonYMovement = -50.0f;
@@ -28,13 +29,9 @@ public class InventoryUI : MonoBehaviour
         imagesInButton_ = new Image[5];
         currentButtons_ = new List<GameObject>();
         inventoryDisplayed_ = false;
-        inventoryPanel_ = GameObject.Find("Inventory");
-        inventoryPanel_.SetActive(false);
+        /*inventoryPanel_ = GameObject.Find("Inventory");
+        inventoryPanel_.SetActive(false);*/
     }
-
-	void Update () 
-    {
-	}
 
     public void DisplayInventry(UseableItemInventory inventoryScript)
     {
@@ -43,7 +40,7 @@ public class InventoryUI : MonoBehaviour
             //disable player movement
             m_PlayerController.enabled = false;
             //display inventory
-            inventoryPanel_.SetActive(true);
+            m_InventoryPanel.SetActive(true);
 
             Image backgroundImage = GameObject.Find("BackgroundImage").GetComponent<Image>();
             Vector3 imageScale = backgroundImage.rectTransform.localScale;
@@ -55,7 +52,7 @@ public class InventoryUI : MonoBehaviour
             if(inventoryScript.m_UseableItemInventory.Count != 0)
             {
                 //loop through the inventory and display a button for each item.
-                foreach(KeyValuePair<string, UseableItemInventory.ItemInventoryEntry> currentItem in inventoryScript.m_UseableItemInventory)
+                foreach(KeyValuePair<string, Item.ItemInventoryEntry> currentItem in inventoryScript.m_UseableItemInventory)
                 {
                     buttonYMovement += (1) * m_buttonYSeperationDistance;
                     //create the new button
@@ -105,7 +102,7 @@ public class InventoryUI : MonoBehaviour
             {
                 Destroy(currentButtons_[i]);
             }
-            inventoryPanel_.SetActive(false);
+            m_InventoryPanel.SetActive(false);
             inventoryDisplayed_ = false;
         }
     }

@@ -25,7 +25,7 @@ public class IceBox : MonoBehaviour
     public void SetFoodList()
     {
         //loop through the inventory and searches for any items with the Food script in them and adds it to the list of food_
-        foreach (KeyValuePair<string, UseableItemInventory.ItemInventoryEntry> entry in m_PlayerUseableItemInventory.m_UseableItemInventory)
+        foreach (KeyValuePair<string, Item.ItemInventoryEntry> entry in m_PlayerUseableItemInventory.m_UseableItemInventory)
         {
             if (entry.Value.item is Food)
             {

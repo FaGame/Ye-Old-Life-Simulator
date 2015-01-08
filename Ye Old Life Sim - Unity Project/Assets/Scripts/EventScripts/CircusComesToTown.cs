@@ -40,7 +40,7 @@ public class CircusComesToTown : RandomEventBaseClass
 			int ItemGiven = Random.Range(1, m_Items.Length - 1);
 			m_FoundItem = m_Items[ItemGiven];
 		}
-		m_PlayerData.m_UseableInventory.AddToInventory(m_FoundItem.name, m_AnItemScript.GetComponent<AnItem>().m_SingleItem); //give player the random item
+		//m_PlayerData.m_UseableInventory.AddToInventory(m_FoundItem.name, m_AnItemScript.GetComponent<AnItem>().m_SingleItem); //give player the random item
 //		GetComponent<PossessionInventory>().AddToInventory(m_FoundItem.name, m_ItemType); //add the found item into the player's inventory
 
 		tData = "The circus has come to town, lose " + m_MoneyLost.ToString() + " shillings. No ifs ands or buts. " + m_TicketCostMessage

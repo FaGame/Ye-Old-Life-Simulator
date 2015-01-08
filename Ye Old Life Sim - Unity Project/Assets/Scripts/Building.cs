@@ -79,12 +79,22 @@ public class Building : MonoBehaviour
         return m_Description[Random.Range(0, m_Description.Length)];
     }
 
-    /*void BuyItem(PlayerData pData, ItemData iData)
+    public void BuyItem(PlayerData pData, Item iData)
     {
-
+        if (pData.RemoveSchillings(iData.m_Cost))
+        {
+            if (iData.GetComponent<Elixir>() || iData.GetComponent<Food>())
+            {
+                pData.m_UseableInventory.AddToInventory(iData.name, iData.m_ItemEntryData);
+            }
+            else if (iData.GetComponent<Possession>())
+            {
+                pData.m_PossessionInventory.AddToInventory(iData.name, iData.m_ItemEntryData);
+            }
+        }
     }
 
-    void Interact(PlayerData pData, InteractionData iData)
+    /*void Interact(PlayerData pData, InteractionData iData)
     {
 
     }*/

@@ -24,6 +24,12 @@ public class Possession : Item
         //ApplyValueChange();
     }
 
+    void Awake()
+    {
+        m_ItemEntryData.item = this;
+        m_ItemEntryData.count = 0;
+    }
+
     public void ApplyValueChange()
     {
         //increases the player's happiness by the happiness variable

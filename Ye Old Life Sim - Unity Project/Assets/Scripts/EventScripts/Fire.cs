@@ -21,7 +21,7 @@ public class Fire : RandomEventBaseClass
 
 		if (m_UseableInventory != null)
 		{
-			foreach (KeyValuePair<string, UseableItemInventory.ItemInventoryEntry> entry in m_UseableInventory.m_UseableItemInventory)
+			foreach (KeyValuePair<string, Item.ItemInventoryEntry> entry in m_UseableInventory.m_UseableItemInventory)
 			{
 				if (entry.Value.item is Food)
 				{

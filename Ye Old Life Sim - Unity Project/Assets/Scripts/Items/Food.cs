@@ -22,6 +22,9 @@ public class Food : Item
         m_Effect.m_Type = ItemEffect.EffectType.SPEED;      //sets the type to be speed so when the players uses a food item speed is changed
         m_Effect.m_Timer = m_Timer;
         m_Effect.m_Value = m_SpeedModifier;
+
+        m_ItemEntryData.item = this;
+        m_ItemEntryData.count = 0;
     }
 
     //when the function is called subtract a value from the hunger meter and increase or decrease player speed

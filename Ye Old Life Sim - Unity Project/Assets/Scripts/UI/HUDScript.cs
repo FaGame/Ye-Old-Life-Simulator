@@ -15,7 +15,7 @@ public class HUDScript : MonoBehaviour
     public GameObject m_Goals; //The goals panel
     public GameObject m_Skills; //The skills panel
     public GameManager m_GameManager; //The game manager
-    public InventoryUI m_Inventory; // The inventory UI
+    public GameObject m_InventoryPanel; // The inventory UI
     public PlayerData m_PlayerData; //The player's data
     public PlayerController m_PlayerController; //The player's controller
     public Text m_CurrJobText; //The player's current job text
@@ -172,7 +172,7 @@ public class HUDScript : MonoBehaviour
     //Button function - Opens the stats screen on press
     public void OpenStatsMenu()
     {
-        if (!m_GameManager.m_BuildingUI.BuildingUIActive && !m_Inventory.InventoryActive)
+        if (!m_GameManager.m_BuildingUI.BuildingUIActive)
         {
             m_PlayerController.enabled = false;
             m_JournalSound.Play();
@@ -183,6 +183,16 @@ public class HUDScript : MonoBehaviour
             PopulateSkills();
             UpdateSliders();
         }
+    }
+
+    public void OpenInventoryMenu()
+    {
+        m_InventoryPanel.SetActive(true);
+    }
+
+    public void CloseInventoryMenu()
+    {
+        m_InventoryPanel.SetActive(false);
     }
 
     //Button function - Closes the stats screen on press

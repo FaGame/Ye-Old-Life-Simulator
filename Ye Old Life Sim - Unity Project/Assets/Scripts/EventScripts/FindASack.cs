@@ -46,7 +46,7 @@ public class FindASack : RandomEventBaseClass
 			Debug.Log("Something went wrong, no Category of Item found.");
 		}
 
-		pData.m_UseableInventory.AddToInventory(m_FoundItem.name, m_AnItemScript.GetComponent<AnItem>().m_SingleItem);
+		//pData.m_UseableInventory.AddToInventory(m_FoundItem.name, m_AnItemScript.GetComponent<AnItem>().m_SingleItem);
 //		GetComponent<PossessionInventory>().AddToInventory(m_FoundItem.name, m_FoundItem as Item); //add the found item into the player's inventory
 
 		tData = "You found a sack lying on the ground. Searching inside reveals... A " + m_FoundItem.name.ToString() + "!";

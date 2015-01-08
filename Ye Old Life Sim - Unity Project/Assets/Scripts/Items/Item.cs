@@ -4,6 +4,13 @@ using System.Collections.Generic;
 
 public abstract class Item : MonoBehaviour 
 {
+    [System.Serializable]
+    public struct ItemInventoryEntry
+    {
+        public Item item;
+        public int count;
+    };
+
     public abstract void UseItem(PlayerData playerData);
     public virtual string GetDescription()
     {
@@ -15,5 +22,7 @@ public abstract class Item : MonoBehaviour
     public int m_UseCount = 1; //this is how many times an item can be used
 
     public string m_Description = "Not Overridden";
+
+    public ItemInventoryEntry m_ItemEntryData;
 
 }

@@ -63,6 +63,9 @@ public class Elixir : Item
         m_EnemyEarningEffect.m_Type = ItemEffect.EffectType.INCOME_MODIFIER;
         m_EnemyEarningEffect.m_Timer = m_EnemyEarningsTimer;
         m_EnemyEarningEffect.m_Value = m_EnemyEarningModifier;
+
+        m_ItemEntryData.item = this;
+        m_ItemEntryData.count = 0;
     }
 
     public override void UseItem(PlayerData playerData)

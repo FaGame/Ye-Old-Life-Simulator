@@ -182,6 +182,8 @@ GameObject:
   - 82: {fileID: 8297746}
   - 54: {fileID: 5497746}
   - 65: {fileID: 6597746}
+  - 114: {fileID: 11471536}
+  - 114: {fileID: 11471534}
   m_Layer: 0
   m_Name: Char_2
   m_TagString: Untagged
@@ -3474,6 +3476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerRunning: {fileID: 8297746}
+  m_Horse: {fileID: 0}
   m_PlayerData: {fileID: 11429232}
   mCamera: {fileID: 0}
   mTerrain: {fileID: 0}
@@ -3495,9 +3498,16 @@ MonoBehaviour:
   m_Skills: []
   m_Job: {fileID: 0}
   m_Building: {fileID: 0}
+  m_GameManager: {fileID: 0}
   m_PlayerCanvas: {fileID: 0}
   m_Opponent: {fileID: 0}
   m_InfectedParticle: {fileID: 1500000}
+  m_StatusEffects: []
+  m_UseableInventory: {fileID: 11471536}
+  m_PossessionInventory: {fileID: 11471534}
+  m_MaxHappiness: 0
+  m_MaxReputation: 0
+  m_MaxShillings: 0
   m_DefaultSpeed: 10
   m_CurrTime: 0
   m_MaxTime: 45
@@ -3506,17 +3516,41 @@ MonoBehaviour:
   m_FoodPenalty: 0
   m_Happiness: 0
   m_Speed: 0
+  m_EarningScalar: 1
   m_BetterCategoryCounter: 0
   m_InfectedTurnCounter: 0
   m_Reputation: 0
   m_Shillings: 0
-  m_EarningScalar: 1
-  m_DidPlayerWin: 0
-  m_IsDead: 0
+  m_CanCheckHappiness: 1
+  m_CanCheckReputation: 1
+  m_CanCheckShillings: 1
+  m_IsDead: 1
   m_IsInfected: 0
   m_HasMount: 0
-  m_StatusEffects: []
-  m_UseableInventory: {fileID: 0}
+--- !u!114 &11471534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af51421cee10294bb1316373fb7dc9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Names: []
+--- !u!114 &11471536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7629e858c9ed9d14a82b3ac9a4b8776c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Names: []
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
