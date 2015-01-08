@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
 	public int m_Turns;
 
+    public bool m_CanCheckWinLoss = true;       //set to true when you want to check the win/loss conditions 
+
     private bool isPlayerTurn_;
     private bool isPlayerTwoTurn_;
     private bool isAiTurn_;
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
 
     private bool AIBeingUsed_ = false;
     private bool TwoPlayerGame_ = false;
+    private bool SetActivePlayersBool = false;
 
     public bool PlayerTurn
     {
@@ -61,6 +64,7 @@ public class GameManager : MonoBehaviour
     {
         isPlayerTurn_ = true;
         isPlayerTwoTurn_ = false;
+        SetActivePlayersBool = false;
         isAiTurn_ = false;
         //check to see if the AI is being used
         AIBeingUsed_ = GameMenu.m_AIBeingUsed;
@@ -74,17 +78,31 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if(!SetActivePlayersBool)
+        {
+            SetActivePlayers();
+            SetActivePlayersBool = true;
+        }
         TurnManager();
         SetObjGame();
         SetTurnsGame();
-        CheckForWin();
-        CheckForLoss();
+        if (m_CanCheckWinLoss)
+        {
+            CheckForWin();
+            CheckForLoss();
+        }   
         SetGameBools();
         SetPlayers();
         DecreaseTime();
         //Debug.Log(maxHappy_);
         //Debug.Log(maxCurrency_);
         //Debug.Log(maxRep_);
+    }
+
+    void SetActivePlayers()
+    {
+            m_AIData.EndTurn();
+            m_PlayerTwoData.EndTurn();
     }
 
     void TurnManager()
@@ -202,6 +220,7 @@ public class GameManager : MonoBehaviour
         if (m_PlayerData.m_BetterCategoryCounter >= winValue)
         {   
             m_RestartUI.PlayerWon();
+            m_CanCheckWinLoss = false;
         }
     }
 
@@ -229,6 +248,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("You have died, alone and forgotten behind the most uninspiring shrubbery");      
             m_RestartUI.PlayerDied();
+            m_CanCheckWinLoss = false;
         }
     }
 

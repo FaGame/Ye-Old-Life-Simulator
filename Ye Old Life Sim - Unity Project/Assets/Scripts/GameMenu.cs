@@ -53,6 +53,7 @@ public class GameMenu : MonoBehaviour
         ToggleSlidersOnOff();
         SetPanelTexts();
         SetGameType();
+        SetPlayerBools();
     }
 
     void SetValues()
@@ -68,11 +69,28 @@ public class GameMenu : MonoBehaviour
         if(m_playersOne.isOn)
         {
             m_Players = 1;
+            m_AIBeingUsed = false;
+            m_TwoPlayerGame = false;
         }
         //--------------------
         if(m_playersTwo.isOn)
         {
             m_Players = 2;
+        }
+    }
+
+    void SetPlayerBools()
+    {
+        if (m_Players == 2)
+        {
+            //if(AI is being used)
+            //{
+            //      m_AIBeingUsed = true;
+            //}
+            //else
+            //{ 
+            m_TwoPlayerGame = true;
+            //}
         }
     }
 

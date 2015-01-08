@@ -11,6 +11,7 @@ public class PlayerData : MonoBehaviour
     public JobData m_Job;
     public Building m_Building;
     public GameManager m_GameManager;
+    public DataCollection m_DataCollection;
 
     public Canvas m_PlayerCanvas;
 
@@ -122,6 +123,8 @@ public class PlayerData : MonoBehaviour
         {
             endTurnCode_();
         }
+        //m_DataCollection.AddTurns();
+        //m_DataCollection.PopulateStats();
         endTurnCode_ = null;
         gameObject.SetActive(false);
     }

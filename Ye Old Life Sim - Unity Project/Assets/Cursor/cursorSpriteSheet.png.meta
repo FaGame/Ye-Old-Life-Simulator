@@ -1,12 +1,10 @@
 fileFormatVersion: 2
-guid: f764f2d5719e0504eb631a6b0aedecf4
+guid: 05ae11b071f4ca7449425d9d0635e093
 TextureImporter:
   fileIDToRecycleName:
-    21300000: cursorsprite_0
-    21300002: cursorsprite_1
-    21300004: cursorsprite_2
-    21300006: cursorsprite_3
-    21300008: cursorsprite_4
+    21300000: cursorSpriteSheet_0
+    21300002: cursorSpriteSheet_1
+    21300004: cursorSpriteSheet_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -22,7 +20,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: .25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
@@ -30,7 +28,7 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: -1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -39,42 +37,42 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
+  alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
-  textureType: 8
+  textureType: 5
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: cursorsprite_0
+    - name: cursorSpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 50
-        y: 492
-        width: 397
-        height: 221
-      alignment: 8
-      pivot: {x: 1, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: cursorsprite_1
-      rect:
-        serializedVersion: 2
-        x: 497
-        y: 487
-        width: 369
-        height: 223
+        x: 0
+        y: 44
+        width: 79
+        height: 43
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: cursorsprite_2
+    - name: cursorSpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 174
-        y: 254
-        width: 448
-        height: 222
+        x: 0
+        y: 0
+        width: 79
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cursorSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 43
+        width: 75
+        height: 44
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
