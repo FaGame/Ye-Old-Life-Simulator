@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 
     private bool AIBeingUsed_ = false;
     private bool TwoPlayerGame_ = false;
+    private bool SetActivePlayersBool = false;
 
     public bool PlayerTurn
     {
@@ -63,6 +64,7 @@ public class GameManager : MonoBehaviour
     {
         isPlayerTurn_ = true;
         isPlayerTwoTurn_ = false;
+        SetActivePlayersBool = false;
         isAiTurn_ = false;
         //check to see if the AI is being used
         AIBeingUsed_ = GameMenu.m_AIBeingUsed;
@@ -76,6 +78,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if(!SetActivePlayersBool)
+        {
+            SetActivePlayers();
+            SetActivePlayersBool = true;
+        }
         TurnManager();
         SetObjGame();
         SetTurnsGame();
@@ -90,6 +97,18 @@ public class GameManager : MonoBehaviour
         //Debug.Log(maxHappy_);
         //Debug.Log(maxCurrency_);
         //Debug.Log(maxRep_);
+    }
+
+    void SetActivePlayers()
+    {
+        if(AIBeingUsed_)
+        {
+            m_AIData.EndTurn();
+        }
+        if(TwoPlayerGame_)
+        {
+            m_PlayerTwoData.EndTurn();
+        }
     }
 
     void TurnManager()
