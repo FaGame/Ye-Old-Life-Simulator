@@ -32,10 +32,6 @@ public class UseableItemInventory : MonoBehaviour
         }*/
     }
 
-    void Start()
-    {
-    }
-
     public void AddToInventory(string name, Item.ItemInventoryEntry item)
     {
         //adds an item to the list based on a name given and takes in a list of type ItemInventoryEntry

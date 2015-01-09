@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public PlayerData m_PlayerTwoData;
     public BuildingUI m_BuildingUI;
     public RestartUI m_RestartUI;
+    public DataCollection m_DataCollection;
 
 	public int m_Turns;
 
@@ -20,9 +21,9 @@ public class GameManager : MonoBehaviour
     private bool isPlayerTwoTurn_;
     private bool isAiTurn_;
 
-    private float maxRep_;
-    private float maxCurrency_;
-    private float maxHappy_;
+    private float maxRep_ = 1000.0f;
+    private float maxCurrency_ = 1000.0f;
+    private float maxHappy_ = 1000.0f;
     private float maxTurns_;
     private float Players_;
     private float hungerTimer_;
@@ -38,6 +39,11 @@ public class GameManager : MonoBehaviour
     public bool PlayerTurn
     {
         get { return isPlayerTurn_; }
+    }
+
+    public bool PlayerTwoTurn
+    {
+        get { return isPlayerTwoTurn_; }
     }
 
     public bool AITurn
@@ -138,6 +144,8 @@ public class GameManager : MonoBehaviour
                 else
                 {
                      //if it is a single player game, start the player's next turn
+                     m_DataCollection.AddTurns();
+                     m_DataCollection.PopulateStats();
                      m_PlayerData.EndTurn();
                      m_PlayerData.StartTurn();
                 }

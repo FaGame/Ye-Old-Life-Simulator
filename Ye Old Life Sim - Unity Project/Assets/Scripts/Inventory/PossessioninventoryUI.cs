@@ -9,8 +9,7 @@ public class PossessioninventoryUI : MonoBehaviour
     public PlayerController m_PlayerController;
     public GameObject m_PossInvPrefab; //Prefab that contains the text elements for the inventory descriptions
     public GameObject m_PossInvScrollMask;
-    //public GameObject m_PossInv;
-    public GameObject m_InventoryUI;
+    public GameObject m_PossInv;
     public TransitionDisplay m_PossInvTransitionDisplay;
     public ScrollRect m_InvScrollRect;
 
@@ -25,7 +24,7 @@ public class PossessioninventoryUI : MonoBehaviour
     {
         initialPos_ = m_PossInvScrollMask.transform.position;
 
-        m_InventoryUI.SetActive(false);
+        m_PossInv.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -53,8 +52,8 @@ public class PossessioninventoryUI : MonoBehaviour
 
     public void OpenInventory(PossessionInventory inventory)
     {
-        m_InventoryUI.SetActive(true);
-        float startYPos = 180.0f;
+        m_PossInv.SetActive(true);
+        float startYPos = 110.0f;
 
         m_PlayerController.enabled = false;
 
@@ -80,7 +79,7 @@ public class PossessioninventoryUI : MonoBehaviour
 
     public void CloseInventory()
     {
-        m_InventoryUI.SetActive(false);
+        m_PossInv.SetActive(false);
         m_PossInvTransitionDisplay.FadeOut(delegate { cleanupInvMenu(); });
     }
 

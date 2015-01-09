@@ -20,6 +20,8 @@ public class BuildingUI : MonoBehaviour
     public Button m_WorkButton; //Building UI "work" button
     public Button m_InteractButton; //Building UI "interact" button
     public Button m_BuyButton; //Building UI "buy items" button
+    public Text m_GotJob;
+    public Text m_FailedJob;
     public PlayerData m_PlayerData;
     public GameManager m_GameManager;
     public TransitionDisplay m_BuildingTransitionDisplay;
@@ -29,6 +31,7 @@ public class BuildingUI : MonoBehaviour
     //public Building m_BuildingScript;
     public Building.Buildings m_CurrBuildingEnum;
     public DataCollection m_DataCollection;
+    public Timer m_Timer;
     
     //public CanvasRenderer m_CanvasRenderer;
 
@@ -76,6 +79,9 @@ public class BuildingUI : MonoBehaviour
         m_BuyMenu.SetActive(false);
         m_InteractMenu.SetActive(false);
         m_ApplyMenu.SetActive(false);
+        m_GotJob.enabled = false;
+        m_FailedJob.enabled = false;
+        m_Timer.enabled = false;
         //transitionToVisible_ = false;
         //isIransitioning_ = false;
 	}
@@ -260,9 +266,6 @@ public class BuildingUI : MonoBehaviour
         {
             GameObject go = (GameObject)Instantiate(m_BuyButtonPrefab, new Vector3(0, startYPos, 0), Quaternion.identity);
             go.gameObject.transform.SetParent(m_BuyMenuScrollMask.transform, false);
-            /*go.GetComponent<AnItem>().m_ItemName = selectedBuilding_.GetComponent<Building>().m_Items[i].name;
-            go.GetComponent<AnItem>().m_SingleItem.item = selectedBuilding_.GetComponent<Building>().m_Items[i];
-            go.GetComponent<AnItem>().m_SingleItem.count = 1;*/
             go.GetComponentInChildren<Button>().onClick.AddListener(delegate { BuyItems(go); });
             startYPos -= subMenuYOffset_;
             buyMenuNumChildren_++;
@@ -459,6 +462,13 @@ public class BuildingUI : MonoBehaviour
                 if(jobGainedData_ == null)
                 {
                     m_PlayerData.m_Job = selectedBuilding_.GetComponent<Building>().m_JobData[i];
+                    m_GotJob.enabled = true;
+                    m_Timer.Wait(m_GotJob);
+                }
+                else
+                {
+                    m_FailedJob.enabled = true;
+                    m_Timer.Wait(m_FailedJob);
                 }
             }
         }
@@ -471,6 +481,8 @@ public class BuildingUI : MonoBehaviour
             if(selectedBuilding_.GetComponent<Building>().m_Items[i].name == go.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text)
             {
                 Debug.Log(selectedBuilding_.GetComponent<Building>().m_Items[i].name);
+                selectedBuilding_.GetComponent<Building>().m_Items[i].m_ItemEntryData.item = selectedBuilding_.GetComponent<Building>().m_Items[i];
+                selectedBuilding_.GetComponent<Building>().m_Items[i].m_ItemEntryData.count = 1;
                 selectedBuilding_.GetComponent<Building>().BuyItem(m_PlayerData, selectedBuilding_.GetComponent<Building>().m_Items[i]);
             }
         }

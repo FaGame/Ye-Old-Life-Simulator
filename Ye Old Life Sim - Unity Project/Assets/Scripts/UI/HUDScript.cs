@@ -42,9 +42,7 @@ public class HUDScript : MonoBehaviour
     private List<float> playerStats_ = new List<float>(); //List of the player stats
     private Ray buildingHoverRay_;
     private RaycastHit buildingRayHit_;
-    private Color startColour_;
     private GameObject highlightedObject_;
-    private List<Color> originalColours_ = new List<Color>();
 
     public bool HUDActive
     {
@@ -78,6 +76,7 @@ public class HUDScript : MonoBehaviour
 
         //Turn off the stats, goal and skills panels after initializing all stats
         m_StatsScreen.SetActive(false);
+        m_InventoryPanel.SetActive(false);
 
         //Set the current turn's timer
         timer_ = ValueConstants.PLAYER_MAX_TIME;
@@ -127,6 +126,10 @@ public class HUDScript : MonoBehaviour
         else if(m_GameManager.PlayerTurn == true)
         {
             m_PlayerData = m_GameManager.m_PlayerData;
+        }
+        else if (m_GameManager.PlayerTwoTurn == true)
+        {
+            m_PlayerData = m_GameManager.m_PlayerTwoData;
         }
 
         if (statsActive_ || inventoryActive_)
@@ -187,11 +190,13 @@ public class HUDScript : MonoBehaviour
 
     public void OpenInventoryMenu()
     {
+        m_PlayerController.enabled = false;
         m_InventoryPanel.SetActive(true);
     }
 
     public void CloseInventoryMenu()
     {
+        m_PlayerController.enabled = true;
         m_InventoryPanel.SetActive(false);
     }
 
