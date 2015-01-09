@@ -60,6 +60,10 @@ public class GameMenu : MonoBehaviour
         SetPanelTexts();
         SetGameType();
         SetPlayerBools();
+
+        //TESTING PURPOSES, TO BE DELETED
+        Debug.Log(m_isPlayable1 + " Playable1");
+        Debug.Log(m_isPlayable2 + " Playable2");
     }
 
     void SetValues()
@@ -79,12 +83,14 @@ public class GameMenu : MonoBehaviour
             m_TwoPlayerGame = false;
             m_isPlayable1 = true;
         }
+
+
         //--------------------
         if(m_playersTwo.isOn)
         {
             m_Players = 2;
             m_isHumanText.gameObject.SetActive(true);
-            m_isPlayable1 = true;
+            m_isPlayable1 = false;
         }
         else
         {
@@ -106,8 +112,12 @@ public class GameMenu : MonoBehaviour
             { 
                 m_TwoPlayerGame = true;
                 m_AIBeingUsed = false;
-                m_isPlayable1 = true;
             }
+        }
+
+        if(m_Human.isOn)
+        {
+            m_isPlayable1 = true;
         }
     }
 
