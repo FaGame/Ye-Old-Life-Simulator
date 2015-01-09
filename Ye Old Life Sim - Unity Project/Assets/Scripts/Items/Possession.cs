@@ -27,7 +27,7 @@ public class Possession : Item
     void Awake()
     {
         m_ItemEntryData.item = this;
-        m_ItemEntryData.count = 0;
+        m_ItemEntryData.count = 1;
     }
 
     public void ApplyValueChange()

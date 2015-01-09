@@ -65,7 +65,7 @@ public class Elixir : Item
         m_EnemyEarningEffect.m_Value = m_EnemyEarningModifier;
 
         m_ItemEntryData.item = this;
-        m_ItemEntryData.count = 0;
+        m_ItemEntryData.count = 1;
     }
 
     public override void UseItem(PlayerData playerData)

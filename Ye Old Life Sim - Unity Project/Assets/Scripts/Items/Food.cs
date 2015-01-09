@@ -24,7 +24,7 @@ public class Food : Item
         m_Effect.m_Value = m_SpeedModifier;
 
         m_ItemEntryData.item = this;
-        m_ItemEntryData.count = 0;
+        m_ItemEntryData.count = 1;
     }
 
     //when the function is called subtract a value from the hunger meter and increase or decrease player speed

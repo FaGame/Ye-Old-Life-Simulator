@@ -260,9 +260,6 @@ public class BuildingUI : MonoBehaviour
         {
             GameObject go = (GameObject)Instantiate(m_BuyButtonPrefab, new Vector3(0, startYPos, 0), Quaternion.identity);
             go.gameObject.transform.SetParent(m_BuyMenuScrollMask.transform, false);
-            /*go.GetComponent<AnItem>().m_ItemName = selectedBuilding_.GetComponent<Building>().m_Items[i].name;
-            go.GetComponent<AnItem>().m_SingleItem.item = selectedBuilding_.GetComponent<Building>().m_Items[i];
-            go.GetComponent<AnItem>().m_SingleItem.count = 1;*/
             go.GetComponentInChildren<Button>().onClick.AddListener(delegate { BuyItems(go); });
             startYPos -= subMenuYOffset_;
             buyMenuNumChildren_++;
@@ -471,6 +468,8 @@ public class BuildingUI : MonoBehaviour
             if(selectedBuilding_.GetComponent<Building>().m_Items[i].name == go.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text)
             {
                 Debug.Log(selectedBuilding_.GetComponent<Building>().m_Items[i].name);
+                selectedBuilding_.GetComponent<Building>().m_Items[i].m_ItemEntryData.item = selectedBuilding_.GetComponent<Building>().m_Items[i];
+                selectedBuilding_.GetComponent<Building>().m_Items[i].m_ItemEntryData.count = 1;
                 selectedBuilding_.GetComponent<Building>().BuyItem(m_PlayerData, selectedBuilding_.GetComponent<Building>().m_Items[i]);
             }
         }

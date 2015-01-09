@@ -2539,8 +2539,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11488056}
-        m_MethodName: CloseCurrentMenu
+      - m_Target: {fileID: 11447498}
+        m_MethodName: CloseInventory
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3192,7 +3192,7 @@ MonoBehaviour:
   m_PlayerController: {fileID: 0}
   m_PossInvPrefab: {fileID: 104552, guid: 17a7a265afd3430408d187ed60edb4b0, type: 2}
   m_PossInvScrollMask: {fileID: 118250}
-  m_InventoryUI: {fileID: 194602}
+  m_PossInv: {fileID: 194604}
   m_PossInvTransitionDisplay: {fileID: 11494602}
   m_InvScrollRect: {fileID: 11418250}
 --- !u!114 &11447716
@@ -3297,6 +3297,7 @@ MonoBehaviour:
   m_InventoryScrollMask: {fileID: 193682}
   m_InventoryButtonPrefab: {fileID: 112496, guid: 37c9ec2e1de614946bff7ad103191544,
     type: 2}
+  m_InvTransitionDisplay: {fileID: 11474856}
 --- !u!114 &11468088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5481,8 +5482,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11488056}
-        m_MethodName: CloseCurrentMenu
+      - m_Target: {fileID: 11461490}
+        m_MethodName: CloseInventory
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
