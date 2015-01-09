@@ -20,8 +20,7 @@ public class BuildingUI : MonoBehaviour
     public Button m_WorkButton; //Building UI "work" button
     public Button m_InteractButton; //Building UI "interact" button
     public Button m_BuyButton; //Building UI "buy items" button
-    public Text m_GotJob;
-    public Text m_FailedJob;
+    public Text m_JobNotification;
     public PlayerData m_PlayerData;
     public GameManager m_GameManager;
     public TransitionDisplay m_BuildingTransitionDisplay;
@@ -31,8 +30,8 @@ public class BuildingUI : MonoBehaviour
     //public Building m_BuildingScript;
     public Building.Buildings m_CurrBuildingEnum;
     public DataCollection m_DataCollection;
-    public Timer m_Timer;
-    
+    public float m_TimeToWait;
+
     //public CanvasRenderer m_CanvasRenderer;
 
     private bool buildingsActive_ = false; //Flag to turn on and off the building UI
@@ -50,10 +49,13 @@ public class BuildingUI : MonoBehaviour
     private Text[] interactText_;
     private Text descriptionText_; //Building description text - the funny quip at the top of the building UI
     private Text resultsText_; //Results description text - results of your work
+    private Text m_GotJob;
+    private Text m_FailedJob;
     private SkillAndAmount jobGainedData_;
     private PlayerController playerController_; // Reenable the player after X'ing
     private Vector3 applyMenuInitialPos_;
     private Vector3 buyMenuInitialPos_;
+    private bool timerRunning_;
     //private bool transitionToVisible_;
     //private bool isIransitioning_;
     //private float transitionAlpha_;
@@ -79,10 +81,9 @@ public class BuildingUI : MonoBehaviour
         m_BuyMenu.SetActive(false);
         m_InteractMenu.SetActive(false);
         m_ApplyMenu.SetActive(false);
-        m_GotJob.enabled = false;
-        m_FailedJob.enabled = false;
-        //m_Timer.enabled = false;
-        //transitionToVisible_ = false;
+        m_JobNotification.enabled = false;
+        timerRunning_ = false;
+       //transitionToVisible_ = false;
         //isIransitioning_ = false;
 	}
 	
@@ -161,6 +162,8 @@ public class BuildingUI : MonoBehaviour
                 {
                     m_ApplyMenuScrollRect.vertical = false;
                 }
+
+                WaitToDisable(m_JobNotification);
             }
         }
 	}
@@ -453,23 +456,18 @@ public class BuildingUI : MonoBehaviour
     //                - It then will check to see if you were successful in your job application, if you are, the player has gotten a job!
     public void ApplyForJob(GameObject go)
     {
-        for(int i = 0; i < selectedBuilding_.GetComponent<Building>().m_JobData.Length; ++i)
+        for (int i = 0; i < selectedBuilding_.GetComponent<Building>().m_JobData.Length; ++i)
         {
-            if(selectedBuilding_.GetComponent<Building>().m_JobData[i].name == go.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text)
+            if (selectedBuilding_.GetComponent<Building>().m_JobData[i].name == go.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text)
             {
                 jobGainedData_ = selectedBuilding_.GetComponent<Building>().ApplyForJob(m_PlayerData, selectedBuilding_.GetComponent<Building>().m_JobData[i]);
 
-                if(jobGainedData_ == null)
+                if (jobGainedData_ == null)
                 {
                     m_PlayerData.m_Job = selectedBuilding_.GetComponent<Building>().m_JobData[i];
-                    m_GotJob.enabled = true;
-                    m_Timer.Wait(m_GotJob);
-                }
-                else
-                {
-                    m_FailedJob.enabled = true;
-                    m_Timer.Wait(m_FailedJob);
-                }
+               }
+
+                ApplyForJobResult();
             }
         }
     }
@@ -576,6 +574,41 @@ public class BuildingUI : MonoBehaviour
         foreach (RectTransform child in m_InteractMenuScrollMask.transform)
         {
             GameObject.Destroy(child.gameObject);
+        }
+    }
+
+    public void ApplyForJobResult()
+    {
+        if(jobGainedData_ == null)
+        {
+            timerRunning_ = true;
+            m_JobNotification.text = "Congrtulations you got the Job! NOW GET TO WORK";
+            WaitToDisable(m_JobNotification);
+        }
+        else
+        {
+            timerRunning_ = true;
+            m_JobNotification.text = "You need to improve " + jobGainedData_.m_Skill;
+            WaitToDisable(m_JobNotification);
+        }
+        
+    }
+
+    public void WaitToDisable(Text text)
+    {
+        if (timerRunning_ == true)
+        {
+            if (m_TimeToWait > 0)
+            {
+                text.enabled = true;
+                m_TimeToWait -= Time.deltaTime;
+            }
+            if (m_TimeToWait <= 0)
+            {
+                text.enabled = false;
+                timerRunning_ = false;
+                m_TimeToWait = 3.0f;
+            }
         }
     }
 }
