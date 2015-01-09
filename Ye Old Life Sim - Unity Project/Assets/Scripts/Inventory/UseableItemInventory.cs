@@ -5,12 +5,13 @@ using System.Collections.Specialized;
 
 public class UseableItemInventory : MonoBehaviour
 {
-    
 
+    public DataCollection m_DataCollection;
     //used for inspector use, place the names of the items in here
     public string[] m_Names;
     //used for inspector use, place your items in here
     //public ItemInventoryEntry[] m_InspectorInventory;
+    public string m_ItemBought;
 
     public Dictionary<string, Item.ItemInventoryEntry> m_UseableItemInventory;
 
@@ -44,6 +45,9 @@ public class UseableItemInventory : MonoBehaviour
             //ItemInventoryEntry entry = item;
             item.count += m_UseableItemInventory[name].count;
             m_UseableItemInventory[name] = item;
+
+            m_ItemBought = name;
+            m_DataCollection.AddItemBought();
         }
     }
 

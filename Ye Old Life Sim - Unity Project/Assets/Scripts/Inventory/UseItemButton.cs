@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class UseItemButton : MonoBehaviour 
 {
     public UseableItemInventory m_InventoryScript;
+    public DataCollection m_DataCollection;
+    public string m_ItemUsed;
 
     public void UseItem(PlayerData playerData)
     {
@@ -24,6 +26,10 @@ public class UseItemButton : MonoBehaviour
                 if(currentItem.Key == nameOfObject)
                 {
                     currentItem.Value.item.UseItem(playerData);
+                    //////////////////////////////////////////////////////////
+                    m_ItemUsed = nameOfObject;
+                    m_DataCollection.AddItemUsed();
+                    //////////////////////////////////////////////////////////
                     m_InventoryScript.RemoveFromInventory(currentItem.Key);
                 }
             }
