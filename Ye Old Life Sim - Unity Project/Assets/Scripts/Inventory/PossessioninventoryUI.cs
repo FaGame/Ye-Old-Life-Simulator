@@ -18,7 +18,13 @@ public class PossessioninventoryUI : MonoBehaviour
     private float menuYClamp_;
     private int numChildren_ = 0;
     private int maxNumChildrenOnScreen_ = 6;
+    private bool inventoryActive_;
     private Vector3 initialPos_;
+
+    public bool InventoryActive
+    {
+        get { return inventoryActive_; }
+    }
 
 	// Use this for initialization
 	void Start ()
@@ -54,6 +60,7 @@ public class PossessioninventoryUI : MonoBehaviour
     public void OpenInventory(PossessionInventory inventory)
     {
         m_PossInv.SetActive(true);
+        inventoryActive_ = true;
         float startYPos = 110.0f;
 
         m_PlayerController.enabled = false;
@@ -82,6 +89,7 @@ public class PossessioninventoryUI : MonoBehaviour
 
     public void CloseInventory()
     {
+        inventoryActive_ = false;
         m_PossInv.SetActive(false);
         m_PossInvTransitionDisplay.FadeOut(delegate { cleanupInvMenu(); });
     }

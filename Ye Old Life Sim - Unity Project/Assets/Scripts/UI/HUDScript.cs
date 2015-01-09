@@ -25,6 +25,8 @@ public class HUDScript : MonoBehaviour
 
     private bool statsActive_ = false; //This bool determines whether or not the the stats window is open
     private bool inventoryActive_ = false; //This bool determines whether or not the inventory is currently open
+    private bool consumableActive_ = false; //This bool determines whether or not the consumable inventory is currently open
+    private bool possessionActive_ = false; //This bool determines whether or not the possession inventory is currently open
     private bool HUDActive_ = false; //This bool determines whether any HUD elements are active
     private bool wasHighlighted_ = false;
     private bool objectivesSetUp_ = false;
@@ -61,7 +63,6 @@ public class HUDScript : MonoBehaviour
 
         m_BuildingHovered.text = "";
         m_CurrJobText.text = "Unemployed";
-        
 
         //Load the player stats list with the player's stats
         playerStats_.Add((float)m_PlayerData.m_Home.m_Rating);
@@ -141,6 +142,9 @@ public class HUDScript : MonoBehaviour
             HUDActive_ = false;
         }
 
+        consumableActive_ = GetComponent<InventoryUI>().InventoryActive;
+        possessionActive_ = GetComponent<PossessioninventoryUI>().InventoryActive;
+
         timeSlider_.value = m_PlayerData.m_CurrTime;
         hungerSlider_.value = m_PlayerData.m_HungerMeter;
 
@@ -155,6 +159,26 @@ public class HUDScript : MonoBehaviour
         {
             m_CurrJobText.text = m_PlayerData.m_Job.name;
         }
+
+
+
+
+
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            CloseCurrentMenu();
+        }
+        else if(Input.GetKey(KeyCode.B) || Input.GetKey(KeyCode.I))
+        {
+            OpenInventoryMenu();
+        }
+        else if(Input.GetKey(KeyCode.C))
+        {
+            OpenStatsMenu();
+        }
+
+
+
 
         buildingHoverRay_ = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -192,21 +216,7 @@ public class HUDScript : MonoBehaviour
     {
         m_PlayerController.enabled = false;
         m_InventoryPanel.SetActive(true);
-    }
-
-    public void CloseInventoryMenu()
-    {
-        m_PlayerController.enabled = true;
-        m_InventoryPanel.SetActive(false);
-    }
-
-    //Button function - Closes the stats screen on press
-    public void CloseMenu()
-    {
-        m_CloseMenu.Play();
-        statsActive_ = false;
-        //m_StatsScreen.SetActive(statsActive_);
-        m_StatsTransitionDisplay.FadeOut(null);
+        inventoryActive_ = true;
     }
 
     //This function gets the latest stats when the player opens the stats menu
@@ -254,8 +264,34 @@ public class HUDScript : MonoBehaviour
         happyObjSlider_.value = m_PlayerData.m_Happiness;
     }
 
-    void OnMouseOver()
+    public void CloseCurrentMenu()
     {
-
+        m_CloseMenu.Play();
+        if(statsActive_)
+        {
+            statsActive_ = false;
+            m_StatsTransitionDisplay.FadeOut(null);
+        }
+        else if (inventoryActive_)
+        {
+            if (consumableActive_)
+            {
+                GetComponent<InventoryUI>().CloseInventory();
+            }
+            else if(possessionActive_)
+            {
+                GetComponent<PossessioninventoryUI>().CloseInventory();
+            }
+            else
+            {
+                inventoryActive_ = false;
+                m_PlayerController.enabled = true;
+                m_InventoryPanel.SetActive(false);
+            }
+        }
+        else if(GetComponent<BuildingUI>().BuildingUIActive)
+        {
+            GetComponent<BuildingUI>().CloseCurrentMenu();
+        }
     }
 }
