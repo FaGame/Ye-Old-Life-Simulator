@@ -82,12 +82,13 @@ public class InventoryUI : MonoBehaviour
     public void CloseInventory()
     {
         m_InventoryPanel.SetActive(false);
+        inventoryDisplayed_ = false;
         m_InvTransitionDisplay.FadeOut(delegate { cleanupInvMenu(); });
     }
 
     void cleanupInvMenu()
     {
-        foreach (RectTransform child in m_InvTransitionDisplay.transform)
+        foreach (RectTransform child in m_InventoryScrollMask.transform)
         {
             GameObject.Destroy(child.gameObject);
         }
