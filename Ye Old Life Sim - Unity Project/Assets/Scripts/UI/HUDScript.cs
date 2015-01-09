@@ -22,11 +22,11 @@ public class HUDScript : MonoBehaviour
     public Text m_ShillingText; //The player's current shillings
     public Text m_BuildingHovered; //The building the player is currently hovering
     public TransitionDisplay m_StatsTransitionDisplay;
+    public GameObject m_BuildingButtonPrefab; //Prefab for the Building buttons to Instantiate later
+    public GameObject m_BuildingMenuScrollMask; //Gameobject that is to have the item information as a parent to allow for scrolling
 
     private bool statsActive_ = false; //This bool determines whether or not the the stats window is open
     private bool inventoryActive_ = false; //This bool determines whether or not the inventory is currently open
-    private bool consumableActive_ = false; //This bool determines whether or not the consumable inventory is currently open
-    private bool possessionActive_ = false; //This bool determines whether or not the possession inventory is currently open
     private bool HUDActive_ = false; //This bool determines whether any HUD elements are active
     private bool wasHighlighted_ = false;
     private bool objectivesSetUp_ = false;
@@ -44,7 +44,12 @@ public class HUDScript : MonoBehaviour
     private List<float> playerStats_ = new List<float>(); //List of the player stats
     private Ray buildingHoverRay_;
     private RaycastHit buildingRayHit_;
+    private Color startColour_;
     private GameObject highlightedObject_;
+    private List<Color> originalColours_ = new List<Color>();
+    private GameObject[] buildingObjects_;
+    private float subMenuYOffset_ = 23.0f; //Offset Y position for each element in the sub menus
+    private bool isBuildingMenuOpen_;
 
     public bool HUDActive
     {
@@ -63,6 +68,7 @@ public class HUDScript : MonoBehaviour
 
         m_BuildingHovered.text = "";
         m_CurrJobText.text = "Unemployed";
+        
 
         //Load the player stats list with the player's stats
         playerStats_.Add((float)m_PlayerData.m_Home.m_Rating);
@@ -77,10 +83,12 @@ public class HUDScript : MonoBehaviour
 
         //Turn off the stats, goal and skills panels after initializing all stats
         m_StatsScreen.SetActive(false);
-        m_InventoryPanel.SetActive(false);
 
         //Set the current turn's timer
         timer_ = ValueConstants.PLAYER_MAX_TIME;
+
+        buildingObjects_ = GameObject.FindGameObjectsWithTag("Building");
+        isBuildingMenuOpen_ = false;
 	}
 
     //This function initializes the player HUD sliders, and then sets their min, max and current values
@@ -128,10 +136,6 @@ public class HUDScript : MonoBehaviour
         {
             m_PlayerData = m_GameManager.m_PlayerData;
         }
-        else if (m_GameManager.PlayerTwoTurn == true)
-        {
-            m_PlayerData = m_GameManager.m_PlayerTwoData;
-        }
 
         if (statsActive_ || inventoryActive_)
         {
@@ -141,9 +145,6 @@ public class HUDScript : MonoBehaviour
         {
             HUDActive_ = false;
         }
-
-        consumableActive_ = GetComponent<InventoryUI>().InventoryActive;
-        possessionActive_ = GetComponent<PossessioninventoryUI>().InventoryActive;
 
         timeSlider_.value = m_PlayerData.m_CurrTime;
         hungerSlider_.value = m_PlayerData.m_HungerMeter;
@@ -159,26 +160,6 @@ public class HUDScript : MonoBehaviour
         {
             m_CurrJobText.text = m_PlayerData.m_Job.name;
         }
-
-
-
-
-
-        if(Input.GetKey(KeyCode.Escape))
-        {
-            CloseCurrentMenu();
-        }
-        else if(Input.GetKey(KeyCode.B) || Input.GetKey(KeyCode.I))
-        {
-            OpenInventoryMenu();
-        }
-        else if(Input.GetKey(KeyCode.C))
-        {
-            OpenStatsMenu();
-        }
-
-
-
 
         buildingHoverRay_ = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -214,9 +195,21 @@ public class HUDScript : MonoBehaviour
 
     public void OpenInventoryMenu()
     {
-        m_PlayerController.enabled = false;
         m_InventoryPanel.SetActive(true);
-        inventoryActive_ = true;
+    }
+
+    public void CloseInventoryMenu()
+    {
+        m_InventoryPanel.SetActive(false);
+    }
+
+    //Button function - Closes the stats screen on press
+    public void CloseMenu()
+    {
+        m_CloseMenu.Play();
+        statsActive_ = false;
+        //m_StatsScreen.SetActive(statsActive_);
+        m_StatsTransitionDisplay.FadeOut(null);
     }
 
     //This function gets the latest stats when the player opens the stats menu
@@ -264,34 +257,72 @@ public class HUDScript : MonoBehaviour
         happyObjSlider_.value = m_PlayerData.m_Happiness;
     }
 
-    public void CloseCurrentMenu()
+    void OnMouseOver()
     {
-        m_CloseMenu.Play();
-        if(statsActive_)
+
+    }
+
+    public void OpenBuildingsList()
+    {
+        if(isBuildingMenuOpen_)
         {
-            statsActive_ = false;
-            m_StatsTransitionDisplay.FadeOut(null);
+            CleanUpBuildingList();
+            isBuildingMenuOpen_ = false;
+            return;
         }
-        else if (inventoryActive_)
+
+        isBuildingMenuOpen_ = true;
+
+        //float startYPos = (buildingObjects_.Length * subMenuYOffset_) * -0.5f;
+        float startYPos = 0.0f;
+
+        //RectTransform rTransfrom = m_BuildingMenuScrollMask.GetComponent<RectTransform>();
+        //SetHeight(rTransfrom, buildingObjects_.Length * subMenuYOffset_);
+
+        for (int i = 0; i < buildingObjects_.Length; ++i)
         {
-            if (consumableActive_)
-            {
-                GetComponent<InventoryUI>().CloseInventory();
-            }
-            else if(possessionActive_)
-            {
-                GetComponent<PossessioninventoryUI>().CloseInventory();
-            }
-            else
-            {
-                inventoryActive_ = false;
-                m_PlayerController.enabled = true;
-                m_InventoryPanel.SetActive(false);
-            }
+            GameObject go = (GameObject)Instantiate(m_BuildingButtonPrefab, new Vector3(0, startYPos, 0), Quaternion.identity);
+            Button bton = go.GetComponentInChildren<Button>();
+            bton.onClick.AddListener(delegate { GotoBuilding(go); });
+            Text text = go.GetComponentInChildren<Text>();
+            text.text = buildingObjects_[i].name;
+            go.gameObject.transform.SetParent(m_BuildingMenuScrollMask.transform, false);
+            startYPos -= subMenuYOffset_;
         }
-        else if(GetComponent<BuildingUI>().BuildingUIActive)
+    }
+
+    void GotoBuilding(GameObject goHere)
+    {
+        CleanUpBuildingList();
+
+        Text text = goHere.GetComponentInChildren<Text>();
+        for (int i = 0; i < buildingObjects_.Length; ++i)
         {
-            GetComponent<BuildingUI>().CloseCurrentMenu();
+            if (buildingObjects_[i].name == text.text)
+            {
+                m_PlayerController.GotoBuilding(buildingObjects_[i]);
+                break;
+            }
         }
+    }
+
+    void CleanUpBuildingList()
+    {
+        foreach (RectTransform child in m_BuildingMenuScrollMask.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+    }
+
+    void SetSize(RectTransform trans, Vector2 newSize)
+    {
+        Vector2 oldSize = trans.rect.size;
+        Vector2 deltaSize = newSize - oldSize;
+        trans.offsetMin = trans.offsetMin - new Vector2(deltaSize.x * trans.pivot.x, deltaSize.y * trans.pivot.y);
+        trans.offsetMax = trans.offsetMax + new Vector2(deltaSize.x * (1f - trans.pivot.x), deltaSize.y * (1f - trans.pivot.y));
+    }
+    public void SetHeight(RectTransform trans, float newSize)
+    {
+        SetSize(trans, new Vector2(trans.rect.size.x, newSize));
     }
 }

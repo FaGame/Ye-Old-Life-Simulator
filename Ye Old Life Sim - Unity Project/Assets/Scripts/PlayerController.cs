@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
 {
     public AudioSource m_PlayerRunning;
     public Horse m_Horse;
-    public Animator m_HorseAnimator;
     public PlayerData m_PlayerData;     //object to hold the player data, if that wasn't obvious 
     public Camera mCamera;
     public Terrain mTerrain;
@@ -83,16 +82,7 @@ public class PlayerController : MonoBehaviour
                 if (waypointObject_.tag == "Building")
                 {
                     Debug.Log("It's working!");
-                    Transform[] posEs = waypointObject_.GetComponentsInChildren<Transform>();
-                    foreach (Transform tForm in posEs)
-                    {
-                        if (tForm.CompareTag("Waypoint"))
-                        {
-                            Debug.Log("Found the waypoint.");
-                            SetTarget(tForm.position);
-                            break;
-                        }
-                    }
+                    GotoBuilding(waypointObject_);
                 }
             }
         }
@@ -115,6 +105,20 @@ public class PlayerController : MonoBehaviour
         navAgent_.speed = m_PlayerData.GetComponent<PlayerData>().m_Speed;
 
         UpdateWalkSound();
+    }
+
+    public void GotoBuilding(GameObject goHere)
+    {
+        Transform[] posEs = goHere.GetComponentsInChildren<Transform>();
+        foreach (Transform tForm in posEs)
+        {
+            if (tForm.CompareTag("Waypoint"))
+            {
+                Debug.Log("Found the waypoint.");
+                SetTarget(tForm.position);
+                break;
+            }
+        }
     }
 
     void GetDistenceToWaypoint(GameObject waypointObject_)
@@ -145,14 +149,7 @@ public class PlayerController : MonoBehaviour
         //animator_.SetFloat("rotation", Mathf.Min(1.0f, Mathf.Abs(angularSpeed / (navAgent_.angularSpeed * Time.deltaTime))));
         //animator_.SetFloat("rotDir", Mathf.Clamp(angularSpeed / (navAgent_.angularSpeed * Time.deltaTime), -1.0f, 1.0f));
 
-        if (m_PlayerData.m_HasMount)
-        {
-            m_HorseAnimator.SetFloat("Walk", m_v);
-        }
-        else
-        {
-            animator_.SetFloat("Walk", m_v);
-        }
+        animator_.SetFloat("Walk", m_v);
     }
 
     private void DecreaseTime()
