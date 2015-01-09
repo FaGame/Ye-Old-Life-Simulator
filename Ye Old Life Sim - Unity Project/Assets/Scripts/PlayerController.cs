@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public AudioSource m_PlayerRunning;
     public Horse m_Horse;
+    public Animator m_HorseAnimator;
     public PlayerData m_PlayerData;     //object to hold the player data, if that wasn't obvious 
     public Camera mCamera;
     public Terrain mTerrain;
@@ -144,7 +145,14 @@ public class PlayerController : MonoBehaviour
         //animator_.SetFloat("rotation", Mathf.Min(1.0f, Mathf.Abs(angularSpeed / (navAgent_.angularSpeed * Time.deltaTime))));
         //animator_.SetFloat("rotDir", Mathf.Clamp(angularSpeed / (navAgent_.angularSpeed * Time.deltaTime), -1.0f, 1.0f));
 
-        animator_.SetFloat("Walk", m_v);
+        if (m_PlayerData.m_HasMount)
+        {
+            m_HorseAnimator.SetFloat("Walk", m_v);
+        }
+        else
+        {
+            animator_.SetFloat("Walk", m_v);
+        }
     }
 
     private void DecreaseTime()

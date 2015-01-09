@@ -3476,7 +3476,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerRunning: {fileID: 8297746}
-  m_Horse: {fileID: 0}
+  m_Horse: {fileID: 11409958, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
+  m_HorseAnimator: {fileID: 9509958, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
   m_PlayerData: {fileID: 11429232}
   mCamera: {fileID: 0}
   mTerrain: {fileID: 0}
@@ -3499,11 +3500,12 @@ MonoBehaviour:
   m_Job: {fileID: 0}
   m_Building: {fileID: 0}
   m_GameManager: {fileID: 0}
+  m_DataCollection: {fileID: 0}
   m_PlayerCanvas: {fileID: 0}
   m_Opponent: {fileID: 0}
   m_InfectedParticle: {fileID: 1500000}
   m_StatusEffects: []
-  m_UseableInventory: {fileID: 11471536}
+  m_UseableInventory: {fileID: 0}
   m_PossessionInventory: {fileID: 11471534}
   m_MaxHappiness: 0
   m_MaxReputation: 0
