@@ -41,6 +41,11 @@ public class GameManager : MonoBehaviour
         get { return isPlayerTurn_; }
     }
 
+    public bool PlayerTwoTurn
+    {
+        get { return isPlayerTwoTurn_; }
+    }
+
     public bool AITurn
     {
         get { return isAiTurn_; }

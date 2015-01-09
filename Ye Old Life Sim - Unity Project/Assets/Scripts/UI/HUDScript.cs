@@ -127,6 +127,10 @@ public class HUDScript : MonoBehaviour
         {
             m_PlayerData = m_GameManager.m_PlayerData;
         }
+        else if (m_GameManager.PlayerTwoTurn == true)
+        {
+            m_PlayerData = m_GameManager.m_PlayerTwoData;
+        }
 
         if (statsActive_ || inventoryActive_)
         {
