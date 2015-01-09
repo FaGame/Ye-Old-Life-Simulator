@@ -49,7 +49,8 @@ public class PlayerController : MonoBehaviour
         atCurrTarget_ = true;
         lastRot_ = transform.rotation.eulerAngles.y;
         waypointObject_ = null;
-        navAgent_.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+       // navAgent_.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+       // navAgent_.SetDestination(transform.position);
     }
 
     void OnDisable()
