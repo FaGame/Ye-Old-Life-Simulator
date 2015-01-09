@@ -49,8 +49,8 @@ public class PlayerController : MonoBehaviour
         atCurrTarget_ = true;
         lastRot_ = transform.rotation.eulerAngles.y;
         waypointObject_ = null;
-       // navAgent_.velocity = new Vector3(0.0f, 0.0f, 0.0f);
-       // navAgent_.SetDestination(transform.position);
+        navAgent_.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+        navAgent_.SetDestination(transform.position);
     }
 
     void OnDisable()
@@ -128,11 +128,11 @@ public class PlayerController : MonoBehaviour
         float distenceToObjectZ = (m_PlayerData.transform.position.z - waypointObject_.transform.position.z);
         float distenceToWaypoint = Mathf.Sqrt((distenceToObjectX * distenceToObjectX) + (distenceToObjectZ * distenceToObjectZ));
 
-        if(distenceToWaypoint > 5.0f)
+        if(distenceToWaypoint > 1.0f)
         {
             m_v = 1;
         }
-        else if (distenceToWaypoint < 5.0f)
+        else if (distenceToWaypoint < 1.0f)
         {
             m_v = 0;
             TargetReached();
