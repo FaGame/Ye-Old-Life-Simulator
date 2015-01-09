@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
         atCurrTarget_ = true;
         lastRot_ = transform.rotation.eulerAngles.y;
         waypointObject_ = null;
+        navAgent_.velocity = new Vector3(0.0f, 0.0f, 0.0f);
     }
 
     void OnDisable()
@@ -66,7 +67,6 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            Debug.Log("Not over UI");
             if (transform != null)
             {
                 int layerMask = LayerMask.GetMask("Terrain");
