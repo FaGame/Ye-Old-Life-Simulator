@@ -437,40 +437,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &145194
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 22445194}
-  - 222: {fileID: 22245194}
-  - 114: {fileID: 11445194}
-  m_Layer: 5
-  m_Name: JobSuccessText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &145196
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 22445196}
-  - 222: {fileID: 22245196}
-  - 114: {fileID: 11445196}
-  m_Layer: 5
-  m_Name: FailedJobText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &147716
 GameObject:
   m_ObjectHideFlags: 1
@@ -1992,6 +1958,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &198968
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22498968}
+  - 222: {fileID: 22298968}
+  - 114: {fileID: 11498968}
+  m_Layer: 5
+  m_Name: JobSuccessText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &199422
 GameObject:
   m_ObjectHideFlags: 1
@@ -3472,60 +3455,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11445194
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 9a399c0961e214c4483f3c3bc166039c, type: 3}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Congratulations you got the job.
-
-    NOW GET TO WORK!'
---- !u!114 &11445196
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 9a399c0961e214c4483f3c3bc166039c, type: 3}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: You need to improve your skills before you can do this job
 --- !u!114 &11447716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5974,8 +5903,7 @@ MonoBehaviour:
   m_WorkButton: {fileID: 11474872}
   m_InteractButton: {fileID: 11474930}
   m_BuyButton: {fileID: 11424852}
-  m_GotJob: {fileID: 11445194}
-  m_FailedJob: {fileID: 11445196}
+  m_JobNotification: {fileID: 11498968}
   m_PlayerData: {fileID: 0}
   m_GameManager: {fileID: 0}
   m_BuildingTransitionDisplay: {fileID: 11435894}
@@ -5984,7 +5912,7 @@ MonoBehaviour:
   m_ApplyJobTransitionDisplay: {fileID: 11435896}
   m_CurrBuildingEnum: 0
   m_DataCollection: {fileID: 0}
-  m_Timer: {fileID: 0}
+  m_TimeToWait: 0
   m_CustomFont: {fileID: 12800000, guid: 9a399c0961e214c4483f3c3bc166039c, type: 3}
   m_ActionTaken: 0
 --- !u!114 &11493678
@@ -6221,6 +6149,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!114 &11498968
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 9a399c0961e214c4483f3c3bc166039c, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
 --- !u!114 &11499422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6379,18 +6333,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135882}
---- !u!222 &22245194
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145194}
---- !u!222 &22245196
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145196}
 --- !u!222 &22247716
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -6811,6 +6753,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197872}
+--- !u!222 &22298968
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198968}
 --- !u!222 &22299422
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -7280,40 +7228,6 @@ RectTransform:
   m_AnchorMax: {x: .783490419, y: .948257387}
   m_AnchoredPosition: {x: 1, y: .0999984741}
   m_SizeDelta: {x: 112, y: 1}
-  m_Pivot: {x: .5, y: .5}
---- !u!224 &22445194
-RectTransform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145194}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 22474886}
-  m_RootOrder: 3
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -36, y: -391}
-  m_SizeDelta: {x: 562, y: 120}
-  m_Pivot: {x: .5, y: .5}
---- !u!224 &22445196
-RectTransform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145196}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 22474886}
-  m_RootOrder: 2
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -36, y: -391}
-  m_SizeDelta: {x: 562, y: 120}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22447716
 RectTransform:
@@ -7968,8 +7882,7 @@ RectTransform:
   m_Children:
   - {fileID: 22435828}
   - {fileID: 22435880}
-  - {fileID: 22445196}
-  - {fileID: 22445194}
+  - {fileID: 22498968}
   m_Father: {fileID: 22424854}
   m_RootOrder: 8
   m_AnchorMin: {x: 0, y: 0}
@@ -8921,6 +8834,23 @@ RectTransform:
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 7, y: 7}
   m_SizeDelta: {x: 675, y: 350}
+  m_Pivot: {x: .5, y: .5}
+--- !u!224 &22498968
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198968}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22474886}
+  m_RootOrder: 2
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 348, y: 125}
+  m_SizeDelta: {x: 190, y: 150}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22499422
 RectTransform:
