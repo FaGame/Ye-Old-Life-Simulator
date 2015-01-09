@@ -3505,7 +3505,7 @@ MonoBehaviour:
   m_Opponent: {fileID: 0}
   m_InfectedParticle: {fileID: 1500000}
   m_StatusEffects: []
-  m_UseableInventory: {fileID: 0}
+  m_UseableInventory: {fileID: 11471536}
   m_PossessionInventory: {fileID: 11471534}
   m_MaxHappiness: 0
   m_MaxReputation: 0

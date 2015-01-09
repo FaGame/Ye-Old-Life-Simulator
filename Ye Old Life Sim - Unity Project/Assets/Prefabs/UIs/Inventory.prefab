@@ -124,7 +124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &173454
 GameObject:
   m_ObjectHideFlags: 1
@@ -417,11 +417,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299e8a4693fbc254bbba063c4cad45d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InventoryScript: {fileID: 0}
   m_PlayerController: {fileID: 0}
-  m_yScale: .25
-  m_buttonYSeperationDistance: -140
-  m_buttonYMovement: -290
+  m_GameManager: {fileID: 0}
+  m_InventoryPanel: {fileID: 0}
+  m_InventoryScrollMask: {fileID: 0}
+  m_InventoryButtonPrefab: {fileID: 0}
+  m_InvTransitionDisplay: {fileID: 0}
 --- !u!114 &11473454
 MonoBehaviour:
   m_ObjectHideFlags: 1

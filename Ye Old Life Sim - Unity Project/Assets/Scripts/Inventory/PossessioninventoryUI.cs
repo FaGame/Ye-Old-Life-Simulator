@@ -12,6 +12,7 @@ public class PossessioninventoryUI : MonoBehaviour
     public GameObject m_PossInv;
     public TransitionDisplay m_PossInvTransitionDisplay;
     public ScrollRect m_InvScrollRect;
+    public Font m_CustomFont;
 
     private float subMenuYOffset_ = 70.0f;
     private float menuYClamp_;
@@ -69,6 +70,8 @@ public class PossessioninventoryUI : MonoBehaviour
             Text[] temp = go.GetComponentsInChildren<Text>();
             if (temp.Length > 0)
             {
+                temp[0].font = m_CustomFont;
+                temp[1].font = m_CustomFont;
                 temp[0].text = currItem.Key;
                 temp[1].text = "Test String";
             }

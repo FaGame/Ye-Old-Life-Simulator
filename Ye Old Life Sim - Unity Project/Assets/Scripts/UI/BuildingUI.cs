@@ -81,7 +81,7 @@ public class BuildingUI : MonoBehaviour
         m_ApplyMenu.SetActive(false);
         m_GotJob.enabled = false;
         m_FailedJob.enabled = false;
-        m_Timer.enabled = false;
+        //m_Timer.enabled = false;
         //transitionToVisible_ = false;
         //isIransitioning_ = false;
 	}
