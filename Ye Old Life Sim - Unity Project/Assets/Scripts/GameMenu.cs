@@ -49,6 +49,9 @@ public class GameMenu : MonoBehaviour
     public static bool m_AIBeingUsed = false;
     public static bool m_TwoPlayerGame = false;
 
+    public static bool m_isPlayable1 = false;
+    public static bool m_isPlayable2 = false;
+
     void Update()
     {
         SetValues();
@@ -74,12 +77,14 @@ public class GameMenu : MonoBehaviour
             m_Players = 1;
             m_AIBeingUsed = false;
             m_TwoPlayerGame = false;
+            m_isPlayable1 = true;
         }
         //--------------------
         if(m_playersTwo.isOn)
         {
             m_Players = 2;
             m_isHumanText.gameObject.SetActive(true);
+            m_isPlayable1 = true;
         }
         else
         {
@@ -95,11 +100,13 @@ public class GameMenu : MonoBehaviour
             {
                   m_AIBeingUsed = true;
                   m_TwoPlayerGame = false;
+                  m_isPlayable1 = true;
             }
             else
             { 
                 m_TwoPlayerGame = true;
                 m_AIBeingUsed = false;
+                m_isPlayable1 = true;
             }
         }
     }
@@ -109,6 +116,7 @@ public class GameMenu : MonoBehaviour
         if(m_Objectives.isOn)
         {
             m_objectivesSliders.SetActive(true);
+            m_isPlayable2 = true;
         }
         else
         {
@@ -118,6 +126,7 @@ public class GameMenu : MonoBehaviour
         if(m_Turns.isOn)
         {
             m_turnSlider.SetActive(true);
+            m_isPlayable2 = true;
         }
         else
         {
@@ -144,7 +153,10 @@ public class GameMenu : MonoBehaviour
 
     public void Play()
     {
-        Application.LoadLevel("MainLevel");
+        if (m_isPlayable1 && m_isPlayable2)
+        {
+            Application.LoadLevel("MainLevel");
+        }
     }
 
     void SetGameType()
