@@ -91,7 +91,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140680}
   m_LocalRotation: {x: 0, y: .964810312, z: 0, w: .262947053}
-  m_LocalPosition: {x: 454.100006, y: 16.2000008, z: 454.399994}
+  m_LocalPosition: {x: 459.799988, y: 16.2000008, z: 438.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440684}
@@ -117,8 +117,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140684}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: -3.9000001, y: -9.69999981, z: -9.14999962}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3.52999997, y: -9.69999981, z: -2.01999998}
+  m_LocalScale: {x: .377938688, y: .377938658, z: .377938658}
   m_Children: []
   m_Father: {fileID: 440680}
   m_RootOrder: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Player: {fileID: 0}
-  m_BuildingName: 
+  m_BuildingName: Castle
   m_Description:
   - "Where all the important people are. You wouldn\u2019t know any of them.\r\n"
   - By order of his majesty the king, be sure to whip your feet before entering!
@@ -296,6 +296,7 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 0}
+  m_buildingEnum: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

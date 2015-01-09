@@ -51,7 +51,7 @@ public class PlayerData : MonoBehaviour
     public bool m_IsInfected = false;       //variable used for when the player catches a disease
 	public bool m_HasMount = false;			//variable used for when the player has a mount
 
-    private PlayerController playerController_;
+   public PlayerController playerController_;
 
     private Food playerFood_;
     private EndOfTurnCode endTurnCode_;
@@ -63,7 +63,7 @@ public class PlayerData : MonoBehaviour
         StartTurn();
         m_Job = null;
         m_Building = null;
-        playerController_ = GetComponent<PlayerController>();
+       // playerController_ = GetComponent<PlayerController>();
         m_MaxHunger = ValueConstants.PLAYER_MAX_HUNGER;
         endTurnCode_ = null;
     }
