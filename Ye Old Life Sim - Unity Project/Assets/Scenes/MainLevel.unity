@@ -8447,7 +8447,6 @@ GameObject:
   - 4: {fileID: 253958733}
   - 95: {fileID: 253958741}
   - 143: {fileID: 253958740}
-  - 195: {fileID: 253958739}
   - 114: {fileID: 253958738}
   - 114: {fileID: 253958734}
   - 82: {fileID: 253958737}
@@ -8455,6 +8454,7 @@ GameObject:
   - 65: {fileID: 253958735}
   - 114: {fileID: 253958743}
   - 114: {fileID: 253958742}
+  - 195: {fileID: 253958739}
   m_Layer: 0
   m_Name: Player Two
   m_TagString: Untagged
@@ -8523,7 +8523,7 @@ MonoBehaviour:
   m_IsDead: 1
   m_IsInfected: 0
   m_HasMount: 0
-  playerController_: {fileID: 0}
+  playerController_: {fileID: 253958738}
 --- !u!65 &253958735
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8635,7 +8635,7 @@ MonoBehaviour:
 --- !u!195 &253958739
 NavMeshAgent:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 19576472, guid: 6363f9699f9597f46a98480bccb82784,
+  m_PrefabParentObject: {fileID: 19568582, guid: 6363f9699f9597f46a98480bccb82784,
     type: 2}
   m_PrefabInternal: {fileID: 273461072}
   m_GameObject: {fileID: 253958732}
@@ -8649,8 +8649,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: .5
+  m_Height: 2
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!143 &253958740
@@ -8681,7 +8681,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 8d382404ede7e1944970218b83a887c8, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &253958742
@@ -21211,47 +21211,6 @@ MonoBehaviour:
   m_HappinessAmount: 0
   m_AquirredFrom: Blacksmith
   m_UsedBy: Player
---- !u!1 &565711957
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 136996, guid: 51afd7274b17af548a7f12550713b016, type: 2}
-  m_PrefabInternal: {fileID: 1342079257}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 565711958}
-  - 65: {fileID: 565711959}
-  m_Layer: 0
-  m_Name: Waypoint
-  m_TagString: Waypoint
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &565711958
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 436996, guid: 51afd7274b17af548a7f12550713b016, type: 2}
-  m_PrefabInternal: {fileID: 1342079257}
-  m_GameObject: {fileID: 565711957}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.49000001, z: -3.92000008}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1903289240}
-  m_RootOrder: 14
---- !u!65 &565711959
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6536996, guid: 51afd7274b17af548a7f12550713b016,
-    type: 2}
-  m_PrefabInternal: {fileID: 1342079257}
-  m_GameObject: {fileID: 565711957}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &567709651
 GameObject:
   m_ObjectHideFlags: 0
@@ -21787,7 +21746,7 @@ Transform:
   m_PrefabInternal: {fileID: 361149193}
   m_GameObject: {fileID: 587039123}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.90999985, y: .75, z: -4.48999977}
+  m_LocalPosition: {x: 12.54, y: .0700000003, z: -7.15999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 286650930}
@@ -34885,13 +34844,14 @@ GameObject:
   - 114: {fileID: 961702091}
   - 222: {fileID: 961702090}
   - 114: {fileID: 961702089}
+  - 114: {fileID: 961702093}
   m_Layer: 5
   m_Name: ScrollView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &961702088
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34980,6 +34940,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.ScrollRect+ScrollRectEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &961702093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 961702087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c857412b77d58814992303a1c89ae6b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransitionSpeed: 4
 --- !u!1 &962165030
 GameObject:
   m_ObjectHideFlags: 0
@@ -45048,8 +45020,8 @@ Transform:
   m_PrefabInternal: {fileID: 1940914827}
   m_GameObject: {fileID: 1237514648}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: -3.52999997, y: -9.69999981, z: -2.01999998}
-  m_LocalScale: {x: .377938688, y: .377938658, z: .377938658}
+  m_LocalPosition: {x: -3.52999997, y: -10.46, z: -2.01999998}
+  m_LocalScale: {x: .499602824, y: .499602795, z: .499602795}
   m_Children: []
   m_Father: {fileID: 982847090}
   m_RootOrder: 0
@@ -47475,6 +47447,30 @@ Prefab:
       propertyPath: m_PlayerController
       value: 
       objectReference: {fileID: 1679451515}
+    - target: {fileID: 174912, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 124854, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 174882, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 184788, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 186366, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488054, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_TransOutBuilding
+      value: 
+      objectReference: {fileID: 961702093}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
   m_RootGameObject: {fileID: 1583590499}
@@ -57307,6 +57303,7 @@ MonoBehaviour:
   m_BuildingButtonPrefab: {fileID: 132992, guid: 513310f856af77d48bcea7584ae754fe,
     type: 2}
   m_BuildingMenuScrollMask: {fileID: 679703675}
+  m_TransOutBuilding: {fileID: 961702093}
 --- !u!114 &1583590505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61306,7 +61303,6 @@ GameObject:
   - 4: {fileID: 1679451511}
   - 95: {fileID: 1679451518}
   - 143: {fileID: 1679451517}
-  - 195: {fileID: 1679451516}
   - 114: {fileID: 1679451515}
   - 114: {fileID: 1679451513}
   - 82: {fileID: 1679451522}
@@ -61314,6 +61310,7 @@ GameObject:
   - 65: {fileID: 1679451512}
   - 114: {fileID: 1679451519}
   - 114: {fileID: 1679451514}
+  - 195: {fileID: 1679451516}
   m_Layer: 0
   m_Name: Char_2
   m_TagString: Untagged
@@ -61395,7 +61392,7 @@ MonoBehaviour:
   m_IsDead: 1
   m_IsInfected: 0
   m_HasMount: 0
-  playerController_: {fileID: 0}
+  playerController_: {fileID: 1679451515}
 --- !u!114 &1679451514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61432,7 +61429,7 @@ MonoBehaviour:
 --- !u!195 &1679451516
 NavMeshAgent:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 19576472, guid: 6363f9699f9597f46a98480bccb82784,
+  m_PrefabParentObject: {fileID: 19568582, guid: 6363f9699f9597f46a98480bccb82784,
     type: 2}
   m_PrefabInternal: {fileID: 1251137976}
   m_GameObject: {fileID: 1679451510}
@@ -61446,8 +61443,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: .5
+  m_Height: 2
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!143 &1679451517
@@ -61478,7 +61475,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 8d382404ede7e1944970218b83a887c8, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &1679451519
@@ -65382,7 +65379,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1903289240}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!65 &1809831731
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -68301,7 +68298,6 @@ Transform:
   - {fileID: 1497255289}
   - {fileID: 1829891245}
   - {fileID: 214857064}
-  - {fileID: 565711958}
   - {fileID: 1809831730}
   m_Father: {fileID: 0}
   m_RootOrder: 17

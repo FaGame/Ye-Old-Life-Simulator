@@ -24,6 +24,7 @@ public class HUDScript : MonoBehaviour
     public TransitionDisplay m_StatsTransitionDisplay;
     public GameObject m_BuildingButtonPrefab; //Prefab for the Building buttons to Instantiate later
     public GameObject m_BuildingMenuScrollMask; //Gameobject that is to have the item information as a parent to allow for scrolling
+    public TransitionOut m_TransOutBuilding;
 
     private bool statsActive_ = false; //This bool determines whether or not the the stats window is open
     private bool inventoryActive_ = false; //This bool determines whether or not the inventory is currently open
@@ -264,20 +265,28 @@ public class HUDScript : MonoBehaviour
 
     public void OpenBuildingsList()
     {
+        if(m_TransOutBuilding.Transitioning())
+        {
+            return;
+        }
+
         if(isBuildingMenuOpen_)
         {
-            CleanUpBuildingList();
-            isBuildingMenuOpen_ = false;
+            ScrollRect sRect = m_BuildingMenuScrollMask.transform.parent.gameObject.GetComponent<ScrollRect>();
+            m_TransOutBuilding.StartTransition(delegate { CleanUpBuildingList(); });
+            //CleanUpBuildingList();
+            //m_BuildingMenuScrollMask.transform.parent.gameObject.SetActive(false);
             return;
         }
 
         isBuildingMenuOpen_ = true;
+        m_BuildingMenuScrollMask.transform.parent.gameObject.SetActive(true);
 
         //float startYPos = (buildingObjects_.Length * subMenuYOffset_) * -0.5f;
-        float startYPos = 0.0f;
+        float startYPos = subMenuYOffset_ * -0.5f;
 
-        //RectTransform rTransfrom = m_BuildingMenuScrollMask.GetComponent<RectTransform>();
-        //SetHeight(rTransfrom, buildingObjects_.Length * subMenuYOffset_);
+        RectTransform rTransfrom = m_BuildingMenuScrollMask.GetComponent<RectTransform>();
+        SetHeight(rTransfrom, buildingObjects_.Length * subMenuYOffset_);
 
         for (int i = 0; i < buildingObjects_.Length; ++i)
         {
@@ -293,7 +302,8 @@ public class HUDScript : MonoBehaviour
 
     void GotoBuilding(GameObject goHere)
     {
-        CleanUpBuildingList();
+        ScrollRect sRect = m_BuildingMenuScrollMask.transform.parent.gameObject.GetComponent<ScrollRect>();
+        m_TransOutBuilding.StartTransition(delegate { CleanUpBuildingList(); });
 
         Text text = goHere.GetComponentInChildren<Text>();
         for (int i = 0; i < buildingObjects_.Length; ++i)
@@ -312,6 +322,7 @@ public class HUDScript : MonoBehaviour
         {
             GameObject.Destroy(child.gameObject);
         }
+        isBuildingMenuOpen_ = false;
     }
 
     void SetSize(RectTransform trans, Vector2 newSize)
