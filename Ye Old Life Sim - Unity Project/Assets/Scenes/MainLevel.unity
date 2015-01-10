@@ -25589,7 +25589,7 @@ RectTransform:
   m_GameObject: {fileID: 679703675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: -1, z: 1}
   m_Children: []
   m_Father: {fileID: 961702088}
   m_RootOrder: 0
@@ -34861,7 +34861,7 @@ RectTransform:
   m_GameObject: {fileID: 961702087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: -1, z: 1}
   m_Children:
   - {fileID: 679703676}
   m_Father: {fileID: 1637677816}
@@ -39310,7 +39310,14 @@ MonoBehaviour:
   - {fileID: 21300004, guid: 05ae11b071f4ca7449425d9d0635e093, type: 3}
   - {fileID: 21300002, guid: 05ae11b071f4ca7449425d9d0635e093, type: 3}
   m_HotSpot: {x: 0, y: 30}
-  m_CursorMode: 1
+  m_HardwareMouseNormalAnimate:
+  - {fileID: 21300000, guid: b07476c00a1b86243afc23d6dde31cb8, type: 3}
+  m_HardwareMouseClickAnimate:
+  - {fileID: 21300000, guid: 74d310245c596d44a96ee07576e2817b, type: 3}
+  - {fileID: 21300002, guid: 74d310245c596d44a96ee07576e2817b, type: 3}
+  - {fileID: 21300004, guid: 74d310245c596d44a96ee07576e2817b, type: 3}
+  m_HardwareHotSpot: {x: 0, y: 25}
+  m_CursorMode: 0
   m_FramesPerSecond: 15
   isMouseButtonDown_: 0
 --- !u!114 &1052255813
@@ -47471,6 +47478,14 @@ Prefab:
       propertyPath: m_TransOutBuilding
       value: 
       objectReference: {fileID: 961702093}
+    - target: {fileID: 22486366, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_LocalScale.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22486368, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_LocalScale.y
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
   m_RootGameObject: {fileID: 1583590499}

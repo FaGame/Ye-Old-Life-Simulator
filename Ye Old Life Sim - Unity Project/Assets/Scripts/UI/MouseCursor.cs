@@ -7,11 +7,15 @@ public class MouseCursor : MonoBehaviour
     public List<Sprite> m_MouseNormalAnimate;
     public List<Sprite> m_MouseClickAnimate;
     public Vector2 m_HotSpot = Vector2.zero;
+    public List<Sprite> m_HardwareMouseNormalAnimate;
+    public List<Sprite> m_HardwareMouseClickAnimate;
+    public Vector2 m_HardwareHotSpot = Vector2.zero;
     public CursorMode m_CursorMode = CursorMode.Auto;
     public float m_FramesPerSecond = 30.0f;
 
     public bool isMouseButtonDown_;
     private List<Sprite> currentMouseCursorAnim_;
+    private Vector2 hotSpot_;
     private int currFrame_;
     private float currTime_;
     //private delegate void mouseStatus_();
@@ -19,8 +23,8 @@ public class MouseCursor : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-        currentMouseCursorAnim_ = m_MouseNormalAnimate;
-        Cursor.SetCursor(currentMouseCursorAnim_[0].texture, m_HotSpot, m_CursorMode);
+        SetCursorValues(false);
+        Cursor.SetCursor(currentMouseCursorAnim_[0].texture, hotSpot_, m_CursorMode);
         currFrame_ = 0;
         currTime_ = 0.0f;
         isMouseButtonDown_ = false;
@@ -35,11 +39,11 @@ public class MouseCursor : MonoBehaviour
 
         if(Input.GetMouseButton(0))
         {
-            AnimateMouseCursor();
+            SetAnimatedMouseCursor();
         }
         else
         {
-            NormalMouseCursor();
+            SetNormalMouseCursor();
         }
 
         currTime_ += Time.deltaTime;
@@ -54,7 +58,7 @@ public class MouseCursor : MonoBehaviour
         Texture2D frame = new Texture2D((int)currentMouseCursorAnim_[currFrame_].rect.width, (int)currentMouseCursorAnim_[currFrame_].rect.height);
         frame.SetPixels(pix);
         frame.Apply();
-        Cursor.SetCursor(frame, m_HotSpot, m_CursorMode);
+        Cursor.SetCursor(frame, hotSpot_, m_CursorMode);
 
         ++currFrame_;
         if(currFrame_ >= currentMouseCursorAnim_.Count)
@@ -63,35 +67,51 @@ public class MouseCursor : MonoBehaviour
         }
 	}
 
-    void NormalMouseCursor()
+    void SetNormalMouseCursor()
     {
         /*if (!isMouseButtonDown_)
         {
             return;
         }*/
-        if (currentMouseCursorAnim_ == m_MouseNormalAnimate)
+        if (currentMouseCursorAnim_ == NormalMouseCursor())
         {
             return;
         }
         currFrame_ = 0;
         currTime_ = 0.0f;
-        currentMouseCursorAnim_ = m_MouseNormalAnimate;
+        SetCursorValues(true);
         isMouseButtonDown_ = false;
     }
 
-    void AnimateMouseCursor()
+    void SetAnimatedMouseCursor()
     {
         /*if(isMouseButtonDown_)
         {
             return;
         }*/
-        if (currentMouseCursorAnim_ == m_MouseClickAnimate)
+        if (currentMouseCursorAnim_ == AnimatedMouseCursor())
         {
             return;
         }
         currFrame_ = 0;
         currTime_ = 0.0f;
-        currentMouseCursorAnim_ = m_MouseClickAnimate;
+        SetCursorValues(true);
         isMouseButtonDown_ = true;
+    }
+
+    void SetCursorValues(bool isClickAnimated)
+    {
+        currentMouseCursorAnim_ = isClickAnimated ? AnimatedMouseCursor() : NormalMouseCursor();
+        hotSpot_ = m_CursorMode == CursorMode.Auto ? m_HardwareHotSpot : m_HotSpot;
+    }
+
+    List<Sprite> NormalMouseCursor()
+    {
+        return m_CursorMode == CursorMode.Auto ? m_HardwareMouseNormalAnimate : m_MouseNormalAnimate;
+    }
+
+    List<Sprite> AnimatedMouseCursor()
+    {
+        return m_CursorMode == CursorMode.Auto ? m_HardwareMouseClickAnimate : m_MouseClickAnimate;
     }
 }

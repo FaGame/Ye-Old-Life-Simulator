@@ -272,7 +272,6 @@ public class HUDScript : MonoBehaviour
 
         if(isBuildingMenuOpen_)
         {
-            ScrollRect sRect = m_BuildingMenuScrollMask.transform.parent.gameObject.GetComponent<ScrollRect>();
             m_TransOutBuilding.StartTransition(delegate { CleanUpBuildingList(); });
             //CleanUpBuildingList();
             //m_BuildingMenuScrollMask.transform.parent.gameObject.SetActive(false);
@@ -281,6 +280,7 @@ public class HUDScript : MonoBehaviour
 
         isBuildingMenuOpen_ = true;
         m_BuildingMenuScrollMask.transform.parent.gameObject.SetActive(true);
+        ScrollRect sRect = m_BuildingMenuScrollMask.transform.parent.gameObject.GetComponent<ScrollRect>();
 
         //float startYPos = (buildingObjects_.Length * subMenuYOffset_) * -0.5f;
         float startYPos = subMenuYOffset_ * -0.5f;
