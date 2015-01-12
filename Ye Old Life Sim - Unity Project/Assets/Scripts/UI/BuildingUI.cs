@@ -294,7 +294,7 @@ public class BuildingUI : MonoBehaviour
         }
         else
         {
-            float startYPos = 180.0f;
+            float startYPos = 150.0f;
 
             /////////////////////////////////////////////////////
             m_ActionTaken = BuildingUI.ActionsTaken.Interact;
