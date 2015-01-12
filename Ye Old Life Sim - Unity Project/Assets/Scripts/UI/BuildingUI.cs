@@ -37,7 +37,7 @@ public class BuildingUI : MonoBehaviour
     private bool buildingsActive_ = false; //Flag to turn on and off the building UI
     private int buyMenuNumChildren_ = 0; //Buy menu's children (number of items for sale) -- this is set to 1 as the for loop it is used in is 0 based
     private int applyMenuNumChildren_ = 0; //Apply for Job menu's children (number of jobs to apply to) -- this is set to 1 as the for loop it is used in is 0 based
-    private int maxNumChildrenOnScreen_ = 6; //Maximum number of children that are fully visible on screen at one time
+    private int maxNumChildrenOnScreen_; //Maximum number of children that are fully visible on screen at one time
     private float applyMenuYClamp_; //Clamping the apply for job menu's Y position for scrolling
     private float buyMenuYClamp_; //Clamping the buy menu's Y position for scrolling
     private float subMenuYOffset_ = 70.0f; //Offset Y position for each element in the sub menus
@@ -83,6 +83,8 @@ public class BuildingUI : MonoBehaviour
         m_ApplyMenu.SetActive(false);
         m_JobNotification.enabled = false;
         timerRunning_ = false;
+
+        
        //transitionToVisible_ = false;
         //isIransitioning_ = false;
 	}
@@ -90,12 +92,6 @@ public class BuildingUI : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        /*if (isIransitioning_ && !buildingsActive_)
-        {
-            m_BuildingGUI.SetActive(buildingsActive_);
-        }*/
-        //transitionGUI();
-
         if(m_GameManager.AITurn)
         {
             m_PlayerData = m_GameManager.m_AIData;
@@ -107,6 +103,7 @@ public class BuildingUI : MonoBehaviour
 
         if(selectedBuilding_ != null)
         {
+            maxNumChildrenOnScreen_ = (int)((m_BuildingGUI.GetComponent<RectTransform>().rect.height / 2) / subMenuYOffset_);
             CheckForEmployment();
             if(selectedBuilding_.GetComponent<Building>().m_Items.Length == 0)
             {
@@ -145,7 +142,6 @@ public class BuildingUI : MonoBehaviour
 
                 //Get the number of children beyond the max there are and clamp based on how many there are
                 applyMenuYClamp_ = subMenuYOffset_ * Mathf.Abs(applyMenuNumChildren_ - maxNumChildrenOnScreen_) + applyMenuInitialPos_.y + 10.0f;
-                //Debug.Log(m_ApplyMenuScrollMask.transform.position);
 
                 if (applyMenuNumChildren_ > maxNumChildrenOnScreen_)
                 {
@@ -257,7 +253,7 @@ public class BuildingUI : MonoBehaviour
     //If pressed, it will populate and show the Items Menu, from which you can purchase items
     public void BuyItemsMenu()
     {
-        float startYPos = 180.0f;
+        float startYPos = 150.0f;
         ///////////////////////////////////////////////////////////////
         m_ActionTaken = BuildingUI.ActionsTaken.BoughtItem;
         m_DataCollection.Actions();
@@ -339,7 +335,7 @@ public class BuildingUI : MonoBehaviour
     {
         int row = 2;
         int it = 0;
-        float startYPos = 180.0f;      
+        float startYPos = 150.0f;      
         float defaultXPos = -200.0f;
         float startXPos = defaultXPos;
 
@@ -387,7 +383,7 @@ public class BuildingUI : MonoBehaviour
     //If pressed, it will populate and show the Apply for Job menu, in which you can choose a job to apply for
     public void ApplyMenu()
     {
-        float startYPos = 180.0f;
+        float startYPos = 150.0f;
 
         ////////////////////////////////////////////////////////
         m_ActionTaken = BuildingUI.ActionsTaken.AplliedForJob;
@@ -478,7 +474,6 @@ public class BuildingUI : MonoBehaviour
         {
             if(selectedBuilding_.GetComponent<Building>().m_Items[i].name == go.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text)
             {
-                Debug.Log(selectedBuilding_.GetComponent<Building>().m_Items[i].name);
                 selectedBuilding_.GetComponent<Building>().m_Items[i].m_ItemEntryData.item = selectedBuilding_.GetComponent<Building>().m_Items[i];
                 selectedBuilding_.GetComponent<Building>().m_Items[i].m_ItemEntryData.count = 1;
                 selectedBuilding_.GetComponent<Building>().BuyItem(m_PlayerData, selectedBuilding_.GetComponent<Building>().m_Items[i]);
