@@ -55,6 +55,7 @@ public class Building : MonoBehaviour
     public float Work(PlayerData pData, JobData jData)
     {
         bool isSkillFound = false;
+        float hungerValue = 1.0f;
         float actualWorkTime = pData.m_CurrTime < ValueConstants.WORK_TIME ? pData.m_CurrTime : ValueConstants.WORK_TIME;
 
         for (int i = 0; i < jData.m_SkillGain.Length; ++i)
@@ -73,6 +74,7 @@ public class Building : MonoBehaviour
                 pData.m_Skills.Add(new SkillAndAmount(jData.m_SkillGain[i].m_Skill, jData.m_SkillGain[i].m_Amount * actualWorkTime));
             }
         }
+        pData.m_HungerMeter += hungerValue;
         pData.m_CurrTime -= actualWorkTime;
         pData.m_Shillings += (int)(jData.GetWage() * actualWorkTime);
         AudioSource.PlayClipAtPoint(jData.m_AudioClip, pData.transform.position);
