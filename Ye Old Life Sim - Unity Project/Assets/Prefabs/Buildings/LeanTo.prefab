@@ -143,7 +143,7 @@ MonoBehaviour:
   m_HabitatUI: {fileID: 0}
   m_PlayerData: {fileID: 0}
   m_Rating: 1
-  m_CollectionRating: 0
+  m_CollectionRating: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
