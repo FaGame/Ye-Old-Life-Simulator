@@ -38,17 +38,17 @@ Category
 
 			struct v2f 
 			{
-				float4 vertex : SV_POSITION;
-				float3 normal : NORMAL;
-				fixed4 color : COLOR;
+				float4 pos : SV_POSITION;
+				float3 normal : TEXCOORD0;
+				float3 worldvertpos : TEXCOORD1;
 			};
 			
 			v2f vert (appdata_t v)
 			{
 				v2f o;
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
-				o.normal = v.normal;
-				//o.color = v.color;
+				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.normal = normalize(mul((float3x3)_Object2World, v.normal));
+				o.worldvertpos = mul(_Object2World, v.vertex).xyz;
 				return o;
 			}
 
@@ -56,8 +56,11 @@ Category
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				float3 viewCameraToVertex = normalize(ObjSpaceViewDir(i.vertex));
-				float intensity = pow(_Coefficient + dot(i.normal, viewCameraToVertex), _Power);
+				i.normal = normalize(i.normal);
+                float3 viewdir = normalize(_WorldSpaceCameraPos - i.worldvertpos);
+				//float3 viewCameraToVertex = normalize(ObjSpaceViewDir(i.vertex));
+				//float intensity = pow(_Coefficient + dot(i.normal, viewdir), _Power);
+				float intensity = pow(1.0-saturate(dot(viewdir, i.normal)), _Power);
 				return fixed4(_GlowColor.xyz, intensity);
 			}
 			ENDCG 
