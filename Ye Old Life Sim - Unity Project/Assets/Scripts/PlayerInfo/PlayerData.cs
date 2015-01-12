@@ -203,13 +203,13 @@ public class PlayerData : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Waypoint" && playerController_.enabled)
+        if (other.tag == "Waypoint" && playerController_.enabled && playerController_.m_WaypointObject.gameObject.transform.parent.name == other.gameObject.transform.parent.name)
         {
             Debug.Log("Name: " + other.gameObject.transform.parent.name);
             Building building = other.gameObject.transform.parent.gameObject.GetComponent<Building>();
             if (building != null)
             {
-                currBuilding_ = other.gameObject;
+                currBuilding_ = other.gameObject.transform.parent.gameObject;
                 m_InsideWaypoint = true;
                 playerController_.enabled = false;
                 building.m_BuildingUI.LoadBuildingData(playerController_, other.gameObject.transform.parent.gameObject);
@@ -218,7 +218,7 @@ public class PlayerData : MonoBehaviour
             Habitat habitat = other.gameObject.transform.parent.gameObject.GetComponent<Habitat>();
             if (habitat != null)
             {
-                currBuilding_ = other.gameObject;
+                currBuilding_ = other.gameObject.transform.parent.gameObject;
                 m_InsideWaypoint = true;
                 playerController_.enabled = false;
                 habitat.m_HabitatUI.LoadHabitatData(playerController_, other.gameObject.transform.parent.gameObject);
@@ -229,7 +229,20 @@ public class PlayerData : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         m_InsideWaypoint = false;
+        currBuilding_ = null;
         //Debug.Log("Exited");
+    }
+
+    public void ReopenMenu()
+    {
+        if(currBuilding_.GetComponent<Building>())
+        {
+            currBuilding_.GetComponent<Building>().m_BuildingUI.LoadBuildingData(playerController_, currBuilding_);
+        }
+        else if(currBuilding_.GetComponent<Habitat>())
+        {
+            currBuilding_.GetComponent<Habitat>().m_HabitatUI.LoadHabitatData(playerController_, currBuilding_);
+        }
     }
 
     void UpdatePlayerInfectedStatus(ParticleEmitter particle)

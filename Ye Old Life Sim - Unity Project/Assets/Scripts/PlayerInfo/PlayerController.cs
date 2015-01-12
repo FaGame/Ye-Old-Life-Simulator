@@ -83,8 +83,15 @@ public class PlayerController : MonoBehaviour
 				m_WaypointObject = hitInfo.transform.gameObject;
                 if (m_WaypointObject.tag == "Building")
                 {
-                    Debug.Log("It's working!");
-                    GotoBuilding(m_WaypointObject);
+                    if (!m_PlayerData.m_InsideWaypoint)
+                    {
+                        Debug.Log("It's working!");
+                        GotoBuilding(m_WaypointObject);
+                    }
+                    else
+                    {
+                        m_PlayerData.ReopenMenu();
+                    }
                 }
             }
         }
