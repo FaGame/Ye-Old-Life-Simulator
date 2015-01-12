@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource m_PlayerRunning;
     public Horse m_Horse;
     public Animator m_HorseAnimator;
+    public Animator m_PlayerAnimator;
     public PlayerData m_PlayerData;     //object to hold the player data, if that wasn't obvious 
     public Camera mCamera;
     public Terrain mTerrain;
@@ -19,7 +20,6 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 currTarget_;
     private bool atCurrTarget_;
-    private Animator animator_;
     private NavMeshAgent navAgent_;
     private float lastRot_;
     private float hungerTimer_;
@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        animator_ = GetComponent<Animator>();
         navAgent_ = GetComponent<NavMeshAgent>();
         currTarget_ = Vector3.zero;
         atCurrTarget_ = true;
@@ -145,13 +144,21 @@ public class PlayerController : MonoBehaviour
         //animator_.SetFloat("rotation", Mathf.Min(1.0f, Mathf.Abs(angularSpeed / (navAgent_.angularSpeed * Time.deltaTime))));
         //animator_.SetFloat("rotDir", Mathf.Clamp(angularSpeed / (navAgent_.angularSpeed * Time.deltaTime), -1.0f, 1.0f));
 
+        //---------------------------------------------------------------------------- test code ---------------------------------------------------------------------------------
+        //m_PlayerData.m_HasMount = true;
+        //------------------------------------------------------------------------- end of test code -----------------------------------------------------------------------------
+
         if (m_PlayerData.m_HasMount)
         {
+            m_PlayerAnimator.gameObject.SetActive(false);
+            m_HorseAnimator.gameObject.SetActive(true);
             m_HorseAnimator.SetFloat("Walk", m_v);
         }
         else
         {
-            animator_.SetFloat("Walk", m_v);
+            m_HorseAnimator.gameObject.SetActive(false);
+            m_PlayerAnimator.gameObject.SetActive(true);
+            m_PlayerAnimator.SetFloat("Walk", m_v);
         }
     }
 
