@@ -9,6 +9,8 @@ public class DataCollection : MonoBehaviour
     public BuildingUI m_BUI;
     public HabitatUI m_HUI;
     public RandomEventManager1 m_REM;
+    public UseItemButton m_UIB;
+    public UseableItemInventory m_UII;
 
     private List<float> playerStats_ = new List<float>();
     private List<int> buildingsInteractedWith_ = new List<int>();
@@ -16,6 +18,8 @@ public class DataCollection : MonoBehaviour
     private List<int> Turns_ = new List<int>();
     private List<int> habitatsInteractedWith_ = new List<int>();
     private List<int> RandomEvents_ = new List<int>();
+    private List<string> ItemUsed_ = new List<string>();
+    private List<string> ItemBought_ = new List<string>();
     
 	public void PopulateStats()
     {
@@ -49,5 +53,15 @@ public class DataCollection : MonoBehaviour
     public void AddRandomEvents()
     {
         RandomEvents_.Add(m_REM.ReturnRdmEvent());
+    }
+
+    public void AddItemUsed()
+    {
+        ItemUsed_.Add(m_UIB.m_ItemUsed);
+    }
+
+    public void AddItemBought()
+    {
+        ItemBought_.Add(m_UII.m_ItemBought);
     }
 }

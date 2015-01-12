@@ -176,7 +176,6 @@ GameObject:
   - 4: {fileID: 400022}
   - 95: {fileID: 9500000}
   - 143: {fileID: 14300000}
-  - 195: {fileID: 19576472}
   - 114: {fileID: 11423642}
   - 114: {fileID: 11429232}
   - 82: {fileID: 8297746}
@@ -184,6 +183,7 @@ GameObject:
   - 65: {fileID: 6597746}
   - 114: {fileID: 11471536}
   - 114: {fileID: 11471534}
+  - 195: {fileID: 19568582}
   m_Layer: 0
   m_Name: Char_2
   m_TagString: Untagged
@@ -1405,7 +1405,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100022}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 508.884918, y: 5.15650892, z: 308.308533}
+  m_LocalPosition: {x: 556.150024, y: 4.88999987, z: 373.880005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -3101,7 +3101,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 8d382404ede7e1944970218b83a887c8, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9500002
@@ -3477,7 +3477,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlayerRunning: {fileID: 8297746}
   m_Horse: {fileID: 11409958, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
-  m_HorseAnimator: {fileID: 9509958, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
   m_PlayerData: {fileID: 11429232}
   mCamera: {fileID: 0}
   mTerrain: {fileID: 0}
@@ -3505,7 +3504,7 @@ MonoBehaviour:
   m_Opponent: {fileID: 0}
   m_InfectedParticle: {fileID: 1500000}
   m_StatusEffects: []
-  m_UseableInventory: {fileID: 0}
+  m_UseableInventory: {fileID: 11471536}
   m_PossessionInventory: {fileID: 11471534}
   m_MaxHappiness: 0
   m_MaxReputation: 0
@@ -3529,6 +3528,7 @@ MonoBehaviour:
   m_IsDead: 1
   m_IsInfected: 0
   m_HasMount: 0
+  playerController_: {fileID: 11423642}
 --- !u!114 &11471534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3552,7 +3552,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7629e858c9ed9d14a82b3ac9a4b8776c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_DataCollection: {fileID: 0}
   m_Names: []
+  m_ItemBought: 
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -3621,7 +3623,7 @@ CharacterController:
   m_SkinWidth: .0799999982
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 1.46000004, z: 0}
---- !u!195 &19576472
+--- !u!195 &19568582
 NavMeshAgent:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -3637,8 +3639,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: .5
+  m_Height: 2
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1001 &100100000

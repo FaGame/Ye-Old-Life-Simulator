@@ -4330,7 +4330,7 @@ MonoBehaviour:
   m_JobData: []
   m_Items: []
   m_SpecialEffects:
-  - {fileID: 0}
+  - {fileID: 11457322, guid: 1b9ed161ebaa10a4eb8b9f7b3ff3963f, type: 2}
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 0}
   m_buildingEnum: 0

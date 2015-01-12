@@ -10,7 +10,9 @@ public class InventoryUI : MonoBehaviour
     public GameObject m_InventoryPanel;
     public GameObject m_InventoryScrollMask;
     public GameObject m_InventoryButtonPrefab;
+    public ScrollRect m_InvScrollRect;
     public TransitionDisplay m_InvTransitionDisplay;
+    public Font m_CustomFont;
 
     private Text[] buttonTexts_;
     private Image itemImage_;
@@ -56,6 +58,8 @@ public class InventoryUI : MonoBehaviour
                     //set the name and count of the item
                     buttonTexts_ = go.GetComponentsInChildren<Text>();
 
+                    buttonTexts_[0].font = m_CustomFont;
+                    buttonTexts_[1].font = m_CustomFont;
                     buttonTexts_[0].text = currentItem.Key;
                     buttonTexts_[1].text = currentItem.Value.count.ToString();
 
@@ -78,12 +82,13 @@ public class InventoryUI : MonoBehaviour
     public void CloseInventory()
     {
         m_InventoryPanel.SetActive(false);
+        inventoryDisplayed_ = false;
         m_InvTransitionDisplay.FadeOut(delegate { cleanupInvMenu(); });
     }
 
     void cleanupInvMenu()
     {
-        foreach (RectTransform child in m_InvTransitionDisplay.transform)
+        foreach (RectTransform child in m_InventoryScrollMask.transform)
         {
             GameObject.Destroy(child.gameObject);
         }

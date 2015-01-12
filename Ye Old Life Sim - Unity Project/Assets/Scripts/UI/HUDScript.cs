@@ -22,6 +22,9 @@ public class HUDScript : MonoBehaviour
     public Text m_ShillingText; //The player's current shillings
     public Text m_BuildingHovered; //The building the player is currently hovering
     public TransitionDisplay m_StatsTransitionDisplay;
+    public GameObject m_BuildingButtonPrefab; //Prefab for the Building buttons to Instantiate later
+    public GameObject m_BuildingMenuScrollMask; //Gameobject that is to have the item information as a parent to allow for scrolling
+    public TransitionOut m_TransOutBuilding;
 
     private bool statsActive_ = false; //This bool determines whether or not the the stats window is open
     private bool inventoryActive_ = false; //This bool determines whether or not the inventory is currently open
@@ -42,7 +45,12 @@ public class HUDScript : MonoBehaviour
     private List<float> playerStats_ = new List<float>(); //List of the player stats
     private Ray buildingHoverRay_;
     private RaycastHit buildingRayHit_;
+    private Color startColour_;
     private GameObject highlightedObject_;
+    private List<Color> originalColours_ = new List<Color>();
+    private GameObject[] buildingObjects_;
+    private float subMenuYOffset_ = 23.0f; //Offset Y position for each element in the sub menus
+    private bool isBuildingMenuOpen_;
 
     public bool HUDActive
     {
@@ -76,10 +84,12 @@ public class HUDScript : MonoBehaviour
 
         //Turn off the stats, goal and skills panels after initializing all stats
         m_StatsScreen.SetActive(false);
-        m_InventoryPanel.SetActive(false);
 
         //Set the current turn's timer
         timer_ = ValueConstants.PLAYER_MAX_TIME;
+
+        buildingObjects_ = GameObject.FindGameObjectsWithTag("Building");
+        isBuildingMenuOpen_ = false;
 	}
 
     //This function initializes the player HUD sliders, and then sets their min, max and current values
@@ -126,10 +136,6 @@ public class HUDScript : MonoBehaviour
         else if(m_GameManager.PlayerTurn == true)
         {
             m_PlayerData = m_GameManager.m_PlayerData;
-        }
-        else if (m_GameManager.PlayerTwoTurn == true)
-        {
-            m_PlayerData = m_GameManager.m_PlayerTwoData;
         }
 
         if (statsActive_ || inventoryActive_)
@@ -190,13 +196,11 @@ public class HUDScript : MonoBehaviour
 
     public void OpenInventoryMenu()
     {
-        m_PlayerController.enabled = false;
         m_InventoryPanel.SetActive(true);
     }
 
     public void CloseInventoryMenu()
     {
-        m_PlayerController.enabled = true;
         m_InventoryPanel.SetActive(false);
     }
 
@@ -257,5 +261,79 @@ public class HUDScript : MonoBehaviour
     void OnMouseOver()
     {
 
+    }
+
+    public void OpenBuildingsList()
+    {
+        if(m_TransOutBuilding.Transitioning())
+        {
+            return;
+        }
+
+        if(isBuildingMenuOpen_)
+        {
+            m_TransOutBuilding.StartTransition(delegate { CleanUpBuildingList(); });
+            //CleanUpBuildingList();
+            //m_BuildingMenuScrollMask.transform.parent.gameObject.SetActive(false);
+            return;
+        }
+
+        isBuildingMenuOpen_ = true;
+        m_BuildingMenuScrollMask.transform.parent.gameObject.SetActive(true);
+        ScrollRect sRect = m_BuildingMenuScrollMask.transform.parent.gameObject.GetComponent<ScrollRect>();
+
+        //float startYPos = (buildingObjects_.Length * subMenuYOffset_) * -0.5f;
+        float startYPos = subMenuYOffset_ * -0.5f;
+
+        RectTransform rTransfrom = m_BuildingMenuScrollMask.GetComponent<RectTransform>();
+        SetHeight(rTransfrom, buildingObjects_.Length * subMenuYOffset_);
+
+        for (int i = 0; i < buildingObjects_.Length; ++i)
+        {
+            GameObject go = (GameObject)Instantiate(m_BuildingButtonPrefab, new Vector3(0, startYPos, 0), Quaternion.identity);
+            Button bton = go.GetComponentInChildren<Button>();
+            bton.onClick.AddListener(delegate { GotoBuilding(go); });
+            Text text = go.GetComponentInChildren<Text>();
+            text.text = buildingObjects_[i].name;
+            go.gameObject.transform.SetParent(m_BuildingMenuScrollMask.transform, false);
+            startYPos -= subMenuYOffset_;
+        }
+    }
+
+    void GotoBuilding(GameObject goHere)
+    {
+        ScrollRect sRect = m_BuildingMenuScrollMask.transform.parent.gameObject.GetComponent<ScrollRect>();
+        m_TransOutBuilding.StartTransition(delegate { CleanUpBuildingList(); });
+
+        Text text = goHere.GetComponentInChildren<Text>();
+        for (int i = 0; i < buildingObjects_.Length; ++i)
+        {
+            if (buildingObjects_[i].name == text.text)
+            {
+                m_PlayerController.GotoBuilding(buildingObjects_[i]);
+                break;
+            }
+        }
+    }
+
+    void CleanUpBuildingList()
+    {
+        foreach (RectTransform child in m_BuildingMenuScrollMask.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        isBuildingMenuOpen_ = false;
+    }
+
+    void SetSize(RectTransform trans, Vector2 newSize)
+    {
+        Vector2 oldSize = trans.rect.size;
+        Vector2 deltaSize = newSize - oldSize;
+        trans.offsetMin = trans.offsetMin - new Vector2(deltaSize.x * trans.pivot.x, deltaSize.y * trans.pivot.y);
+        trans.offsetMax = trans.offsetMax + new Vector2(deltaSize.x * (1f - trans.pivot.x), deltaSize.y * (1f - trans.pivot.y));
+    }
+    public void SetHeight(RectTransform trans, float newSize)
+    {
+        SetSize(trans, new Vector2(trans.rect.size.x, newSize));
     }
 }
