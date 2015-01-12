@@ -55,7 +55,7 @@ public class PlayerData : MonoBehaviour
 
     private Food playerFood_;
     private EndOfTurnCode endTurnCode_;
-    private GameObject homeWayPoint_;
+
     void Start()
     {
         m_CurrTime = m_MaxTime;
@@ -96,7 +96,6 @@ public class PlayerData : MonoBehaviour
     {
         gameObject.SetActive(true);
         m_IsDead = false;
-        //StartAtHome();
         //loop through the player's inventory and find objects with the food script
         if(m_UseableInventory.m_UseableItemInventory != null)
         {
@@ -200,14 +199,15 @@ public class PlayerData : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Waypoint" && playerController_.enabled)
+        if (other.tag == "Waypoint" && playerController_.enabled && playerController_.m_WaypointObject.gameObject.transform.parent.name == other.gameObject.transform.parent.name)
         {
             Debug.Log("Name: " + other.gameObject.transform.parent.name);
             Building building = other.gameObject.transform.parent.gameObject.GetComponent<Building>();
             if (building != null)
-            {
+            {                
                 playerController_.enabled = false;
                 building.m_BuildingUI.LoadBuildingData(playerController_, other.gameObject.transform.parent.gameObject);
+                playerController_.TargetReached();
             }
 
             Habitat habitat = other.gameObject.transform.parent.gameObject.GetComponent<Habitat>();
@@ -284,19 +284,6 @@ public class PlayerData : MonoBehaviour
             //flips the player's and oppents checks so the counter doesn't keep getting incremented
             m_CanCheckReputation = false;
             m_Opponent.m_CanCheckReputation = true;
-        }
-    }
-
-    void StartAtHome()
-    {
-        Transform[] home = m_Home.GetComponentsInChildren<Transform>();
-        foreach (Transform tForm in home)
-        {
-            //find the waypoint in the building and check to make sure the player isn't homeless
-            if (tForm.CompareTag("Waypoint") && m_Home.tag != "Homeless")
-            {
-                transform.position = tForm.position;
-            }
         }
     }
 }

@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public Camera mCamera;
     public Terrain mTerrain;
     public Transform mblackSmithWaypoint;
+    public GameObject m_WaypointObject;
     public bool m_IsMoving;
 	public float m_v;                   //1 = walk animiation
                                         //0 = idle animation
@@ -24,7 +25,6 @@ public class PlayerController : MonoBehaviour
     private NavMeshAgent navAgent_;
     private float lastRot_;
     private float hungerTimer_;
-    private GameObject waypointObject_;
     private Animator animator_;
 
     public void SetTarget(Vector3 target)
@@ -46,12 +46,12 @@ public class PlayerController : MonoBehaviour
         //SetTarget(m_PlayerData.transform.position);
     }
 	
-	void TargetReached()
+	public void TargetReached()
     {
         //currTarget_ = Vector3.zero;
         atCurrTarget_ = true;
         lastRot_ = transform.rotation.eulerAngles.y;
-        waypointObject_ = null;
+        m_WaypointObject = null;
     }
 
     void OnDisable()
@@ -80,16 +80,16 @@ public class PlayerController : MonoBehaviour
             bool hit = Physics.Raycast(pickingRay, out hitInfo);
             if (hit)
             {
-				waypointObject_ = hitInfo.transform.gameObject;
-                if (waypointObject_.tag == "Building")
+				m_WaypointObject = hitInfo.transform.gameObject;
+                if (m_WaypointObject.tag == "Building")
                 {
                     Debug.Log("It's working!");
-                    GotoBuilding(waypointObject_);
+                    GotoBuilding(m_WaypointObject);
                 }
             }
         }
 
-        DecreaseTime();
+        //DecreaseTime();
 		/*if(!atCurrTarget_)
         {
             GetDistenceToWaypoint(waypointObject_);
