@@ -69,10 +69,11 @@ public class HabitatUI : MonoBehaviour
         return 0;
     }
 
-    public void LoadHabitatData(/*string name*/PlayerController pController, GameObject gObj)
+    public void LoadHabitatData(PlayerController pController, GameObject gObj)
     {
         //////////////////////////////////////////////////////////////////////////////////////
-        m_Habitat.m_CollectionRating = selectedHome_.GetComponent<Habitat>().m_Rating;
+        m_Habitat = gObj.GetComponent<Habitat>();
+        m_Habitat.m_CollectionRating = gObj.GetComponent<Habitat>().m_Rating;
         m_DataCollection.AddHabitats();
         //////////////////////////////////////////////////////////////////////////////////////
         habitatIsActive_ = true;
