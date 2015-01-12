@@ -5,6 +5,8 @@ public class ValueConstants : MonoBehaviour
 {
     public const float WORK_TIME = 5.0f;
 
+	public const float CLOCK_DEGREES_AND_OFFSET = 180.0f;
+
     public const float PLAYER_MAX_TIME = 45.0f;
     public const float PLAYER_MAX_HUNGER = 100.0f;
     public const float PLAYER_HUNGER_PENALTY_LEVEL = 75.0f;
@@ -116,6 +118,8 @@ public class ValueConstants : MonoBehaviour
 	public const int FOOD_INDEX = 1;
 	public const int DRINK_INDEX = 2;
 	public const int REPUTATION_INDEX = 3;
+
+
 
     void Start()
     {
