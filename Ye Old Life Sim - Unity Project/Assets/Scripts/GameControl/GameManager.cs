@@ -144,8 +144,8 @@ public class GameManager : MonoBehaviour
                 else
                 {
                      //if it is a single player game, start the player's next turn
-                     m_DataCollection.AddTurns();
-                     m_DataCollection.PopulateStats();
+                     //m_DataCollection.AddTurns();
+                     //m_DataCollection.PopulateStats();
                      m_PlayerData.EndTurn();
                      m_PlayerData.StartTurn();
                 }
