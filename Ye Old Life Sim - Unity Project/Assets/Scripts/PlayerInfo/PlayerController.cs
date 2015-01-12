@@ -52,8 +52,6 @@ public class PlayerController : MonoBehaviour
         atCurrTarget_ = true;
         lastRot_ = transform.rotation.eulerAngles.y;
         waypointObject_ = null;
-        navAgent_.velocity = new Vector3(0.0f, 0.0f, 0.0f);
-        navAgent_.SetDestination(transform.position);
     }
 
     void OnDisable()
@@ -92,18 +90,18 @@ public class PlayerController : MonoBehaviour
         }
 
         //DecreaseTime();
-		if(!atCurrTarget_)
+		/*if(!atCurrTarget_)
         {
             GetDistenceToWaypoint(waypointObject_);
-        }
+        }*/
 		
         if(navAgent_.velocity.magnitude > 0.0f)
         {
-            m_IsMoving = true;
+            m_v = 1;
         }
         else
         {
-            m_IsMoving = false;
+            m_v = 0;
         }
     
         navAgent_.speed = m_PlayerData.GetComponent<PlayerData>().m_Speed;
@@ -125,22 +123,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void GetDistenceToWaypoint(GameObject waypointObject_)
+    /*void GetDistenceToWaypoint(GameObject waypointObject_)
     {
         float distenceToObjectX = (m_PlayerData.transform.position.x - waypointObject_.transform.position.x);
         float distenceToObjectZ = (m_PlayerData.transform.position.z - waypointObject_.transform.position.z);
         float distenceToWaypoint = Mathf.Sqrt((distenceToObjectX * distenceToObjectX) + (distenceToObjectZ * distenceToObjectZ));
 
-        if(distenceToWaypoint > 1.0f)
+        if(distenceToWaypoint > 2.0f)
         {
             m_v = 1;
         }
-        else if (distenceToWaypoint < 1.0f)
+        else if (distenceToWaypoint < 2.0f)
         {
             m_v = 0;
             TargetReached();
         }
-    }
+    }*/
 
     private void UpdateAnimation()
     {
