@@ -50,12 +50,15 @@ public class PlayerData : MonoBehaviour
     public bool m_IsDead = false;
     public bool m_IsInfected = false;       //variable used for when the player catches a disease
 	public bool m_HasMount = false;			//variable used for when the player has a mount
+    public bool m_InsideWaypoint = false; //This determines whether or not the player is inside a building waypoint already
 
    public PlayerController playerController_;
 
     private Food playerFood_;
     private EndOfTurnCode endTurnCode_;
     private GameObject homeWayPoint_;
+    private GameObject currBuilding_;
+
     void Start()
     {
         m_CurrTime = m_MaxTime;
@@ -206,6 +209,8 @@ public class PlayerData : MonoBehaviour
             Building building = other.gameObject.transform.parent.gameObject.GetComponent<Building>();
             if (building != null)
             {
+                currBuilding_ = other.gameObject;
+                m_InsideWaypoint = true;
                 playerController_.enabled = false;
                 building.m_BuildingUI.LoadBuildingData(playerController_, other.gameObject.transform.parent.gameObject);
             }
@@ -213,6 +218,8 @@ public class PlayerData : MonoBehaviour
             Habitat habitat = other.gameObject.transform.parent.gameObject.GetComponent<Habitat>();
             if (habitat != null)
             {
+                currBuilding_ = other.gameObject;
+                m_InsideWaypoint = true;
                 playerController_.enabled = false;
                 habitat.m_HabitatUI.LoadHabitatData(playerController_, other.gameObject.transform.parent.gameObject);
             }
@@ -221,6 +228,7 @@ public class PlayerData : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        m_InsideWaypoint = false;
         //Debug.Log("Exited");
     }
 
