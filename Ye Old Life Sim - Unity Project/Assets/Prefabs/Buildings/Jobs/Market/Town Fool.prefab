@@ -46,7 +46,7 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 12
     m_Amount: 5
-  m_JobDescription: 
+  m_JobDescription: Like Village Idiot, but worse with money.
   m_Wage: -2
   m_MinWage: 0
   m_MaxWage: 0

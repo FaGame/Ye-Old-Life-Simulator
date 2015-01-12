@@ -48,7 +48,7 @@ MonoBehaviour:
     m_Amount: .5
   - m_Skill: 5
     m_Amount: .5
-  m_JobDescription: 
+  m_JobDescription: This job description is less than forthright with information.
   m_Wage: 2.5
   m_MinWage: 0
   m_MaxWage: 0

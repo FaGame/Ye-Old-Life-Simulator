@@ -4279,10 +4279,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Player: {fileID: 0}
   m_BuildingName: Market
-  m_Description: []
+  m_Description:
+  - "\u201C$29, or two for $50!!!\u201D"
+  - "\u201CBuy two, get another at full price!\u201D"
+  - "\u201C$8 a month for unlimited access...it worked for Netflix\u2026\u201D"
+  - "\u201CSmile, you\u2019re on camera! Wait, what\u2019s a camera?\u201D"
   m_Image: {fileID: 0}
-  m_JobData: []
-  m_Items: []
+  m_JobData:
+  - {fileID: 11400000, guid: e0af925a0ee89c74a83ff6eab0b8df41, type: 2}
+  - {fileID: 11400000, guid: f05e164cdcfa49842a470b6a92139124, type: 2}
+  - {fileID: 11400000, guid: d92890bc4045e6a44ac70de0de2f347a, type: 2}
+  - {fileID: 11400000, guid: adcc911df95546944a0c8f80333df58e, type: 2}
+  - {fileID: 11493024, guid: 1cc147e5d9fe8154e8aaf999a94055ce, type: 2}
+  - {fileID: 11478322, guid: 1fefecf5352a89e45b33e0e69953f4ad, type: 2}
+  - {fileID: 11470162, guid: e1f5098fb26bb7347b12794f9b8b2924, type: 2}
+  - {fileID: 11490608, guid: e8e9447ec4bed1841bf8dfbd5cc10e8b, type: 2}
+  - {fileID: 11438316, guid: 80a2a38031f10244a88703d63a4284cd, type: 2}
+  - {fileID: 11474380, guid: cfcef23d58ceb8d40af390d6ff979a7d, type: 2}
+  - {fileID: 11428656, guid: 2f11976bdd73f40479a6c324745ca61b, type: 2}
+  - {fileID: 11483144, guid: f68b074f56be88446a32cdfba84b19fa, type: 2}
+  - {fileID: 11411310, guid: 047fec1f1d6498d45aead5cc873a0342, type: 2}
+  - {fileID: 11439800, guid: 842dea8620302bd40af1df232c831454, type: 2}
+  - {fileID: 11417990, guid: 34392ee9b60218e459ce2770e8ade959, type: 2}
+  m_Items:
+  - {fileID: 11400000, guid: ff520f25cab3a9d4b9e5afab103a03f6, type: 2}
+  - {fileID: 11400000, guid: a50dab4d69a92004e876dd7174082df1, type: 2}
+  - {fileID: 11400000, guid: 0cb7fce0137843540af0172c37456436, type: 2}
+  - {fileID: 11400000, guid: 3ab40f255a8f1544faeeaec9cbf3f8bd, type: 2}
+  - {fileID: 11400000, guid: b680cac3d4f50e74db126f1a69074c65, type: 2}
+  - {fileID: 11400000, guid: d0741c64cc97c2e459619861861f82bc, type: 2}
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 0}

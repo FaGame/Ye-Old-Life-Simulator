@@ -48,7 +48,8 @@ MonoBehaviour:
     m_Amount: .200000003
   - m_Skill: 12
     m_Amount: 1
-  m_JobDescription: 
+  m_JobDescription: "Han Solo has to terminate aliens\u2026.wait that\u2019s Blade
+    Runner.."
   m_Wage: 6
   m_MinWage: 0
   m_MaxWage: 0

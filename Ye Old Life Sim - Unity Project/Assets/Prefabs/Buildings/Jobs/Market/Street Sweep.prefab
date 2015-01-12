@@ -44,7 +44,7 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 2
     m_Amount: 2
-  m_JobDescription: 
+  m_JobDescription: "You\u2019re going to need a shovel to sweep these streets."
   m_Wage: 1
   m_MinWage: 0
   m_MaxWage: 0

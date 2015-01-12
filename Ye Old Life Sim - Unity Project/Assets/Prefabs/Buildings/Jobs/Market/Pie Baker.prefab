@@ -48,7 +48,8 @@ MonoBehaviour:
     m_Amount: 1
   - m_Skill: 10
     m_Amount: .5
-  m_JobDescription: 
+  m_JobDescription: The fresher the fruit the lower the profits. Sick the dead stuff
+    in the bottom.
   m_Wage: 4
   m_MinWage: 0
   m_MaxWage: 0

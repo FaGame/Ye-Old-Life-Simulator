@@ -48,7 +48,7 @@ MonoBehaviour:
     m_Amount: 1
   - m_Skill: 10
     m_Amount: .5
-  m_JobDescription: 
+  m_JobDescription: "We\u2019re gonna need a sacrifice, any volunteers?"
   m_Wage: 22
   m_MinWage: 0
   m_MaxWage: 0

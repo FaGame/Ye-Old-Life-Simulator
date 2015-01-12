@@ -46,7 +46,7 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 12
     m_Amount: 2
-  m_JobDescription: 
+  m_JobDescription: Sing about your time as the Village Idiot
   m_Wage: 0
   m_MinWage: 0
   m_MaxWage: 10

@@ -44,7 +44,7 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 3
     m_Amount: 1.20000005
-  m_JobDescription: 
+  m_JobDescription: "I\u2019m squishing up my baby bumble bee.."
   m_Wage: 2
   m_MinWage: 0
   m_MaxWage: 0

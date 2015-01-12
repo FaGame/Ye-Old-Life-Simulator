@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: Shaymin
+  m_Name: Shaman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
     m_Amount: 1
   - m_Skill: 10
     m_Amount: .5
-  m_JobDescription: 
+  m_JobDescription: Look at the ripples, so small at first, but then they grow..
   m_Wage: 16
   m_MinWage: 0
   m_MaxWage: 0

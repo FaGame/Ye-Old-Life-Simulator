@@ -46,7 +46,7 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 5
     m_Amount: 1
-  m_JobDescription: 
+  m_JobDescription: Collect Money. Spend money. Pay yourself a bonus. Economy!
   m_Wage: 50
   m_MinWage: 0
   m_MaxWage: 0

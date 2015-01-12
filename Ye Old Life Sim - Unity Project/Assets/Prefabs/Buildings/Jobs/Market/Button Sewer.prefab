@@ -50,7 +50,7 @@ MonoBehaviour:
     m_Amount: .5
   - m_Skill: 10
     m_Amount: .5
-  m_JobDescription: 
+  m_JobDescription: Remove clothing off patron before proceeding.
   m_Wage: 9
   m_MinWage: 0
   m_MaxWage: 0

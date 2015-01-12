@@ -50,7 +50,7 @@ MonoBehaviour:
     m_Amount: .5
   - m_Skill: 10
     m_Amount: 3
-  m_JobDescription: 
+  m_JobDescription: Wear gloves.
   m_Wage: 35
   m_MinWage: 0
   m_MaxWage: 0

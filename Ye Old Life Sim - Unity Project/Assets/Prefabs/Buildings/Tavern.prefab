@@ -3237,12 +3237,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a3a255d39fd08664ab735559013ffa52, type: 2}
   - {fileID: 11400000, guid: 5c4badffbd7668a40b06320eaacef885, type: 2}
   m_Items:
-  - {fileID: 0}
   - {fileID: 11400000, guid: 4792ce3ee6f038f439d5dc8761d8aa83, type: 2}
   - {fileID: 11400000, guid: c9159c8b5d9c638499056f577006e652, type: 2}
   - {fileID: 11400000, guid: 9125e2840f5546e4a80942e44d40d1a4, type: 2}
   - {fileID: 11400000, guid: 960723608d96c4b4095b24195e22b8db, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: f094355a027cfe041ad9cf8771bace3f, type: 2}
+  - {fileID: 11400000, guid: 6584e0bd94109e24c82905bc3f9f4df7, type: 2}
+  - {fileID: 11400000, guid: 4d553706910dda741a1796572c62a26e, type: 2}
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 0}

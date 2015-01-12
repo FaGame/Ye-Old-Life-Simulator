@@ -50,7 +50,7 @@ MonoBehaviour:
     m_Amount: .5
   - m_Skill: 10
     m_Amount: .5
-  m_JobDescription: 
+  m_JobDescription: "It\u2019s not slavery if you agree to it.."
   m_Wage: 12
   m_MinWage: 0
   m_MaxWage: 0

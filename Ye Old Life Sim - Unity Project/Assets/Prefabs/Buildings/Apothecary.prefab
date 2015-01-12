@@ -2527,9 +2527,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Player: {fileID: 0}
   m_BuildingName: Apothecary
-  m_Description: []
+  m_Description:
+  - '"We can heal any wound. Well, most wounds... Some."'
+  - "\u201CBring out our dead!\u201D"
+  - "\u201CLowest mortality rate in the kingdom! Only 67%\u201D"
+  - "\u201COur leeches are well trained and rarely ever suck all the blood.\u201D"
+  - "\u201CBook an appointment for your exorcism today!\u201D"
   m_Image: {fileID: 0}
-  m_JobData: []
+  m_JobData:
+  - {fileID: 11400000, guid: 80d461eed93e1fc4480742cf5a4d7fff, type: 2}
+  - {fileID: 11400000, guid: 52f113c6ff7142f4f83e4db0002fae2f, type: 2}
+  - {fileID: 11400000, guid: 926450e02438f18459319e4d44f131d1, type: 2}
+  - {fileID: 11400000, guid: 63e9b62c37690f04498f2fbc9e590c02, type: 2}
+  - {fileID: 11400000, guid: fa9fdd060e5541e42bb68f9643f7783d, type: 2}
+  - {fileID: 11400000, guid: 3df63ad32a5ea564bb753fb5a3dcefc8, type: 2}
   m_Items: []
   m_SpecialEffects: []
   m_PlayerWorksHere: 0

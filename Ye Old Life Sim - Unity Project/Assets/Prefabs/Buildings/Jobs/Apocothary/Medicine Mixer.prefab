@@ -46,7 +46,7 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 6
     m_Amount: 1
-  m_JobDescription: 
+  m_JobDescription: "Green and Green is good, but Green and Red is better!\r\n"
   m_Wage: 12
   m_MinWage: 0
   m_MaxWage: 0

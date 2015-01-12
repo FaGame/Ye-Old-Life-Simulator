@@ -48,7 +48,8 @@ MonoBehaviour:
     m_Amount: 1
   - m_Skill: 6
     m_Amount: .200000003
-  m_JobDescription: 
+  m_JobDescription: "Dig a hole. Put the thing in the hole. No this job isn\u2019t
+    from the Sex Shoppe."
   m_Wage: 9
   m_MinWage: 0
   m_MaxWage: 0

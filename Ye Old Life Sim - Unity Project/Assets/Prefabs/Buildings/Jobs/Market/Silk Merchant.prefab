@@ -48,7 +48,7 @@ MonoBehaviour:
     m_Amount: 1
   - m_Skill: 10
     m_Amount: 1
-  m_JobDescription: 
+  m_JobDescription: "Don\u2019t tell them where the silk is from."
   m_Wage: 30
   m_MinWage: 0
   m_MaxWage: 0

@@ -44,7 +44,8 @@ MonoBehaviour:
   m_SkillGain:
   - m_Skill: 12
     m_Amount: 3
-  m_JobDescription: 
+  m_JobDescription: Every career path needs a stepping stone. Now you ARE the stepping
+    stone.
   m_Wage: 0
   m_MinWage: 0
   m_MaxWage: 0

@@ -3007,10 +3007,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Player: {fileID: 0}
   m_BuildingName: Alchemy
-  m_Description: []
+  m_Description:
+  - "\"We will turn that thing into that other thing.\r\"\n"
+  - "*BOOM!* \u201CYes we have openings, why do you ask?\u201D"
+  - "\u201CWhatever you do, do not kiss the stone!\u201D"
+  - "\u201CThe manufacturing sector is dying out.\u201D"
+  - "\u201CYes we can make that out of that, but not out of that.\u201D"
   m_Image: {fileID: 0}
-  m_JobData: []
-  m_Items: []
+  m_JobData:
+  - {fileID: 11400000, guid: c6ddf88385ba3ae43b70ad240a4c597a, type: 2}
+  - {fileID: 11400000, guid: 002106f75710b544b871fd2a6a1f69e1, type: 2}
+  - {fileID: 11400000, guid: 998e4d977a065504c83c7bd2894164af, type: 2}
+  - {fileID: 11400000, guid: 44dbb8c8296cd5944910b14545beccf1, type: 2}
+  - {fileID: 11400000, guid: 744d1ad3c4ee10d46be7abdf7d9da2ae, type: 2}
+  - {fileID: 11400000, guid: e4b42ff5e2743d941be5d9c55dfeb400, type: 2}
+  - {fileID: 11400000, guid: 0d5274ee920af5f4c9dfa9243120b6ac, type: 2}
+  - {fileID: 11400000, guid: 1237310ba243fff4da96786e013f9c4b, type: 2}
+  m_Items:
+  - {fileID: 11400000, guid: f92b66c9ed1f1ad4693768834cb67bb3, type: 2}
+  - {fileID: 11400000, guid: 5e2c018793d970647b01a3b08c6c7437, type: 2}
+  - {fileID: 11400000, guid: d7d8631cf7ca9d94c92aa4fb07bb1e7b, type: 2}
+  - {fileID: 11400000, guid: 4652da77b43a05f46aa3d9adfcc4c2d4, type: 2}
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 0}
