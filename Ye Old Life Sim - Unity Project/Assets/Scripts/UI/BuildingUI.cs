@@ -109,9 +109,18 @@ public class BuildingUI : MonoBehaviour
             {
                 m_BuyButton.interactable = false;
             }
+            else
+            {
+                m_BuyButton.interactable = true;
+            }
+
             if(selectedBuilding_.GetComponent<Building>().m_SpecialEffects.Length == 0)
             {
                 m_InteractButton.interactable = false;
+            }
+            else
+            {
+                m_InteractButton.interactable = true;
             }
 
             if(m_BuyMenu != null)

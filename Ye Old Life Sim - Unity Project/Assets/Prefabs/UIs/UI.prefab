@@ -6001,7 +6001,8 @@ MonoBehaviour:
     type: 2}
   m_BuyMenu: {fileID: 193684}
   m_BuyButtonPrefab: {fileID: 132992, guid: e977103e619f8d144903559a8012cb18, type: 2}
-  m_UniversityButtonPrefab: {fileID: 0}
+  m_UniversityButtonPrefab: {fileID: 161264, guid: 408186f96059d8b489654b04c360bff0,
+    type: 2}
   m_InteractMenu: {fileID: 174902}
   m_ApplyMenuScrollMask: {fileID: 135826}
   m_BuyMenuScrollMask: {fileID: 130252}
