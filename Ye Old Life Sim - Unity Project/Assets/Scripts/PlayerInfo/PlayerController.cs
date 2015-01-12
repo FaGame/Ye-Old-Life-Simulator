@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private float lastRot_;
     private float hungerTimer_;
     private GameObject waypointObject_;
+    private Animator animator_;
 
     public void SetTarget(Vector3 target)
     {
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        animator_ = GetComponent<Animator>();
         navAgent_ = GetComponent<NavMeshAgent>();
         currTarget_ = Vector3.zero;
         atCurrTarget_ = true;
@@ -155,6 +157,8 @@ public class PlayerController : MonoBehaviour
         //m_PlayerData.m_HasMount = true;
         //------------------------------------------------------------------------- end of test code -----------------------------------------------------------------------------
 
+        animator_.SetFloat("Walk", m_v);
+        /*
         if (m_PlayerData.m_HasMount)
         {
             m_PlayerAnimator.gameObject.SetActive(false);
@@ -166,7 +170,7 @@ public class PlayerController : MonoBehaviour
             m_HorseAnimator.gameObject.SetActive(false);
             m_PlayerAnimator.gameObject.SetActive(true);
             m_PlayerAnimator.SetFloat("Walk", m_v);
-        }
+        }*/
 
     }
 
