@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        //DecreaseTime();
+        DecreaseTime();
 		/*if(!atCurrTarget_)
         {
             GetDistenceToWaypoint(waypointObject_);
