@@ -7089,7 +7089,7 @@ MonoBehaviour:
   m_DataCollection: {fileID: 0}
   m_PlayerCanvas: {fileID: 0}
   m_Opponent: {fileID: 0}
-  m_InfectedParticle: {fileID: 0}
+  m_InfectedParticle: {fileID: 1555134}
   m_StatusEffects: []
   m_UseableInventory: {fileID: 11446874}
   m_PossessionInventory: {fileID: 11446876}
@@ -7115,6 +7115,7 @@ MonoBehaviour:
   m_IsDead: 1
   m_IsInfected: 0
   m_HasMount: 0
+  playerController_: {fileID: 0}
 --- !u!114 &11446774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7147,7 +7148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7629e858c9ed9d14a82b3ac9a4b8776c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_DataCollection: {fileID: 0}
   m_Names: []
+  m_ItemBought: 
 --- !u!114 &11446876
 MonoBehaviour:
   m_ObjectHideFlags: 1
