@@ -79,6 +79,7 @@ GameObject:
   - 224: {fileID: 22406862}
   - 222: {fileID: 22206862}
   - 114: {fileID: 11406858}
+  - 114: {fileID: 11455500}
   m_Layer: 5
   m_Name: InventoryUI
   m_TagString: Untagged
@@ -3554,6 +3555,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11455500
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c464a6c2ca54d554bbfb4b5443147f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransitionSpeedMultiplier: 4
 --- !u!114 &11470764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5966,6 +5979,7 @@ MonoBehaviour:
   m_ShillingText: {fileID: 11499422}
   m_BuildingHovered: {fileID: 11448990}
   m_StatsTransitionDisplay: {fileID: 11435888}
+  m_InventoryTransitionDisplay: {fileID: 11455500}
   m_BuildingButtonPrefab: {fileID: 132992, guid: 513310f856af77d48bcea7584ae754fe,
     type: 2}
   m_BuildingMenuScrollMask: {fileID: 186368}

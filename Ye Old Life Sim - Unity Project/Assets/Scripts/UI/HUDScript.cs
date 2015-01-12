@@ -22,12 +22,15 @@ public class HUDScript : MonoBehaviour
     public Text m_ShillingText; //The player's current shillings
     public Text m_BuildingHovered; //The building the player is currently hovering
     public TransitionDisplay m_StatsTransitionDisplay;
+    public TransitionDisplay m_InventoryTransitionDisplay;
     public GameObject m_BuildingButtonPrefab; //Prefab for the Building buttons to Instantiate later
     public GameObject m_BuildingMenuScrollMask; //Gameobject that is to have the item information as a parent to allow for scrolling
     public TransitionOut m_TransOutBuilding;
 
     private bool statsActive_ = false; //This bool determines whether or not the the stats window is open
     private bool inventoryActive_ = false; //This bool determines whether or not the inventory is currently open
+    private bool consumableActive_ = false; //This bool determines whether or not the consumable inventory is currently open
+    private bool possessionActive_ = false; //This bool determines whether or not the possession inventory is currently open
     private bool HUDActive_ = false; //This bool determines whether any HUD elements are active
     private bool wasHighlighted_ = false;
     private bool objectivesSetUp_ = false;
@@ -147,6 +150,9 @@ public class HUDScript : MonoBehaviour
             HUDActive_ = false;
         }
 
+        consumableActive_ = GetComponent<InventoryUI>().InventoryActive;
+        possessionActive_ = GetComponent<PossessioninventoryUI>().InventoryActive;
+
         timeSlider_.value = m_PlayerData.m_CurrTime;
         hungerSlider_.value = m_PlayerData.m_HungerMeter;
 
@@ -160,6 +166,19 @@ public class HUDScript : MonoBehaviour
         if(m_PlayerData.m_Job != null)
         {
             m_CurrJobText.text = m_PlayerData.m_Job.name;
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            CloseCurrentMenu();
+        }
+        else if (Input.GetKey(KeyCode.B) || Input.GetKey(KeyCode.I))
+        {
+            OpenInventoryMenu();
+        }
+        else if (Input.GetKey(KeyCode.C))
+        {
+            OpenStatsMenu();
         }
 
         buildingHoverRay_ = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -196,7 +215,10 @@ public class HUDScript : MonoBehaviour
 
     public void OpenInventoryMenu()
     {
+        m_InventoryTransitionDisplay.PrepareForFadeIn();
         m_InventoryPanel.SetActive(true);
+        inventoryActive_ = true;
+        m_InventoryTransitionDisplay.FadeIn();
     }
 
     public void CloseInventoryMenu()
@@ -258,10 +280,40 @@ public class HUDScript : MonoBehaviour
         happyObjSlider_.value = m_PlayerData.m_Happiness;
     }
 
-    void OnMouseOver()
+    public void CloseCurrentMenu()
     {
-
+        m_CloseMenu.Play();
+        if(statsActive_)
+        {
+            statsActive_ = false;
+            m_StatsTransitionDisplay.FadeOut(null);
+        }
+        else if (inventoryActive_)
+        {
+            if (consumableActive_)
+            {
+                GetComponent<InventoryUI>().CloseInventory();
+            }
+            else if(possessionActive_)
+            {
+                GetComponent<PossessioninventoryUI>().CloseInventory();
+            }
+            else
+            {
+                
+                inventoryActive_ = false;
+                m_PlayerController.enabled = true;
+                m_InventoryPanel.SetActive(false);
+                m_InventoryTransitionDisplay.FadeOut(delegate { cleanupInvMenu(); });
+            }
+        }
+        else if(GetComponent<BuildingUI>().BuildingUIActive)
+        {
+            GetComponent<BuildingUI>().CloseCurrentMenu();
+        }
     }
+
+    void cleanupInvMenu(){} //This does nothing, but is required for fading out the inventory
 
     public void OpenBuildingsList()
     {
