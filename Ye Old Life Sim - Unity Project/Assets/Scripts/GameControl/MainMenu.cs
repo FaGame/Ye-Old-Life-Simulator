@@ -4,10 +4,11 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+  
     public void StartNewGame()
     {
         Debug.Log("Load New Game");
-        Application.LoadLevel("GameMenu");
+        Application.LoadLevel("NewGameMenu");
     }
 
     public void LoadGame()

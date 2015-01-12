@@ -5,11 +5,11 @@ public class GameMenuCam : MonoBehaviour {
 
     public Camera m_mainCamera;
 
-   // private Vector3 camPosition_;
+   
 	// Use this for initialization
 	void Start () 
     {
-        //camPosition_ = m_mainCamera.transform.position;
+       
 	}
 	
 	// Update is called once per frame
