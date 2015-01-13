@@ -60,10 +60,6 @@ public class GameMenu : MonoBehaviour
         SetPanelTexts();
         SetGameType();
         SetPlayerBools();
-
-        //TESTING PURPOSES, TO BE DELETED
-        Debug.Log(m_isPlayable1 + " Playable1");
-        Debug.Log(m_isPlayable2 + " Playable2");
     }
 
     void SetValues()
