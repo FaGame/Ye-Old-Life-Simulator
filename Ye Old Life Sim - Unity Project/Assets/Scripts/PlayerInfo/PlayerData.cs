@@ -99,7 +99,7 @@ public class PlayerData : MonoBehaviour
     {
         gameObject.SetActive(true);
         m_IsDead = false;
-        //StartAtHome();
+
         //loop through the player's inventory and find objects with the food script
         if(m_UseableInventory.m_UseableItemInventory != null)
         {
@@ -117,7 +117,7 @@ public class PlayerData : MonoBehaviour
         //calculate the curr time 
         //Temp commented out since we dont have those penalties set up yet
         m_CurrTime = m_MaxTime; //- m_Home.CalculateHomePenalty() - m_FoodPenalty;
-
+        StartAtHome();
         UpdatePlayerInfectedStatus(m_InfectedParticle);         //checks to see if the player is infected or not
     }
 
