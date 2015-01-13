@@ -56,6 +56,11 @@ public class TransitionDisplay : MonoBehaviour
         kickoffTransitionGUI(true);
     }
 
+    public bool IsTransitioning()
+    {
+        return isIransitioning_;
+    }
+
     /*void OnDisable()
     {
         if(initialDisable_)

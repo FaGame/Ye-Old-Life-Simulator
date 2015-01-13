@@ -65,21 +65,22 @@ public class PlayerController : MonoBehaviour
 
         Ray pickingRay = mCamera.ScreenPointToRay(Input.mousePosition);
 
-        RaycastHit rayData;
+        //RaycastHit rayData;
 
-        if (Input.GetMouseButtonUp(0))
+        RaycastHit hitInfo = new RaycastHit();
+        bool hit = Physics.Raycast(pickingRay, out hitInfo);
+
+        if (Input.GetMouseButtonUp(0) && hit)
         {
-            if (transform != null)
+            /*if (transform != null)
             {
                 int layerMask = LayerMask.GetMask("Terrain");
                 Physics.Raycast(pickingRay, out rayData, 3000.0f, layerMask);
                 //SetTarget(rayData.point);
-            }
+            }*/
 
-            RaycastHit hitInfo = new RaycastHit();
-            bool hit = Physics.Raycast(pickingRay, out hitInfo);
-            if (hit)
-            {
+            //if (hit)
+            //{
 				m_WaypointObject = hitInfo.transform.gameObject;
                 if (m_WaypointObject.tag == "Building")
                 {
@@ -87,7 +88,7 @@ public class PlayerController : MonoBehaviour
                     GotoBuilding(m_WaypointObject);
                     m_PlayerData.ReopenMenu(hitInfo.transform.gameObject);
                 }
-            }
+            //}
         }
 
         DecreaseTime();
