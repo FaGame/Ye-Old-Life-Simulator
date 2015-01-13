@@ -78,7 +78,7 @@ public class DataCollection : MonoBehaviour
 
     public void AddItemUsed()
     {
-        ItemUsed_.Add(m_UIB.m_ItemUsed);
+        ItemUsed_.Add(m_UII.m_ItemUsed);
     }
 
     public void AddItemBought()

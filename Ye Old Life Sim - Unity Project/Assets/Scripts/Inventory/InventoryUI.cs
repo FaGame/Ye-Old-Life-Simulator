@@ -52,6 +52,9 @@ public class InventoryUI : MonoBehaviour
                 {
                     GameObject go = (GameObject)Instantiate(m_InventoryButtonPrefab, new Vector3(0.0f, startYPos, 0.0f), Quaternion.identity);
                     go.gameObject.transform.SetParent(m_InventoryScrollMask.transform, false);
+                    go.name = currentItem.Key;
+                    Button button = go.GetComponentInChildren<Button>();
+                    button.onClick.AddListener(delegate { inventoryScript.UseItem(m_PlayerController.m_PlayerData, go.name); });
                     startYPos -= subMenuYOffset_;
                     numChildren_++;
 

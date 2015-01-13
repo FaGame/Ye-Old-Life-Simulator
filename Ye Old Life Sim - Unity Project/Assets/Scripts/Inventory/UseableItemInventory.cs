@@ -12,6 +12,7 @@ public class UseableItemInventory : MonoBehaviour
     //used for inspector use, place your items in here
     //public ItemInventoryEntry[] m_InspectorInventory;
     public string m_ItemBought;
+    public string m_ItemUsed;
 
     public Dictionary<string, Item.ItemInventoryEntry> m_UseableItemInventory;
 
@@ -47,7 +48,7 @@ public class UseableItemInventory : MonoBehaviour
             m_UseableItemInventory[name] = item;
 
             m_ItemBought = name;
-            m_DataCollection.AddItemBought();
+            //m_DataCollection.AddItemBought();
         }
     }
 
@@ -63,6 +64,23 @@ public class UseableItemInventory : MonoBehaviour
             if(item.count <= 0)
             {
                 m_UseableItemInventory.Remove(name);
+            }
+        }
+    }
+
+    public void UseItem(PlayerData playerData, string usedItem)
+    {
+        foreach (KeyValuePair<string, Item.ItemInventoryEntry> currentItem in m_UseableItemInventory)
+        {
+            if (currentItem.Key == usedItem)
+            {
+                currentItem.Value.item.UseItem(playerData);
+                //////////////////////////////////////////////////////////
+                m_ItemUsed = usedItem;
+                //m_DataCollection.AddItemUsed();
+                //////////////////////////////////////////////////////////
+                RemoveFromInventory(currentItem.Key);
+                break;
             }
         }
     }
