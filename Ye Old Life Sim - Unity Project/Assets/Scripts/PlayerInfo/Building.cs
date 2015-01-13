@@ -15,6 +15,7 @@ public class Building : MonoBehaviour
     public bool m_PlayerWorksHere;
     public BuildingUI m_BuildingUI;
     public float m_MouseEnterExitJitter = 0.01f;
+    public GameManager m_GameManager;
 
     private bool isHighlighted_;
     private Renderer[] renderers_;
@@ -58,7 +59,18 @@ public class Building : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-	
+        if (m_GameManager.AITurn)
+        {
+            m_Player = m_GameManager.m_AIData;
+        }
+        else if (m_GameManager.PlayerTurn)
+        {
+            m_Player = m_GameManager.m_PlayerData;
+        }
+        else if (m_GameManager.PlayerTwoTurn)
+        {
+            m_Player = m_GameManager.m_PlayerTwoData;
+        } 
 	}
 
     public float Work(PlayerData pData, JobData jData)

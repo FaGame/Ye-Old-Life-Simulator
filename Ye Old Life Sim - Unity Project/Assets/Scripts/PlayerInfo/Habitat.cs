@@ -6,6 +6,7 @@ public class Habitat : MonoBehaviour
 {
     public float m_Rent = 0.0f;
     public string[] m_Description;
+    public GameManager m_GameManager;
 
     public HabitatUI m_HabitatUI;
 
@@ -31,6 +32,23 @@ public class Habitat : MonoBehaviour
             //originalColours_.Add(renderers_[i].renderer.material.color);        
         }
     }
+
+    void Update()
+    {
+        if (m_GameManager.AITurn)
+        {
+            m_PlayerData = m_GameManager.m_AIData;
+        }
+        else if (m_GameManager.PlayerTurn)
+        {
+            m_PlayerData = m_GameManager.m_PlayerData;
+        }
+        else if (m_GameManager.PlayerTwoTurn)
+        {
+            m_PlayerData = m_GameManager.m_PlayerTwoData;
+        } 
+    }
+
     public enum BuildingRating
     {
         NOSTAR = 0,

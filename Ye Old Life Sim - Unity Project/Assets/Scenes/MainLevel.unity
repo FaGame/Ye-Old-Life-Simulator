@@ -432,6 +432,7 @@ MonoBehaviour:
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
+  m_GameManager: {fileID: 1405834717}
   m_buildingEnum: 0
 --- !u!1 &4484995
 GameObject:
@@ -4255,6 +4256,7 @@ MonoBehaviour:
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
+  m_GameManager: {fileID: 1405834717}
   m_buildingEnum: 0
 --- !u!1 &97344944
 GameObject:
@@ -18087,6 +18089,7 @@ MonoBehaviour:
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
+  m_GameManager: {fileID: 1405834717}
   m_buildingEnum: 0
 --- !u!1 &330691011
 GameObject:
@@ -25865,6 +25868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Rent: 0
   m_Description: []
+  m_GameManager: {fileID: 1405834717}
   m_HabitatUI: {fileID: 0}
   m_PlayerData: {fileID: 0}
   m_Rating: 0
@@ -27124,6 +27128,10 @@ Prefab:
       propertyPath: m_Player
       value: 
       objectReference: {fileID: 1487191708}
+    - target: {fileID: 11477790, guid: 32c61f09b3e987043affb162e26715dd, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 32c61f09b3e987043affb162e26715dd, type: 2}
   m_RootGameObject: {fileID: 1031574682}
@@ -27333,6 +27341,10 @@ Prefab:
       propertyPath: m_BuildingUI
       value: 
       objectReference: {fileID: 1583590505}
+    - target: {fileID: 11406220, guid: 176e9567a78663649ad2568dcb7fb103, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 176e9567a78663649ad2568dcb7fb103, type: 2}
   m_RootGameObject: {fileID: 325446999}
@@ -28184,6 +28196,10 @@ Prefab:
       propertyPath: m_PlayerData
       value: 
       objectReference: {fileID: 1487191708}
+    - target: {fileID: 11444778, guid: c8ee3036686b99648aed1fa8348ea5d2, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c8ee3036686b99648aed1fa8348ea5d2, type: 2}
   m_RootGameObject: {fileID: 1845238880}
@@ -33527,6 +33543,7 @@ MonoBehaviour:
   m_Rent: 10
   m_Description:
   - Now you have 4 walls
+  m_GameManager: {fileID: 1405834717}
   m_HabitatUI: {fileID: 1583590507}
   m_PlayerData: {fileID: 1487191708}
   m_Rating: 2
@@ -36179,6 +36196,10 @@ Prefab:
       propertyPath: m_BuildingUI
       value: 
       objectReference: {fileID: 1583590505}
+    - target: {fileID: 11497518, guid: 11cd69f5f7fba1f4085a72d8bdac0749, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11cd69f5f7fba1f4085a72d8bdac0749, type: 2}
   m_RootGameObject: {fileID: 95808640}
@@ -37178,6 +37199,7 @@ MonoBehaviour:
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
+  m_GameManager: {fileID: 1405834717}
   m_buildingEnum: 0
 --- !u!1 &682998399
 GameObject:
@@ -39785,6 +39807,10 @@ Prefab:
       propertyPath: m_Player
       value: 
       objectReference: {fileID: 1487191708}
+    - target: {fileID: 11429158, guid: 71760ee2535f2144cb813b7601ee9379, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71760ee2535f2144cb813b7601ee9379, type: 2}
   m_RootGameObject: {fileID: 1892322504}
@@ -41188,6 +41214,10 @@ Prefab:
       propertyPath: m_Player
       value: 
       objectReference: {fileID: 1487191708}
+    - target: {fileID: 11412794, guid: af6f129a2806bb742902794a9efc8643, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: af6f129a2806bb742902794a9efc8643, type: 2}
   m_RootGameObject: {fileID: 1680139984}
@@ -43877,6 +43907,10 @@ Prefab:
       propertyPath: m_Player
       value: 
       objectReference: {fileID: 1487191708}
+    - target: {fileID: 11406760, guid: 51afd7274b17af548a7f12550713b016, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51afd7274b17af548a7f12550713b016, type: 2}
   m_RootGameObject: {fileID: 1903289239}
@@ -48844,6 +48878,7 @@ MonoBehaviour:
   m_Rent: 25
   m_Description:
   - Moving up in the world
+  m_GameManager: {fileID: 1405834717}
   m_HabitatUI: {fileID: 1583590507}
   m_PlayerData: {fileID: 1487191708}
   m_Rating: 3
@@ -51672,6 +51707,18 @@ Prefab:
       propertyPath: mblackSmithWaypoint
       value: 
       objectReference: {fileID: 652205177}
+    - target: {fileID: 11471848, guid: c76e9c270ea67cf49a60d56399986c34, type: 2}
+      propertyPath: playerController_
+      value: 
+      objectReference: {fileID: 1829319477}
+    - target: {fileID: 11471848, guid: c76e9c270ea67cf49a60d56399986c34, type: 2}
+      propertyPath: m_UseableInventory
+      value: 
+      objectReference: {fileID: 1829319482}
+    - target: {fileID: 11471848, guid: c76e9c270ea67cf49a60d56399986c34, type: 2}
+      propertyPath: m_PossessionInventory
+      value: 
+      objectReference: {fileID: 1829319481}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c76e9c270ea67cf49a60d56399986c34, type: 2}
   m_RootGameObject: {fileID: 1829319471}
@@ -54289,6 +54336,7 @@ MonoBehaviour:
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
+  m_GameManager: {fileID: 1405834717}
   m_buildingEnum: 0
 --- !u!1001 &1003996855
 Prefab:
@@ -55374,6 +55422,7 @@ MonoBehaviour:
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
+  m_GameManager: {fileID: 1405834717}
   m_buildingEnum: 0
 --- !u!1 &1031698126
 GameObject:
@@ -56596,6 +56645,7 @@ MonoBehaviour:
   m_CentreTarget: {fileID: 1935396910}
   m_YOffset: 26.2000008
   m_Distance: 12.5
+  m_GameManager: {fileID: 1405834717}
 --- !u!114 &1052255811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60124,6 +60174,10 @@ Prefab:
       propertyPath: m_BuildingUI
       value: 
       objectReference: {fileID: 1583590505}
+    - target: {fileID: 11420552, guid: 752f02e1739363a46b334ecfdbab3c1a, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 752f02e1739363a46b334ecfdbab3c1a, type: 2}
   m_RootGameObject: {fileID: 1622630554}
@@ -62551,6 +62605,10 @@ Prefab:
       propertyPath: m_PlayerData
       value: 
       objectReference: {fileID: 1487191708}
+    - target: {fileID: 11475420, guid: 2d6d02d6b82350747a0a4834dd83e8da, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d6d02d6b82350747a0a4834dd83e8da, type: 2}
   m_RootGameObject: {fileID: 604814485}
@@ -70458,6 +70516,10 @@ Prefab:
       propertyPath: m_BuildingUI
       value: 
       objectReference: {fileID: 1583590505}
+    - target: {fileID: 11465762, guid: 2380413f7f202da4cbd13f473c96ea3f, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2380413f7f202da4cbd13f473c96ea3f, type: 2}
   m_RootGameObject: {fileID: 681880992}
@@ -74701,6 +74763,10 @@ Prefab:
       propertyPath: m_BuildingUI
       value: 
       objectReference: {fileID: 1583590505}
+    - target: {fileID: 11440680, guid: 4b014ae9cbd393345b465596219441f9, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b014ae9cbd393345b465596219441f9, type: 2}
   m_RootGameObject: {fileID: 2597161}
@@ -77854,6 +77920,10 @@ Prefab:
       propertyPath: m_PlayerData
       value: 
       objectReference: {fileID: 1487191708}
+    - target: {fileID: 11448900, guid: 31b4d82d32a1edd4aad026da6f1bc573, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31b4d82d32a1edd4aad026da6f1bc573, type: 2}
   m_RootGameObject: {fileID: 1888863770}
@@ -80113,6 +80183,10 @@ Prefab:
       propertyPath: m_Player
       value: 
       objectReference: {fileID: 1487191708}
+    - target: {fileID: 11487954, guid: 363a71c42054a5c49ab49c95262f5d15, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 363a71c42054a5c49ab49c95262f5d15, type: 2}
   m_RootGameObject: {fileID: 2056549098}
@@ -89399,6 +89473,7 @@ MonoBehaviour:
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
+  m_GameManager: {fileID: 1405834717}
   m_buildingEnum: 0
 --- !u!1001 &1624714020
 Prefab:
@@ -90022,6 +90097,10 @@ Prefab:
       propertyPath: m_PlayerData
       value: 
       objectReference: {fileID: 1487191708}
+    - target: {fileID: 11418454, guid: 07a4ec62a6780e149ae107b931ad3c38, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07a4ec62a6780e149ae107b931ad3c38, type: 2}
   m_RootGameObject: {fileID: 898228379}
@@ -91861,6 +91940,7 @@ MonoBehaviour:
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
+  m_GameManager: {fileID: 1405834717}
   m_buildingEnum: 0
 --- !u!1 &1684184500
 GameObject:
@@ -97849,6 +97929,10 @@ Prefab:
       propertyPath: m_BuildingUI
       value: 
       objectReference: {fileID: 1583590505}
+    - target: {fileID: 11492000, guid: 379865126d225134eb7aac19dd4b327b, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 379865126d225134eb7aac19dd4b327b, type: 2}
   m_RootGameObject: {fileID: 1003569826}
@@ -100682,6 +100766,10 @@ Prefab:
       propertyPath: m_Player
       value: 
       objectReference: {fileID: 1487191708}
+    - target: {fileID: 11435632, guid: 9dfe4285361da0b4f993abca79679e75, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9dfe4285361da0b4f993abca79679e75, type: 2}
   m_RootGameObject: {fileID: 2120276817}
@@ -100980,6 +101068,8 @@ GameObject:
   - 82: {fileID: 1829319476}
   - 54: {fileID: 1829319475}
   - 65: {fileID: 1829319474}
+  - 114: {fileID: 1829319482}
+  - 114: {fileID: 1829319481}
   m_Layer: 0
   m_Name: Player Two
   m_TagString: Untagged
@@ -101009,8 +101099,8 @@ MonoBehaviour:
   m_Opponent: {fileID: 1487191708}
   m_InfectedParticle: {fileID: 662859782}
   m_StatusEffects: []
-  m_UseableInventory: {fileID: 0}
-  m_PossessionInventory: {fileID: 0}
+  m_UseableInventory: {fileID: 1829319482}
+  m_PossessionInventory: {fileID: 1829319481}
   m_MaxHappiness: 0
   m_MaxReputation: 0
   m_MaxShillings: 0
@@ -101033,7 +101123,7 @@ MonoBehaviour:
   m_IsDead: 1
   m_IsInfected: 0
   m_HasMount: 0
-  playerController_: {fileID: 0}
+  playerController_: {fileID: 1829319477}
 --- !u!4 &1829319473
 Transform:
   m_ObjectHideFlags: 0
@@ -101212,6 +101302,32 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1829319481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1829319471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af51421cee10294bb1316373fb7dc9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Names: []
+--- !u!114 &1829319482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1829319471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7629e858c9ed9d14a82b3ac9a4b8776c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DataCollection: {fileID: 0}
+  m_Names: []
+  m_ItemBought: 
 --- !u!1 &1829891244
 GameObject:
   m_ObjectHideFlags: 0
@@ -101527,6 +101643,7 @@ MonoBehaviour:
   m_Rent: 5
   m_Description:
   - It will keep you dry, mostly!
+  m_GameManager: {fileID: 1405834717}
   m_HabitatUI: {fileID: 1583590507}
   m_PlayerData: {fileID: 1487191708}
   m_Rating: 1
@@ -103821,6 +103938,10 @@ Prefab:
       propertyPath: m_PlayerData
       value: 
       objectReference: {fileID: 1487191708}
+    - target: {fileID: 11455452, guid: 8379e61003183b547b4625113fa1b050, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8379e61003183b547b4625113fa1b050, type: 2}
   m_RootGameObject: {fileID: 1955591035}
@@ -104226,6 +104347,7 @@ MonoBehaviour:
   m_Rent: 100
   m_Description:
   - You have finally made it!
+  m_GameManager: {fileID: 1405834717}
   m_HabitatUI: {fileID: 1583590507}
   m_PlayerData: {fileID: 1487191708}
   m_Rating: 5
@@ -104454,6 +104576,7 @@ MonoBehaviour:
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
+  m_GameManager: {fileID: 1405834717}
   m_buildingEnum: 0
 --- !u!1001 &1894173015
 Prefab:
@@ -104896,6 +105019,7 @@ MonoBehaviour:
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
+  m_GameManager: {fileID: 1405834717}
   m_buildingEnum: 0
 --- !u!1 &1904031922
 GameObject:
@@ -109264,6 +109388,7 @@ MonoBehaviour:
   m_Rent: 50
   m_Description:
   - Finally space of your own, sort of
+  m_GameManager: {fileID: 1405834717}
   m_HabitatUI: {fileID: 1583590507}
   m_PlayerData: {fileID: 1487191708}
   m_Rating: 4
@@ -111743,6 +111868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Rent: 0
   m_Description: []
+  m_GameManager: {fileID: 0}
   m_HabitatUI: {fileID: 0}
   m_PlayerData: {fileID: 0}
   m_Rating: 0
@@ -113891,6 +114017,7 @@ MonoBehaviour:
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
+  m_GameManager: {fileID: 1405834717}
   m_buildingEnum: 0
 --- !u!1001 &2057324162
 Prefab:
@@ -116908,6 +117035,7 @@ MonoBehaviour:
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
+  m_GameManager: {fileID: 1405834717}
   m_buildingEnum: 0
 --- !u!1 &2120396144
 GameObject:

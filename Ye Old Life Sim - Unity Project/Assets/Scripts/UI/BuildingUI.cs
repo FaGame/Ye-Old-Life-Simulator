@@ -106,6 +106,10 @@ public class BuildingUI : MonoBehaviour
         {
             m_PlayerData = m_GameManager.m_PlayerData;
         }
+        else if (m_GameManager.PlayerTwoTurn)
+        {
+            m_PlayerData = m_GameManager.m_PlayerTwoData;
+        } 
 
         if(selectedBuilding_ != null)
         {

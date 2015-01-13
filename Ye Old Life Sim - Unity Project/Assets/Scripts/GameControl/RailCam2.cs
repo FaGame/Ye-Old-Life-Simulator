@@ -7,9 +7,25 @@ public class RailCam2 : MonoBehaviour
     public Transform m_CentreTarget;
     public float m_YOffset;
     public float m_Distance;
+    public GameManager m_GameManager;
 
     private float Zero_ = 0.0f;
-   
+
+    void Update()
+    {
+        if (m_GameManager.AITurn)
+        {
+            m_Target = GameObject.Find("Player Two").transform;
+        }
+        else if (m_GameManager.PlayerTurn)
+        {
+            m_Target = GameObject.Find("Char_2").transform;
+        }
+        else if (m_GameManager.PlayerTwoTurn)
+        {
+            m_Target = GameObject.Find("Player Two").transform;
+        }
+    }
 
     void LateUpdate()
     {
