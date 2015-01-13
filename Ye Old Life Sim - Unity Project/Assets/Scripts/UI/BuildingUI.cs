@@ -57,6 +57,8 @@ public class BuildingUI : MonoBehaviour
     private Vector3 applyMenuInitialPos_;
     private Vector3 buyMenuInitialPos_;
     private bool timerRunning_;
+    private BuildingList bList_;
+    private int buildingNumber_;
     //private bool transitionToVisible_;
     //private bool isIransitioning_;
     //private float transitionAlpha_;
@@ -86,7 +88,9 @@ public class BuildingUI : MonoBehaviour
         m_JobNotification.enabled = false;
         timerRunning_ = false;
 
-        
+        bList_ = Camera.main.GetComponent<BuildingList>();
+        buildingNumber_ = bList_.GetBuildingNumber(gameObject.name);
+
        //transitionToVisible_ = false;
         //isIransitioning_ = false;
 	}
