@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class HabitatUI : MonoBehaviour 
 {
+    public AudioSource m_CloseMenu;
     public GameObject m_HabitatGUI;
     public Button m_RentButton;
     public Text m_RentValue;//the cost of current dwelling
@@ -113,6 +114,7 @@ public class HabitatUI : MonoBehaviour
 
     public void CloseCurrentUI()
     {
+        m_CloseMenu.Play();
         habitatIsActive_ = false;
         m_TransitionDisplay.FadeOut(null);
         playerController_.enabled = true;
