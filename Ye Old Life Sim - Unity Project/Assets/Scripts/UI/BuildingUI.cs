@@ -47,6 +47,7 @@ public class BuildingUI : MonoBehaviour
     private Text[] applyMenuText_; //Array of text for the Apply For Job Menu
     private Text[] buyMenuText_; //Array of text for the Buy Items Menu
     private Text[] interactText_;
+    private Text buildingNameText_; //Text element for the building name
     private Text descriptionText_; //Building description text - the funny quip at the top of the building UI
     private Text resultsText_; //Results description text - results of your work
     private Text m_GotJob;
@@ -75,8 +76,9 @@ public class BuildingUI : MonoBehaviour
         applyMenuInitialPos_ = m_ApplyMenuScrollMask.transform.position;
         buyMenuInitialPos_ = m_BuyMenuScrollMask.transform.position;
 
-        descriptionText_ = buildingMenuText_[0];
-        resultsText_ = buildingMenuText_[1];
+        buildingNameText_ = buildingMenuText_[0];
+        descriptionText_ = buildingMenuText_[1];
+        resultsText_ = buildingMenuText_[2];
         m_BuildingGUI.SetActive(false);
         m_BuyMenu.SetActive(false);
         m_InteractMenu.SetActive(false);
@@ -203,6 +205,7 @@ public class BuildingUI : MonoBehaviour
         m_CurrBuildingEnum = selectedBuilding_.GetComponent<Building>().m_buildingEnum;
         m_DataCollection.AddBuildings();
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        buildingNameText_.text = selectedBuilding_.GetComponent<Building>().name;
         descriptionText_.text = selectedBuilding_.GetComponent<Building>().GetDescription();
 
         if(selectedBuilding_.GetComponent<Building>().m_PlayerWorksHere)
@@ -284,9 +287,9 @@ public class BuildingUI : MonoBehaviour
         int j = 0;
         for(int i = 0; i < selectedBuilding_.GetComponent<Building>().m_Items.Length * 2; i += 2)
         {
-            buyMenuText_[i].font = m_CustomFont;
-            buyMenuText_[i].text = selectedBuilding_.GetComponent<Building>().m_Items[j].name;
-            buyMenuText_[i + 1].text = selectedBuilding_.GetComponent<Building>().m_Items[j].GetDescription();
+            buyMenuText_[i + 1].font = m_CustomFont;
+            buyMenuText_[i + 1].text = selectedBuilding_.GetComponent<Building>().m_Items[j].name;
+            buyMenuText_[i + 2].text = selectedBuilding_.GetComponent<Building>().m_Items[j].GetDescription();
             j++;
         }
         m_BuyItemsTransitionDisplay.FadeIn();
@@ -331,9 +334,9 @@ public class BuildingUI : MonoBehaviour
             int j = 0;
             for (int i = 0; i < selectedBuilding_.GetComponent<Building>().m_SpecialEffects.Length * 2; i += 2)
             {
-                interactText_[i].text = selectedBuilding_.GetComponent<Building>().m_SpecialEffects[j].name;
+                interactText_[i + 1].text = selectedBuilding_.GetComponent<Building>().m_SpecialEffects[j].name;
                 //m_InteractMenuText[i + 1].text = selectedBuilding_.GetComponent<Building>().m_SpecialEffects[j].
-                interactText_[i + 1].text = "Temp string";
+                interactText_[i + 2].text = "Temp string";
                 j++;
             }
             m_InteractTransitionDisplay.FadeIn();
@@ -342,10 +345,10 @@ public class BuildingUI : MonoBehaviour
 
     public void InteractWithUniversity()
     {
-        int row = 2;
+        int row = 3;
         int it = 0;
         float startYPos = 150.0f;      
-        float defaultXPos = -200.0f;
+        float defaultXPos = -300.0f;
         float startXPos = defaultXPos;
 
         //m_InteractMenu.SetActive(true);
@@ -375,6 +378,7 @@ public class BuildingUI : MonoBehaviour
         }
 
         interactText_ = m_InteractMenu.GetComponentsInChildren<Text>();
+        interactText_[0].text = "Training";
 
         foreach (Skill.Skills skill in Enum.GetValues(typeof(Skill.Skills)))
         { 
@@ -383,7 +387,7 @@ public class BuildingUI : MonoBehaviour
                 //leave once the skill is at the number of skills in the enum 
                 break;
             }
-            interactText_[(int)skill].text = skill.ToString();       
+            interactText_[(int)skill + 1].text = skill.ToString();       
         }
         m_InteractTransitionDisplay.FadeIn();
     }
@@ -428,26 +432,26 @@ public class BuildingUI : MonoBehaviour
         int k = 0;
         for (int i = 0; i < selectedBuilding_.GetComponent<Building>().m_JobData.Length * 3; i += 3)
         {
-            applyMenuText_[i].font = m_CustomFont;
-            applyMenuText_[i].text = selectedBuilding_.GetComponent<Building>().m_JobData[j].name;
-            applyMenuText_[i + 1].text = selectedBuilding_.GetComponent<Building>().m_JobData[j].m_JobDescription;
+            applyMenuText_[i + 1].font = m_CustomFont;
+            applyMenuText_[i + 1].text = selectedBuilding_.GetComponent<Building>().m_JobData[j].name;
+            applyMenuText_[i + 2].text = selectedBuilding_.GetComponent<Building>().m_JobData[j].m_JobDescription;
             
             if (selectedBuilding_.GetComponent<Building>().m_JobData[j].m_SkillGain.Length == 3)
             {
-                applyMenuText_[i + 2].text = selectedBuilding_.GetComponent<Building>().m_JobData[j].m_Wage.ToString() + " shilling(s) and " +
+                applyMenuText_[i + 3].text = selectedBuilding_.GetComponent<Building>().m_JobData[j].m_Wage.ToString() + " shilling(s) and " +
                 selectedBuilding_.GetComponent<Building>().m_JobData[j].m_SkillGain[k].m_Amount.ToString() + " point(s) in " + selectedBuilding_.GetComponent<Building>().m_JobData[j].m_SkillGain[k].m_Skill.ToString() + ", " +
                 selectedBuilding_.GetComponent<Building>().m_JobData[j].m_SkillGain[k + 1].m_Amount.ToString() + " point(s) in " + selectedBuilding_.GetComponent<Building>().m_JobData[j].m_SkillGain[k + 1].m_Skill.ToString() + "\nand " +
                 selectedBuilding_.GetComponent<Building>().m_JobData[j].m_SkillGain[k + 2].m_Amount.ToString() + " point(s) in " + selectedBuilding_.GetComponent<Building>().m_JobData[j].m_SkillGain[k + 2].m_Skill.ToString() + ".";
             }
             else if (selectedBuilding_.GetComponent<Building>().m_JobData[j].m_SkillGain.Length == 2)
             {
-                applyMenuText_[i + 2].text = selectedBuilding_.GetComponent<Building>().m_JobData[j].m_Wage.ToString() + " shilling(s) and " +
+                applyMenuText_[i + 3].text = selectedBuilding_.GetComponent<Building>().m_JobData[j].m_Wage.ToString() + " shilling(s) and " +
                 selectedBuilding_.GetComponent<Building>().m_JobData[j].m_SkillGain[k].m_Amount.ToString() + " point(s) in " + selectedBuilding_.GetComponent<Building>().m_JobData[j].m_SkillGain[k].m_Skill.ToString() + " and " +
                 selectedBuilding_.GetComponent<Building>().m_JobData[j].m_SkillGain[k + 1].m_Amount.ToString() + " point(s) in " + selectedBuilding_.GetComponent<Building>().m_JobData[j].m_SkillGain[k + 1].m_Skill.ToString() + ".";
             }
             else
             {
-                applyMenuText_[i + 2].text = selectedBuilding_.GetComponent<Building>().m_JobData[j].m_Wage.ToString() + " shilling(s) and " +
+                applyMenuText_[i + 3].text = selectedBuilding_.GetComponent<Building>().m_JobData[j].m_Wage.ToString() + " shilling(s) and " +
                 selectedBuilding_.GetComponent<Building>().m_JobData[j].m_SkillGain[k].m_Amount.ToString() + " point(s) in " + selectedBuilding_.GetComponent<Building>().m_JobData[j].m_SkillGain[k].m_Skill.ToString() + ".";
             }
             j++;
