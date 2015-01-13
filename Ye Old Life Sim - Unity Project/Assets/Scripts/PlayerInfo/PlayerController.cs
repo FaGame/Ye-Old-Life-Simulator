@@ -95,9 +95,9 @@ public class PlayerController : MonoBehaviour
 
             //if (hit)
             //{
-				m_WaypointObject = hitInfo.transform.gameObject;
-                if (m_WaypointObject.tag == "Building")
+            if (hitInfo.transform.gameObject.tag == "Building")
                 {
+                    m_WaypointObject = hitInfo.transform.gameObject;
                     Debug.Log("It's working!");
                     GotoBuilding(m_WaypointObject);
                     m_PlayerData.ReopenMenu(hitInfo.transform.gameObject);
@@ -133,6 +133,7 @@ public class PlayerController : MonoBehaviour
             if (tForm.CompareTag("Waypoint"))
             {
                 Debug.Log("Found the waypoint.");
+                m_WaypointObject = goHere;
                 SetTarget(tForm.position);
                 break;
             }
