@@ -125,6 +125,8 @@ public class ProjectM : MonoBehaviour
             hbt.enabled = false;
         }
 
+        gObj.collider.enabled = false;
+
         Transform[] posEs = gObj.GetComponentsInChildren<Transform>();
         foreach (Transform tForm in posEs)
         {
