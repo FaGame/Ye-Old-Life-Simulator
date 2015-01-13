@@ -26,12 +26,31 @@ public class Elixir : Item
     {
         string retval = "";
 
-        if(m_PlayerSpeedModifier == 0)
+        if (m_PlayerSpeedModifier < 1.0f)
         {
-            retval = "";
+            retval += "Things are going to slow down.";
+        }
+        else if(m_PlayerSpeedModifier > 1.0f)
+        {
+            retval += "Prepare ship for ludicrous speed!";
         }
 
-        return ""; 
+        if(m_PlayerTimeEarningsScalar > 1.0f)
+        {
+            retval += "Procrastination locked for 5 turns.";
+        }
+
+        if(m_EnemyEarningModifier < 1.0f)
+        {
+            retval += "Opponent's procrastination on max!";
+        }
+
+        if(m_EnemySpeedModifier < 1.0f)
+        {
+            retval += "Opponent finds a buffet! Obesity slows him down!";
+        }
+
+        return retval; 
     }
 
     void Start()

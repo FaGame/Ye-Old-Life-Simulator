@@ -58,10 +58,12 @@ public class Food : Item
     public float MORE_HUNGER = 40;
     public float MEDIOCRE_HUNGER = 20;
     public float LITTLE_HUNGER = 5;
+    public float NO_HUNGER = 0;
 
     public float MORE_HAPPINESS = 40;
     public float MEDIOCRE_HAPPINESS = 20;
     public float LITTLE_HAPPINESS = 5;
+    public float NO_HAPPINESS = 0;
 
     public override string GetDescription()
     {
@@ -78,7 +80,11 @@ public class Food : Item
         }
         else if(m_HungerAmount > LITTLE_HUNGER)
         {
-            retval = "Not filling at all. ";
+            retval = "A light snack. ";
+        }
+        else if(m_HungerAmount > NO_HUNGER)
+        {
+            retval = "Not filling at all.";
         }
 
         //HAPPINESS
@@ -94,23 +100,19 @@ public class Food : Item
         {
             retval += "This happiness won't last. ";
         }
+        else if(m_Happiness > NO_HAPPINESS)
+        {
+            retval += "Watching grass grow would make you just as happy.";
+        }
 
         //SPEED
-        if(m_SpeedModifier == 1.0f)
+        if(m_SpeedModifier < 1.0f)
         {
-            retval += "Things are going to slow down. ";
-        }
-        else if(m_SpeedModifier < 1.0f)
-        {
-            retval += "Can time go this slow?! ";
+            retval += "Things are going to slow down.";
         }
 
         //hungerRATE
-        if(m_HungerSpeed == 0)
-        {
-            retval += "This isn't going to help your Hunger. ";
-        }
-        else if(m_HungerSpeed < 0)
+        if(m_HungerSpeed < 0)
         {
             retval += "Feeding your appetite is a better idea.. ";
         }
