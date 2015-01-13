@@ -202,25 +202,33 @@ public class PlayerData : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Waypoint" && playerController_.enabled)// && playerController_.m_WaypointObject.gameObject.transform.parent.name == other.gameObject.transform.parent.name)
+        if (playerController_.m_WaypointObject.name == other.gameObject.transform.parent.name)
         {
-            Debug.Log("Name: " + other.gameObject.transform.parent.name);
-            Building building = other.gameObject.transform.parent.gameObject.GetComponent<Building>();
-            if (building != null)
+            if (other.tag == "Waypoint" && playerController_.enabled)
             {
-                currBuilding_ = other.gameObject.transform.parent.gameObject;
-                playerController_.enabled = false;
-                building.m_BuildingUI.LoadBuildingData(playerController_, other.gameObject.transform.parent.gameObject);
-            }
+                Debug.Log("Name: " + other.gameObject.transform.parent.name);
+                Building building = other.gameObject.transform.parent.gameObject.GetComponent<Building>();
+                if (building != null)
+                {
+                    currBuilding_ = other.gameObject.transform.parent.gameObject;
+                    playerController_.enabled = false;
+                    building.m_BuildingUI.LoadBuildingData(playerController_, other.gameObject.transform.parent.gameObject);
+                }
 
-            Habitat habitat = other.gameObject.transform.parent.gameObject.GetComponent<Habitat>();
-            if (habitat != null)
-            {
-                currBuilding_ = other.gameObject.transform.parent.gameObject;
-                playerController_.enabled = false;
-                habitat.m_HabitatUI.LoadHabitatData(playerController_, other.gameObject.transform.parent.gameObject);
+                Habitat habitat = other.gameObject.transform.parent.gameObject.GetComponent<Habitat>();
+                if (habitat != null)
+                {
+                    currBuilding_ = other.gameObject.transform.parent.gameObject;
+                    playerController_.enabled = false;
+                    habitat.m_HabitatUI.LoadHabitatData(playerController_, other.gameObject.transform.parent.gameObject);
+                }
             }
         }
+        else
+        {
+            return;
+        }
+        
     }
 
     void OnTriggerExit(Collider other)
