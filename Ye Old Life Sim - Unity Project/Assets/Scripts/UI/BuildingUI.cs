@@ -50,6 +50,7 @@ public class BuildingUI : MonoBehaviour
     private Text[] interactText_;
     private Text buildingNameText_; //Text element for the building name
     private Text descriptionText_; //Building description text - the funny quip at the top of the building UI
+    private Text interactDescriptionText_;     //description text for interact text 
     private Text resultsText_; //Results description text - results of your work
     private Text m_GotJob;
     private Text m_FailedJob;
@@ -82,6 +83,7 @@ public class BuildingUI : MonoBehaviour
         buildingNameText_ = buildingMenuText_[0];
         descriptionText_ = buildingMenuText_[1];
         resultsText_ = buildingMenuText_[2];
+
         m_BuildingGUI.SetActive(false);
         m_BuyMenu.SetActive(false);
         m_InteractMenu.SetActive(false);
@@ -365,12 +367,21 @@ public class BuildingUI : MonoBehaviour
 
         foreach (Skill.Skills skill in Enum.GetValues(typeof(Skill.Skills)))
         {
+            if (skill == Skill.Skills.NUM_SKILLS)
+            {
+                //leave once the skill is at the number of skills in the enum 
+                break;
+            }
+
             GameObject go = (GameObject)Instantiate(m_UniversityButtonPrefab, new Vector3(startXPos, startYPos, 0), Quaternion.identity);
             Button bton = go.GetComponentInChildren<Button>();
             bton.onClick.AddListener(delegate { Interact(go); });
             go.gameObject.transform.SetParent(m_InteractMenuScrollMask.transform, false);
             SpecialEffect sEffect = go.AddComponent("Training") as SpecialEffect;
             ((Training)sEffect).m_LearnedSkill = skill;
+
+            go.name = skill.ToString();
+            go.GetComponentInChildren<Text>().text = skill.ToString();
 
             if (it != row)
             {
@@ -384,20 +395,13 @@ public class BuildingUI : MonoBehaviour
                 it = 0;
             }     
             it++;
+       
         }
 
         interactText_ = m_InteractMenu.GetComponentsInChildren<Text>();
         interactText_[0].text = "Training";
-
-        foreach (Skill.Skills skill in Enum.GetValues(typeof(Skill.Skills)))
-        { 
-            if (skill == Skill.Skills.NUM_SKILLS)
-            {
-                //leave once the skill is at the number of skills in the enum 
-                break;
-            }
-            interactText_[(int)skill + 1].text = skill.ToString();       
-        }
+        interactDescriptionText_ = interactText_[interactText_.Length - 1];
+       
         m_InteractTransitionDisplay.FadeIn();
     }
 
@@ -505,9 +509,11 @@ public class BuildingUI : MonoBehaviour
 
     public void Interact(GameObject go)
     {
+        ResultValue result; 
         SpecialEffect sEffect = go.GetComponent<SpecialEffect>();
-        sEffect.DoSpecialEffect(m_PlayerData);
+        result = sEffect.DoSpecialEffect(m_PlayerData);
         m_PlayerData.AddEndOfTurnCode(sEffect.TurnEnded);
+        interactDescriptionText_.text = "You gained skill in " + go.name;
     }
 
     //Button function - This function is called by the "Work" button in the Building Menu, it called the Work function in the Building's script.
