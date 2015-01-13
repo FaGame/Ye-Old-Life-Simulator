@@ -5,6 +5,7 @@ using System;
 
 public class BuildingUI : MonoBehaviour 
 {
+    public AudioSource m_CloseMenu;
     public GameObject m_BuildingGUI; //Building UI element
     public GameObject m_ApplyMenu; //Menu that appears after pressing "Apply for Job"
     public GameObject m_ApplyMenuButtonPrefab; //Prefab for the Apply Menu Button to Instantiate later
@@ -543,6 +544,7 @@ public class BuildingUI : MonoBehaviour
     //Otherwise it will just disable the menu.
     public void CloseCurrentMenu()
     {
+        m_CloseMenu.play();
         if (m_ApplyMenu.activeSelf && !m_ApplyJobTransitionDisplay.IsTransitioning())
         {
             //m_ApplyMenu.SetActive(false);
