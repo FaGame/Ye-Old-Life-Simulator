@@ -328,7 +328,11 @@ public class PlayerData : MonoBehaviour
             //find the waypoint in the building and check to make sure the player isn't homeless
             if (tForm.CompareTag("Waypoint") && m_Home.tag != "Homeless")
             {
+                //get the player's navmeshagent and disable it, move the player, and re-enable it.
+                NavMeshAgent playerNavAgent = GetComponent<NavMeshAgent>();
+                playerNavAgent.Stop(true);
                 transform.position = tForm.position;
+                playerNavAgent.Stop(false);
             }
         }
     }
