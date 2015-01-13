@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/GameMenu.unity
   - enabled: 1
     path: Assets/Scenes/BryanLevel.unity
+  - enabled: 1
+    path: Assets/Scenes/MainLevel.unity
