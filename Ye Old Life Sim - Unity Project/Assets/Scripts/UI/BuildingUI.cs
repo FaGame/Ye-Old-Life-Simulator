@@ -531,24 +531,24 @@ public class BuildingUI : MonoBehaviour
     //Otherwise it will just disable the menu.
     public void CloseCurrentMenu()
     {
-        if (m_ApplyMenu.activeSelf)
+        if (m_ApplyMenu.activeSelf && !m_ApplyJobTransitionDisplay.IsTransitioning())
         {
             //m_ApplyMenu.SetActive(false);
             applyMenuNumChildren_ = 0;
             m_ApplyJobTransitionDisplay.FadeOut(delegate { cleanupApplyMenu(); });
         }
-        else if(m_BuyMenu.activeSelf)
+        else if(m_BuyMenu.activeSelf && !m_BuyItemsTransitionDisplay.IsTransitioning())
         {
             //m_BuyMenu.SetActive(false);
             buyMenuNumChildren_ = 0;
             m_BuyItemsTransitionDisplay.FadeOut(delegate { cleanupBuyMenu(); });
         }
-        else if(m_InteractMenu.activeSelf)
+        else if(m_InteractMenu.activeSelf && !m_InteractTransitionDisplay.IsTransitioning())
         {
             //m_InteractMenu.SetActive(false);
             m_InteractTransitionDisplay.FadeOut(delegate { cleanupInteractMenu(); });
         }
-        else if (buildingsActive_)
+        else if (buildingsActive_ && !m_BuildingTransitionDisplay.IsTransitioning())
         {
             resultsText_.text = "";
             buildingsActive_ = false;

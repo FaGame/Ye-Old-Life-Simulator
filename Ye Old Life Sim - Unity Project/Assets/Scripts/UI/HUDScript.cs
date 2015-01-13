@@ -283,24 +283,24 @@ public class HUDScript : MonoBehaviour
     public void CloseCurrentMenu()
     {
         m_CloseMenu.Play();
-        if(statsActive_)
+        if(statsActive_ && !m_StatsTransitionDisplay.IsTransitioning())
         {
             statsActive_ = false;
+            m_PlayerController.enabled = true;
             m_StatsTransitionDisplay.FadeOut(null);
         }
-        else if (inventoryActive_)
+        else if (inventoryActive_ && !m_InventoryTransitionDisplay.IsTransitioning())
         {
             if (consumableActive_)
             {
                 GetComponent<InventoryUI>().CloseInventory();
             }
-            else if(possessionActive_)
+            else if (possessionActive_)
             {
                 GetComponent<PossessioninventoryUI>().CloseInventory();
             }
             else
             {
-                
                 inventoryActive_ = false;
                 m_PlayerController.enabled = true;
                 m_InventoryPanel.SetActive(false);

@@ -81,9 +81,12 @@ public class InventoryUI : MonoBehaviour
 
     public void CloseInventory()
     {
-        m_InventoryPanel.SetActive(false);
-        inventoryDisplayed_ = false;
-        m_InvTransitionDisplay.FadeOut(delegate { cleanupInvMenu(); });
+        if (!m_InvTransitionDisplay.IsTransitioning())
+        {
+            m_InventoryPanel.SetActive(false);
+            inventoryDisplayed_ = false;
+            m_InvTransitionDisplay.FadeOut(delegate { cleanupInvMenu(); });
+        }
     }
 
     void cleanupInvMenu()
