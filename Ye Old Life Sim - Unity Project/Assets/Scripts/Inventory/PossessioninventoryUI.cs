@@ -89,7 +89,7 @@ public class PossessioninventoryUI : MonoBehaviour
 
     public void CloseInventory()
     {
-        if (m_PossInvTransitionDisplay.IsTransitioning())
+        if (!m_PossInvTransitionDisplay.IsTransitioning())
         {
             inventoryActive_ = false;
             m_PossInv.SetActive(false);

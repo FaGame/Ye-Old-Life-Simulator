@@ -219,7 +219,6 @@ public class HUDScript : MonoBehaviour
 
     public void OpenInventoryMenu()
     {
-        m_InventoryTransitionDisplay.PrepareForFadeIn();
         m_InventoryPanel.SetActive(true);
         inventoryActive_ = true;
         m_InventoryTransitionDisplay.FadeIn();
@@ -293,23 +292,22 @@ public class HUDScript : MonoBehaviour
             m_PlayerController.enabled = true;
             m_StatsTransitionDisplay.FadeOut(null);
         }
-        else if (inventoryActive_ && !m_InventoryTransitionDisplay.IsTransitioning())
+        else if (inventoryActive_)
         {
-            if (consumableActive_)
-            {
-                GetComponent<InventoryUI>().CloseInventory();
-            }
-            else if (possessionActive_)
-            {
-                GetComponent<PossessioninventoryUI>().CloseInventory();
-            }
-            else
-            {
-                inventoryActive_ = false;
-                m_PlayerController.enabled = true;
-                m_InventoryPanel.SetActive(false);
-                m_InventoryTransitionDisplay.FadeOut(delegate { cleanupInvMenu(); });
-            }
+            inventoryActive_ = false;
+            m_PlayerController.enabled = true;
+            m_InventoryPanel.SetActive(false);
+            m_InventoryTransitionDisplay.FadeOut(delegate { cleanupInvMenu(); });
+        }
+        else if (consumableActive_)
+        {
+            GetComponent<InventoryUI>().CloseInventory();
+            consumableActive_ = false;
+        }
+        else if (possessionActive_)
+        {
+            GetComponent<PossessioninventoryUI>().CloseInventory();
+            possessionActive_ = false;
         }
         else if(GetComponent<BuildingUI>().BuildingUIActive)
         {
