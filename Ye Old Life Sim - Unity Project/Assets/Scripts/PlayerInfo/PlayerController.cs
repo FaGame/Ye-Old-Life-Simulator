@@ -83,20 +83,14 @@ public class PlayerController : MonoBehaviour
 				m_WaypointObject = hitInfo.transform.gameObject;
                 if (m_WaypointObject.tag == "Building")
                 {
-                    if (!m_PlayerData.m_InsideWaypoint)
-                    {
-                        Debug.Log("It's working!");
-                        GotoBuilding(m_WaypointObject);
-                    }
-                    else
-                    {
-                        m_PlayerData.ReopenMenu();
-                    }
+                    Debug.Log("It's working!");
+                    GotoBuilding(m_WaypointObject);
+                    m_PlayerData.ReopenMenu(hitInfo.transform.gameObject);
                 }
             }
         }
 
-        //DecreaseTime();
+        DecreaseTime();
 		/*if(!atCurrTarget_)
         {
             GetDistenceToWaypoint(waypointObject_);
@@ -129,23 +123,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    /*void GetDistenceToWaypoint(GameObject waypointObject_)
-    {
-        float distenceToObjectX = (m_PlayerData.transform.position.x - waypointObject_.transform.position.x);
-        float distenceToObjectZ = (m_PlayerData.transform.position.z - waypointObject_.transform.position.z);
-        float distenceToWaypoint = Mathf.Sqrt((distenceToObjectX * distenceToObjectX) + (distenceToObjectZ * distenceToObjectZ));
-
-        if(distenceToWaypoint > 2.0f)
-        {
-            m_v = 1;
-        }
-        else if (distenceToWaypoint < 2.0f)
-        {
-            m_v = 0;
-            TargetReached();
-        }
-    }*/
 
     private void UpdateAnimation()
     {
