@@ -95,7 +95,7 @@ public class Habitat : MonoBehaviour
 
     void OnMouseEnter()
     {
-        projM_.TurnOn(gameObject);
+        //projM_.TurnOn(gameObject);
 
         /*for (int i = 0; i < GetComponentsInChildren<Renderer>().Length; ++i)
         {
@@ -109,7 +109,7 @@ public class Habitat : MonoBehaviour
 
     void OnMouseExit()
     {
-        projM_.TurnOff(gameObject);
+        //projM_.TurnOff(gameObject);
 
         /*
         for (int i = 0; i < GetComponentsInChildren<Renderer>().Length; ++i)
