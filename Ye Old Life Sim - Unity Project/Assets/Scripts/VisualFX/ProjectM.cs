@@ -22,6 +22,7 @@ public class ProjectM : MonoBehaviour
         for (int i = 0; i < gObjects.Length; ++i)
         {
             gObjInside_.Add(Instantiate(gObjects[i]) as GameObject);
+            MakeGameObjectInert(gObjInside_[i]);
 
             meshFilters_ = gObjInside_[i].GetComponentsInChildren<MeshFilter>();
             foreach (MeshFilter mFilter in meshFilters_)
@@ -63,6 +64,7 @@ public class ProjectM : MonoBehaviour
             }
 
             gObjOutside_.Add(Instantiate(gObjects[i]) as GameObject);
+            MakeGameObjectInert(gObjOutside_[i]);
 
             meshFilters_ = gObjOutside_[i].GetComponentsInChildren<MeshFilter>();
             foreach (MeshFilter mFilter in meshFilters_)
@@ -107,6 +109,31 @@ public class ProjectM : MonoBehaviour
             gObjOutside_[i].SetActive(false);
         }
         
+    }
+
+    void MakeGameObjectInert(GameObject gObj)
+    {
+        Building bldg = gObj.GetComponent<Building>();
+        if(bldg != null)
+        {
+            bldg.enabled = false;
+        }
+
+        Habitat hbt = gObj.GetComponent<Habitat>();
+        if (hbt != null)
+        {
+            hbt.enabled = false;
+        }
+
+        Transform[] posEs = gObj.GetComponentsInChildren<Transform>();
+        foreach (Transform tForm in posEs)
+        {
+            if (tForm.CompareTag("Waypoint"))
+            {
+                tForm.gameObject.SetActive(false);
+                break;
+            }
+        }
     }
 
     public void TurnOn(GameObject building)

@@ -14,11 +14,15 @@ public class Building : MonoBehaviour
     public SpecialEffect[] m_SpecialEffects;
     public bool m_PlayerWorksHere;
     public BuildingUI m_BuildingUI;
+    public float m_MouseEnterExitJitter = 0.01f;
 
     private bool isHighlighted_;
     private Renderer[] renderers_;
     private List<List<Color>> originalColours_ = new List<List<Color>>();
     private ProjectM projM_;
+    private float mouseJitterTime_;
+    private float nextMouseJitterTime_;
+    private bool isTurnedOn_;
 
     public enum Buildings
     {
@@ -47,6 +51,8 @@ public class Building : MonoBehaviour
         }
 
         projM_ = Camera.main.GetComponent<ProjectM>();
+        mouseJitterTime_ = nextMouseJitterTime_ = 0.0f;
+        isTurnedOn_ = false;
 	}
 	
 	// Update is called once per frame
@@ -163,7 +169,16 @@ public class Building : MonoBehaviour
 
     void OnMouseEnter()
     {
+        /*Debug.Log("E " + gameObject.name + " mouseJitterTime_: " + mouseJitterTime_);
+        if (!isTurnedOn_ && mouseJitterTime_ < nextMouseJitterTime_)
+        {
+            mouseJitterTime_ += Time.time - mouseJitterTime_;
+            return;
+        }*/
         projM_.TurnOn(gameObject);
+        /*nextMouseJitterTime_ = Time.time + m_MouseEnterExitJitter;
+        isTurnedOn_ = true;
+        Debug.Log("E " + gameObject.name + " nextMouseJitterTime_: " + nextMouseJitterTime_);*/
 
         /*for (int i = 0; i < GetComponentsInChildren<Renderer>().Length; ++i)
         {
@@ -177,7 +192,16 @@ public class Building : MonoBehaviour
 
     void OnMouseExit()
     {
+        /*Debug.Log("X " + gameObject.name + " mouseJitterTime_: " + mouseJitterTime_);
+        if (isTurnedOn_ && mouseJitterTime_ < nextMouseJitterTime_)
+        {
+            mouseJitterTime_ += Time.time - mouseJitterTime_;
+            return;
+        }*/
         projM_.TurnOff(gameObject);
+        /*nextMouseJitterTime_ = Time.time + m_MouseEnterExitJitter;
+        isTurnedOn_ = false;
+        Debug.Log("X " + gameObject.name + " nextMouseJitterTime_: " + nextMouseJitterTime_);*/
 
         /*for (int i = 0; i < GetComponentsInChildren<Renderer>().Length; ++i)
         {
