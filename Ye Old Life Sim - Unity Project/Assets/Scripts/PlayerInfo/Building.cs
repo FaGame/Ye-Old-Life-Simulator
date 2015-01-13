@@ -175,7 +175,7 @@ public class Building : MonoBehaviour
             mouseJitterTime_ += Time.time - mouseJitterTime_;
             return;
         }*/
-        projM_.TurnOn(gameObject);
+        //projM_.TurnOn(gameObject);
         /*nextMouseJitterTime_ = Time.time + m_MouseEnterExitJitter;
         isTurnedOn_ = true;
         Debug.Log("E " + gameObject.name + " nextMouseJitterTime_: " + nextMouseJitterTime_);*/
@@ -198,7 +198,7 @@ public class Building : MonoBehaviour
             mouseJitterTime_ += Time.time - mouseJitterTime_;
             return;
         }*/
-        projM_.TurnOff(gameObject);
+        //projM_.TurnOff(gameObject);
         /*nextMouseJitterTime_ = Time.time + m_MouseEnterExitJitter;
         isTurnedOn_ = false;
         Debug.Log("X " + gameObject.name + " nextMouseJitterTime_: " + nextMouseJitterTime_);*/

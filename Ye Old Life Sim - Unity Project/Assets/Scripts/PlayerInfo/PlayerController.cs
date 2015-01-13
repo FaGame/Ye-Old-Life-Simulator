@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private float lastRot_;
     private float hungerTimer_;
     private Animator animator_;
+    private ProjectM projM_;
 
     public void SetTarget(Vector3 target)
     {
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
         atCurrTarget_ = true;
         lastRot_ = transform.rotation.eulerAngles.y;
         TargetReached();
+        projM_ = Camera.main.GetComponent<ProjectM>();
         //SetTarget(m_PlayerData.transform.position);
     }
 	
@@ -69,6 +71,18 @@ public class PlayerController : MonoBehaviour
 
         RaycastHit hitInfo = new RaycastHit();
         bool hit = Physics.Raycast(pickingRay, out hitInfo);
+        if (hit)
+        {
+            if (hitInfo.transform.gameObject.tag == "Building")
+            {
+                projM_.TurnOn(hitInfo.transform.gameObject);
+            }
+            else
+            {
+                //Debug.Log("OFF: " + hitInfo.transform.gameObject.name + " TAG: " + hitInfo.transform.gameObject.tag);
+                projM_.TurnOffAll();
+            }
+        }
 
         if (Input.GetMouseButtonUp(0) && hit)
         {

@@ -8,6 +8,7 @@ public class ProjectM : MonoBehaviour
     public float m_LengthOutside = 0.1f;
     public Material m_Material;
 
+    private GameObject[] gObjects_;
     private List<GameObject> gObjInside_;
     private List<GameObject> gObjOutside_;
     private MeshFilter[] meshFilters_;
@@ -15,13 +16,13 @@ public class ProjectM : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-        GameObject[] gObjects = GameObject.FindGameObjectsWithTag("Building");
+        gObjects_ = GameObject.FindGameObjectsWithTag("Building");
         gObjInside_ = new List<GameObject>();
         gObjOutside_ = new List<GameObject>();
 
-        for (int i = 0; i < gObjects.Length; ++i)
+        for (int i = 0; i < gObjects_.Length; ++i)
         {
-            gObjInside_.Add(Instantiate(gObjects[i]) as GameObject);
+            gObjInside_.Add(Instantiate(gObjects_[i]) as GameObject);
             MakeGameObjectInert(gObjInside_[i]);
 
             meshFilters_ = gObjInside_[i].GetComponentsInChildren<MeshFilter>();
@@ -63,7 +64,7 @@ public class ProjectM : MonoBehaviour
                 }*/
             }
 
-            gObjOutside_.Add(Instantiate(gObjects[i]) as GameObject);
+            gObjOutside_.Add(Instantiate(gObjects_[i]) as GameObject);
             MakeGameObjectInert(gObjOutside_[i]);
 
             meshFilters_ = gObjOutside_[i].GetComponentsInChildren<MeshFilter>();
@@ -140,16 +141,27 @@ public class ProjectM : MonoBehaviour
 
     public void TurnOn(GameObject building)
     {
-        SwitchBuilding(building, true);
+        //Debug.Log("ON: " + building.name);
+        /*if (building.name.Contains("(Clone)"))
+        {
+            return;
+        }*/
+        SwitchBuilding(building);
     }
 
-    public void TurnOff(GameObject building)
+    public void TurnOffAll()
     {
-        SwitchBuilding(building, false);
+        //Debug.Log("OFF ALL");
+        for (int i = 0; i < gObjInside_.Count; ++i)
+        {
+            //gObjects_[i].SetActive(true);
+            gObjInside_[i].SetActive(false);
+            gObjOutside_[i].SetActive(false);
+        }
     }
 
 
-    void SwitchBuilding(GameObject building, bool bState)
+    void SwitchBuilding(GameObject building)
     {
         string bName = building.name + "(Clone)";
 
@@ -157,8 +169,15 @@ public class ProjectM : MonoBehaviour
         {
             if (gObjInside_[i].name == bName)
             {
-                gObjInside_[i].SetActive(bState);
-                gObjOutside_[i].SetActive(bState);
+                gObjInside_[i].SetActive(true);
+                gObjOutside_[i].SetActive(true);
+                //gObjects_[i].SetActive(false);
+            }
+            else
+            {
+                //gObjects_[i].SetActive(true);
+                gObjInside_[i].SetActive(false);
+                gObjOutside_[i].SetActive(false);
             }
         }
     }
