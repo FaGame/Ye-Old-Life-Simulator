@@ -285,10 +285,7 @@ public class HUDScript : MonoBehaviour
 
     public void CloseCurrentMenu()
     {
-        if (statsActive_ || inventoryActive_ || possessionActive_ || consumableActive_)
-        {
-            m_CloseMenu.Play();
-        }
+        m_CloseMenu.Play();
         if(statsActive_ && !m_StatsTransitionDisplay.IsTransitioning())
         {
             statsActive_ = false;
