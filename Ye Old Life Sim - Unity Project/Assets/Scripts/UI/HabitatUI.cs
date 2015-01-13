@@ -24,10 +24,10 @@ public class HabitatUI : MonoBehaviour
 
     private bool habitatIsActive_ = false;
 
-    /*public bool HabitatUIActive
+    public bool HabitatUIActive
     {
-        get{  return habitatIsActive_;}
-    }*/
+        get { return habitatIsActive_; }
+    }
 
     void Start()
     {

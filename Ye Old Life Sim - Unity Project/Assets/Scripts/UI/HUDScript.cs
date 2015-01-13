@@ -311,6 +311,10 @@ public class HUDScript : MonoBehaviour
         {
             GetComponent<BuildingUI>().CloseCurrentMenu();
         }
+        else if(GetComponent<HabitatUI>().HabitatUIActive)
+        {
+            GetComponent<HabitatUI>().CloseCurrentUI();
+        }
     }
 
     void cleanupInvMenu(){} //This does nothing, but is required for fading out the inventory
