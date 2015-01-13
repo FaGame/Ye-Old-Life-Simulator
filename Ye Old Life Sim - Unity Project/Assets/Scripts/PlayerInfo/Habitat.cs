@@ -11,9 +11,11 @@ public class Habitat : MonoBehaviour
 
     public PlayerData m_PlayerData;
 
+    private ProjectM projM_;
     private bool isHighlighted_;
     private Renderer[] renderers_;
     private List<List<Color>> originalColours_ = new List<List<Color>>();
+
     void Start()
     {
         CalculateHomePenalty();
@@ -93,18 +95,23 @@ public class Habitat : MonoBehaviour
 
     void OnMouseEnter()
     {
-        for (int i = 0; i < GetComponentsInChildren<Renderer>().Length; ++i)
+        projM_.TurnOn(gameObject);
+
+        /*for (int i = 0; i < GetComponentsInChildren<Renderer>().Length; ++i)
         {
             for (int j = 0; j < GetComponentsInChildren<Renderer>()[i].renderer.materials.Length; ++j)
             {
                 GetComponentsInChildren<Renderer>()[i].renderer.materials[j].color = Color.yellow;
             }
             //m_DisplayedBuilding.GetComponentsInChildren<Renderer>()[i].renderer.material.color = Color.yellow;
-        }
+        }*/
     }
 
     void OnMouseExit()
     {
+        projM_.TurnOff(gameObject);
+
+        /*
         for (int i = 0; i < GetComponentsInChildren<Renderer>().Length; ++i)
         {
            for (int j = 0; j < renderers_[i].renderer.materials.Length; ++j)
@@ -113,6 +120,6 @@ public class Habitat : MonoBehaviour
                 //originalColours_[i].Add(renderers_[i].renderer.materials[j].color);
             }
             //m_DisplayedBuilding.GetComponentsInChildren<Renderer>()[i].renderer.material.color = originalColours_[i];
-        }
+        }*/
     }
 }
