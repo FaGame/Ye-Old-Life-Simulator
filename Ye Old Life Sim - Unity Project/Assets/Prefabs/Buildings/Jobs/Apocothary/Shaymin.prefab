@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
-  - 82: {fileID: 8209096}
+  - 82: {fileID: 8263256}
   m_Layer: 0
-  m_Name: Card Dealer
+  m_Name: Shaymin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!82 &8209096
+--- !u!82 &8263256
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -37,7 +37,7 @@ AudioSource:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 45adec9839f39da4d8a7223d17f37af5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8c039f27f40a78a4b874b053464b4a8a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -98,23 +98,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c786cd230a09e4ba95a6072d5a1a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AudioClip: {fileID: 8300000, guid: 45adec9839f39da4d8a7223d17f37af5, type: 3}
-  m_AudioSource: {fileID: 8209096}
+  m_AudioClip: {fileID: 8300000, guid: 8c039f27f40a78a4b874b053464b4a8a, type: 3}
+  m_AudioSource: {fileID: 8263256}
   m_SkillRequirement:
-  - m_Skill: 12
-    m_Amount: 100
+  - m_Skill: 6
+    m_Amount: 800
   m_SkillGain:
-  - m_Skill: 5
-    m_Amount: .5
+  - m_Skill: 6
+    m_Amount: 1
   - m_Skill: 10
     m_Amount: .5
-  - m_Skill: 12
-    m_Amount: .5
-  m_JobDescription: "If you aren\u2019t cheating, you aren\u2019t trying.\r\n"
-  m_Wage: 0
-  m_MinWage: 5
-  m_MaxWage: 9
-  m_ReputationGain: 10
+  m_JobDescription: 
+  m_Wage: 16
+  m_MinWage: 0
+  m_MaxWage: 0
+  m_ReputationGain: 150
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
