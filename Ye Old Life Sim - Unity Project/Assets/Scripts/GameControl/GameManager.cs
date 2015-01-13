@@ -66,6 +66,11 @@ public class GameManager : MonoBehaviour
         get { return maxHappy_; }
     }
 
+    public bool TwoPlayerGame
+    {
+        get { return TwoPlayerGame_; }
+    }
+
     void Start()
     {
         isPlayerTurn_ = true;
@@ -100,6 +105,11 @@ public class GameManager : MonoBehaviour
         SetGameBools();
         SetPlayers();
         DecreaseTime();
+
+        if(m_PlayerData.m_HungerMeter >= 44)
+        {
+            KillPlayer();
+        }
         //Debug.Log(maxHappy_);
         //Debug.Log(maxCurrency_);
         //Debug.Log(maxRep_);
@@ -320,5 +330,10 @@ public class GameManager : MonoBehaviour
         {
             m_PlayerData.m_CurrTime -= timeToDecrease;
         }
+    }
+
+    void KillPlayer()
+    {
+        m_PlayerData.m_IsDead = true;
     }
 }
