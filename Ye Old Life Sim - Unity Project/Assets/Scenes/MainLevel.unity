@@ -431,6 +431,7 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_MouseEnterExitJitter: .00999999978
   m_buildingEnum: 0
 --- !u!1 &4484995
 GameObject:
@@ -4253,6 +4254,7 @@ MonoBehaviour:
   - {fileID: 11457322, guid: 1b9ed161ebaa10a4eb8b9f7b3ff3963f, type: 2}
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_MouseEnterExitJitter: .00999999978
   m_buildingEnum: 0
 --- !u!1 &97344944
 GameObject:
@@ -18015,6 +18017,7 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_MouseEnterExitJitter: .00999999978
   m_buildingEnum: 0
 --- !u!1 &330691011
 GameObject:
@@ -37101,6 +37104,7 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_MouseEnterExitJitter: .00999999978
   m_buildingEnum: 0
 --- !u!1 &682998399
 GameObject:
@@ -37848,6 +37852,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11495440, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_TurnTimer
+      value: 
+      objectReference: {fileID: 1487191708}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
   m_RootGameObject: {fileID: 1583590499}
@@ -54287,6 +54295,7 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_MouseEnterExitJitter: .00999999978
   m_buildingEnum: 0
 --- !u!1001 &1003996855
 Prefab:
@@ -55371,6 +55380,7 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_MouseEnterExitJitter: .00999999978
   m_buildingEnum: 0
 --- !u!1 &1031698126
 GameObject:
@@ -56535,12 +56545,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerData: {fileID: 1487191708}
+  m_AIData: {fileID: 0}
   m_Game: {fileID: 1405834717}
   m_BUI: {fileID: 1583590505}
   m_HUI: {fileID: 1583590507}
   m_REM: {fileID: 0}
   m_UIB: {fileID: 0}
   m_UII: {fileID: 0}
+  m_StringThings: []
+  m_IntThings: 
+  m_playerStats: []
 --- !u!114 &1052255812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78801,7 +78815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ClockHand: {fileID: 324753849}
-  m_TurnTimer: {fileID: 0}
+  m_TurnTimer: {fileID: 1487191708}
 --- !u!114 &1459724280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80506,6 +80520,7 @@ MonoBehaviour:
   mCamera: {fileID: 1052255808}
   mTerrain: {fileID: 715305267}
   mblackSmithWaypoint: {fileID: 652205177}
+  m_WaypointObject: {fileID: 0}
   m_IsMoving: 0
   m_v: 0
 --- !u!82 &1487191711
@@ -89222,6 +89237,7 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_MouseEnterExitJitter: .00999999978
   m_buildingEnum: 0
 --- !u!1001 &1624714020
 Prefab:
@@ -91683,6 +91699,7 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_MouseEnterExitJitter: .00999999978
   m_buildingEnum: 0
 --- !u!1 &1684184500
 GameObject:
@@ -100979,6 +100996,7 @@ MonoBehaviour:
   mCamera: {fileID: 1052255808}
   mTerrain: {fileID: 715305267}
   mblackSmithWaypoint: {fileID: 652205177}
+  m_WaypointObject: {fileID: 0}
   m_IsMoving: 0
   m_v: 0
 --- !u!195 &1829319478
@@ -104274,6 +104292,7 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_MouseEnterExitJitter: .00999999978
   m_buildingEnum: 0
 --- !u!1001 &1894173015
 Prefab:
@@ -104715,6 +104734,7 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_MouseEnterExitJitter: .00999999978
   m_buildingEnum: 0
 --- !u!1 &1904031922
 GameObject:
@@ -111444,6 +111464,7 @@ MonoBehaviour:
   mCamera: {fileID: 1052255808}
   mTerrain: {fileID: 715305267}
   mblackSmithWaypoint: {fileID: 0}
+  m_WaypointObject: {fileID: 0}
   m_IsMoving: 0
   m_v: 0
 --- !u!195 &2007613439
@@ -113641,6 +113662,7 @@ MonoBehaviour:
   - {fileID: 11478870, guid: d3158441c25401e4a8002871b90b6bd4, type: 2}
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_MouseEnterExitJitter: .00999999978
   m_buildingEnum: 0
 --- !u!1001 &2057324162
 Prefab:
@@ -116509,6 +116531,7 @@ MonoBehaviour:
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 1583590505}
+  m_MouseEnterExitJitter: .00999999978
   m_buildingEnum: 0
 --- !u!1 &2120396144
 GameObject:
