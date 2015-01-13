@@ -127,6 +127,7 @@
     <Compile Include="Assets\Scripts\Items\ItemEffect.cs" />
     <Compile Include="Assets\Scripts\Items\Possession.cs" />
     <Compile Include="Assets\Scripts\PlayerInfo\Building.cs" />
+    <Compile Include="Assets\Scripts\PlayerInfo\BuildingList.cs" />
     <Compile Include="Assets\Scripts\PlayerInfo\Habitat.cs" />
     <Compile Include="Assets\Scripts\PlayerInfo\JobData.cs" />
     <Compile Include="Assets\Scripts\PlayerInfo\PlayerController.cs" />
