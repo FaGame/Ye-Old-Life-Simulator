@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
     public GameObject m_Player;
     public GameObject m_PlayerTwo;
     public GameObject m_AI;
+	public GameObject m_RandomEventManagerP1;
+	public GameObject m_RandomEventManagerP2;
+	public GameObject m_RandomEventManagerAI;
     public PlayerData m_AIData;
     public PlayerData m_PlayerData;
     public PlayerData m_PlayerTwoData;
@@ -16,8 +19,11 @@ public class GameManager : MonoBehaviour
 	public int m_Turns;
 
     public bool m_CanCheckWinLoss = true;       //set to true when you want to check the win/loss conditions 
+	public bool m_RandomEventP1Play = true;
+	public bool m_RandomEventP2Play = false;
+	public bool m_RandomEventAIPlay = false;
 
-    private bool isPlayerTurn_;
+	private bool isPlayerTurn_;
     private bool isPlayerTwoTurn_;
     private bool isAiTurn_;
 
@@ -134,6 +140,14 @@ public class GameManager : MonoBehaviour
         //start turn is the player, once their time runs out, disables player and activates AI and AI turn
         if (isPlayerTurn_ == true)
         {
+			if(m_RandomEventP1Play) //Check to see if the RandomEvent has already been played
+			{
+				//if not already playerd, Play a Random Event
+				m_RandomEventManagerP1.GetComponent<RandomEventManager1>().PlayRandomEvent(); 
+				//Make sure that another random event doesn't play this turn
+				m_RandomEventP1Play = false;
+			}
+
             if (m_PlayerData.m_CurrTime <= 0)
             {
                 m_Turns += IncrementTurns_;
@@ -143,18 +157,18 @@ public class GameManager : MonoBehaviour
                     //if it is a two player game, end the first persons turn and start the next person's turn
                     isPlayerTurn_ = false;
                     isPlayerTwoTurn_ = true;
-
-                    m_PlayerData.EndTurn();
+                    m_PlayerData.EndTurn();					
                     m_PlayerTwoData.StartTurn();
+					m_RandomEventP2Play = true; //Set it so P2 will get a random event at the start of their turn
                 }
                 else if (AIBeingUsed_)
                 {
                     //if the AI is being used, end the player's turn and start the AI's turn
                     isPlayerTurn_ = false;
                     isAiTurn_ = true;
-
                     m_PlayerData.EndTurn();
                     m_AIData.StartTurn();
+					m_RandomEventAIPlay = true; //Set it the AI will get a random event at the start of their turn
                 }
                 else
                 {
@@ -169,6 +183,12 @@ public class GameManager : MonoBehaviour
  
         if (isAiTurn_ == true)
         {
+			if (m_RandomEventAIPlay) //Check to play Random Event just once a turn for the AI
+			{
+				m_RandomEventManagerAI.GetComponent<RandomEventManagerAI>().PlayRandomEvent();
+				m_RandomEventAIPlay = false;
+			}
+
             if (m_AIData.m_CurrTime <= 0)
             {
                 //end the AI's turn and start the player's turn
@@ -177,19 +197,25 @@ public class GameManager : MonoBehaviour
 
                 m_AIData.EndTurn();
                 m_PlayerData.StartTurn();
+				m_RandomEventP1Play = true; //Set up so P1 will Get a Random event at the start of their turn
             }
         }
 
-        if (isPlayerTwoTurn_ == true)
+		if (isPlayerTwoTurn_ == true) //Check to play Random Event just once a turn for P2
         {
+			if (m_RandomEventP2Play)
+			{
+				m_RandomEventManagerP2.GetComponent<RandomEventManager2>().PlayRandomEvent();
+				m_RandomEventP2Play = false;
+			}
             if (m_PlayerTwoData.m_CurrTime <= 0)
-            {
+            {			
                 //end the second player's turn and start the player's turn
                 isPlayerTurn_ = true;
                 isPlayerTwoTurn_ = false;
-
                 m_PlayerTwoData.EndTurn();
                 m_PlayerData.StartTurn();
+				m_RandomEventP1Play = true; //Set up so P1 will Get a Random event at the start of their turn
             }
         }
     }
