@@ -232,7 +232,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 440082}
   - 114: {fileID: 11440080}
-  - 114: {fileID: 11440082}
   m_Layer: 0
   m_Name: REvnt_BittenByRats
   m_TagString: Untagged
@@ -719,18 +718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc50b1025b48dc4481ffd1bfa12beb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventType: 0
---- !u!114 &11440082
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88d4665731d17734ea08b24208ac1ddd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_EventType: 1
 --- !u!114 &11440084
 MonoBehaviour:
   m_ObjectHideFlags: 1
