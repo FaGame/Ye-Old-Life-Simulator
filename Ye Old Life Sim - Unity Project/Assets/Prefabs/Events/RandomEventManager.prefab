@@ -784,6 +784,43 @@ MonoBehaviour:
   - {fileID: 140070}
   - {fileID: 140080}
   - {fileID: 140084}
+  m_Elixirs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_Food:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_Drink:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_ReputationItems:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_SexShopItems:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_EventFlyer: {fileID: 0}
   m_EventText: {fileID: 0}
   m_Player: {fileID: 0}

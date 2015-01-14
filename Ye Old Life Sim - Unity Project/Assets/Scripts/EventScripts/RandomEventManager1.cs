@@ -7,6 +7,13 @@ public class RandomEventManager1 : MonoBehaviour
 {
    
     public GameObject[] m_EventList;
+
+	public GameObject[] m_Elixirs;
+	public GameObject[] m_Food;
+	public GameObject[] m_Drink;
+	public GameObject[] m_ReputationItems;
+	public GameObject[] m_SexShopItems;
+
 	public RandomEventBaseClass m_RandomEventBaseClass;
 //	public RandomEventManager[] m_EventArray;  Try implenting this later if there's time 
 
@@ -76,12 +83,13 @@ public class RandomEventManager1 : MonoBehaviour
     {
         //First check to see if a Random event will even happen 
         RndEventChance_ = Random.Range(ValueConstants.LOWEST_RANGE_NUMBER, ValueConstants.RANDOM_EVENT_CHANCE_MAX);
+		RndEventChance_ = 20;
         if (RndEventChance_ <= ValueConstants.RANDOM_EVENT_HAPPENS_AT_LESS_THAN_THIS)
         {
 			
             //die roll to see which event happens
 			D100_ = Random.Range(ValueConstants.LOWEST_RANGE_NUMBER, ValueConstants.D100_MAX);
-
+			D100_ = 13;
 			if (D100_ < ValueConstants.MAX_RANDOM_CHANCE_TO_FIND_SHILLINGS)
             {
 				//Found Shillings
