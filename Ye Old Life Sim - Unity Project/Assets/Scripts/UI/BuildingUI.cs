@@ -319,9 +319,11 @@ public class BuildingUI : MonoBehaviour
         if(selectedBuilding_.name == "University")
         {
             InteractWithUniversity();
+            interactDescriptionText_.text = "Education will cost you 25 shillings";  
         }
         else
         {
+            interactDescriptionText_.text = "";  
             float startYPos = 150.0f;
 
             /////////////////////////////////////////////////////
@@ -518,13 +520,16 @@ public class BuildingUI : MonoBehaviour
         SpecialEffect sEffect = go.GetComponent<SpecialEffect>();
         result = sEffect.DoSpecialEffect(m_PlayerData);
         m_PlayerData.AddEndOfTurnCode(sEffect.TurnEnded);
-        if (Training.m_HaveLearnedSkill)
+        if (selectedBuilding_.name == "University")
         {
-            interactDescriptionText_.text = "You earned " + result.m_Value + " points in " + go.name;
-        }
-        else
-        {
-            interactDescriptionText_.text = "You can't afford this education!";
+            if (Training.m_HaveLearnedSkill)
+            {
+                interactDescriptionText_.text = "You earned " + result.m_Value + " points in " + go.name;
+            }
+            else
+            {
+                interactDescriptionText_.text = "You can't afford this education!";
+            }
         }
     }
 
