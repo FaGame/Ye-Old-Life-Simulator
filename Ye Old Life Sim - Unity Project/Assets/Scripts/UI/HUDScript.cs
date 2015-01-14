@@ -16,6 +16,7 @@ public class HUDScript : MonoBehaviour
     public GameObject m_Skills; //The skills panel
     public GameManager m_GameManager; //The game manager
     public GameObject m_InventoryPanel; // The inventory UI
+    public GameObject m_RandomEventPanel; //The Random Event Scroll panel
     public PlayerData m_PlayerData; //The player's data
     public PlayerController m_PlayerController; //The player's controller
     public Text m_CurrJobText; //The player's current job text
@@ -283,6 +284,10 @@ public class HUDScript : MonoBehaviour
 
     public void CloseCurrentMenu()
     {
+        if(m_RandomEventPanel.activeSelf)
+        {
+            m_RandomEventPanel.SetActive(false);
+        }
         if (statsActive_ || inventoryActive_ || possessionActive_ || consumableActive_)
         {
             m_CloseMenu.Play();
