@@ -515,7 +515,7 @@ public class BuildingUI : MonoBehaviour
         m_PlayerData.AddEndOfTurnCode(sEffect.TurnEnded);
         if (Training.m_HaveLearnedSkill)
         {
-            interactDescriptionText_.text = "You earned " + result.m_Value + " in " + go.name;
+            interactDescriptionText_.text = "You earned " + result.m_Value + " points in " + go.name;
         }
         else
         {
