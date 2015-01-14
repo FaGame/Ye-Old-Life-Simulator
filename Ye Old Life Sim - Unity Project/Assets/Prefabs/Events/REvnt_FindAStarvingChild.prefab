@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 423350}
   - 114: {fileID: 11444784}
-  - 114: {fileID: 11429440}
   m_Layer: 0
   m_Name: REvnt_FindAStarvingChild
   m_TagString: Untagged
@@ -29,30 +28,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11429440
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 123350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89038b6af9fc703478c6ce4be9677f99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RndEvent: 0
-  m_EventIndex: 0
-  m_MoneyLost: 0
-  m_MoneyGained: 0
-  m_ExperienceGained: 0
-  m_HappinesChange: 0
-  m_TimeChange: 0
-  m_Player: {fileID: 0}
-  m_EventList: []
-  m_EventFlyer: {fileID: 0}
-  m_EventText: {fileID: 0}
-  m_EventDesc: 
-  m_EventTextTimer: 0
 --- !u!114 &11444784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -64,9 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc50b1025b48dc4481ffd1bfa12beb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventScroll: {fileID: 0}
-  m_EventText: {fileID: 0}
-  m_EventList: []
+  m_EventType: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

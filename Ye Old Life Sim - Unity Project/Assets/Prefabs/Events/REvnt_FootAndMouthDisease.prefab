@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 455272}
   - 114: {fileID: 11454658}
-  - 114: {fileID: 11482048}
   m_Layer: 0
   m_Name: REvnt_FootAndMouthDisease
   m_TagString: Untagged
@@ -40,33 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc50b1025b48dc4481ffd1bfa12beb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventScroll: {fileID: 0}
-  m_EventText: {fileID: 0}
-  m_EventList: []
---- !u!114 &11482048
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21628b49c5178de4aa830db0d51ec8f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RndEvent: 0
-  m_EventIndex: 0
-  m_MoneyLost: 0
-  m_MoneyGained: 0
-  m_ExperienceGained: 0
-  m_HappinesChange: 0
-  m_TimeChange: 0
-  m_Player: {fileID: 0}
-  m_EventList: []
-  m_EventFlyer: {fileID: 0}
-  m_EventText: {fileID: 0}
-  m_EventDesc: 
-  m_EventTextTimer: 0
+  m_EventType: 10
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

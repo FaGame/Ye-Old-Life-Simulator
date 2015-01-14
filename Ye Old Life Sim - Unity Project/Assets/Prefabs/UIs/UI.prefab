@@ -6204,7 +6204,7 @@ MonoBehaviour:
   m_ApplyJobTransitionDisplay: {fileID: 11435896}
   m_CurrBuildingEnum: 0
   m_DataCollection: {fileID: 0}
-  m_TimeToWait: 0
+  m_TimeToWait: 3
   m_CustomFont: {fileID: 12800000, guid: 9a399c0961e214c4483f3c3bc166039c, type: 3}
   m_ActionTaken: 0
 --- !u!114 &11488756

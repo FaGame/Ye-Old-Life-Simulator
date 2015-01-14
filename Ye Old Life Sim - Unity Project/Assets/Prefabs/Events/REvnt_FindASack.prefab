@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 406882}
   - 114: {fileID: 11475494}
-  - 114: {fileID: 11440718}
   m_Layer: 0
   m_Name: REvnt_FindASack
   m_TagString: Untagged
@@ -29,50 +28,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11440718
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fd068493d5b2b54797ff83bab6d4776, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ItemsToBeFound: []
-  m_Elixirs:
-  - {fileID: 100000, guid: f92b66c9ed1f1ad4693768834cb67bb3, type: 2}
-  - {fileID: 100000, guid: 5e2c018793d970647b01a3b08c6c7437, type: 2}
-  - {fileID: 100000, guid: d7d8631cf7ca9d94c92aa4fb07bb1e7b, type: 2}
-  - {fileID: 100000, guid: 4652da77b43a05f46aa3d9adfcc4c2d4, type: 2}
-  m_Food:
-  - {fileID: 100000, guid: d0741c64cc97c2e459619861861f82bc, type: 2}
-  - {fileID: 100000, guid: 4d553706910dda741a1796572c62a26e, type: 2}
-  - {fileID: 100000, guid: ff520f25cab3a9d4b9e5afab103a03f6, type: 2}
-  - {fileID: 100000, guid: c9159c8b5d9c638499056f577006e652, type: 2}
-  - {fileID: 100000, guid: f094355a027cfe041ad9cf8771bace3f, type: 2}
-  - {fileID: 100000, guid: 4792ce3ee6f038f439d5dc8761d8aa83, type: 2}
-  - {fileID: 100000, guid: b680cac3d4f50e74db126f1a69074c65, type: 2}
-  - {fileID: 100000, guid: 3ab40f255a8f1544faeeaec9cbf3f8bd, type: 2}
-  - {fileID: 100000, guid: 0cb7fce0137843540af0172c37456436, type: 2}
-  - {fileID: 100000, guid: a50dab4d69a92004e876dd7174082df1, type: 2}
-  m_Drink:
-  - {fileID: 100000, guid: 9125e2840f5546e4a80942e44d40d1a4, type: 2}
-  - {fileID: 100000, guid: 960723608d96c4b4095b24195e22b8db, type: 2}
-  - {fileID: 100000, guid: 6584e0bd94109e24c82905bc3f9f4df7, type: 2}
-  m_ReputationItems:
-  - {fileID: 100000, guid: 97ce76ba7c1af8d44bb94a1f29ace489, type: 2}
-  - {fileID: 100000, guid: 74ba3738b7a73e74a8a435a9d6b24026, type: 2}
-  - {fileID: 100000, guid: e19ba1ae36038664395c662b64e35e17, type: 2}
-  - {fileID: 100000, guid: efc44e8481cefee419727eb195cf403d, type: 2}
-  - {fileID: 100000, guid: c77194594194dcb4fa992aa95b9f1722, type: 2}
-  - {fileID: 100000, guid: 7af8b3723224e3149ba6ba78af97d654, type: 2}
-  - {fileID: 100000, guid: e1c238e2365dc7242a3f4a1c297a91dd, type: 2}
-  - {fileID: 100000, guid: 0980155cbfbdbcb4491704e761d281aa, type: 2}
-  - {fileID: 100000, guid: 31b2f84518295d14191f9f3199f21726, type: 2}
-  - {fileID: 100000, guid: e3e9bfbf15d8baa4d95eb058a5d7691a, type: 2}
-  m_FoundItem: {fileID: 0}
 --- !u!114 &11475494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,6 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc50b1025b48dc4481ffd1bfa12beb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EventType: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

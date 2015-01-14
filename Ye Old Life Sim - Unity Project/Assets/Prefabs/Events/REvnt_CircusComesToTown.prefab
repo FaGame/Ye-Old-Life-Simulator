@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 416114}
   - 114: {fileID: 11459200}
-  - 114: {fileID: 11445778}
   m_Layer: 0
   m_Name: REvnt_CircusComesToTown
   m_TagString: Untagged
@@ -29,34 +28,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11445778
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 116114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f58bd9281e6d244da3925be5e7fcca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RndEvent: 0
-  m_EventIndex: 0
-  m_MoneyLost: 0
-  m_MoneyGained: 0
-  m_ExperienceGained: 0
-  m_HappinesChange: 0
-  m_TimeChange: 0
-  m_Player: {fileID: 0}
-  m_EventList: []
-  m_EventFlyer: {fileID: 0}
-  m_EventText: {fileID: 0}
-  m_EventDesc: 
-  m_EventTextTimer: 0
-  m_EventMessage: 
-  m_FoundItem: {fileID: 0}
-  m_Items: []
-  m_PlayerData: {fileID: 0}
 --- !u!114 &11459200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,9 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc50b1025b48dc4481ffd1bfa12beb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EventScroll: {fileID: 0}
-  m_EventText: {fileID: 0}
-  m_EventList: []
+  m_EventType: 12
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
