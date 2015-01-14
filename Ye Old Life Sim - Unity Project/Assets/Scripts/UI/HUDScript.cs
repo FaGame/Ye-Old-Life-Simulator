@@ -22,6 +22,7 @@ public class HUDScript : MonoBehaviour
     public Text m_CurrJobText; //The player's current job text
     public Text m_ShillingText; //The player's current shillings
     public Text m_BuildingHovered; //The building the player is currently hovering
+    public Slider m_HungerSlider; //Slider for the amount of player's hunger
     public TransitionDisplay m_StatsTransitionDisplay;
     public TransitionDisplay m_InventoryTransitionDisplay;
     public GameObject m_BuildingButtonPrefab; //Prefab for the Building buttons to Instantiate later
@@ -37,10 +38,7 @@ public class HUDScript : MonoBehaviour
     private bool objectivesSetUp_ = false;
     private bool escapePressed_ = false;
     private float timer_; //Turn timer
-    private Slider[] sliderArray_; //Array containing the HUD sliders
     private Slider[] objSliderArray_; //Array of objective sliders
-    private Slider timeSlider_; //Slider for the time left in your turn
-    private Slider hungerSlider_; //Slider for the amount of player's hunger
     private Slider repObjSlider_; //Slider for the reputation objective
     private Slider currObjSlider_; //Slider for the currency/shillings objective
     private Slider happyObjSlider_; //Slider for the happiness objective
@@ -66,7 +64,6 @@ public class HUDScript : MonoBehaviour
 	void Start () 
     {
         //Initialize and set up the slider arrays
-        sliderArray_ = m_PlayerHUD.GetComponentsInChildren<Slider>();
         SetUpHUDSliders();
 
         objSliderArray_ = m_Goals.GetComponentsInChildren<Slider>();
@@ -100,16 +97,9 @@ public class HUDScript : MonoBehaviour
     //This function initializes the player HUD sliders, and then sets their min, max and current values
     void SetUpHUDSliders()
     {
-        timeSlider_ = sliderArray_[0];
-        hungerSlider_ = sliderArray_[1];
-
-        timeSlider_.maxValue = ValueConstants.PLAYER_MAX_TIME;
-        timeSlider_.minValue = 0.0f;
-        timeSlider_.value = timer_;
-
-        hungerSlider_.maxValue = ValueConstants.PLAYER_MAX_HUNGER;
-        hungerSlider_.minValue = 0.0f;
-        hungerSlider_.value = 0.0f;
+        m_HungerSlider.maxValue = ValueConstants.PLAYER_MAX_HUNGER;
+        m_HungerSlider.minValue = 0.0f;
+        m_HungerSlider.value = m_PlayerData.m_HungerMeter;
     }
 
     //This function initializes the objective sliders in the stats menu, then sets their min, max and current values
@@ -159,8 +149,7 @@ public class HUDScript : MonoBehaviour
         consumableActive_ = GetComponent<InventoryUI>().InventoryActive;
         possessionActive_ = GetComponent<PossessioninventoryUI>().InventoryActive;
 
-        timeSlider_.value = m_PlayerData.m_CurrTime;
-        hungerSlider_.value = m_PlayerData.m_HungerMeter;
+        m_HungerSlider.value = m_PlayerData.m_HungerMeter;
 
         m_ShillingText.text = m_PlayerData.m_Shillings.ToString();
 
@@ -286,6 +275,7 @@ public class HUDScript : MonoBehaviour
     {
         if(m_RandomEventPanel.activeSelf)
         {
+            m_PlayerController.enabled = true;
             m_RandomEventPanel.SetActive(false);
         }
         if (statsActive_ || inventoryActive_ || possessionActive_ || consumableActive_)

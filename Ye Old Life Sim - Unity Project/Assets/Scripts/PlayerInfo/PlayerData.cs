@@ -51,7 +51,7 @@ public class PlayerData : MonoBehaviour
     public bool m_IsInfected = false;       //variable used for when the player catches a disease
 	public bool m_HasMount = false;			//variable used for when the player has a mount
 
-   public PlayerController playerController_;
+    public PlayerController m_PlayerController;
 
     private Food playerFood_;
     private EndOfTurnCode endTurnCode_;
@@ -97,6 +97,7 @@ public class PlayerData : MonoBehaviour
     public void StartTurn()
     {
         gameObject.SetActive(true);
+        m_PlayerController.enabled = false;
         m_IsDead = false;
 
         //loop through the player's inventory and find objects with the food script
@@ -202,25 +203,25 @@ public class PlayerData : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (playerController_.m_WaypointObject.name == other.gameObject.transform.parent.name)
+        if (m_PlayerController.m_WaypointObject.name == other.gameObject.transform.parent.name)
         {
-            if (other.tag == "Waypoint" && playerController_.enabled)
+            if (other.tag == "Waypoint" && m_PlayerController.enabled)
             {
                 Debug.Log("Name: " + other.gameObject.transform.parent.name);
                 Building building = other.gameObject.transform.parent.gameObject.GetComponent<Building>();
                 if (building != null)
                 {
                     currBuilding_ = other.gameObject.transform.parent.gameObject;
-                    playerController_.enabled = false;
-                    building.m_BuildingUI.LoadBuildingData(playerController_, other.gameObject.transform.parent.gameObject);
+                    m_PlayerController.enabled = false;
+                    building.m_BuildingUI.LoadBuildingData(m_PlayerController, other.gameObject.transform.parent.gameObject);
                 }
 
                 Habitat habitat = other.gameObject.transform.parent.gameObject.GetComponent<Habitat>();
                 if (habitat != null)
                 {
                     currBuilding_ = other.gameObject.transform.parent.gameObject;
-                    playerController_.enabled = false;
-                    habitat.m_HabitatUI.LoadHabitatData(playerController_, other.gameObject.transform.parent.gameObject);
+                    m_PlayerController.enabled = false;
+                    habitat.m_HabitatUI.LoadHabitatData(m_PlayerController, other.gameObject.transform.parent.gameObject);
                 }
             }
         }
@@ -245,13 +246,13 @@ public class PlayerData : MonoBehaviour
             {
                 if (currBuilding_.GetComponent<Building>())
                 {
-                    playerController_.enabled = false;
-                    currBuilding_.GetComponent<Building>().m_BuildingUI.LoadBuildingData(playerController_, currBuilding_);
+                    m_PlayerController.enabled = false;
+                    currBuilding_.GetComponent<Building>().m_BuildingUI.LoadBuildingData(m_PlayerController, currBuilding_);
                 }
                 else if (currBuilding_.GetComponent<Habitat>())
                 {
-                    playerController_.enabled = false;
-                    currBuilding_.GetComponent<Habitat>().m_HabitatUI.LoadHabitatData(playerController_, currBuilding_);
+                    m_PlayerController.enabled = false;
+                    currBuilding_.GetComponent<Habitat>().m_HabitatUI.LoadHabitatData(m_PlayerController, currBuilding_);
                 }
             }
         }

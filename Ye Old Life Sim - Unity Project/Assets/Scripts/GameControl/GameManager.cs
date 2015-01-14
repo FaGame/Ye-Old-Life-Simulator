@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
         SetPlayers();
         DecreaseTime();
 
-        if(m_PlayerData.m_HungerMeter >= 44)
+        if(m_PlayerData.m_HungerMeter >= ValueConstants.PLAYER_MAX_HUNGER)
         {
             KillPlayer();
         }
