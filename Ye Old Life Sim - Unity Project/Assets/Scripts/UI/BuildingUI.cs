@@ -513,7 +513,14 @@ public class BuildingUI : MonoBehaviour
         SpecialEffect sEffect = go.GetComponent<SpecialEffect>();
         result = sEffect.DoSpecialEffect(m_PlayerData);
         m_PlayerData.AddEndOfTurnCode(sEffect.TurnEnded);
-        interactDescriptionText_.text = "You gained skill in " + go.name;
+        if (Training.m_HaveLearnedSkill)
+        {
+            interactDescriptionText_.text = "You earned " + result.m_Value + " in " + go.name;
+        }
+        else
+        {
+            interactDescriptionText_.text = "You can't afford this education!";
+        }
     }
 
     //Button function - This function is called by the "Work" button in the Building Menu, it called the Work function in the Building's script.
