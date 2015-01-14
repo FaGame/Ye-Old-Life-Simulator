@@ -89,6 +89,7 @@ public class GameMenu : MonoBehaviour
             m_Players = 2;
             m_isHumanText.gameObject.SetActive(true);
             m_isPlayable1 = false;
+            m_twoplayerPanel.gameObject.SetActive(true);
         }
         else
         {
@@ -193,11 +194,13 @@ public class GameMenu : MonoBehaviour
         if(m_Turns.isOn == true)
         {
             m_isTurnGame = true;
+            m_twoplayerPanel.gameObject.SetActive(true);
         }
 
         if(m_Objectives.isOn == true)
         {
             m_isObjectivesGame = true;
+            m_twoplayerPanel.gameObject.SetActive(true);
         }
     }
 }
