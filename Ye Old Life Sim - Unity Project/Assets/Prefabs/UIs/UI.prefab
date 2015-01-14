@@ -2999,7 +2999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b8be2be6d41e5468fb3afa81cac10a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CloseMenu: {fileID: 0}
+  m_CloseMenu: {fileID: 8200002}
   m_HabitatGUI: {fileID: 174882}
   m_RentButton: {fileID: 11474906}
   m_RentValue: {fileID: 11484774}
@@ -6177,7 +6177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61722104e0642ee4d9139a7a6d7b6fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CloseMenu: {fileID: 0}
+  m_CloseMenu: {fileID: 8200002}
   m_BuildingGUI: {fileID: 124854}
   m_ApplyMenu: {fileID: 174886}
   m_ApplyMenuButtonPrefab: {fileID: 152740, guid: 2e02a434b32b68a4492f805e88c8a85f,
@@ -6510,7 +6510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 3a2439bdb9f437a42a0a3056b6f255a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 555f88f4123db2c418ca4bb1f65099e6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9382,14 +9382,14 @@ RectTransform:
   m_GameObject: {fileID: 195438}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .600000024, y: 1, z: 1}
   m_Children:
   - {fileID: 22495436}
   m_Father: {fileID: 22495440}
   m_RootOrder: 0
   m_AnchorMin: {x: .850000024, y: 0}
   m_AnchorMax: {x: .850000024, y: .100000001}
-  m_AnchoredPosition: {x: -35, y: -4.59999847}
+  m_AnchoredPosition: {x: -35, y: 33.7999992}
   m_SizeDelta: {x: 100, y: 90}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22495440
@@ -9407,7 +9407,7 @@ RectTransform:
   m_RootOrder: 6
   m_AnchorMin: {x: .850000024, y: 0}
   m_AnchorMax: {x: .850000024, y: .100000001}
-  m_AnchoredPosition: {x: -6, y: 22}
+  m_AnchoredPosition: {x: -6, y: -15.3999996}
   m_SizeDelta: {x: 100, y: 45}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22497866
