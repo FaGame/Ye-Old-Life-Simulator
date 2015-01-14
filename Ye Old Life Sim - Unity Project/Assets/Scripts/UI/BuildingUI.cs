@@ -61,6 +61,7 @@ public class BuildingUI : MonoBehaviour
     private bool timerRunning_;
     private BuildingList bList_;
     private int buildingNumber_;
+    private ButtonPusher buyItemsButtonPusher;
     //private bool transitionToVisible_;
     //private bool isIransitioning_;
     //private float transitionAlpha_;
@@ -93,6 +94,8 @@ public class BuildingUI : MonoBehaviour
 
         bList_ = Camera.main.GetComponent<BuildingList>();
         buildingNumber_ = bList_.GetBuildingNumber(gameObject.name);
+
+        buyItemsButtonPusher = m_BuyMenu.GetComponent<ButtonPusher>();
 
        //transitionToVisible_ = false;
         //isIransitioning_ = false;
@@ -303,7 +306,9 @@ public class BuildingUI : MonoBehaviour
             buyMenuText_[i + 2].text = selectedBuilding_.GetComponent<Building>().m_Items[j].GetDescription();
             j++;
         }
+        //buyItemsButtonPusher.ButtonsAreInstantiated(m_BuyMenuScrollMask);
         m_BuyItemsTransitionDisplay.FadeIn();
+        //buyItemsButtonPusher.SelectButton(1);
     }
 
     //Button function - This function is called by the "Interact" button
