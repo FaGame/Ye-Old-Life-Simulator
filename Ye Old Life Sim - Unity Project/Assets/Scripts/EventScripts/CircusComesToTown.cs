@@ -6,10 +6,15 @@ using System.Collections.Generic;
 //Come back when item list exists
 public class CircusComesToTown : RandomEventBaseClass
 {
+	public RandomEventManager1 m_RandomEventManager;
+
+	Item[] m_Items = new Item[0];
+	public Item m_ItemType;
+
 	private string m_TicketCostMessage;
 
 	public GameObject m_FoundItem;
-	public GameObject[] m_Items;
+//	public GameObject[] m_Items;
 	public AnItem m_AnItemScript;
 	public PlayerData m_PlayerData;
 
@@ -38,7 +43,7 @@ public class CircusComesToTown : RandomEventBaseClass
 		if (randomNumber_ > 11)
 		{
 			int ItemGiven = Random.Range(1, m_Items.Length - 1);
-			m_FoundItem = m_Items[ItemGiven];
+//			m_FoundItem = m_Items[ItemGiven];
 		}
 		//m_PlayerData.m_UseableInventory.AddToInventory(m_FoundItem.name, m_AnItemScript.GetComponent<AnItem>().m_SingleItem); //give player the random item
 //		GetComponent<PossessionInventory>().AddToInventory(m_FoundItem.name, m_ItemType); //add the found item into the player's inventory
