@@ -24,6 +24,8 @@ public class GameMenu : MonoBehaviour
 
     public GameObject m_objectivesSliders;
     public GameObject m_turnSlider;
+    public GameObject m_warningPanel;
+    public GameObject m_twoplayerPanel;
 
     public Text m_currencyText;
     public Text m_repText;
@@ -162,6 +164,21 @@ public class GameMenu : MonoBehaviour
         if (m_isPlayable1 && m_isPlayable2)
         {
             Application.LoadLevel("MainLevel");
+        }
+
+        if(m_isPlayable1 == false)
+        {
+            m_warningPanel.gameObject.SetActive(true);
+        }
+
+        if (m_isPlayable2 == false)
+        {
+            m_warningPanel.gameObject.SetActive(true);
+        }
+
+        if (m_isPlayable1 && m_isPlayable2 == false)
+        {
+            m_warningPanel.gameObject.SetActive(true);
         }
     }
 
