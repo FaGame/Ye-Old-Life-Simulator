@@ -159,7 +159,7 @@ public class GameMenu : MonoBehaviour
 
     public void Play()
     {
-        if ((m_isPlayable1 && m_isPlayable2) || (m_Sandbox.isOn && m_isPlayable1))
+        if (m_isPlayable1 && m_isPlayable2)
         {
             Application.LoadLevel("MainLevel");
         }
