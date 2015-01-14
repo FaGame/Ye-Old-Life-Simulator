@@ -34,6 +34,7 @@ public class HUDScript : MonoBehaviour
     private bool HUDActive_ = false; //This bool determines whether any HUD elements are active
     private bool wasHighlighted_ = false;
     private bool objectivesSetUp_ = false;
+    private bool escapePressed_ = false;
     private float timer_; //Turn timer
     private Slider[] sliderArray_; //Array containing the HUD sliders
     private Slider[] objSliderArray_; //Array of objective sliders
@@ -172,8 +173,9 @@ public class HUDScript : MonoBehaviour
             m_CurrJobText.text = m_PlayerData.m_Job.name;
         }
 
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !escapePressed_)
         {
+            escapePressed_ = true;
             CloseCurrentMenu();
         }
         else if (Input.GetKey(KeyCode.B) || Input.GetKey(KeyCode.I))
@@ -183,6 +185,11 @@ public class HUDScript : MonoBehaviour
         else if (Input.GetKey(KeyCode.C))
         {
             OpenStatsMenu();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape) && escapePressed_)
+        {
+            escapePressed_ = false;
         }
 
         buildingHoverRay_ = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -227,15 +234,6 @@ public class HUDScript : MonoBehaviour
     public void CloseInventoryMenu()
     {
         m_InventoryPanel.SetActive(false);
-    }
-
-    //Button function - Closes the stats screen on press
-    public void CloseMenu()
-    {
-        m_CloseMenu.Play();
-        statsActive_ = false;
-        //m_StatsScreen.SetActive(statsActive_);
-        m_StatsTransitionDisplay.FadeOut(null);
     }
 
     //This function gets the latest stats when the player opens the stats menu
@@ -295,19 +293,19 @@ public class HUDScript : MonoBehaviour
             m_PlayerController.enabled = true;
             m_StatsTransitionDisplay.FadeOut(null);
         }
-        else if (inventoryActive_)
+        if (inventoryActive_ && !consumableActive_ && !possessionActive_)
         {
             inventoryActive_ = false;
             m_PlayerController.enabled = true;
             m_InventoryPanel.SetActive(false);
-            m_InventoryTransitionDisplay.FadeOut(delegate { cleanupInvMenu(); });
+            m_InventoryTransitionDisplay.FadeOut(null);
         }
-        else if (consumableActive_)
+        else if (consumableActive_ && inventoryActive_)
         {
             GetComponent<InventoryUI>().CloseInventory();
             consumableActive_ = false;
         }
-        else if (possessionActive_)
+        else if (possessionActive_ && inventoryActive_)
         {
             GetComponent<PossessioninventoryUI>().CloseInventory();
             possessionActive_ = false;
@@ -321,8 +319,6 @@ public class HUDScript : MonoBehaviour
             GetComponent<HabitatUI>().CloseCurrentUI();
         }
     }
-
-    void cleanupInvMenu(){} //This does nothing, but is required for fading out the inventory
 
     public void OpenBuildingsList()
     {
