@@ -43,12 +43,22 @@ public class RestartUI : MonoBehaviour
         }
     }
 
-    public void PlayerDied()
+    public void PlayerLost()
     {
         m_RestartGUI.SetActive(true);
         m_TransitionDisplay.PrepareForFadeIn();
         m_Description.text = "You have decided that it was not a good day to win.";
         if(m_GameManager.TwoPlayerGame)
+        {
+            m_WhoWon.text = "Enemy has won";
+            m_ObjectiveScores.text = "Player's Happiness: " + m_Player.m_Happiness +
+                                     "\nPlayer's Shillings " + m_Player.m_Shillings +
+                                     "\nPlayer's Reputation " + m_Player.m_Reputation +
+                                     "\nOpponent's Happiness: " + m_Opponent.m_Happiness +
+                                     "\nOpponent's Shillings " + m_Opponent.m_Shillings +
+                                     "\nOpponent's Reputation " + m_Opponent.m_Reputation;
+        }
+        else if(m_GameManager.AIGame)
         {
             m_WhoWon.text = "Enemy has won";
             m_ObjectiveScores.text = "Player's Happiness: " + m_Player.m_Happiness +
@@ -76,6 +86,16 @@ public class RestartUI : MonoBehaviour
         if (m_GameManager.TwoPlayerGame)
         {
             m_WhoWon.text = "Player has won";
+            m_ObjectiveScores.text = "Player's Happiness: " + m_Player.m_Happiness +
+                                     "\nPlayer's Shillings " + m_Player.m_Shillings +
+                                     "\nPlayer's Reputation " + m_Player.m_Reputation +
+                                     "\nOpponent's Happiness: " + m_Opponent.m_Happiness +
+                                     "\nOpponent's Shillings " + m_Opponent.m_Shillings +
+                                     "\nOpponent's Reputation " + m_Opponent.m_Reputation;
+        }
+        else if (m_GameManager.AIGame)
+        {
+            m_WhoWon.text = "Enemy has won";
             m_ObjectiveScores.text = "Player's Happiness: " + m_Player.m_Happiness +
                                      "\nPlayer's Shillings " + m_Player.m_Shillings +
                                      "\nPlayer's Reputation " + m_Player.m_Reputation +

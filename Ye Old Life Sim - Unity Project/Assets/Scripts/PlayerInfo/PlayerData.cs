@@ -286,8 +286,13 @@ public class PlayerData : MonoBehaviour
         m_InfectedTurnCounter = 0;
     }
 
-    public void CheckScoresBetweenPlayers()
+    public GameManager.WinCodes CheckScoresBetweenPlayers()
     {
+        //winCode defaults to 0
+        //Player wins if winCode == 1
+        //Second Player/AI wins if winCode == 2
+        GameManager.WinCodes winCode = GameManager.WinCodes.DEFAULT;
+
         //when one of the categories beats the opponents increase the counter by 1
         if (m_Happiness > m_Opponent.m_Happiness && m_CanCheckHappiness && m_Happiness >= m_MaxHappiness)
         {
@@ -318,6 +323,21 @@ public class PlayerData : MonoBehaviour
             m_CanCheckReputation = false;
             m_Opponent.m_CanCheckReputation = true;
         }
+
+        if(m_BetterCategoryCounter >= 3)
+        {
+            winCode = GameManager.WinCodes.PLAYER_WINS;
+        }
+        else if(m_Opponent.m_BetterCategoryCounter >= 3)
+        {
+            winCode = GameManager.WinCodes.OPPONENT_WINS;
+        }
+        else
+        {
+            winCode = GameManager.WinCodes.DEFAULT;
+        }
+
+        return winCode;
     }
 
     void StartAtHome()

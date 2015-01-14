@@ -82,6 +82,13 @@ public class GameManager : MonoBehaviour
         get { return AIBeingUsed_; }
     }
 
+    public enum WinCodes
+    {
+        DEFAULT = 0,
+        PLAYER_WINS = 1,
+        OPPONENT_WINS = 2
+    };
+
     void Start()
     {
         isPlayerTurn_ = true;
@@ -225,16 +232,22 @@ public class GameManager : MonoBehaviour
         if (m_PlayerData.m_Happiness >= maxHappy_ && m_PlayerData.m_Reputation >= (int)maxRep_ && m_PlayerData.m_Shillings >= (int)maxCurrency_)
         {
             //You Win Objectives gametype, do shit
-            Debug.Log("You Win Objectives Game!!");
+            m_RestartUI.PlayerWon();
         }
     }
 
+
     void CheckForTurnWin()
     {
-       if(m_Turns >= maxTurns_)
+       if (m_PlayerData.CheckScoresBetweenPlayers() == WinCodes.PLAYER_WINS)
        {
            //You Win Turns gametype, do shit
+           m_RestartUI.PlayerWon();
            Debug.Log("You Win Turns Game!!");
+       }
+       else if(m_PlayerData.CheckScoresBetweenPlayers() == WinCodes.OPPONENT_WINS)
+       {
+           m_RestartUI.PlayerLost();
        }
     }
 
@@ -295,8 +308,8 @@ public class GameManager : MonoBehaviour
 
         if (m_PlayerData.m_HungerMeter >= m_PlayerData.m_MaxHunger || m_Player.GetComponent<PlayerData>().m_IsDead || m_AIData.m_BetterCategoryCounter >= lossAmount)
         {
-            Debug.Log("You have died, alone and forgotten behind the most uninspiring shrubbery");      
-            m_RestartUI.PlayerDied();
+            Debug.Log("You have died, alone and forgotten behind the most uninspiring shrubbery");
+            m_RestartUI.PlayerLost();
             m_CanCheckWinLoss = false;
         }
     }
