@@ -3599,7 +3599,7 @@ EllipsoidParticleEmitter:
   m_GameObject: {fileID: 100154}
   serializedVersion: 2
   m_Enabled: 1
-  m_Emit: 1
+  m_Emit: 0
   minSize: 1
   maxSize: 1
   minEnergy: 3
@@ -4896,7 +4896,7 @@ MonoBehaviour:
   m_IsDead: 0
   m_IsInfected: 0
   m_HasMount: 0
-  m_PlayerController: {fileID: 0}
+  m_PlayerController: {fileID: 11423642}
 --- !u!114 &11471534
 MonoBehaviour:
   m_ObjectHideFlags: 1

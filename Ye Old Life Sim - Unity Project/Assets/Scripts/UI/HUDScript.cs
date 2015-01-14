@@ -146,6 +146,11 @@ public class HUDScript : MonoBehaviour
             HUDActive_ = false;
         }
 
+        if(Input.GetKey(KeyCode.Backspace))
+        {
+            m_PlayerController.enabled = true;
+        }
+
         consumableActive_ = GetComponent<InventoryUI>().InventoryActive;
         possessionActive_ = GetComponent<PossessioninventoryUI>().InventoryActive;
 
