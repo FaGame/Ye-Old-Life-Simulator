@@ -170,6 +170,7 @@ public class GameMenu : MonoBehaviour
         if(m_Sandbox.isOn == true)
         {
             m_isSandboxGame = true;
+            m_isPlayable2 = true;
         }
 
         if(m_Turns.isOn == true)
