@@ -71,6 +71,11 @@ public class GameManager : MonoBehaviour
         get { return TwoPlayerGame_; }
     }
 
+    public bool AIGame
+    {
+        get { return AIBeingUsed_; }
+    }
+
     void Start()
     {
         isPlayerTurn_ = true;

@@ -13,11 +13,35 @@ public class RestartUI : MonoBehaviour
     public PlayerData m_Opponent;
     public TransitionDisplay m_TransitionDisplay;
 
+    private bool opponentDataSet_ = false;
+
 	// Use this for initialization
 	void Start () 
     {
         m_RestartGUI.SetActive(false);
 	}
+
+    void Update()
+    {
+        if (!opponentDataSet_)
+        {
+            if (m_GameManager.TwoPlayerGame)
+            {
+                m_Opponent = m_GameManager.m_PlayerTwoData;
+                opponentDataSet_ = true;
+            }
+            else if (m_GameManager.AIGame)
+            {
+                m_Opponent = m_GameManager.m_AIData;
+                opponentDataSet_ = true;
+            }
+            else if (!m_GameManager.AIGame && !m_GameManager.TwoPlayerGame)
+            {
+                m_Opponent = null;
+                opponentDataSet_ = true;
+            }
+        }
+    }
 
     public void PlayerDied()
     {
@@ -74,6 +98,6 @@ public class RestartUI : MonoBehaviour
     public void RestartGame()
     {
         m_TransitionDisplay.FadeOut(null);
-        Application.LoadLevel(2);
+        Application.LoadLevel(1);
     }
 }
