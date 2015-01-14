@@ -2098,7 +2098,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100022}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 556.150024, y: 5.71000004, z: 373.880005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4893,10 +4893,10 @@ MonoBehaviour:
   m_CanCheckHappiness: 1
   m_CanCheckReputation: 1
   m_CanCheckShillings: 1
-  m_IsDead: 1
+  m_IsDead: 0
   m_IsInfected: 0
   m_HasMount: 0
-  playerController_: {fileID: 11423642}
+  m_PlayerController: {fileID: 0}
 --- !u!114 &11471534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4923,6 +4923,7 @@ MonoBehaviour:
   m_DataCollection: {fileID: 0}
   m_Names: []
   m_ItemBought: 
+  m_ItemUsed: 
 --- !u!114 &11497480
 MonoBehaviour:
   m_ObjectHideFlags: 1

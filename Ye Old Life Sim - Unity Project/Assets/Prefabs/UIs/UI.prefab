@@ -6435,6 +6435,7 @@ MonoBehaviour:
   m_CurrJobText: {fileID: 11474820}
   m_ShillingText: {fileID: 11499422}
   m_BuildingHovered: {fileID: 11448990}
+  m_HungerSlider: {fileID: 11474880}
   m_StatsTransitionDisplay: {fileID: 11435888}
   m_InventoryTransitionDisplay: {fileID: 11455500}
   m_BuildingButtonPrefab: {fileID: 132992, guid: 513310f856af77d48bcea7584ae754fe,
