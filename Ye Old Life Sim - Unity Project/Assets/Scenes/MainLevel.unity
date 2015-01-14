@@ -86538,7 +86538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RestartGUI: {fileID: 405690790}
-  m_GameManager: {fileID: 0}
+  m_GameManager: {fileID: 1405834717}
   m_Description: {fileID: 1110805059}
   m_WhoWon: {fileID: 1165130985}
   m_ObjectiveScores: {fileID: 1792635717}
@@ -117292,6 +117292,10 @@ Prefab:
       propertyPath: m_CloseMenu
       value: 
       objectReference: {fileID: 1583590510}
+    - target: {fileID: 11424848, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+      propertyPath: m_GameManager
+      value: 
+      objectReference: {fileID: 1405834717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
   m_RootGameObject: {fileID: 1583590499}
