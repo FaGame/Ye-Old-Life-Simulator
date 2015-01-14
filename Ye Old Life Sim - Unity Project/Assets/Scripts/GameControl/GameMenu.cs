@@ -25,6 +25,7 @@ public class GameMenu : MonoBehaviour
     public GameObject m_objectivesSliders;
     public GameObject m_turnSlider;
     public GameObject m_warning;
+    public GameObject m_twoplayerpane;
 
     public Text m_currencyText;
     public Text m_repText;
@@ -88,6 +89,7 @@ public class GameMenu : MonoBehaviour
             m_Players = 2;
             m_isHumanText.gameObject.SetActive(true);
             m_isPlayable1 = false;
+            m_twoplayerpane.gameObject.SetActive(true);
         }
         else
         {
