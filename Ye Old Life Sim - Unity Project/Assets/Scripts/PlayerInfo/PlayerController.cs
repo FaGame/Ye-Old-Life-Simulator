@@ -187,6 +187,7 @@ public class PlayerController : MonoBehaviour
                 m_PlayerData.m_HungerMeter += 1.0f;
                 hungerTimer_ = 0.0f;
             }
+            m_IsMoving = true;
         }
     }
 
