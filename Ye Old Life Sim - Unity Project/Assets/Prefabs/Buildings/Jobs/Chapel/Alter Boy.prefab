@@ -37,7 +37,7 @@ AudioSource:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: e297a7536f751ac4ca2c79935fc071cc, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c786cd230a09e4ba95a6072d5a1a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AudioClip: {fileID: 8300000, guid: e297a7536f751ac4ca2c79935fc071cc, type: 3}
   m_AudioSource: {fileID: 8222592}
+  m_AudioClip: {fileID: 8300000, guid: e297a7536f751ac4ca2c79935fc071cc, type: 3}
   m_SkillRequirement:
   - m_Skill: 2
     m_Amount: 200
