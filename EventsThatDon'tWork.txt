@@ -1,0 +1,11 @@
+Find a Sack
+Circus
+Weekend Job
+Kingdom At War
+Stampede
+Experiment Gone Wrong
+Barrel of Mead
+
+Note:::
+Line 118 of PlayerData will cause problems with the Kingdom At War Event
+ m_EarningScalar = ValueConstants.PLAYER_DEFAULT_MONEY_SCALAR;
