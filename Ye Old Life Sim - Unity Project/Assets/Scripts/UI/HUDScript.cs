@@ -337,10 +337,13 @@ public class HUDScript : MonoBehaviour
         if(isBuildingMenuOpen_)
         {
             m_TransOutBuilding.StartTransition(delegate { CleanUpBuildingList(); });
+            m_PlayerController.enabled = true;
             //CleanUpBuildingList();
             //m_BuildingMenuScrollMask.transform.parent.gameObject.SetActive(false);
             return;
         }
+
+        m_PlayerController.enabled = false;
 
         isBuildingMenuOpen_ = true;
         m_BuildingMenuScrollMask.transform.parent.gameObject.SetActive(true);
@@ -366,6 +369,7 @@ public class HUDScript : MonoBehaviour
 
     void GotoBuilding(GameObject goHere)
     {
+        m_PlayerController.enabled = true;
         ScrollRect sRect = m_BuildingMenuScrollMask.transform.parent.gameObject.GetComponent<ScrollRect>();
         m_TransOutBuilding.StartTransition(delegate { CleanUpBuildingList(); });
 
