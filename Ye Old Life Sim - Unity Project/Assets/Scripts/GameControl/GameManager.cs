@@ -128,9 +128,6 @@ public class GameManager : MonoBehaviour
         {
             KillPlayer();
         }
-        //Debug.Log(maxHappy_);
-        //Debug.Log(maxCurrency_);
-        //Debug.Log(maxRep_);
     }
 
     void SetActivePlayers()
@@ -141,9 +138,6 @@ public class GameManager : MonoBehaviour
 
     void TurnManager()
     {
-        //Debug.Log(m_PlayerData.m_CurrTime);
-        //Debug.Log(m_AIData.m_CurrTime);
-
         //start turn is the player, once their time runs out, disables player and activates AI and AI turn
         if (isPlayerTurn_ == true)
         {
@@ -239,16 +233,23 @@ public class GameManager : MonoBehaviour
 
     void CheckForTurnWin()
     {
-       if (m_PlayerData.CheckScoresBetweenPlayers() == WinCodes.PLAYER_WINS)
-       {
-           //You Win Turns gametype, do shit
-           m_RestartUI.PlayerWon();
-           Debug.Log("You Win Turns Game!!");
-       }
-       else if(m_PlayerData.CheckScoresBetweenPlayers() == WinCodes.OPPONENT_WINS)
-       {
-           m_RestartUI.PlayerLost();
-       }
+        if (AIBeingUsed_ || TwoPlayerGame_)
+        {
+            if (m_PlayerData.CheckScoresBetweenPlayers() == WinCodes.PLAYER_WINS)
+            {
+                //You Win Turns gametype, do shit
+                m_RestartUI.PlayerWon();
+                Debug.Log("You Win Turns Game!!");
+            }
+            else if (m_PlayerData.CheckScoresBetweenPlayers() == WinCodes.OPPONENT_WINS)
+            {
+                m_RestartUI.PlayerLost();
+            }
+        }
+        else if(m_Turns >= maxTurns_)
+        {
+            m_RestartUI.PlayerWon();
+        }
     }
 
     void SetObjGame()

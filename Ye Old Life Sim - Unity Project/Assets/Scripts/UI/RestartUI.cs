@@ -14,10 +14,12 @@ public class RestartUI : MonoBehaviour
     public TransitionDisplay m_TransitionDisplay;
 
     private bool opponentDataSet_ = false;
+    private bool uiDisplayed_ = false;
 
 	// Use this for initialization
 	void Start () 
     {
+        uiDisplayed_ = false;
         m_RestartGUI.SetActive(false);
 	}
 
@@ -45,74 +47,82 @@ public class RestartUI : MonoBehaviour
 
     public void PlayerLost()
     {
-        m_RestartGUI.SetActive(true);
-        m_TransitionDisplay.PrepareForFadeIn();
-        m_Description.text = "You have decided that it was not a good day to win.";
-        if(m_GameManager.TwoPlayerGame)
+        if (!uiDisplayed_)
         {
-            m_WhoWon.text = "Enemy has won";
-            m_ObjectiveScores.text = "Player's Happiness: " + m_Player.m_Happiness +
-                                     "\nPlayer's Shillings " + m_Player.m_Shillings +
-                                     "\nPlayer's Reputation " + m_Player.m_Reputation +
-                                     "\nOpponent's Happiness: " + m_Opponent.m_Happiness +
-                                     "\nOpponent's Shillings " + m_Opponent.m_Shillings +
-                                     "\nOpponent's Reputation " + m_Opponent.m_Reputation;
+            m_RestartGUI.SetActive(true);
+            m_TransitionDisplay.PrepareForFadeIn();
+            m_Description.text = "You have decided that it was not a good day to win.";
+            if (m_GameManager.TwoPlayerGame)
+            {
+                m_WhoWon.text = "Enemy has won";
+                m_ObjectiveScores.text = "Player's Happiness: " + m_Player.m_Happiness +
+                                         "\nPlayer's Shillings " + m_Player.m_Shillings +
+                                         "\nPlayer's Reputation " + m_Player.m_Reputation +
+                                         "\nOpponent's Happiness: " + m_Opponent.m_Happiness +
+                                         "\nOpponent's Shillings " + m_Opponent.m_Shillings +
+                                         "\nOpponent's Reputation " + m_Opponent.m_Reputation;
+            }
+            else if (m_GameManager.AIGame)
+            {
+                m_WhoWon.text = "Enemy has won";
+                m_ObjectiveScores.text = "Player's Happiness: " + m_Player.m_Happiness +
+                                         "\nPlayer's Shillings " + m_Player.m_Shillings +
+                                         "\nPlayer's Reputation " + m_Player.m_Reputation +
+                                         "\nOpponent's Happiness: " + m_Opponent.m_Happiness +
+                                         "\nOpponent's Shillings " + m_Opponent.m_Shillings +
+                                         "\nOpponent's Reputation " + m_Opponent.m_Reputation;
+            }
+            else
+            {
+                m_WhoWon.text = "You have lost";
+                m_ObjectiveScores.text = "Happiness: " + m_Player.m_Happiness +
+                                         "\nShillings " + m_Player.m_Shillings +
+                                         "\nReputation " + m_Player.m_Reputation;
+            }
+
+            m_TransitionDisplay.FadeIn();
+            uiDisplayed_ = true;
         }
-        else if(m_GameManager.AIGame)
-        {
-            m_WhoWon.text = "Enemy has won";
-            m_ObjectiveScores.text = "Player's Happiness: " + m_Player.m_Happiness +
-                                     "\nPlayer's Shillings " + m_Player.m_Shillings +
-                                     "\nPlayer's Reputation " + m_Player.m_Reputation +
-                                     "\nOpponent's Happiness: " + m_Opponent.m_Happiness +
-                                     "\nOpponent's Shillings " + m_Opponent.m_Shillings +
-                                     "\nOpponent's Reputation " + m_Opponent.m_Reputation;
-        }
-        else
-        {
-            m_WhoWon.text = "You have lost";
-            m_ObjectiveScores.text = "Happiness: " + m_Player.m_Happiness +
-                                     "\nShillings " + m_Player.m_Shillings +
-                                     "\nReputation " + m_Player.m_Reputation;                            
-        }
-     
-        m_TransitionDisplay.FadeIn();
     }
 
     public void PlayerWon()
     {
-        m_RestartGUI.SetActive(true);
-        m_TransitionDisplay.PrepareForFadeIn();
-        if (m_GameManager.TwoPlayerGame)
+        if (!uiDisplayed_)
         {
-            m_WhoWon.text = "Player has won";
-            m_ObjectiveScores.text = "Player's Happiness: " + m_Player.m_Happiness +
-                                     "\nPlayer's Shillings " + m_Player.m_Shillings +
-                                     "\nPlayer's Reputation " + m_Player.m_Reputation +
-                                     "\nOpponent's Happiness: " + m_Opponent.m_Happiness +
-                                     "\nOpponent's Shillings " + m_Opponent.m_Shillings +
-                                     "\nOpponent's Reputation " + m_Opponent.m_Reputation;
+            m_RestartGUI.SetActive(true);
+            m_TransitionDisplay.PrepareForFadeIn();
+            if (m_GameManager.TwoPlayerGame)
+            {
+                m_WhoWon.text = "Player has won";
+                m_ObjectiveScores.text = "Player's Happiness: " + m_Player.m_Happiness +
+                                         "\nPlayer's Shillings " + m_Player.m_Shillings +
+                                         "\nPlayer's Reputation " + m_Player.m_Reputation +
+                                         "\nOpponent's Happiness: " + m_Opponent.m_Happiness +
+                                         "\nOpponent's Shillings " + m_Opponent.m_Shillings +
+                                         "\nOpponent's Reputation " + m_Opponent.m_Reputation;
+            }
+            else if (m_GameManager.AIGame)
+            {
+                m_WhoWon.text = "Player has won";
+                m_ObjectiveScores.text = "Player's Happiness: " + m_Player.m_Happiness +
+                                         "\nPlayer's Shillings " + m_Player.m_Shillings +
+                                         "\nPlayer's Reputation " + m_Player.m_Reputation +
+                                         "\nOpponent's Happiness: " + m_Opponent.m_Happiness +
+                                         "\nOpponent's Shillings " + m_Opponent.m_Shillings +
+                                         "\nOpponent's Reputation " + m_Opponent.m_Reputation;
+            }
+            else
+            {
+                m_WhoWon.text = "You have won!";
+                m_ObjectiveScores.text = "Happiness: " + m_Player.m_Happiness +
+                                         "\nShillings " + m_Player.m_Shillings +
+                                         "\nReputation " + m_Player.m_Reputation;
+            }
+            m_Description.text = "You have decided that it was not a good day to die.";
+
+            m_TransitionDisplay.FadeIn();
+            uiDisplayed_ = true;
         }
-        else if (m_GameManager.AIGame)
-        {
-            m_WhoWon.text = "Enemy has won";
-            m_ObjectiveScores.text = "Player's Happiness: " + m_Player.m_Happiness +
-                                     "\nPlayer's Shillings " + m_Player.m_Shillings +
-                                     "\nPlayer's Reputation " + m_Player.m_Reputation +
-                                     "\nOpponent's Happiness: " + m_Opponent.m_Happiness +
-                                     "\nOpponent's Shillings " + m_Opponent.m_Shillings +
-                                     "\nOpponent's Reputation " + m_Opponent.m_Reputation;
-        }
-        else
-        {
-            m_WhoWon.text = "You have won!";
-            m_ObjectiveScores.text = "Happiness: " + m_Player.m_Happiness +
-                                     "\nShillings " + m_Player.m_Shillings +
-                                     "\nReputation " + m_Player.m_Reputation;                              
-        }
-        m_Description.text = "You have decided that it was not a good day to die.";
-       
-        m_TransitionDisplay.FadeIn();   
     }
 	
     public void RestartGame()
