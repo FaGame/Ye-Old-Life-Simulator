@@ -206,12 +206,11 @@ public class HUDScript : MonoBehaviour
     //Button function - Opens the stats screen on press
     public void OpenStatsMenu()
     {
-        if (!m_GameManager.m_BuildingUI.BuildingUIActive)
+        if (!HUDActive_ && !m_GameManager.m_BuildingUI.BuildingUIActive)
         {
             m_PlayerController.enabled = false;
             m_JournalSound.Play();
             statsActive_ = true;
-            //m_StatsScreen.SetActive(statsActive_);
             m_StatsTransitionDisplay.FadeIn();
             PopulateStats();
             PopulateSkills();
@@ -221,9 +220,13 @@ public class HUDScript : MonoBehaviour
 
     public void OpenInventoryMenu()
     {
-        m_InventoryPanel.SetActive(true);
-        inventoryActive_ = true;
-        m_InventoryTransitionDisplay.FadeIn();
+        if (!HUDActive_ && !m_GameManager.m_BuildingUI.BuildingUIActive)
+        {
+            m_InventoryPanel.SetActive(true);
+            m_PlayerController.enabled = false;
+            inventoryActive_ = true;
+            m_InventoryTransitionDisplay.FadeIn();
+        }
     }
 
     public void CloseInventoryMenu()
