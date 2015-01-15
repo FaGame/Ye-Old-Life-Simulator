@@ -131,10 +131,10 @@ public class ProjectM : MonoBehaviour
         Transform[] posEs = gObj.GetComponentsInChildren<Transform>();
         foreach (Transform tForm in posEs)
         {
-            if (tForm.CompareTag("Waypoint"))
+            if (tForm.CompareTag("Waypoint")  || (tForm.GetComponent<ParticleSystem>() != null))
             {
                 tForm.gameObject.SetActive(false);
-                break;
+                //break;
             }
         }
     }
