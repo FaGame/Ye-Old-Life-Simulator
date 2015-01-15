@@ -4823,7 +4823,7 @@ Animator:
   m_GameObject: {fileID: 197512}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a85d92b72304a79449904f3b49e3d5ea, type: 3}
-  m_Controller: {fileID: 9100000, guid: 76d1131c0e70bc24c9ff4a0771f12858, type: 2}
+  m_Controller: {fileID: 9100000, guid: a80619fafede668448301863c5f584bc, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -4841,7 +4841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerRunning: {fileID: 8297746}
-  m_Horse: {fileID: 11409958, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
+  m_Horse: {fileID: 11408230, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
   m_HorseAnimator: {fileID: 0}
   m_PlayerAnimator: {fileID: 0}
   m_PlayerData: {fileID: 11429232}

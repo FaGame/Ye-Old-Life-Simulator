@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator_;
     private Animator horseAnimator_;
     private ProjectM projM_;
+    private GameObject horse_;
 
     public void SetTarget(Vector3 target)
     {
@@ -40,7 +41,9 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         animator_ = GetComponent<Animator>();
-        horseAnimator_ = GameObject.Find(gameObject.name + " Horse").GetComponent<Animator>();
+        m_HorseAnimator = GameObject.Find(gameObject.name + " Horse").GetComponent<Animator>();
+        horse_ = GameObject.Find(gameObject.name + " Horse");
+        horse_.SetActive(false);
         navAgent_ = GetComponent<NavMeshAgent>();
         currTarget_ = Vector3.zero;
         atCurrTarget_ = true;
@@ -158,7 +161,8 @@ public class PlayerController : MonoBehaviour
         //------------------------------------------------------------------------- end of test code -----------------------------------------------------------------------------
 
         animator_.SetFloat("Walk", m_v);
-        horseAnimator_.SetFloat("Horse_Walk", m_v);
+        
+      //  m_HorseAnimator.SetFloat("Horse_Walk", m_v);
         /*
         if (m_PlayerData.m_HasMount)
         {
@@ -207,5 +211,10 @@ public class PlayerController : MonoBehaviour
                 m_PlayerRunning.Play();
             }
         }
+    }
+
+    public void ActivateHorse()
+    {
+        horse_.SetActive(true);
     }
 }

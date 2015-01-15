@@ -128,6 +128,11 @@ public class Building : MonoBehaviour
             {
                 pData.m_PossessionInventory.AddToInventory(iData.name, iData.m_ItemEntryData);
             }
+            else if (iData.GetComponent<Horse>())
+            {
+                //pData.m_PossessionInventory.AddToInventory(iData.name, iData.m_ItemEntryData);
+                iData.UseItem(pData);
+            }
         }
     }
 

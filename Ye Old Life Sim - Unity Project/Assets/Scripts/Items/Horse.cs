@@ -34,6 +34,7 @@ public class Horse : Item
         {
             m_BoughtHorse = true;
             playerData.AddMountSpeed(m_Effect);
+            playerData.GetComponent<PlayerController>().ActivateHorse();
         }
     }
 }
