@@ -153,6 +153,33 @@ public class Building : MonoBehaviour
             return failedSkill;
         }
 
+        //bool foundRequiredSkill = false;
+        List<bool> skillsFound = new List<bool>();
+        for (int i = 0; i < jData.m_SkillRequirement.Length; ++i)
+        {
+            for (int j = 0; j < pData.m_Skills.Count; ++j)
+            {
+                if ((jData.m_SkillRequirement[i].m_Skill == pData.m_Skills[j].m_Skill))
+                {
+                    //foundRequiredSkill = true;
+                    skillsFound.Add(true);
+                }
+            }
+            if(skillsFound.Count < i)
+            {
+                skillsFound.Add(false);
+            }
+        }
+
+        for(int i = 0; i < skillsFound.Count; ++i)
+        {
+            if(!skillsFound[i])
+            {
+                failedSkill = new SkillAndAmount(jData.m_SkillRequirement[i].m_Skill, jData.m_SkillRequirement[i].m_Amount);
+                return failedSkill;
+            }
+        }
+
         for (int i = 0; i < jData.m_SkillRequirement.Length; ++i)
         {
             for(int j = 0; j < pData.m_Skills.Count; ++j)
