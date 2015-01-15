@@ -90,7 +90,7 @@ public class HUDScript : MonoBehaviour
         //Set the current turn's timer
         timer_ = ValueConstants.PLAYER_MAX_TIME;
 
-        buildingObjects_ = GameObject.FindGameObjectsWithTag("Building");
+        buildingObjects_ = Camera.main.GetComponent<BuildingList>().m_Buildings;
         isBuildingMenuOpen_ = false;
 	}
 
