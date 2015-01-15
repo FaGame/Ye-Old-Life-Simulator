@@ -12,7 +12,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: DefaultCompany
   productName: Ye Old Life Sim - Unity Project
-  defaultCursor: {fileID: 2800000, guid: b07476c00a1b86243afc23d6dde31cb8, type: 3}
+  defaultCursor: {fileID: 2800000, guid: 133f114c8893a7b4e81883424199909a, type: 3}
   cursorHotspot: {x: 0, y: 25}
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
