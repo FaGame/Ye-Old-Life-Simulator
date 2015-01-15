@@ -189,7 +189,9 @@ public class GameManager : MonoBehaviour
                      //m_DataCollection.AddTurns();
                      //m_DataCollection.PopulateStats();
                      m_PlayerData.EndTurn();
+					 m_RandomEventP1Play = true;
                      m_PlayerData.StartTurn();
+					 
                 }
             }
         }
