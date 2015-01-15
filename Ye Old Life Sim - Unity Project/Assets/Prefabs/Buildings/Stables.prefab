@@ -6790,11 +6790,11 @@ MonoBehaviour:
   m_Player: {fileID: 0}
   m_BuildingName: Stables
   m_Description:
-  - Our last farm hand spent a little too much time in the hay.
-  - "The biggest farm in all the land\u2026 If you know what I mean"
-  - Old McDonald had a farm. He was then raided by Vikings.
-  - 'New opening: Nerf Herder. Apply within.'
-  - "Reap what you sow. Then i\u2019ll take it all and pay you minimum wage for it."
+  - Come in for a ride.
+  - We all smell like shit anyways, might as well grab a shovel and start scooping!
+  - A former help was caught choking a chicken.
+  - 'The cow says... '
+  - The hardest part about stealing a sheep is trying to stop the rest from following.
   m_Image: {fileID: 2800000, guid: 44911abe987a3f849ae866318c27c848, type: 3}
   m_JobData:
   - {fileID: 11400000, guid: 1df9ab630264d28409c274490732eae6, type: 2}
