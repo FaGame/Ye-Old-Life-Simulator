@@ -97,7 +97,7 @@ public class PlayerData : MonoBehaviour
     public void StartTurn()
     {
         gameObject.SetActive(true);
-        //m_PlayerController.enabled = false;
+        m_PlayerController.enabled = false;
         m_IsDead = false;
 
         //loop through the player's inventory and find objects with the food script
