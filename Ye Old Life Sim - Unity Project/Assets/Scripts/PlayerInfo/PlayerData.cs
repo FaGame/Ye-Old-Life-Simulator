@@ -50,6 +50,7 @@ public class PlayerData : MonoBehaviour
     public bool m_IsDead = false;
     public bool m_IsInfected = false;       //variable used for when the player catches a disease
 	public bool m_HasMount = false;			//variable used for when the player has a mount
+    public bool m_StartOfTurn = false;
 
     public PlayerController m_PlayerController;
 
@@ -96,6 +97,7 @@ public class PlayerData : MonoBehaviour
 
     public void StartTurn()
     {
+        m_StartOfTurn = true;
         gameObject.SetActive(true);
         m_PlayerController.enabled = false;
         m_IsDead = false;
@@ -119,6 +121,7 @@ public class PlayerData : MonoBehaviour
         m_CurrTime = m_MaxTime; //- m_Home.CalculateHomePenalty() - m_FoodPenalty;
         StartAtHome();
         UpdatePlayerInfectedStatus(m_InfectedParticle);         //checks to see if the player is infected or not
+        m_StartOfTurn = false;
     }
 
     public void EndTurn()

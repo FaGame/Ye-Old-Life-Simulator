@@ -123,6 +123,10 @@ public class HUDScript : MonoBehaviour
 	void Update ()
     {
         SetUpObjectiveSliders();
+        if (m_PlayerData.m_StartOfTurn)
+        {
+            m_RandomEventPanel.SetActive(true);
+        }
 
         if(m_GameManager.AITurn == true)
         {
