@@ -32,7 +32,16 @@ public class Fire : RandomEventBaseClass
 			}
 		}
 
-		tData = "YOUR HOUSE CAUGHT FIRE. You lost all your food and  " + m_MoneyLost.ToString() + " shillings.";
+		if(m_MoneyLost >= 0)
+		{
+			tData = "YOUR HOUSE CAUGHT FIRE. You lost all your food and " + m_MoneyLost.ToString() + " shillings (because you had none).";
+		}
+		else
+		{
+			tData = "YOUR HOUSE CAUGHT FIRE. You lost all your food and  " + m_MoneyLost.ToString() + " shillings.";
+		}
+
+		
 		return tData;
 		//pop up window
 	}

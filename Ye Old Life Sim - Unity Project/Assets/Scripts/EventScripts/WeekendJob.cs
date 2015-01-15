@@ -12,7 +12,7 @@ public class WeekendJob : RandomEventBaseClass
 
 	public override string PlayEvent(PlayerData pData, string tData)
 	{
-		m_ExperienceGained = Random.Range(ValueConstants.EXPERIENCE_FROM_WEEKEND_JOB_MIN, ValueConstants.EXPERIENCE_FROM_WEEKEND_JOB_MAX);
+/*		m_ExperienceGained = Random.Range(ValueConstants.EXPERIENCE_FROM_WEEKEND_JOB_MIN, ValueConstants.EXPERIENCE_FROM_WEEKEND_JOB_MAX);
 
 		SkillSelect_ = Random.Range(ValueConstants.LOWEST_RANGE_NUMBER, pData.m_Skills.Count);
 		if(SkillSelect_ != 0)
@@ -31,8 +31,9 @@ public class WeekendJob : RandomEventBaseClass
 
 		//The player gets 5-25 xp in a random skill based upon a randomly selected day job.
 //		GetComponent<SkillGain>().ImproveSkill(SkillTrainedIn_, m_ExperienceGained);
+ */
 
-		tData = "During your downtime you work a little bit harder and get some extra experience.";
+		tData = "During your downtime you work a little bit harder and get some extra experience. At least, that's what WOULD happen, if this event worked.";
 		return tData;
 //Finishing this requires being able to increase your skill level
 	}

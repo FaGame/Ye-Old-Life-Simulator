@@ -6,10 +6,12 @@ public class BarrelOfMead : RandomEventBaseClass
 {
 	private int HangoverTurn_;
 
-	public GameObject m_GameManager;
+	private GameObject m_GameManager;
+	
 
 	public override string PlayEvent(PlayerData pData, string tData)
 	{
+		m_GameManager = GameObject.Find("GameManager Holder");
 		int currTurn = m_GameManager.GetComponent<GameManager>().m_Turns;
 		HangoverTurn_ = currTurn + ValueConstants.HANGOVER_DAY;
 
@@ -26,6 +28,7 @@ public class BarrelOfMead : RandomEventBaseClass
 			//pop up window
 			tData = "Your hangover has lost you quite a bit of time.";
 		}
+		tData = "Nothing happens here because of the same reasons other events that depend on the turn counter don't work.";
 		return tData;
 		
 	}

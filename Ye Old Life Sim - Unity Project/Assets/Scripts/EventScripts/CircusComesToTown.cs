@@ -51,7 +51,7 @@ public class CircusComesToTown : RandomEventBaseClass
 		tData = "The circus has come to town, lose " + m_MoneyLost.ToString() + " shillings. No ifs ands or buts. " + m_TicketCostMessage
 				+ " On the bright side, you ended up winning " + m_FoundItem.name.ToString() + ".";
 		*/
-		tData = "Not implemented";
+		tData = "The Circus is Not implemented, because iventory and items are currently not accessible by random events.";
 		return tData; 
 	}
 

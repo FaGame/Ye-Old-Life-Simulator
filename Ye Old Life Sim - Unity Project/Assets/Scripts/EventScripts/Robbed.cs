@@ -17,7 +17,15 @@ public class Robbed : RandomEventBaseClass
 			m_MoneyLost = pData.m_Shillings;
 			pData.m_Shillings -= m_MoneyLost;
 		}
-		tData = "You are mugged on your way out today, the robber takes " + m_MoneyLost.ToString() + " shillings and tips his hat to you as he prances away.";
+		if(m_MoneyLost == 0)
+		{
+			tData = "You are mugged on your way out today. You laugh as the robber beats you for being poorer than they are.";
+		}
+		else
+		{
+			tData = "You are mugged on your way out today, the robber takes " + m_MoneyLost.ToString() + " shillings and tips his hat to you as he prances away.";
+		}
+		
 		return tData;
 	}
 

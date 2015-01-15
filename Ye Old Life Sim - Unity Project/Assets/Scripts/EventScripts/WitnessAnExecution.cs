@@ -26,7 +26,7 @@ public class WitnessAnExecution : RandomEventBaseClass
 
 		pData.m_Happiness += m_HappinesChange;
 		pData.m_CurrTime += m_TimeChange;
-		tData = "There's an execution today, after watching the head roll you think " + FeelingTowardHead_;
+		tData = "There's an execution today, after watching the head roll you think: " + FeelingTowardHead_;
 		return tData;
 	}
 

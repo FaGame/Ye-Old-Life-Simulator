@@ -16,10 +16,11 @@ public class Stampede : RandomEventBaseClass
 		m_XPos = Random.Range(ValueConstants.XPOS_CHANGE_MIN, ValueConstants.XPOS_CHANGE_MAX);
 		m_ZPos = Random.Range(ValueConstants.ZPOS_CHANGE_MIN, ValueConstants.ZPOS_CHANGE_MAX);
 
-		m_PlayerPos = new Vector3(m_Player.rigidbody.position.x + m_XPos, m_Player.rigidbody.position.y, m_Player.rigidbody.position.z + m_ZPos);
+//		m_PlayerPos = new Vector3(m_Player.rigidbody.position.x + m_XPos, m_Player.rigidbody.position.y, m_Player.rigidbody.position.z + m_ZPos);
 
 		tData = "A stampede is running towards you, and you cleverly decide to RUN. After running for a while, you are now able to go where you like. "
 						+ " .";
+		tData = "Stampede! You try to run away, but are glued to your position. Luckily the animals and people all magically avoid you. Change your pants.";
 		//Place the player in a random place on the map and make them lose 10 seconds of their turn.
 		return tData;
 	}
