@@ -386,20 +386,20 @@ StateMachine:
       second:
       - {fileID: 110100000}
     data:
-      first: {fileID: 110205513}
+      first: {fileID: 110291569}
       second:
-      - {fileID: 110155155}
+      - {fileID: 110166621}
+      - {fileID: 110131827}
+      - {fileID: 110152758}
     data:
       first: {fileID: 110233808}
       second:
       - {fileID: 110194551}
       - {fileID: 110157969}
     data:
-      first: {fileID: 110291569}
+      first: {fileID: 110205513}
       second:
-      - {fileID: 110166621}
-      - {fileID: 110131827}
-      - {fileID: 110152758}
+      - {fileID: 110155155}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 60, y: -192, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

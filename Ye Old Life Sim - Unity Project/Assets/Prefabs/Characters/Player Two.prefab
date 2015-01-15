@@ -810,6 +810,8 @@ GameObject:
   - 65: {fileID: 6571848}
   - 114: {fileID: 11412750}
   - 114: {fileID: 11412748}
+  - 114: {fileID: 11421374}
+  - 114: {fileID: 11421376}
   m_Layer: 0
   m_Name: Player Two
   m_TagString: Untagged
@@ -4879,6 +4881,34 @@ MonoBehaviour:
   m_DataCollection: {fileID: 0}
   m_Names: []
   m_ItemBought: 
+  m_ItemUsed: 
+--- !u!114 &11421374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7629e858c9ed9d14a82b3ac9a4b8776c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DataCollection: {fileID: 0}
+  m_Names: []
+  m_ItemBought: 
+  m_ItemUsed: 
+--- !u!114 &11421376
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af51421cee10294bb1316373fb7dc9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Names: []
 --- !u!114 &11471848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4900,8 +4930,8 @@ MonoBehaviour:
   m_Opponent: {fileID: 0}
   m_InfectedParticle: {fileID: 1571848}
   m_StatusEffects: []
-  m_UseableInventory: {fileID: 11412750}
-  m_PossessionInventory: {fileID: 11412748}
+  m_UseableInventory: {fileID: 11421374}
+  m_PossessionInventory: {fileID: 11421376}
   m_MaxHappiness: 0
   m_MaxReputation: 0
   m_MaxShillings: 0
@@ -4924,7 +4954,7 @@ MonoBehaviour:
   m_IsDead: 1
   m_IsInfected: 0
   m_HasMount: 0
-  playerController_: {fileID: 11471850}
+  m_PlayerController: {fileID: 11471850}
 --- !u!114 &11471850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4937,7 +4967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerRunning: {fileID: 8271848}
-  m_Horse: {fileID: 11409958, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
+  m_Horse: {fileID: 0}
   m_HorseAnimator: {fileID: 0}
   m_PlayerAnimator: {fileID: 0}
   m_PlayerData: {fileID: 11471848}

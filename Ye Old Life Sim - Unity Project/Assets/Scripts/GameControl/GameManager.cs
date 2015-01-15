@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
         //check to see if the AI is being used
         AIBeingUsed_ = GameMenu.m_AIBeingUsed;
         //check to see if it is a two player game
-        TwoPlayerGame_ = GameMenu.m_TwoPlayerGame;
+        TwoPlayerGame_ = true;// GameMenu.m_TwoPlayerGame;
 
         //starts player at current home
         //m_Player.transform.position = m_PlayerData.m_Home.transform.position;

@@ -161,6 +161,7 @@ public class PlayerController : MonoBehaviour
         //------------------------------------------------------------------------- end of test code -----------------------------------------------------------------------------
 
         animator_.SetFloat("Walk", m_v);
+        m_HorseAnimator.SetFloat("Horse_Walk", m_v);
         
       //  m_HorseAnimator.SetFloat("Horse_Walk", m_v);
         /*
