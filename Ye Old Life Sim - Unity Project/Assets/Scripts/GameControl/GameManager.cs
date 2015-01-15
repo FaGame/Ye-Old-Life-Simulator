@@ -112,14 +112,26 @@ public class GameManager : MonoBehaviour
             SetActivePlayers();
             SetActivePlayersBool = true;
         }
+
         TurnManager();
         SetObjGame();
         SetTurnsGame();
+
+        if (turnsGame_)
+        {
+            CheckForTurnWin();
+        }
+        else if(objectivesGame_)
+        {
+            CheckForObjWin();
+        }
+
         if (m_CanCheckWinLoss)
         {
-            CheckForWin();
+            //CheckForWin();
             CheckForLoss();
         }   
+
         SetGameBools();
         SetPlayers();
         DecreaseTime();
@@ -223,10 +235,16 @@ public class GameManager : MonoBehaviour
 
     void CheckForObjWin()
     {
-        if (m_PlayerData.m_Happiness >= maxHappy_ && m_PlayerData.m_Reputation >= (int)maxRep_ && m_PlayerData.m_Shillings >= (int)maxCurrency_)
+        if(AIBeingUsed_ || TwoPlayerGame_)
         {
-            //You Win Objectives gametype, do shit
-            m_RestartUI.PlayerWon();
+            if(m_PlayerData.CheckScoresBetweenPlayers() == WinCodes.PLAYER_WINS)
+            {
+                m_RestartUI.PlayerWon();
+            }
+            else if(m_PlayerData.CheckScoresBetweenPlayers() == WinCodes.OPPONENT_WINS)
+            {
+                m_RestartUI.PlayerLost();
+            }
         }
     }
 
@@ -235,15 +253,18 @@ public class GameManager : MonoBehaviour
     {
         if (AIBeingUsed_ || TwoPlayerGame_)
         {
-            if (m_PlayerData.CheckScoresBetweenPlayers() == WinCodes.PLAYER_WINS)
+            if (m_Turns >= maxTurns_)
             {
-                //You Win Turns gametype, do shit
-                m_RestartUI.PlayerWon();
-                Debug.Log("You Win Turns Game!!");
-            }
-            else if (m_PlayerData.CheckScoresBetweenPlayers() == WinCodes.OPPONENT_WINS)
-            {
-                m_RestartUI.PlayerLost();
+                if (m_PlayerData.CheckScoresBetweenPlayers() == WinCodes.PLAYER_WINS)
+                {
+                    //You Win Turns gametype, do shit
+                    m_RestartUI.PlayerWon();
+                    Debug.Log("You Win Turns Game!!");
+                }
+                else if (m_PlayerData.CheckScoresBetweenPlayers() == WinCodes.OPPONENT_WINS)
+                {
+                    m_RestartUI.PlayerLost();
+                }
             }
         }
         else if(m_Turns >= maxTurns_)
@@ -259,8 +280,6 @@ public class GameManager : MonoBehaviour
             maxCurrency_ = GameMenu.m_selectedCurrency;
             maxHappy_ = GameMenu.m_selectedHappiness;
             maxRep_ = GameMenu.m_selectedRep;
-
-            CheckForObjWin();
         }
     }
 
@@ -269,14 +288,12 @@ public class GameManager : MonoBehaviour
         if(turnsGame_ == true)
         {
             maxTurns_ = GameMenu.m_selectedTurns;
-
-            CheckForTurnWin();
         }
     }
 
-    void CheckForWin()
+    /*void CheckForWin()
     {
-        int winValue = 2;
+        int winValue = 3;
 
         m_PlayerData.CheckScoresBetweenPlayers();
 
@@ -285,7 +302,7 @@ public class GameManager : MonoBehaviour
             m_RestartUI.PlayerWon();
             m_CanCheckWinLoss = false;
         }
-    }
+    }*/
 
     void CheckForLoss()
     {
