@@ -7,12 +7,12 @@ public class FindASack : RandomEventBaseClass
 
 	int[] m_ItemCategories = new int[4];
 	public Item m_ItemType;
-//	public PlayerData m_PlayerData;
-
+	public int m_FoundItemIndex;
 	public GameObject m_FoundItem;
 
 	public override string PlayEvent(PlayerData pData, string tData)
 	{
+		/*
 //		m_ItemCategories = new GameObject[4];
 		int randomNumber = Random.Range(1, m_ItemCategories.Length-1); //Select a random category of items, and then an item from that list
 
@@ -25,6 +25,8 @@ public class FindASack : RandomEventBaseClass
 		if(randomNumber == ValueConstants.ELIXIR_INDEX)
 		{
 			int ElixirGiven = Random.Range(1, elixirArray.Length);
+			m_FoundItemIndex = elixirArray[ElixirGiven];// ElixirGiven;
+
 //			m_FoundItem = elixirArray[ElixirGiven];			
 		}
 		else if(randomNumber == ValueConstants.FOOD_INDEX)
@@ -47,10 +49,10 @@ public class FindASack : RandomEventBaseClass
 			Debug.Log("Something went wrong, no Category of Item found.");
 		}
 
-		//pData.m_UseableInventory.AddToInventory(m_FoundItem.name, m_AnItemScript.GetComponent<AnItem>().m_SingleItem);
-//		GetComponent<PossessionInventory>().AddToInventory(m_FoundItem.name, m_FoundItem as Item); //add the found item into the player's inventory
-
-		tData = "You found a sack lying on the ground. Searching inside reveals... A " + m_FoundItem.name.ToString() + "!";
+//		pData.m_UseableInventory.AddToInventory(m_FoundItem.name, m_AnItemScript.GetComponent<AnItem>().m_SingleItem);
+//		GetComponent<PossessionInventory>().AddToInventory(m_FoundItemIndex.name, m_FoundItem as Item); //add the found item into the player's inventory
+		*/
+		tData = "You found a sack lying on the ground. Searching inside reveals... A nothing because this doesn't work yet."; // +m_FoundItem.name.ToString() + "!";
 		return tData;
 	}
 
@@ -58,5 +60,5 @@ public class FindASack : RandomEventBaseClass
 	{
 		throw new System.NotImplementedException();
 	}
-	//
+	//*/
 }

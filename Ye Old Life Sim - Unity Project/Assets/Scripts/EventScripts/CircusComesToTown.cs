@@ -20,7 +20,7 @@ public class CircusComesToTown : RandomEventBaseClass
 
 	public override string PlayEvent(PlayerData pData, string tData)
 	{
-		m_MoneyLost = ValueConstants.DEFAULT_CIRCUS_TICKET_COST;
+	/*	m_MoneyLost = ValueConstants.DEFAULT_CIRCUS_TICKET_COST;
 
 		//pop up window
 		//Check the player's current Shilling count
@@ -50,7 +50,9 @@ public class CircusComesToTown : RandomEventBaseClass
 
 		tData = "The circus has come to town, lose " + m_MoneyLost.ToString() + " shillings. No ifs ands or buts. " + m_TicketCostMessage
 				+ " On the bright side, you ended up winning " + m_FoundItem.name.ToString() + ".";
-		return tData;
+		*/
+		tData = "Not implemented";
+		return tData; 
 	}
 
 	public override string UpdateEvent(PlayerData m_Player, string m_EventDesc)
