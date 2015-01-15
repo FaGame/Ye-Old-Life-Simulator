@@ -2539,12 +2539,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 52f113c6ff7142f4f83e4db0002fae2f, type: 2}
   - {fileID: 11400000, guid: 926450e02438f18459319e4d44f131d1, type: 2}
   - {fileID: 11400000, guid: 63e9b62c37690f04498f2fbc9e590c02, type: 2}
-  - {fileID: 11400000, guid: fa9fdd060e5541e42bb68f9643f7783d, type: 2}
   - {fileID: 11400000, guid: 3df63ad32a5ea564bb753fb5a3dcefc8, type: 2}
   m_Items: []
   m_SpecialEffects: []
   m_PlayerWorksHere: 0
   m_BuildingUI: {fileID: 0}
+  m_MouseEnterExitJitter: .00999999978
+  m_GameManager: {fileID: 0}
   m_buildingEnum: 0
 --- !u!198 &19802210
 ParticleSystem:

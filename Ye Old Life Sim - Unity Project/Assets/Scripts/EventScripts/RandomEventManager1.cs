@@ -83,7 +83,7 @@ public class RandomEventManager1 : MonoBehaviour
     {
         //First check to see if a Random event will even happen 
         RndEventChance_ = Random.Range(ValueConstants.LOWEST_RANGE_NUMBER, ValueConstants.RANDOM_EVENT_CHANCE_MAX);
-		RndEventChance_ = 0;
+//		RndEventChance_ = 0; //Force random event
         if (RndEventChance_ <= ValueConstants.RANDOM_EVENT_HAPPENS_AT_LESS_THAN_THIS)
         {
 			
