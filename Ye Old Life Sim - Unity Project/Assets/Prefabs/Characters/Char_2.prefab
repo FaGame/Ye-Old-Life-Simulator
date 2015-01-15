@@ -4889,7 +4889,7 @@ MonoBehaviour:
   m_BetterCategoryCounter: 0
   m_InfectedTurnCounter: 0
   m_Reputation: 0
-  m_Shillings: 20
+  m_Shillings: 0
   m_CanCheckHappiness: 1
   m_CanCheckReputation: 1
   m_CanCheckShillings: 1
