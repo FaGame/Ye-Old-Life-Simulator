@@ -4406,11 +4406,12 @@ MonoBehaviour:
   m_Player: {fileID: 1487191708}
   m_BuildingName: University
   m_Description:
-  - Sometimes you want to go, where nobody knows your name.
-  - Washrooms are out back. No, no. OUTSIDE back.
-  - All our rooms come with floors!
-  - Norm!!! Oh, sorry. You looked like someone else in the candle light.
-  - I've been called ugly, pug ugly, fugly, pug fugly, but never ugly ugly.
+  - 95% of our graduates can count past 100.
+  - Have you ever heard of Plato, Aristotle, Socrates? Morons.
+  - "Our tuition is priced as is because\u2026 reasons."
+  - "A word to the wise isn\u2019t necessary. It\u2019s the stupid ones that need
+    the advice!"
+  - Formatia trans sicere educatorum
   m_Image: {fileID: 2800000, guid: a832abfa6677fd94e97cd7a610240420, type: 3}
   m_JobData:
   - {fileID: 11400000, guid: ffe0c6102de7ee64cb54a404762777e5, type: 2}
@@ -19356,6 +19357,75 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1641497411}
   m_GameObject: {fileID: 336839716}
   m_Mesh: {fileID: 4300014, guid: 2849ff5fe162b6c42bb3e81d1d23c778, type: 3}
+--- !u!1 &336864642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 149796, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+  m_PrefabInternal: {fileID: 121375930}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 336864643}
+  - 222: {fileID: 336864645}
+  - 114: {fileID: 336864644}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &336864643
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22449796, guid: 0da20cfc5eb06ce41b05160ad758d32c,
+    type: 2}
+  m_PrefabInternal: {fileID: 121375930}
+  m_GameObject: {fileID: 336864642}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1135560189}
+  m_RootOrder: 1
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -27.7999992, y: 0}
+  m_SizeDelta: {x: 110.800003, y: 30}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &336864644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11449796, guid: 0da20cfc5eb06ce41b05160ad758d32c,
+    type: 2}
+  m_PrefabInternal: {fileID: 121375930}
+  m_GameObject: {fileID: 336864642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 9a399c0961e214c4483f3c3bc166039c, type: 3}
+    m_FontSize: 17
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Cost to Rent
+--- !u!222 &336864645
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22249796, guid: 0da20cfc5eb06ce41b05160ad758d32c,
+    type: 2}
+  m_PrefabInternal: {fileID: 121375930}
+  m_GameObject: {fileID: 336864642}
 --- !u!1 &337288687
 GameObject:
   m_ObjectHideFlags: 0
@@ -26536,6 +26606,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1567210456}
+  - {fileID: 493108108}
   m_Father: {fileID: 480498139}
   m_RootOrder: 4
   m_AnchorMin: {x: .238680691, y: .74465245}
@@ -27684,6 +27755,75 @@ MonoBehaviour:
   m_MinWage: 0
   m_MaxWage: 0
   m_ReputationGain: 150
+--- !u!1 &493108107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 149794, guid: 0da20cfc5eb06ce41b05160ad758d32c, type: 2}
+  m_PrefabInternal: {fileID: 121375930}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 493108108}
+  - 222: {fileID: 493108110}
+  - 114: {fileID: 493108109}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &493108108
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22449794, guid: 0da20cfc5eb06ce41b05160ad758d32c,
+    type: 2}
+  m_PrefabInternal: {fileID: 121375930}
+  m_GameObject: {fileID: 493108107}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 472703670}
+  m_RootOrder: 1
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -22.5750275, y: 0}
+  m_SizeDelta: {x: 114.949997, y: 30}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &493108109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11449794, guid: 0da20cfc5eb06ce41b05160ad758d32c,
+    type: 2}
+  m_PrefabInternal: {fileID: 121375930}
+  m_GameObject: {fileID: 493108107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 9a399c0961e214c4483f3c3bc166039c, type: 3}
+    m_FontSize: 17
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Time Bonus
+--- !u!222 &493108110
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22249794, guid: 0da20cfc5eb06ce41b05160ad758d32c,
+    type: 2}
+  m_PrefabInternal: {fileID: 121375930}
+  m_GameObject: {fileID: 493108107}
 --- !u!1001 &493705979
 Prefab:
   m_ObjectHideFlags: 0
@@ -51306,6 +51446,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 923028400}
+  - 222: {fileID: 923028401}
   m_Layer: 5
   m_Name: RandomEventScroll
   m_TagString: Untagged
@@ -51333,6 +51474,13 @@ RectTransform:
   m_AnchoredPosition: {x: 567, y: 319}
   m_SizeDelta: {x: 1134, y: 638}
   m_Pivot: {x: .5, y: .5}
+--- !u!222 &923028401
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22275336, guid: 0da20cfc5eb06ce41b05160ad758d32c,
+    type: 2}
+  m_PrefabInternal: {fileID: 121375930}
+  m_GameObject: {fileID: 923028399}
 --- !u!1 &927792907
 GameObject:
   m_ObjectHideFlags: 0
@@ -58890,23 +59038,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Buildings:
-  - {fileID: 1680139984}
-  - {fileID: 1031574682}
-  - {fileID: 1845238880}
-  - {fileID: 681880992}
-  - {fileID: 2056549098}
-  - {fileID: 604814485}
   - {fileID: 325446999}
+  - {fileID: 1003569826}
+  - {fileID: 1903289239}
+  - {fileID: 2597161}
+  - {fileID: 2056549098}
+  - {fileID: 2120276817}
+  - {fileID: 1680139984}
+  - {fileID: 681880992}
+  - {fileID: 1892322504}
+  - {fileID: 1031574682}
   - {fileID: 95808640}
   - {fileID: 1622630554}
   - {fileID: 898228379}
-  - {fileID: 2597161}
-  - {fileID: 1955591035}
-  - {fileID: 2120276817}
-  - {fileID: 1892322504}
-  - {fileID: 1003569826}
   - {fileID: 1888863770}
-  - {fileID: 1903289239}
+  - {fileID: 1845238880}
+  - {fileID: 1955591035}
+  - {fileID: 604814485}
 --- !u!1 &1052391963
 GameObject:
   m_ObjectHideFlags: 0
@@ -59034,7 +59182,7 @@ EllipsoidParticleEmitter:
   m_GameObject: {fileID: 1054912090}
   serializedVersion: 2
   m_Enabled: 1
-  m_Emit: 1
+  m_Emit: 0
   minSize: 1
   maxSize: 1
   minEnergy: 3
@@ -64378,8 +64526,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 70.0999985, y: 0}
+  m_SizeDelta: {x: 53.7999992, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1134179718
 MonoBehaviour:
@@ -64407,7 +64555,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Value
+  m_Text: Cost
 --- !u!222 &1134179719
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -64517,6 +64665,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1134179717}
+  - {fileID: 336864643}
   m_Father: {fileID: 480498139}
   m_RootOrder: 5
   m_AnchorMin: {x: .232000008, y: .627000034}
@@ -83776,10 +83925,10 @@ MonoBehaviour:
   m_CanCheckHappiness: 1
   m_CanCheckReputation: 1
   m_CanCheckShillings: 1
-  m_IsDead: 1
+  m_IsDead: 0
   m_IsInfected: 0
   m_HasMount: 0
-  playerController_: {fileID: 1487191710}
+  m_PlayerController: {fileID: 1487191710}
 --- !u!114 &1487191709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83806,7 +83955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerRunning: {fileID: 1487191711}
-  m_Horse: {fileID: 11409958, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
+  m_Horse: {fileID: 11408230, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
   m_HorseAnimator: {fileID: 0}
   m_PlayerAnimator: {fileID: 0}
   m_PlayerData: {fileID: 1487191708}
@@ -85625,7 +85774,7 @@ Animator:
   m_GameObject: {fileID: 1500318965}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a85d92b72304a79449904f3b49e3d5ea, type: 3}
-  m_Controller: {fileID: 9100000, guid: 76d1131c0e70bc24c9ff4a0771f12858, type: 2}
+  m_Controller: {fileID: 9100000, guid: a80619fafede668448301863c5f584bc, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -88789,8 +88938,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 65.8000031, y: 0}
+  m_SizeDelta: {x: 61.7999992, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1567210457
 MonoBehaviour:
@@ -89671,6 +89820,7 @@ MonoBehaviour:
   m_CurrJobText: {fileID: 1195571785}
   m_ShillingText: {fileID: 774435614}
   m_BuildingHovered: {fileID: 535284049}
+  m_HungerSlider: {fileID: 1323521258}
   m_StatsTransitionDisplay: {fileID: 678571950}
   m_InventoryTransitionDisplay: {fileID: 139649004}
   m_BuildingButtonPrefab: {fileID: 132992, guid: 513310f856af77d48bcea7584ae754fe,
@@ -105374,7 +105524,7 @@ MonoBehaviour:
   m_IsDead: 1
   m_IsInfected: 0
   m_HasMount: 0
-  playerController_: {fileID: 1829319477}
+  m_PlayerController: {fileID: 0}
 --- !u!4 &1829319473
 Transform:
   m_ObjectHideFlags: 0
@@ -105492,7 +105642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerRunning: {fileID: 1829319476}
-  m_Horse: {fileID: 11409958, guid: 4445ae6dcb062cc4cbc1451fb0644578, type: 2}
+  m_Horse: {fileID: 0}
   m_HorseAnimator: {fileID: 0}
   m_PlayerAnimator: {fileID: 0}
   m_PlayerData: {fileID: 1829319472}
@@ -108927,19 +109077,17 @@ MonoBehaviour:
   m_Player: {fileID: 1487191708}
   m_BuildingName: Stables
   m_Description:
-  - Our last farm hand spent a little too much time in the hay.
-  - "The biggest farm in all the land\u2026 If you know what I mean"
-  - Old McDonald had a farm. He was then raided by Vikings.
-  - 'New opening: Nerf Herder. Apply within.'
-  - "Reap what you sow. Then i\u2019ll take it all and pay you minimum wage for it."
+  - Come in for a ride.
+  - We all smell like shit anyways, might as well grab a shovel and start scooping!
+  - A former help was caught choking a chicken.
+  - 'The cow says... '
+  - The hardest part about stealing a sheep is trying to stop the rest from following.
   m_Image: {fileID: 2800000, guid: 44911abe987a3f849ae866318c27c848, type: 3}
   m_JobData:
-  - {fileID: 11400000, guid: 719cb02d362d65345b2f28fb9f8037e4, type: 2}
-  - {fileID: 11400000, guid: f7dfa37adeafa8e4cb5071d6ab00a139, type: 2}
-  - {fileID: 11400000, guid: 90726b5b1ad9efe4b87efadcc6170727, type: 2}
-  - {fileID: 11400000, guid: 73254e9dd548b6540a7823113736f362, type: 2}
-  - {fileID: 11400000, guid: 719cb02d362d65345b2f28fb9f8037e4, type: 2}
-  - {fileID: 11400000, guid: 04391a60e48e1b74dbf0819295d02fe2, type: 2}
+  - {fileID: 11400000, guid: 1df9ab630264d28409c274490732eae6, type: 2}
+  - {fileID: 11400000, guid: 1f192f39a04d6994ebdd3efc3081cb6b, type: 2}
+  - {fileID: 11400000, guid: 8538a003c8e816f4abe0628857ac60a2, type: 2}
+  - {fileID: 11400000, guid: 057f067df272cca4bbd3db1035555ab5, type: 2}
   m_Items:
   - {fileID: 11400000, guid: f3ca3e9aa3a0a5b45ac0f9d43e5c8ae6, type: 2}
   - {fileID: 11400000, guid: 51bda5fcdeda4f2459f1a4e19c173814, type: 2}
@@ -116376,7 +116524,7 @@ MonoBehaviour:
   m_IsDead: 0
   m_IsInfected: 0
   m_HasMount: 0
-  playerController_: {fileID: 0}
+  m_PlayerController: {fileID: 0}
 --- !u!114 &2007613438
 MonoBehaviour:
   m_ObjectHideFlags: 0
