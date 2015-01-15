@@ -18,6 +18,8 @@ public class MouseCursor : MonoBehaviour
     private Vector2 hotSpot_;
     private int currFrame_;
     private float currTime_;
+    //private bool isAnimated_;
+    //private bool mouseAlreadyAnimated_;
     //private delegate void mouseStatus_();
 
 	// Use this for initialization
@@ -28,6 +30,8 @@ public class MouseCursor : MonoBehaviour
         currFrame_ = 0;
         currTime_ = 0.0f;
         isMouseButtonDown_ = false;
+        //isAnimated_ = false;
+        //mouseAlreadyAnimated_ = false;
 	}
 	
 	// Update is called once per frame
@@ -44,6 +48,7 @@ public class MouseCursor : MonoBehaviour
         else
         {
             SetNormalMouseCursor();
+            //mouseAlreadyAnimated_ = false;
         }
 
         currTime_ += Time.deltaTime;
@@ -64,6 +69,11 @@ public class MouseCursor : MonoBehaviour
         if(currFrame_ >= currentMouseCursorAnim_.Count)
         {
             currFrame_ = 0;
+            /*if(isAnimated_)
+            {
+                isAnimated_ = false;
+                SetNormalMouseCursor();
+            }*/
         }
 	}
 
@@ -73,7 +83,8 @@ public class MouseCursor : MonoBehaviour
         {
             return;
         }*/
-        if (currentMouseCursorAnim_ == NormalMouseCursor())
+        //if (isAnimated_ || (currentMouseCursorAnim_ == NormalMouseCursor()))
+        if ((currentMouseCursorAnim_ == NormalMouseCursor()))
         {
             return;
         }
@@ -89,7 +100,8 @@ public class MouseCursor : MonoBehaviour
         {
             return;
         }*/
-        if (currentMouseCursorAnim_ == AnimatedMouseCursor())
+        //if (mouseAlreadyAnimated_ || (currentMouseCursorAnim_ == AnimatedMouseCursor()))
+        if ((currentMouseCursorAnim_ == AnimatedMouseCursor()))
         {
             return;
         }
@@ -97,6 +109,8 @@ public class MouseCursor : MonoBehaviour
         currTime_ = 0.0f;
         SetCursorValues(true);
         isMouseButtonDown_ = true;
+        //isAnimated_ = true;
+        //mouseAlreadyAnimated_ = true;
     }
 
     void SetCursorValues(bool isClickAnimated)

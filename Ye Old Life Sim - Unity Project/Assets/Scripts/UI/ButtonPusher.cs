@@ -49,4 +49,9 @@ public class ButtonPusher : MonoBehaviour
     {
         buttons_[buttonNum].onClick.Invoke();
     }
+
+    public void SelectCloseButton()
+    {
+        closeButton_.onClick.Invoke();
+    }
 }
