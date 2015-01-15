@@ -126,6 +126,7 @@ public class HUDScript : MonoBehaviour
         if (m_PlayerData.m_StartOfTurn)
         {
             m_RandomEventPanel.SetActive(true);
+            m_PlayerData.m_StartOfTurn = false;
         }
 
         if(m_GameManager.AITurn == true)

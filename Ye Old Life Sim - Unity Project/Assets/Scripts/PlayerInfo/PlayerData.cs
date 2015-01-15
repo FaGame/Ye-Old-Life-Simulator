@@ -121,7 +121,6 @@ public class PlayerData : MonoBehaviour
         m_CurrTime = m_MaxTime; //- m_Home.CalculateHomePenalty() - m_FoodPenalty;
         StartAtHome();
         UpdatePlayerInfectedStatus(m_InfectedParticle);         //checks to see if the player is infected or not
-        m_StartOfTurn = false;
     }
 
     public void EndTurn()
