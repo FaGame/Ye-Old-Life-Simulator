@@ -165,7 +165,7 @@ public class Building : MonoBehaviour
                     skillsFound.Add(true);
                 }
             }
-            if(skillsFound.Count < i)
+            if(skillsFound.Count <= i)
             {
                 skillsFound.Add(false);
             }
