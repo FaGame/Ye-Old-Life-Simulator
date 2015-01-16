@@ -98,8 +98,11 @@ public class Elixir : Item
             playerData.AddEffect(m_PlayerSpeedEffect);
             playerData.AddEffect(m_PlayerEarningsEffect);
 
-            m_Enemy.AddEffect(m_EnemySpeedEffect);
-            m_Enemy.AddEffect(m_EnemyEarningEffect);
+            if(m_Enemy != null)
+            {
+                m_Enemy.AddEffect(m_EnemySpeedEffect);
+                m_Enemy.AddEffect(m_EnemyEarningEffect);
+            }       
         }
     }
 }
