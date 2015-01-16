@@ -1377,6 +1377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Cost: 10
   m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Not Overridden
   m_ItemEntryData:
     item: {fileID: 11408230}
