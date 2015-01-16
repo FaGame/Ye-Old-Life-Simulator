@@ -41,8 +41,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         animator_ = GetComponent<Animator>();
-        m_HorseAnimator = GameObject.Find(gameObject.name + " Horse").GetComponent<Animator>();
-        horse_ = GameObject.Find(gameObject.name + " Horse");
+        horse_ = m_PlayerData.m_Horse;
+        m_HorseAnimator = horse_.GetComponent<Animator>();
         horse_.SetActive(false);
         navAgent_ = GetComponent<NavMeshAgent>();
         currTarget_ = Vector3.zero;

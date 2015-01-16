@@ -53,6 +53,7 @@ public class PlayerData : MonoBehaviour
     public bool m_StartOfTurn = false;
 
     public PlayerController m_PlayerController;
+    public GameObject m_Horse;
 
     private Food playerFood_;
     private EndOfTurnCode endTurnCode_;
@@ -61,6 +62,8 @@ public class PlayerData : MonoBehaviour
 
     void Start()
     {
+        m_Horse = GameObject.Find(gameObject.name + " Horse");
+        m_Horse.SetActive(false);
         m_CurrTime = m_MaxTime;
         m_Speed = m_DefaultSpeed;
         StartTurn();
