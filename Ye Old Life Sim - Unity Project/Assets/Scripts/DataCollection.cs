@@ -10,21 +10,15 @@ public class DataCollection : MonoBehaviour
     public BuildingUI m_BUI;
     public HabitatUI m_HUI;
     public RandomEventManager1 m_REM;
-    public UseItemButton m_UIB;
-    public UseableItemInventory m_UII;
-
+   
     public List<string> m_StringThings = new List<string>();
     public List<int> m_IntThings = new List<int>();
     public List<float> m_playerStats = new List<float>();
+    public List<int> m_habitatsInteractedWith = new List<int>();
 
     private List<float> playerStats_ = new List<float>();
-    private List<int> buildingsInteractedWith_ = new List<int>();
-    private List<int> actionsTaken_ = new List<int>();
     private List<int> Turns_ = new List<int>();
-    private List<int> habitatsInteractedWith_ = new List<int>();
     private List<int> RandomEvents_ = new List<int>();
-    private List<string> ItemUsed_ = new List<string>();
-    private List<string> ItemBought_ = new List<string>();
     private List<float> TimeWhenThingHappened_ = new List<float>();
     private int homeRating_;
     
@@ -56,19 +50,17 @@ public class DataCollection : MonoBehaviour
         Turns_.Add(m_Game.m_Turns);
     }
 
-    public void AddBuildings()
+    public void AddIntThings()
     {
-        buildingsInteractedWith_.Add(m_BUI.ReturnBuilding());
-    }
+        m_IntThings.Add(m_BUI.m_currInt);
 
-    public void Actions()
-    {
-        actionsTaken_.Add(m_BUI.ReturnAction());
-    }
+        if (m_BUI.ReturnAction() >= 17)
+        {
+            m_IntThings.Add(m_BUI.ReturnAction());
+        }
 
-    public void AddHabitats()
-    {
-        habitatsInteractedWith_.Add(m_HUI.ReturnHabitat());
+       // m_IntThings.Add(m_UII.m_currInt);
+
     }
 
     public void AddRandomEvents()
@@ -76,18 +68,4 @@ public class DataCollection : MonoBehaviour
         RandomEvents_.Add(m_REM.ReturnRdmEvent());
     }
 
-    public void AddItemUsed()
-    {
-        ItemUsed_.Add(m_UII.m_ItemUsed);
-    }
-
-    public void AddItemBought()
-    {
-        ItemBought_.Add(m_UII.m_ItemBought);
-    }
-
-    public void AddTimeWhenHappened()
-    {
-        TimeWhenThingHappened_.Add(m_PlayerData.m_CurrTime);
-    }
 }

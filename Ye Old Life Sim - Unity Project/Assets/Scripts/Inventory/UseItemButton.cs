@@ -26,10 +26,6 @@ public class UseItemButton : MonoBehaviour
                 if(currentItem.Key == nameOfObject)
                 {
                     currentItem.Value.item.UseItem(playerData);
-                    //////////////////////////////////////////////////////////
-                    m_ItemUsed = nameOfObject;
-                    m_DataCollection.AddItemUsed();
-                    //////////////////////////////////////////////////////////
                     m_InventoryScript.RemoveFromInventory(currentItem.Key);
                 }
             }

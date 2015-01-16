@@ -46,9 +46,6 @@ public class UseableItemInventory : MonoBehaviour
             //ItemInventoryEntry entry = item;
             item.count += m_UseableItemInventory[name].count;
             m_UseableItemInventory[name] = item;
-
-            m_ItemBought = name;
-            //m_DataCollection.AddItemBought();
         }
     }
 
@@ -80,10 +77,6 @@ public class UseableItemInventory : MonoBehaviour
             if (currentItem.Key == usedItem)
             {
                 currentItem.Value.item.UseItem(playerData);
-                //////////////////////////////////////////////////////////
-                m_ItemUsed = usedItem;
-                //m_DataCollection.AddItemUsed();
-                //////////////////////////////////////////////////////////
                 RemoveFromInventory(currentItem.Key);
                 break;
             }

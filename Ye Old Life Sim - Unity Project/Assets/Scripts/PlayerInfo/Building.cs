@@ -25,17 +25,7 @@ public class Building : MonoBehaviour
     private float nextMouseJitterTime_;
     private bool isTurnedOn_;
 
-    public enum Buildings
-    {
-        BLACKSMITH = 0,
-        TAVERN = 1,
-        CHURCH = 2,
-        CASTLE = 3,
-        SEXSHOP = 4
-    };
-    public Buildings m_buildingEnum;
-
-	// Use this for initialization
+    // Use this for initialization
 	void Start () 
     {
         m_PlayerWorksHere = false;

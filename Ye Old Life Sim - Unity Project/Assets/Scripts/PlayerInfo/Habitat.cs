@@ -59,7 +59,6 @@ public class Habitat : MonoBehaviour
         FIVESTAR = 5
     };
     public BuildingRating m_Rating = BuildingRating.NOSTAR;
-    public BuildingRating m_CollectionRating;
 
     public float CalculateHomePenalty()
     {

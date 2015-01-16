@@ -28,13 +28,15 @@ public class BuildingUI : MonoBehaviour
     public TransitionDisplay m_InteractTransitionDisplay;
     public TransitionDisplay m_ApplyJobTransitionDisplay;
     //public Building m_BuildingScript;
-    public Building.Buildings m_CurrBuildingEnum;
     public DataCollection m_DataCollection;
     public float m_TimeToWait;
     public AudioSource m_AudioSource;
     public AudioClip m_CloseWindow;
     public AudioClip m_BuyItem;
-
+    public int m_currInt;
+    public string m_itemBought;
+    public BuildingList m_BL;
+    
     //public CanvasRenderer m_CanvasRenderer;
 
     private bool buildingsActive_ = false; //Flag to turn on and off the building UI
@@ -65,6 +67,7 @@ public class BuildingUI : MonoBehaviour
     private int buildingNumber_;
     private ButtonPusher buyItemsButtonPusher;
     private CloseAllOpenMenus closeAllOpenMenus_;
+    private string buildingName_;
     //private bool transitionToVisible_;
     //private bool isIransitioning_;
     //private float transitionAlpha_;
@@ -193,24 +196,6 @@ public class BuildingUI : MonoBehaviour
         }
 	}
 
-    public int ReturnBuilding()
-    {
-        switch (m_CurrBuildingEnum)
-        {
-            case Building.Buildings.BLACKSMITH:
-                return (int)Building.Buildings.BLACKSMITH;
-            case Building.Buildings.CASTLE:
-                return (int)Building.Buildings.CASTLE;
-            case Building.Buildings.TAVERN:
-                return (int)Building.Buildings.TAVERN;
-            case Building.Buildings.CHURCH:
-                return (int)Building.Buildings.CHURCH;
-            case Building.Buildings.SEXSHOP:
-                return (int)Building.Buildings.SEXSHOP;
-        }
-        return 0;
-    }
-
     //This function loads the building data based on which building was clicked
     public void LoadBuildingData(PlayerController pController, GameObject gObj)
     {
@@ -219,10 +204,11 @@ public class BuildingUI : MonoBehaviour
         //m_BuildingGUI.SetActive(buildingsActive_);
         m_BuildingTransitionDisplay.FadeIn();
         selectedBuilding_ = gObj;
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        m_CurrBuildingEnum = selectedBuilding_.GetComponent<Building>().m_buildingEnum;
-        m_DataCollection.AddBuildings();
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //----------------------------------------------------------------
+        buildingName_ = selectedBuilding_.GetComponent<Building>().name;
+        m_currInt = m_BL.GetBuildingNumber(buildingName_);
+        m_DataCollection.AddIntThings();
+        //----------------------------------------------------------------
         buildingNameText_.text = selectedBuilding_.GetComponent<Building>().name;
         descriptionText_.text = selectedBuilding_.GetComponent<Building>().GetDescription();
 
@@ -256,10 +242,10 @@ public class BuildingUI : MonoBehaviour
 
     public enum ActionsTaken
     {
-        Worked,
-        AplliedForJob,
-        BoughtItem,
-        Interact
+        Worked = 17,
+        AplliedForJob = 18,
+        BoughtItem = 19,
+        Interact = 20
     };
     public ActionsTaken m_ActionTaken;
 
@@ -285,10 +271,7 @@ public class BuildingUI : MonoBehaviour
     public void BuyItemsMenu()
     {
         float startYPos = 150.0f;
-        ///////////////////////////////////////////////////////////////
-        m_ActionTaken = BuildingUI.ActionsTaken.BoughtItem;
-        m_DataCollection.Actions();
-        ///////////////////////////////////////////////////////////////
+       
         //m_BuyMenu.SetActive(true);
         m_BuyItemsTransitionDisplay.PrepareForFadeIn();
 
@@ -332,10 +315,10 @@ public class BuildingUI : MonoBehaviour
             interactDescriptionText_.text = "";  
             float startYPos = 150.0f;
 
-            /////////////////////////////////////////////////////
+            //--------------------------------------------------
             m_ActionTaken = BuildingUI.ActionsTaken.Interact;
-            m_DataCollection.Actions();
-            /////////////////////////////////////////////////////
+            m_DataCollection.AddIntThings();
+            //--------------------------------------------------
 
             //m_InteractMenu.SetActive(true);
             m_InteractTransitionDisplay.PrepareForFadeIn();
@@ -426,10 +409,10 @@ public class BuildingUI : MonoBehaviour
     {
         float startYPos = 150.0f;
 
-        ////////////////////////////////////////////////////////
+        //-----------------------------------------------------
         m_ActionTaken = BuildingUI.ActionsTaken.AplliedForJob;
-        m_DataCollection.Actions();
-        ////////////////////////////////////////////////////////
+        m_DataCollection.AddIntThings();
+        //-----------------------------------------------------
         
         //m_ApplyMenu.SetActive(true);
         m_ApplyJobTransitionDisplay.PrepareForFadeIn();
@@ -549,10 +532,10 @@ public class BuildingUI : MonoBehaviour
     //Button function - This function is called by the "Work" button in the Building Menu, it called the Work function in the Building's script.
     public void Work()
     {
-        /////////////////////////////////////////////////////
-        m_ActionTaken = BuildingUI.ActionsTaken.Worked;
-        m_DataCollection.Actions();
-        /////////////////////////////////////////////////////
+        //----------------------------------------------------
+        m_ActionTaken = BuildingUI.ActionsTaken.AplliedForJob;
+        m_DataCollection.AddIntThings();
+        //----------------------------------------------------
 
         float actualWorkTime = selectedBuilding_.GetComponent<Building>().Work(m_PlayerData, m_PlayerData.m_Job);
 
