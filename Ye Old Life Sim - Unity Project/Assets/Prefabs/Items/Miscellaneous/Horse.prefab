@@ -1375,7 +1375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082c74dc1fa709a458104ac855a1ec03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Cost: 10
+  m_Cost: 75
   m_UseCount: 1
   m_DefaultUse: 1
   m_Description: Not Overridden
@@ -1385,7 +1385,7 @@ MonoBehaviour:
   m_Effect:
     m_Type: 0
     m_Timer: 0
-    m_Value: 75
+    m_Value: 2
   m_BoughtHorse: 0
   m_PlayerSpeedModifier: 2
   m_HorseGallop: {fileID: 8208230}

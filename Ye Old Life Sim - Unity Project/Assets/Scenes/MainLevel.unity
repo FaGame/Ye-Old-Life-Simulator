@@ -2551,7 +2551,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 1487191708}
   m_ReputationBonus: 5
   m_SkillValueNeeded: 20
   m_SkillNeeded: 7
@@ -13076,7 +13075,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 1487191708}
   m_ReputationBonus: 9
   m_SkillValueNeeded: 500
   m_SkillNeeded: 7
@@ -16444,6 +16442,10 @@ Prefab:
       propertyPath: mblackSmithWaypoint
       value: 
       objectReference: {fileID: 652205177}
+    - target: {fileID: 11429232, guid: 6363f9699f9597f46a98480bccb82784, type: 2}
+      propertyPath: m_Shillings
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6363f9699f9597f46a98480bccb82784, type: 2}
   m_RootGameObject: {fileID: 1487191707}
@@ -16660,7 +16662,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 1487191708}
   m_ReputationBonus: 12
   m_SkillValueNeeded: 750
   m_SkillNeeded: 7
@@ -21755,7 +21756,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 1487191708}
   m_ReputationBonus: 8
   m_SkillValueNeeded: 500
   m_SkillNeeded: 7
@@ -39506,7 +39506,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 1487191708}
   m_ReputationBonus: 15
   m_SkillValueNeeded: 0
   m_SkillNeeded: 7
@@ -43452,7 +43451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082c74dc1fa709a458104ac855a1ec03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Cost: 10
+  m_Cost: 75
   m_UseCount: 1
   m_DefaultUse: 1
   m_Description: Not Overridden
@@ -43462,9 +43461,9 @@ MonoBehaviour:
   m_Effect:
     m_Type: 0
     m_Timer: 0
-    m_Value: 10
+    m_Value: 2
   m_BoughtHorse: 0
-  m_PlayerSpeedModifier: 10
+  m_PlayerSpeedModifier: 2
   m_HorseGallop: {fileID: 769206879}
 --- !u!82 &769206879
 AudioSource:
@@ -49652,7 +49651,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 1487191708}
   m_ReputationBonus: 5
   m_SkillValueNeeded: 10
   m_SkillNeeded: 7
@@ -50168,7 +50166,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 1487191708}
   m_ReputationBonus: 50
   m_SkillValueNeeded: 200
   m_SkillNeeded: 8
@@ -54743,7 +54740,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 1487191708}
   m_ReputationBonus: 0
   m_SkillValueNeeded: 100
   m_SkillNeeded: 4
@@ -61986,7 +61982,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 1487191708}
   m_ReputationBonus: 10
   m_SkillValueNeeded: 500
   m_SkillNeeded: 7
@@ -64967,7 +64962,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 1487191708}
   m_ReputationBonus: 5
   m_SkillValueNeeded: 20
   m_SkillNeeded: 7
@@ -85042,7 +85036,7 @@ MonoBehaviour:
   m_BetterCategoryCounter: 0
   m_InfectedTurnCounter: 0
   m_Reputation: 0
-  m_Shillings: 0
+  m_Shillings: 100
   m_CanCheckHappiness: 1
   m_CanCheckReputation: 1
   m_CanCheckShillings: 1
@@ -92794,7 +92788,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 1487191708}
   m_ReputationBonus: 0
   m_SkillValueNeeded: 50
   m_SkillNeeded: 4
@@ -98075,7 +98068,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 1487191708}
   m_ReputationBonus: 0
   m_SkillValueNeeded: 0
   m_SkillNeeded: 8
@@ -108519,7 +108511,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 1487191708}
   m_ReputationBonus: 25
   m_SkillValueNeeded: 500
   m_SkillNeeded: 7
@@ -116651,6 +116642,14 @@ Prefab:
       propertyPath: m_Player
       value: 
       objectReference: {fileID: 1487191708}
+    - target: {fileID: 11484214, guid: 0ed7d9cdff0bd2f4bbe12ca83e00cfaf, type: 2}
+      propertyPath: m_Effect.m_Value
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11484214, guid: 0ed7d9cdff0bd2f4bbe12ca83e00cfaf, type: 2}
+      propertyPath: m_Cost
+      value: 75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ed7d9cdff0bd2f4bbe12ca83e00cfaf, type: 2}
   m_RootGameObject: {fileID: 561110631}
@@ -122334,7 +122333,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 1487191708}
   m_ReputationBonus: 7
   m_SkillValueNeeded: 50
   m_SkillNeeded: 7
