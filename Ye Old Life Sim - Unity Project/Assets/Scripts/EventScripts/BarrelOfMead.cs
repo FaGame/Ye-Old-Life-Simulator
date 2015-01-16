@@ -15,6 +15,7 @@ public class BarrelOfMead : RandomEventBaseClass
 		int currTurn = m_GameManager.GetComponent<GameManager>().m_Turns;
 		HangoverTurn_ = currTurn + ValueConstants.HANGOVER_DAY;
 
+		m_GameManager.GetComponent<GameManager>().m_BOMIsActive = true;
 		tData = "A barrel of mead falls off a wagon in front of your home. It's gonna be a great night tonight!" ;
 		return tData;
 	}
@@ -27,8 +28,9 @@ public class BarrelOfMead : RandomEventBaseClass
 			pData.m_CurrTime -= m_TimeChange; //Time player loses on their net turn
 			//pop up window
 			tData = "Your hangover has lost you quite a bit of time.";
+			m_GameManager.GetComponent<GameManager>().m_BOMIsActive = false;
 		}
-		tData = "Nothing happens here because of the same reasons other events that depend on the turn counter don't work.";
+//		tData = "Nothing happens here because of the same reasons other events that depend on the turn counter don't work.";
 		return tData;
 		
 	}

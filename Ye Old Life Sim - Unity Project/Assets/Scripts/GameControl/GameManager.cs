@@ -9,6 +9,14 @@ public class GameManager : MonoBehaviour
 	public GameObject m_RandomEventManagerP1;
 	public GameObject m_RandomEventManagerP2;
 	public GameObject m_RandomEventManagerAI;
+	public RandomEventBaseClass m_RandomEventUpdater;
+
+	public BarrelOfMead m_BOMUpdater;
+	public KingdomAtWar m_KAWUpdater;
+
+	public bool m_KAWIsActive = false;
+	public bool m_BOMIsActive = false;
+
     public PlayerData m_AIData;
     public PlayerData m_PlayerData;
     public PlayerData m_PlayerTwoData;
@@ -16,6 +24,8 @@ public class GameManager : MonoBehaviour
     public RestartUI m_RestartUI;
     public DataCollection m_DataCollection;
     public CloseAllOpenMenus closeAllOpenMenus_;
+
+
 
 	public int m_Turns;
 
@@ -42,6 +52,8 @@ public class GameManager : MonoBehaviour
     private bool AIBeingUsed_ = false;
     private bool TwoPlayerGame_ = false;
     private bool SetActivePlayersBool = false;
+
+	public string StringPlaceHolder_ = "";
 
     public bool PlayerTurn
     {
@@ -157,7 +169,22 @@ public class GameManager : MonoBehaviour
 			if(m_RandomEventP1Play) //Check to see if the RandomEvent has already been played
 			{
 				//if not already playerd, Play a Random Event
-				m_RandomEventManagerP1.GetComponent<RandomEventManager1>().PlayRandomEvent(); 
+				m_RandomEventManagerP1.GetComponent<RandomEventManager1>().PlayRandomEvent();
+				string eventText = "";
+
+//				m_RandomEventUpdater.UpdateEvent(m_PlayerData, eventText);
+				if(m_KAWIsActive)
+				{
+//					m_KAWUpdater.GetComponentInChildren<GameObject>().UpdateEvent(m_PlayerData, eventText);
+//					m_KAWUpdater.UpdateEvent(m_PlayerData, eventText);
+				}
+				if(m_BOMIsActive)
+				{
+//					m_BOMUpdater.UpdateEvent(m_PlayerData, eventText);
+//					m_BOMUpdater.GetComponent<GameObject>().
+//					m_BarrelOfMeadUpdater.UpdateEvent(m_PlayerData, eventText);
+				}
+				
 				//Make sure that another random event doesn't play this turn
 				m_RandomEventP1Play = false;
 			}
