@@ -556,15 +556,41 @@ public class BuildingUI : MonoBehaviour
         //----------------------------------------------------
 
         float actualWorkTime = selectedBuilding_.GetComponent<Building>().Work(m_PlayerData, m_PlayerData.m_Job);
-
+        bool haveLearned = false;
         if (m_PlayerData.m_Job.m_SkillGain.Length == 3)
         {
+
+            for (int i = 0; i < m_PlayerData.m_Skills.Count; ++i)
+            {
+                if (m_PlayerData.m_Skills[i].m_Skill == m_PlayerData.m_Job.m_SkillGain[1].m_Skill || m_PlayerData.m_Skills[i].m_Skill == m_PlayerData.m_Job.m_SkillGain[2].m_Skill)
+                {
+                    haveLearned = true;
+                }
+            }
+
+            if (haveLearned == false)
+            {
+                m_PlayerData.m_Skills.Add(new SkillAndAmount(m_PlayerData.m_Job.m_SkillGain[1].m_Skill, actualWorkTime * m_PlayerData.m_Job.m_SkillGain[1].m_Amount));
+                m_PlayerData.m_Skills.Add(new SkillAndAmount(m_PlayerData.m_Job.m_SkillGain[1].m_Skill, actualWorkTime * m_PlayerData.m_Job.m_SkillGain[2].m_Amount));
+            }
             resultsText_.text = "You earned " + (m_PlayerData.m_Job.m_Wage * actualWorkTime).ToString("F0") + " shillings, " + m_PlayerData.m_Job.m_SkillGain[0].m_Amount * actualWorkTime + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[0].m_Skill + ", " +
                                 m_PlayerData.m_Job.m_SkillGain[1].m_Amount * actualWorkTime + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[1].m_Skill + ", and " + m_PlayerData.m_Job.m_SkillGain[2].m_Amount * actualWorkTime + " point(s) in " + 
                                 m_PlayerData.m_Job.m_SkillGain[2].m_Skill + ".";
         }
         else if (m_PlayerData.m_Job.m_SkillGain.Length == 2)
         {
+            for (int i = 0; i < m_PlayerData.m_Skills.Count; ++i)
+            {
+                if (m_PlayerData.m_Skills[i].m_Skill == m_PlayerData.m_Job.m_SkillGain[1].m_Skill)
+                {
+                    haveLearned = true;
+                }
+            }
+
+            if (haveLearned == false)
+            {
+                m_PlayerData.m_Skills.Add(new SkillAndAmount(m_PlayerData.m_Job.m_SkillGain[1].m_Skill, actualWorkTime * m_PlayerData.m_Job.m_SkillGain[1].m_Amount));
+            }
             resultsText_.text = "You earned " + (m_PlayerData.m_Job.m_Wage * actualWorkTime).ToString("F0") + " shillings, " + m_PlayerData.m_Job.m_SkillGain[0].m_Amount * actualWorkTime + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[0].m_Skill + " and " +
                                 m_PlayerData.m_Job.m_SkillGain[1].m_Amount * actualWorkTime  + " point(s) in " + m_PlayerData.m_Job.m_SkillGain[1].m_Skill + ".";
         }
