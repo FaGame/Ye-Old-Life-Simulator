@@ -19,9 +19,7 @@ public class Food : Item
 
     void Start()
     {
-        m_Effect.m_Type = ItemEffect.EffectType.SPEED;      //sets the type to be speed so when the players uses a food item speed is changed
-        m_Effect.m_Timer = m_Timer;
-        m_Effect.m_Value = m_SpeedModifier;
+       
 
         m_ItemEntryData.item = this;
         m_ItemEntryData.count = 1;
@@ -30,6 +28,9 @@ public class Food : Item
     //when the function is called subtract a value from the hunger meter and increase or decrease player speed
     public override void UseItem(PlayerData playerData)
     {
+        m_Effect.m_Type = ItemEffect.EffectType.SPEED;      //sets the type to be speed so when the players uses a food item speed is changed
+        m_Effect.m_Timer = m_Timer;
+        m_Effect.m_Value = m_SpeedModifier;
         if (m_UseCount != 0)
         {
             AudioSource.PlayClipAtPoint(m_FoodSound, transform.position);

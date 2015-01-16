@@ -57,6 +57,12 @@ public class Elixir : Item
 
     void Start()
     {
+        m_ItemEntryData.item = this;
+        m_ItemEntryData.count = 1;
+    }
+
+    public override void UseItem(PlayerData playerData)
+    {
         //scales the player and enemy speed timers based on the scalar value
         m_PlayerSpeedTimer = ValueConstants.PLAYER_MAX_TIME * m_PlayerTimeSpeedScalar;
         m_EnemySpeedTimer = ValueConstants.PLAYER_MAX_TIME * m_EnemyTimeSpeedScalar;
@@ -85,12 +91,6 @@ public class Elixir : Item
         m_EnemyEarningEffect.m_Timer = m_EnemyEarningsTimer;
         m_EnemyEarningEffect.m_Value = m_EnemyEarningModifier;
 
-        m_ItemEntryData.item = this;
-        m_ItemEntryData.count = 1;
-    }
-
-    public override void UseItem(PlayerData playerData)
-    {
         if (m_UseCount != 0)
         {
             m_UseCount--;  //subtract 1 from the count of uses
