@@ -518,14 +518,29 @@ public class BuildingUI : MonoBehaviour
         m_PlayerData.AddEndOfTurnCode(sEffect.TurnEnded);
         if (selectedBuilding_.name == "University")
         {
-            if (Training.m_HaveLearnedSkill)
+            switch(result.m_Code)
+            {
+                case ResultCode.Codes.SUCCESS:
+                    interactDescriptionText_.text = "You earned " + result.m_Value + " points in " + go.name;
+                    break;
+                case ResultCode.Codes.NOT_ENOUGH_TIME:
+                    interactDescriptionText_.text = "Not enough time for you!";
+                    break;
+                case ResultCode.Codes.NOT_ENOUGH_SCHILLINGS:
+                    interactDescriptionText_.text = "You can't afford this education!";
+                    break;
+                default:
+                    interactDescriptionText_.text = "I can't let you do that Dave.";
+                    break;
+            }
+            /*if (Training.m_HaveLearnedSkill)
             {
                 interactDescriptionText_.text = "You earned " + result.m_Value + " points in " + go.name;
             }
             else
             {
                 interactDescriptionText_.text = "You can't afford this education!";
-            }
+            }*/
         }
     }
 

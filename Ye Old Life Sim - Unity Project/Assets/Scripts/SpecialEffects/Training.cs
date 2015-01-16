@@ -28,6 +28,7 @@ public class Training : SpecialEffect
         bool isSkillFound = false;
         pData.m_Shillings -= ValueConstants.UNIVERSITY_TUITION_SCHILLING_COST;
         pData.m_CurrTime -= ValueConstants.UNIVERSITY_TUITION_TIME_COST;
+        pData.m_HungerMeter += (int)ValueConstants.UNIVERSITY_TUITION_TIME_COST;
         for (int i = 0; i < pData.m_Skills.Count; ++i)
         {
             if(pData.m_Skills[i].m_Skill == m_LearnedSkill)

@@ -85,7 +85,7 @@ public class Building : MonoBehaviour
                 pData.m_Skills.Add(new SkillAndAmount(jData.m_SkillGain[i].m_Skill, jData.m_SkillGain[i].m_Amount * actualWorkTime));
             }
         }
-        pData.m_HungerMeter += hungerValue;
+        pData.m_HungerMeter += hungerValue * (int)actualWorkTime;
         pData.m_CurrTime -= actualWorkTime;
 		pData.m_Shillings += (int)((jData.GetWage() * actualWorkTime) * pData.m_EarningScalar);
         /*if(!jData.m_AudioSource.isPlaying)
