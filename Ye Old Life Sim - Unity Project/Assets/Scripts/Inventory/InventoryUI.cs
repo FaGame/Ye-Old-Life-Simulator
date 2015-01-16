@@ -45,7 +45,7 @@ public class InventoryUI : MonoBehaviour
             int i = 0;
             if(inventoryScript.m_UseableItemInventory.Count != 0)
             {
-                float startYPos = 180.0f;
+                float startYPos = 110.0f;
 
                 //loop through the inventory and display a button for each item.
                 foreach (KeyValuePair<string, Item.ItemInventoryEntry> currentItem in inventoryScript.m_UseableItemInventory)
