@@ -25,12 +25,16 @@ public class KingdomAtWar : RandomEventBaseClass
 		{
 			if (pData.m_Building.m_BuildingName == "Barracks")
 			{
-//				pData.m_EarningScalar = ValueConstants.EARNING_SCALAR_CHANGE_FOR_BARRACK_KAW;
+				pData.m_EarningScalar = ValueConstants.EARNING_SCALAR_CHANGE_FOR_BARRACK_KAW;
 			}
 			else
 			{
-//				pData.m_EarningScalar = ValueConstants.EARNING_SCALAR_CHANGE_FOR_BUILDINGS_KAW;
+				pData.m_EarningScalar = ValueConstants.EARNING_SCALAR_CHANGE_FOR_BUILDINGS_KAW;
 			}
+		}
+		else
+		{
+			pData.m_EarningScalar = ValueConstants.EARNING_SCALAR_CHANGE_FOR_BUILDINGS_KAW;
 		}
 		//Money from all jobs (with the exception of the Barracks) now pay half
 		//Barracks pay doubles
