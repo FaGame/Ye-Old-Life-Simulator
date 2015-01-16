@@ -16474,6 +16474,10 @@ Prefab:
       propertyPath: m_Shillings
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 11423642, guid: 6363f9699f9597f46a98480bccb82784, type: 2}
+      propertyPath: m_WaypointObject
+      value: 
+      objectReference: {fileID: 2059128757}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6363f9699f9597f46a98480bccb82784, type: 2}
   m_RootGameObject: {fileID: 1487191707}
@@ -40376,6 +40380,10 @@ Prefab:
       propertyPath: mblackSmithWaypoint
       value: 
       objectReference: {fileID: 652205177}
+    - target: {fileID: 11471850, guid: c76e9c270ea67cf49a60d56399986c34, type: 2}
+      propertyPath: m_WaypointObject
+      value: 
+      objectReference: {fileID: 2059128757}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c76e9c270ea67cf49a60d56399986c34, type: 2}
   m_RootGameObject: {fileID: 1829319471}
@@ -85106,7 +85114,7 @@ MonoBehaviour:
   mCamera: {fileID: 1052255808}
   mTerrain: {fileID: 715305267}
   mblackSmithWaypoint: {fileID: 652205177}
-  m_WaypointObject: {fileID: 0}
+  m_WaypointObject: {fileID: 2059128757}
   m_IsMoving: 0
   m_v: 0
 --- !u!82 &1487191711
@@ -106702,7 +106710,7 @@ MonoBehaviour:
   mCamera: {fileID: 1052255808}
   mTerrain: {fileID: 715305267}
   mblackSmithWaypoint: {fileID: 652205177}
-  m_WaypointObject: {fileID: 0}
+  m_WaypointObject: {fileID: 2059128757}
   m_IsMoving: 0
   m_v: 0
 --- !u!195 &1829319478
