@@ -205,9 +205,9 @@ public class BuildingUI : MonoBehaviour
         m_BuildingTransitionDisplay.FadeIn();
         selectedBuilding_ = gObj;
         //----------------------------------------------------------------
-        buildingName_ = selectedBuilding_.GetComponent<Building>().name;
-        m_currInt = m_BL.GetBuildingNumber(buildingName_);
-        m_DataCollection.AddIntThings();
+       // buildingName_ = selectedBuilding_.GetComponent<Building>().name;
+        //m_currInt = m_BL.GetBuildingNumber(buildingName_);
+       // m_DataCollection.AddIntThings();
         //----------------------------------------------------------------
         buildingNameText_.text = selectedBuilding_.GetComponent<Building>().name;
         descriptionText_.text = selectedBuilding_.GetComponent<Building>().GetDescription();

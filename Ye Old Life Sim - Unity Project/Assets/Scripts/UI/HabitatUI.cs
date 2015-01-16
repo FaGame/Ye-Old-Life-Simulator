@@ -64,9 +64,9 @@ public class HabitatUI : MonoBehaviour
         habitatNameText_.text = selectedHome_.GetComponent<Habitat>().name;
         descriptionText_.text = selectedHome_.GetComponent<Habitat>().GetDescription();
 
-        habitatName_ = selectedHome_.GetComponent<Habitat>().name;
-        m_currInt = m_BL.GetBuildingNumber(habitatName_);
-        m_DataCollection.AddIntThings();
+        //habitatName_ = selectedHome_.GetComponent<Habitat>().name;
+        //m_currInt = m_BL.GetBuildingNumber(habitatName_);
+        //m_DataCollection.AddIntThings();
 
         if(selectedHome_.GetComponent<Habitat>() != m_PlayerData.GetComponent<Habitat>())
         {
