@@ -15,10 +15,14 @@ public class InventoryUI : MonoBehaviour
     public Font m_CustomFont;
 
     private Text[] buttonTexts_;
+    private List<GameObject> inventoryChildren_ = new List<GameObject>();
     private Image itemImage_;
+    private UseableItemInventory usableInventory_;
     private bool inventoryDisplayed_;
     private float subMenuYOffset_ = 100.0f;
     private int numChildren_;
+    private int childIterator_ = 0;
+    private int textIterator_ = 0;
 
     public bool InventoryActive
     {
@@ -35,6 +39,7 @@ public class InventoryUI : MonoBehaviour
     {
         if (!inventoryDisplayed_ && !m_GameManager.m_BuildingUI.BuildingUIActive)
         {
+            usableInventory_ = inventoryScript;
             //disable player movement
             m_PlayerController.enabled = false;
             //display inventory
@@ -57,6 +62,7 @@ public class InventoryUI : MonoBehaviour
                     button.onClick.AddListener(delegate { inventoryScript.UseItem(m_PlayerController.m_PlayerData, go.name); });
                     startYPos -= subMenuYOffset_;
                     numChildren_++;
+                    inventoryChildren_.Add(go);
 
                     //set the name and count of the item
                     buttonTexts_ = go.GetComponentsInChildren<Text>();
@@ -79,6 +85,37 @@ public class InventoryUI : MonoBehaviour
             inventoryDisplayed_ = true;
 
             m_InvTransitionDisplay.FadeIn();
+        }
+    }
+    
+    void Update()
+    {
+        //UpdateInventory();
+    }
+
+    void UpdateInventory()
+    {
+        if (usableInventory_ != null)
+        {
+            foreach(KeyValuePair<string, Item.ItemInventoryEntry> currItem in usableInventory_.m_UseableItemInventory)
+            {
+                if (currItem.Value.count <= 0)
+                {
+                    inventoryChildren_.Remove(inventoryChildren_[childIterator_]);
+                    childIterator_--;
+                }
+                if (currItem.Value.count > 0)
+                {
+                    Text[] texts = inventoryChildren_[childIterator_].GetComponentsInChildren<Text>();
+                    texts[0].text = currItem.Key;
+                    texts[1].text = currItem.Value.count.ToString();
+                }
+                childIterator_++;
+            }
+            if(childIterator_ >= inventoryChildren_.Count)
+            {
+                childIterator_ = 0;
+            }
         }
     }
 
