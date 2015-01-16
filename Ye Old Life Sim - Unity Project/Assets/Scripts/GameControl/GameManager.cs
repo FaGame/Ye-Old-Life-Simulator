@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public BuildingUI m_BuildingUI;
     public RestartUI m_RestartUI;
     public DataCollection m_DataCollection;
+    public CloseAllOpenMenus closeAllOpenMenus_;
 
 	public int m_Turns;
 
@@ -163,6 +164,7 @@ public class GameManager : MonoBehaviour
 
             if (m_PlayerData.m_CurrTime <= 0)
             {
+                closeAllOpenMenus_.CloseAll();
                 m_Turns += IncrementTurns_;
 
                 if(TwoPlayerGame_)

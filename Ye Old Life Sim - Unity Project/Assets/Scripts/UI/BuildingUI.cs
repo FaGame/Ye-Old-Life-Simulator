@@ -64,6 +64,7 @@ public class BuildingUI : MonoBehaviour
     private BuildingList bList_;
     private int buildingNumber_;
     private ButtonPusher buyItemsButtonPusher;
+    private CloseAllOpenMenus closeAllOpenMenus_;
     //private bool transitionToVisible_;
     //private bool isIransitioning_;
     //private float transitionAlpha_;
@@ -98,6 +99,7 @@ public class BuildingUI : MonoBehaviour
         buildingNumber_ = bList_.GetBuildingNumber(gameObject.name);
 
         buyItemsButtonPusher = m_BuyMenu.GetComponent<ButtonPusher>();
+        closeAllOpenMenus_ = gameObject.GetComponent<CloseAllOpenMenus>();
 
        //transitionToVisible_ = false;
         //isIransitioning_ = false;
@@ -234,6 +236,7 @@ public class BuildingUI : MonoBehaviour
         }
 
         playerController_ = pController;
+        closeAllOpenMenus_.AddMenuToClose(CloseCurrentMenu);
     }
 
     //This function is called in the update, but only if the player has selected a building
@@ -310,6 +313,7 @@ public class BuildingUI : MonoBehaviour
         }
         //buyItemsButtonPusher.ButtonsAreInstantiated(m_BuyMenuScrollMask);
         m_BuyItemsTransitionDisplay.FadeIn();
+        closeAllOpenMenus_.AddMenuToClose(CloseCurrentMenu);
         //buyItemsButtonPusher.SelectButton(1);
     }
 
@@ -360,6 +364,7 @@ public class BuildingUI : MonoBehaviour
                 j++;
             }
             m_InteractTransitionDisplay.FadeIn();
+            closeAllOpenMenus_.AddMenuToClose(CloseCurrentMenu);
         }   
     }
 
@@ -412,6 +417,7 @@ public class BuildingUI : MonoBehaviour
         interactDescriptionText_ = interactText_[interactText_.Length - 1];
        
         m_InteractTransitionDisplay.FadeIn();
+        closeAllOpenMenus_.AddMenuToClose(CloseCurrentMenu);
     }
 
     //Button Function - This function is called by the "Apply for Job" button
@@ -480,6 +486,7 @@ public class BuildingUI : MonoBehaviour
         }
 
         m_ApplyJobTransitionDisplay.FadeIn();
+        closeAllOpenMenus_.AddMenuToClose(CloseCurrentMenu);
     }
 
     //Button function - The object passed into the function is the button itself to get the appropriate information
@@ -573,33 +580,40 @@ public class BuildingUI : MonoBehaviour
     //Otherwise it will just disable the menu.
     public void CloseCurrentMenu()
     {
-        m_AudioSource.clip = m_CloseWindow;
-        m_AudioSource.Play();
         if (m_ApplyMenu.activeSelf && !m_ApplyJobTransitionDisplay.IsTransitioning())
         {
+            m_AudioSource.clip = m_CloseWindow;
+            m_AudioSource.Play();
             //m_ApplyMenu.SetActive(false);
             applyMenuNumChildren_ = 0;
             m_ApplyJobTransitionDisplay.FadeOut(delegate { cleanupApplyMenu(); });
         }
         else if(m_BuyMenu.activeSelf && !m_BuyItemsTransitionDisplay.IsTransitioning())
         {
+            m_AudioSource.clip = m_CloseWindow;
+            m_AudioSource.Play();
             //m_BuyMenu.SetActive(false);
             buyMenuNumChildren_ = 0;
             m_BuyItemsTransitionDisplay.FadeOut(delegate { cleanupBuyMenu(); });
         }
         else if(m_InteractMenu.activeSelf && !m_InteractTransitionDisplay.IsTransitioning())
         {
+            m_AudioSource.clip = m_CloseWindow;
+            m_AudioSource.Play();
             //m_InteractMenu.SetActive(false);
             m_InteractTransitionDisplay.FadeOut(delegate { cleanupInteractMenu(); });
         }
         else if (buildingsActive_ && !m_BuildingTransitionDisplay.IsTransitioning())
         {
+            m_AudioSource.clip = m_CloseWindow;
+            m_AudioSource.Play();
             resultsText_.text = "";
             buildingsActive_ = false;
             //kickoffTransitionGUI(false);
             //m_BuildingGUI.SetActive(buildingsActive_);
             m_BuildingTransitionDisplay.FadeOut(null);
             playerController_.enabled = true;
+            closeAllOpenMenus_.RemoveAll();
         }
     }
 
