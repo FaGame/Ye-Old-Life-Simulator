@@ -433,7 +433,6 @@ MonoBehaviour:
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
   m_GameManager: {fileID: 1405834717}
-  m_buildingEnum: 0
 --- !u!1 &4484995
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,6 +2513,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 0
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -4479,7 +4480,6 @@ MonoBehaviour:
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
   m_GameManager: {fileID: 1405834717}
-  m_buildingEnum: 0
 --- !u!1 &97344944
 GameObject:
   m_ObjectHideFlags: 0
@@ -11329,6 +11329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 50
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -12980,6 +12982,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 0
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -13148,6 +13152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 10
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -14282,6 +14288,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 12
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -16531,6 +16539,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 0
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -19081,7 +19091,6 @@ MonoBehaviour:
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
   m_GameManager: {fileID: 1405834717}
-  m_buildingEnum: 0
 --- !u!1 &326212437
 GameObject:
   m_ObjectHideFlags: 0
@@ -19225,6 +19234,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 50
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -20460,6 +20471,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 2
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -21537,6 +21550,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 0
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -27303,7 +27318,6 @@ MonoBehaviour:
   m_HabitatUI: {fileID: 0}
   m_PlayerData: {fileID: 0}
   m_Rating: 0
-  m_CollectionRating: 0
 --- !u!4 &477165277
 Transform:
   m_ObjectHideFlags: 0
@@ -32395,6 +32409,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 3
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -34442,6 +34458,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 10
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -35253,7 +35271,6 @@ MonoBehaviour:
   m_HabitatUI: {fileID: 1583590507}
   m_PlayerData: {fileID: 1487191708}
   m_Rating: 2
-  m_CollectionRating: 2
 --- !u!65 &604814488
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35745,6 +35762,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 5
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -38976,7 +38995,6 @@ MonoBehaviour:
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
   m_GameManager: {fileID: 1405834717}
-  m_buildingEnum: 0
 --- !u!1 &682998399
 GameObject:
   m_ObjectHideFlags: 0
@@ -39091,6 +39109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 0
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -49020,6 +49040,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 0
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -49506,6 +49528,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 125
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -50301,6 +50325,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 50
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -50911,7 +50937,6 @@ MonoBehaviour:
   m_HabitatUI: {fileID: 1583590507}
   m_PlayerData: {fileID: 1487191708}
   m_Rating: 3
-  m_CollectionRating: 3
 --- !u!65 &898228382
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -53865,6 +53890,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 200
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -54936,6 +54963,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 15
+  m_UseCount: 5
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -56504,7 +56533,6 @@ MonoBehaviour:
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
   m_GameManager: {fileID: 1405834717}
-  m_buildingEnum: 0
 --- !u!1001 &1003996855
 Prefab:
   m_ObjectHideFlags: 0
@@ -57674,7 +57702,6 @@ MonoBehaviour:
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
   m_GameManager: {fileID: 1405834717}
-  m_buildingEnum: 0
 --- !u!1 &1031698126
 GameObject:
   m_ObjectHideFlags: 0
@@ -58941,11 +58968,10 @@ MonoBehaviour:
   m_BUI: {fileID: 1583590505}
   m_HUI: {fileID: 1583590507}
   m_REM: {fileID: 0}
-  m_UIB: {fileID: 0}
-  m_UII: {fileID: 0}
   m_StringThings: []
   m_IntThings: 
   m_playerStats: []
+  m_habitatsInteractedWith: 
 --- !u!114 &1052255812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58971,7 +58997,7 @@ MonoBehaviour:
   - {fileID: 21300004, guid: 74d310245c596d44a96ee07576e2817b, type: 3}
   - {fileID: 21300002, guid: 74d310245c596d44a96ee07576e2817b, type: 3}
   m_HardwareHotSpot: {x: 0, y: 25}
-  m_CursorMode: 0
+  m_CursorMode: 1
   m_FramesPerSecond: 15
   isMouseButtonDown_: 0
 --- !u!82 &1052255813
@@ -61107,6 +61133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 0
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -61327,6 +61355,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 5
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -62971,6 +63001,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 1
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -64055,6 +64087,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 0
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -72240,6 +72274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 5
+  m_UseCount: 0
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -77498,6 +77534,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 50
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -78890,6 +78928,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 50
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -80627,6 +80667,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 20
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -85697,6 +85739,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 10
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Not Overridden
   m_ItemEntryData:
     item: {fileID: 0}
@@ -85922,6 +85966,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 2
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -87866,6 +87912,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 2
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -89772,12 +89820,14 @@ MonoBehaviour:
   m_BuyItemsTransitionDisplay: {fileID: 816199102}
   m_InteractTransitionDisplay: {fileID: 788745890}
   m_ApplyJobTransitionDisplay: {fileID: 900226624}
-  m_CurrBuildingEnum: 0
   m_DataCollection: {fileID: 1052255811}
   m_TimeToWait: 3
   m_AudioSource: {fileID: 1583590510}
   m_CloseWindow: {fileID: 8300000, guid: cb03d9c45df91354f8ddc7a0d06bed34, type: 3}
   m_BuyItem: {fileID: 8300000, guid: 360399cd3d6ecc747a5a97b538df39e5, type: 3}
+  m_currInt: 0
+  m_itemBought: 
+  m_BL: {fileID: 0}
   m_CustomFont: {fileID: 12800000, guid: 9a399c0961e214c4483f3c3bc166039c, type: 3}
   m_ActionTaken: 0
 --- !u!114 &1583590506
@@ -89820,6 +89870,8 @@ MonoBehaviour:
   m_PlayerData: {fileID: 1487191708}
   m_TransitionDisplay: {fileID: 480498143}
   m_DataCollection: {fileID: 1052255811}
+  m_BL: {fileID: 0}
+  m_currInt: 0
 --- !u!114 &1583590508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91518,6 +91570,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 100
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -93171,7 +93225,6 @@ MonoBehaviour:
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
   m_GameManager: {fileID: 1405834717}
-  m_buildingEnum: 0
 --- !u!1001 &1624714020
 Prefab:
   m_ObjectHideFlags: 0
@@ -94461,6 +94514,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 15
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -95885,7 +95940,6 @@ MonoBehaviour:
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
   m_GameManager: {fileID: 1405834717}
-  m_buildingEnum: 0
 --- !u!1 &1681036158
 GameObject:
   m_ObjectHideFlags: 0
@@ -96934,6 +96988,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 300
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -97724,6 +97780,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 30
+  m_UseCount: 20
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -106004,7 +106062,6 @@ MonoBehaviour:
   m_HabitatUI: {fileID: 1583590507}
   m_PlayerData: {fileID: 1487191708}
   m_Rating: 1
-  m_CollectionRating: 1
 --- !u!64 &1845238883
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -107375,6 +107432,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 0
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -108740,7 +108799,6 @@ MonoBehaviour:
   m_HabitatUI: {fileID: 1583590507}
   m_PlayerData: {fileID: 1487191708}
   m_Rating: 5
-  m_CollectionRating: 0
 --- !u!1 &1890543288
 GameObject:
   m_ObjectHideFlags: 0
@@ -108965,7 +109023,6 @@ MonoBehaviour:
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
   m_GameManager: {fileID: 1405834717}
-  m_buildingEnum: 0
 --- !u!1001 &1894173015
 Prefab:
   m_ObjectHideFlags: 0
@@ -109408,7 +109465,6 @@ MonoBehaviour:
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
   m_GameManager: {fileID: 1405834717}
-  m_buildingEnum: 0
 --- !u!1 &1904031922
 GameObject:
   m_ObjectHideFlags: 0
@@ -110886,6 +110942,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 4
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -113517,6 +113575,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 15
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -113816,7 +113876,6 @@ MonoBehaviour:
   m_HabitatUI: {fileID: 1583590507}
   m_PlayerData: {fileID: 1487191708}
   m_Rating: 4
-  m_CollectionRating: 0
 --- !u!65 &1955591037
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -116384,7 +116443,6 @@ MonoBehaviour:
   m_HabitatUI: {fileID: 0}
   m_PlayerData: {fileID: 0}
   m_Rating: 0
-  m_CollectionRating: 0
 --- !u!54 &2007613442
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -118585,7 +118643,6 @@ MonoBehaviour:
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
   m_GameManager: {fileID: 1405834717}
-  m_buildingEnum: 0
 --- !u!1001 &2057324162
 Prefab:
   m_ObjectHideFlags: 0
@@ -120832,6 +120889,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 0
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Test string for now
   m_ItemEntryData:
     item: {fileID: 0}
@@ -121596,7 +121655,6 @@ MonoBehaviour:
   m_BuildingUI: {fileID: 1583590505}
   m_MouseEnterExitJitter: .00999999978
   m_GameManager: {fileID: 1405834717}
-  m_buildingEnum: 0
 --- !u!1 &2120396144
 GameObject:
   m_ObjectHideFlags: 0
@@ -121729,6 +121787,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cost: 10
+  m_UseCount: 1
+  m_DefaultUse: 1
   m_Description: Not Overridden
   m_ItemEntryData:
     item: {fileID: 0}
