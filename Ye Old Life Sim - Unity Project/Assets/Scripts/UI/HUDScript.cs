@@ -318,14 +318,14 @@ public class HUDScript : MonoBehaviour
             GetComponent<PossessioninventoryUI>().CloseInventory();
             possessionActive_ = false;
         }
-        else if(GetComponent<BuildingUI>().BuildingUIActive)
+        /*else if(GetComponent<BuildingUI>().BuildingUIActive)
         {
             GetComponent<BuildingUI>().CloseCurrentMenu();
         }
         else if(GetComponent<HabitatUI>().HabitatUIActive)
         {
             GetComponent<HabitatUI>().CloseCurrentUI();
-        }
+        }*/
     }
 
     public void OpenBuildingsList()
