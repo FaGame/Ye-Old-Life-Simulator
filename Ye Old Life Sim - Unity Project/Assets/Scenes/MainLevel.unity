@@ -16441,7 +16441,7 @@ Prefab:
     - target: {fileID: 11429232, guid: 6363f9699f9597f46a98480bccb82784, type: 2}
       propertyPath: m_Home
       value: 
-      objectReference: {fileID: 477165276}
+      objectReference: {fileID: 1845238881}
     - target: {fileID: 11429232, guid: 6363f9699f9597f46a98480bccb82784, type: 2}
       propertyPath: m_GameManager
       value: 
@@ -40347,7 +40347,7 @@ Prefab:
     - target: {fileID: 11471848, guid: c76e9c270ea67cf49a60d56399986c34, type: 2}
       propertyPath: m_Home
       value: 
-      objectReference: {fileID: 477165276}
+      objectReference: {fileID: 1845238881}
     - target: {fileID: 11471848, guid: c76e9c270ea67cf49a60d56399986c34, type: 2}
       propertyPath: m_GameManager
       value: 
@@ -85033,7 +85033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b52508118febc3143a9c823b9f126b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Home: {fileID: 477165276}
+  m_Home: {fileID: 1845238881}
   m_Skills: []
   m_Job: {fileID: 0}
   m_Building: {fileID: 0}
@@ -106538,7 +106538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b52508118febc3143a9c823b9f126b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Home: {fileID: 477165276}
+  m_Home: {fileID: 1845238881}
   m_Skills: []
   m_Job: {fileID: 0}
   m_Building: {fileID: 0}
