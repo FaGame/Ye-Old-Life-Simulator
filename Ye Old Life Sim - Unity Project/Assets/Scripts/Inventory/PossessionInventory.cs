@@ -45,7 +45,7 @@ public class PossessionInventory : MonoBehaviour
         
     }
 
-    public void AddToInventory(string name, Item.ItemInventoryEntry item)
+    public void AddToInventory(string name, Item.ItemInventoryEntry item, PlayerData pData)
     {
         //adds an item to the list based on a name given and takes in a list of type ItemInventoryEntry
         if (!m_PossessionItemInventory.ContainsKey(name))
@@ -56,6 +56,7 @@ public class PossessionInventory : MonoBehaviour
         {
             //ItemInventoryEntry entry = item;
             item.count += m_PossessionItemInventory[name].count;
+            item.item.ApplyValueChange(pData);
             m_PossessionItemInventory[name] = item;
         }
     }

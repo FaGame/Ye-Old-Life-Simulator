@@ -53,6 +53,8 @@ public class Elixir : Item
         return retval; 
     }
 
+    public override void ApplyValueChange(PlayerData pData) { }
+
     void Start()
     {
         //scales the player and enemy speed timers based on the scalar value

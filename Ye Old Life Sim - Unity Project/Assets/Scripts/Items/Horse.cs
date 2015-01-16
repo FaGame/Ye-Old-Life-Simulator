@@ -37,4 +37,6 @@ public class Horse : Item
             playerData.GetComponent<PlayerController>().ActivateHorse();
         }
     }
+
+    public override void ApplyValueChange(PlayerData pData) { }
 }

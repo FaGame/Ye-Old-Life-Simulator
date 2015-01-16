@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class Possession : Item 
 {
-    public PlayerData m_Player;
-
     public int m_ReputationBonus = 0;           //how much reputation bonus the player gets 
     public int m_SkillValueNeeded = 0;          //hopw much skill the player neeeds to use the bonus for that item 
 
@@ -20,7 +18,7 @@ public class Possession : Item
 
     void Start()
     {
-        skills_ = m_Player.m_Skills;    //assigns the skills variable to the player's skills
+            //assigns the skills variable to the player's skills
         //ApplyValueChange();
     }
 
@@ -30,17 +28,17 @@ public class Possession : Item
         m_ItemEntryData.count = 1;
     }
 
-    public void ApplyValueChange()
+    public override void ApplyValueChange(PlayerData pData)
     {
         //increases the player's happiness by the happiness variable
-        m_Player.m_Happiness += m_HappinessAmount;
-
+        pData.m_Happiness += m_HappinessAmount;
+        skills_ = pData.m_Skills;
         //checks if one of the player's skills matches the skill needed and that the player's skill amount for that job matches the skill value needed then increases reputation
         for (int i = 0; i < skills_.Count; ++i)
         {
             if (skills_[i].m_Skill == m_SkillNeeded && skills_[i].m_Amount >= m_SkillValueNeeded)
             {
-                m_Player.m_Reputation += m_ReputationBonus;
+                pData.m_Reputation += m_ReputationBonus;
             }
         }     
     }

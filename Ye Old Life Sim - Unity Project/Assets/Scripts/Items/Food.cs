@@ -46,6 +46,8 @@ public class Food : Item
         }
     }
 
+    public override void ApplyValueChange(PlayerData pData) { }
+
     public void RemoveFood()
     {
         if(m_IsPerishable)

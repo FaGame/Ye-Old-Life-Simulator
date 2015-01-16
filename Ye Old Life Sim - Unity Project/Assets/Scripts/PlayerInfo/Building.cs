@@ -116,7 +116,7 @@ public class Building : MonoBehaviour
             }
             else if (iData.GetComponent<Possession>())
             {
-                pData.m_PossessionInventory.AddToInventory(iData.name, iData.m_ItemEntryData);
+                pData.m_PossessionInventory.AddToInventory(iData.name, iData.m_ItemEntryData, m_Player);
             }
             else if (iData.GetComponent<Horse>())
             {

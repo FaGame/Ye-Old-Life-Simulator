@@ -12,6 +12,7 @@ public abstract class Item : MonoBehaviour
     };
 
     public abstract void UseItem(PlayerData playerData);
+    public abstract void ApplyValueChange(PlayerData pData);
     public virtual string GetDescription()
     {
         return m_Description;
