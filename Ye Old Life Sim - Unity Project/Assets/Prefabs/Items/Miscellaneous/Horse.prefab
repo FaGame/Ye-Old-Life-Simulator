@@ -1385,9 +1385,9 @@ MonoBehaviour:
   m_Effect:
     m_Type: 0
     m_Timer: 0
-    m_Value: 10
+    m_Value: 75
   m_BoughtHorse: 0
-  m_PlayerSpeedModifier: 10
+  m_PlayerSpeedModifier: 2
   m_HorseGallop: {fileID: 8208230}
 --- !u!137 &13708230
 SkinnedMeshRenderer:

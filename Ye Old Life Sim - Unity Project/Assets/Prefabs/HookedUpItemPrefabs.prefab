@@ -12962,7 +12962,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 0}
   m_ReputationBonus: 15
   m_SkillValueNeeded: 0
   m_SkillNeeded: 7
@@ -13068,7 +13067,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 0}
   m_ReputationBonus: 0
   m_SkillValueNeeded: 100
   m_SkillNeeded: 4
@@ -13135,7 +13133,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 0}
   m_ReputationBonus: 5
   m_SkillValueNeeded: 20
   m_SkillNeeded: 7
@@ -13160,7 +13157,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 0}
   m_ReputationBonus: 5
   m_SkillValueNeeded: 20
   m_SkillNeeded: 7
@@ -13224,7 +13220,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 0}
   m_ReputationBonus: 10
   m_SkillValueNeeded: 500
   m_SkillNeeded: 7
@@ -13312,7 +13307,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 0}
   m_ReputationBonus: 0
   m_SkillValueNeeded: 50
   m_SkillNeeded: 4
@@ -13337,7 +13331,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 0}
   m_ReputationBonus: 50
   m_SkillValueNeeded: 200
   m_SkillNeeded: 8
@@ -13362,7 +13355,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 0}
   m_ReputationBonus: 0
   m_SkillValueNeeded: 0
   m_SkillNeeded: 8
@@ -13408,7 +13400,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 0}
   m_ReputationBonus: 12
   m_SkillValueNeeded: 750
   m_SkillNeeded: 7
@@ -13433,7 +13424,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 0}
   m_ReputationBonus: 7
   m_SkillValueNeeded: 50
   m_SkillNeeded: 7
@@ -13542,7 +13532,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 0}
   m_ReputationBonus: 5
   m_SkillValueNeeded: 10
   m_SkillNeeded: 7
@@ -13738,7 +13727,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 0}
   m_ReputationBonus: 25
   m_SkillValueNeeded: 500
   m_SkillNeeded: 7
@@ -13763,7 +13751,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 0}
   m_ReputationBonus: 9
   m_SkillValueNeeded: 500
   m_SkillNeeded: 7
@@ -13788,7 +13775,6 @@ MonoBehaviour:
   m_ItemEntryData:
     item: {fileID: 0}
     count: 0
-  m_Player: {fileID: 0}
   m_ReputationBonus: 8
   m_SkillValueNeeded: 500
   m_SkillNeeded: 7
@@ -14553,9 +14539,9 @@ MonoBehaviour:
   m_Effect:
     m_Type: 0
     m_Timer: 0
-    m_Value: 10
+    m_Value: 75
   m_BoughtHorse: 0
-  m_PlayerSpeedModifier: 10
+  m_PlayerSpeedModifier: 2
   m_HorseGallop: {fileID: 8284214}
 --- !u!137 &13784214
 SkinnedMeshRenderer:
