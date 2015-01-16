@@ -20,7 +20,7 @@ public class CircusComesToTown : RandomEventBaseClass
 
 	public override string PlayEvent(PlayerData pData, string tData)
 	{
-	/*	m_MoneyLost = ValueConstants.DEFAULT_CIRCUS_TICKET_COST;
+		m_MoneyLost = ValueConstants.DEFAULT_CIRCUS_TICKET_COST;
 
 		//pop up window
 		//Check the player's current Shilling count
@@ -49,9 +49,8 @@ public class CircusComesToTown : RandomEventBaseClass
 //		GetComponent<PossessionInventory>().AddToInventory(m_FoundItem.name, m_ItemType); //add the found item into the player's inventory
 
 		tData = "The circus has come to town, lose " + m_MoneyLost.ToString() + " shillings. No ifs ands or buts. " + m_TicketCostMessage
-				+ " On the bright side, you ended up winning " + m_FoundItem.name.ToString() + ".";
-		*/
-		tData = "The Circus is Not implemented, because iventory and items are currently not accessible by random events.";
+				+ " On the bright side, you ended up winning nothing, because this doesn't work fully yet.";// + m_FoundItem.name.ToString() + ".";
+		
 		return tData; 
 	}
 
