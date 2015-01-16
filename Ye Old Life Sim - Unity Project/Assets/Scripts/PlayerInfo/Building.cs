@@ -87,7 +87,7 @@ public class Building : MonoBehaviour
         }
         pData.m_HungerMeter += hungerValue;
         pData.m_CurrTime -= actualWorkTime;
-        pData.m_Shillings += (int)(jData.GetWage() * actualWorkTime);
+		pData.m_Shillings += (int)((jData.GetWage() * actualWorkTime) * pData.m_EarningScalar);
         /*if(!jData.m_AudioSource.isPlaying)
         {
             jData.m_AudioSource.Play();
