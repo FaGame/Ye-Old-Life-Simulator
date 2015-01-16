@@ -504,7 +504,10 @@ public class BuildingUI : MonoBehaviour
                 if(selectedBuilding_.GetComponent<Building>().BuyItem(m_PlayerData, selectedBuilding_.GetComponent<Building>().m_Items[i]))
                 {
                     m_AudioSource.clip = m_BuyItem;
-                    m_AudioSource.Play();
+                    if (!m_AudioSource.isPlaying)
+                    {
+                        m_AudioSource.Play();
+                    }
                 }
             }
         }
