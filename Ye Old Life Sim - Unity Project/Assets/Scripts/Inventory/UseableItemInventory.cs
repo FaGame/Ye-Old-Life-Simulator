@@ -58,7 +58,12 @@ public class UseableItemInventory : MonoBehaviour
         if (m_UseableItemInventory.ContainsKey(name))
         {
             Item.ItemInventoryEntry item = m_UseableItemInventory[name];
-            item.count--;
+            if(item.item.m_UseCount <= 0)
+            {
+                item.item.m_UseCount = item.item.m_DefaultUse;
+                item.count--;
+            }
+            
             m_UseableItemInventory[name] = item;
 
             if(item.count <= 0)

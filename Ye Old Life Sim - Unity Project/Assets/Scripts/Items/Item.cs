@@ -19,7 +19,8 @@ public abstract class Item : MonoBehaviour
 
     public int m_Cost = 0;
 
-    //public int m_UseCount = 1; //this is how many times an item can be used
+    public int m_UseCount = 1; //this is how many times an item can be used
+    public int m_DefaultUse = 1;    //reset value for uses
 
     public string m_Description = "Not Overridden";
 
