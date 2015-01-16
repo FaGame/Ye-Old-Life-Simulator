@@ -116,7 +116,7 @@ public class Building : MonoBehaviour
         return m_Description[Random.Range(0, m_Description.Length)];
     }
 
-    public void BuyItem(PlayerData pData, Item iData)
+    public bool BuyItem(PlayerData pData, Item iData)
     {
         if (pData.RemoveSchillings(iData.m_Cost))
         {
@@ -133,7 +133,9 @@ public class Building : MonoBehaviour
                 //pData.m_PossessionInventory.AddToInventory(iData.name, iData.m_ItemEntryData);
                 iData.UseItem(pData);
             }
+            return true;
         }
+        return false;
     }
 
     /*void Interact(PlayerData pData, InteractionData iData)

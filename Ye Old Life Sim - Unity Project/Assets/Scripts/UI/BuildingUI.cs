@@ -32,6 +32,7 @@ public class BuildingUI : MonoBehaviour
     public Building.Buildings m_CurrBuildingEnum;
     public DataCollection m_DataCollection;
     public float m_TimeToWait;
+    public AudioClip m_BuyItemSound;
 
     //public CanvasRenderer m_CanvasRenderer;
 
@@ -509,7 +510,11 @@ public class BuildingUI : MonoBehaviour
             {
                 selectedBuilding_.GetComponent<Building>().m_Items[i].m_ItemEntryData.item = selectedBuilding_.GetComponent<Building>().m_Items[i];
                 selectedBuilding_.GetComponent<Building>().m_Items[i].m_ItemEntryData.count = 1;
-                selectedBuilding_.GetComponent<Building>().BuyItem(m_PlayerData, selectedBuilding_.GetComponent<Building>().m_Items[i]);
+                if(selectedBuilding_.GetComponent<Building>().BuyItem(m_PlayerData, selectedBuilding_.GetComponent<Building>().m_Items[i]))
+                {
+                    //m_CloseMenu.clip = m_BuyItemSound;
+                    //m_CloseMenu.Play();
+                }
             }
         }
     }
