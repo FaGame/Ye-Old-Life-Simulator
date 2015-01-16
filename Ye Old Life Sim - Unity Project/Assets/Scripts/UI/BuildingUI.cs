@@ -5,7 +5,6 @@ using System;
 
 public class BuildingUI : MonoBehaviour 
 {
-    public AudioSource m_CloseMenu;
     public GameObject m_BuildingGUI; //Building UI element
     public GameObject m_ApplyMenu; //Menu that appears after pressing "Apply for Job"
     public GameObject m_ApplyMenuButtonPrefab; //Prefab for the Apply Menu Button to Instantiate later
@@ -32,7 +31,9 @@ public class BuildingUI : MonoBehaviour
     public Building.Buildings m_CurrBuildingEnum;
     public DataCollection m_DataCollection;
     public float m_TimeToWait;
-    public AudioClip m_BuyItemSound;
+    public AudioSource m_AudioSource;
+    public AudioClip m_CloseWindow;
+    public AudioClip m_BuyItem;
 
     //public CanvasRenderer m_CanvasRenderer;
 
@@ -512,8 +513,8 @@ public class BuildingUI : MonoBehaviour
                 selectedBuilding_.GetComponent<Building>().m_Items[i].m_ItemEntryData.count = 1;
                 if(selectedBuilding_.GetComponent<Building>().BuyItem(m_PlayerData, selectedBuilding_.GetComponent<Building>().m_Items[i]))
                 {
-                    //m_CloseMenu.clip = m_BuyItemSound;
-                    //m_CloseMenu.Play();
+                    m_AudioSource.clip = m_BuyItem;
+                    m_AudioSource.Play();
                 }
             }
         }
@@ -572,7 +573,8 @@ public class BuildingUI : MonoBehaviour
     //Otherwise it will just disable the menu.
     public void CloseCurrentMenu()
     {
-        m_CloseMenu.Play();
+        m_AudioSource.clip = m_CloseWindow;
+        m_AudioSource.Play();
         if (m_ApplyMenu.activeSelf && !m_ApplyJobTransitionDisplay.IsTransitioning())
         {
             //m_ApplyMenu.SetActive(false);

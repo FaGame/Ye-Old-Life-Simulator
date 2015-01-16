@@ -2,7 +2,33 @@ fileFormatVersion: 2
 guid: 61722104e0642ee4d9139a7a6d7b6fb9
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - m_CloseMenu: {instanceID: 0}
+  - m_BuildingGUI: {instanceID: 0}
+  - m_ApplyMenu: {instanceID: 0}
+  - m_ApplyMenuButtonPrefab: {instanceID: 0}
+  - m_BuyMenu: {instanceID: 0}
+  - m_BuyButtonPrefab: {instanceID: 0}
+  - m_UniversityButtonPrefab: {instanceID: 0}
+  - m_InteractMenu: {instanceID: 0}
+  - m_ApplyMenuScrollMask: {instanceID: 0}
+  - m_BuyMenuScrollMask: {instanceID: 0}
+  - m_InteractMenuScrollMask: {instanceID: 0}
+  - m_BuyMenuScrollRect: {instanceID: 0}
+  - m_ApplyMenuScrollRect: {instanceID: 0}
+  - m_WorkButton: {instanceID: 0}
+  - m_InteractButton: {instanceID: 0}
+  - m_BuyButton: {instanceID: 0}
+  - m_JobNotification: {instanceID: 0}
+  - m_PlayerData: {instanceID: 0}
+  - m_GameManager: {instanceID: 0}
+  - m_BuildingTransitionDisplay: {instanceID: 0}
+  - m_BuyItemsTransitionDisplay: {instanceID: 0}
+  - m_InteractTransitionDisplay: {instanceID: 0}
+  - m_ApplyJobTransitionDisplay: {instanceID: 0}
+  - m_DataCollection: {instanceID: 0}
+  - m_BuyItemSound: {instanceID: 0}
+  - m_CustomFont: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

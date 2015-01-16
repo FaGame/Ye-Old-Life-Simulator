@@ -6454,7 +6454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61722104e0642ee4d9139a7a6d7b6fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CloseMenu: {fileID: 8200002}
   m_BuildingGUI: {fileID: 124854}
   m_ApplyMenu: {fileID: 174886}
   m_ApplyMenuButtonPrefab: {fileID: 152740, guid: 2e02a434b32b68a4492f805e88c8a85f,
@@ -6482,6 +6481,9 @@ MonoBehaviour:
   m_CurrBuildingEnum: 0
   m_DataCollection: {fileID: 0}
   m_TimeToWait: 3
+  m_AudioSource: {fileID: 8200002}
+  m_CloseWindow: {fileID: 8300000, guid: cb03d9c45df91354f8ddc7a0d06bed34, type: 3}
+  m_BuyItem: {fileID: 8300000, guid: 360399cd3d6ecc747a5a97b538df39e5, type: 3}
   m_CustomFont: {fileID: 12800000, guid: 9a399c0961e214c4483f3c3bc166039c, type: 3}
   m_ActionTaken: 0
 --- !u!114 &11488756
