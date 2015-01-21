@@ -25,8 +25,6 @@ public class GameManager : MonoBehaviour
     public DataCollection m_DataCollection;
     public CloseAllOpenMenus closeAllOpenMenus_;
 
-
-
 	public int m_Turns;
 
     public bool m_CanCheckWinLoss = true;       //set to true when you want to check the win/loss conditions 
@@ -175,11 +173,12 @@ public class GameManager : MonoBehaviour
 //				m_RandomEventUpdater.UpdateEvent(m_PlayerData, eventText);
 				if(m_KAWIsActive)
 				{
-//					m_KAWUpdater.GetComponentInChildren<GameObject>().UpdateEvent(m_PlayerData, eventText);
-//					m_KAWUpdater.UpdateEvent(m_PlayerData, eventText);
+	//				m_KAWUpdater = GetComponent<GameObject>();//.UpdateEvent(m_PlayerData, eventText);
+					KingdomAtWar.UpdateEvent(m_PlayerData, eventText);
 				}
 				if(m_BOMIsActive)
 				{
+					BarrelOfMead.UpdateEvent(m_PlayerData, eventText);
 //					m_BOMUpdater.UpdateEvent(m_PlayerData, eventText);
 //					m_BOMUpdater.GetComponent<GameObject>().
 //					m_BarrelOfMeadUpdater.UpdateEvent(m_PlayerData, eventText);

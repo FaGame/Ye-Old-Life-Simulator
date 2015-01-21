@@ -54,8 +54,4 @@ public class CircusComesToTown : RandomEventBaseClass
 		return tData; 
 	}
 
-	public override string UpdateEvent(PlayerData m_Player, string m_EventDesc)
-	{
-		throw new System.NotImplementedException();
-	}
 }

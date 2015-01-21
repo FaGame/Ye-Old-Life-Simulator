@@ -89,7 +89,7 @@ public class RandomEventManager1 : MonoBehaviour
 			
             //die roll to see which event happens
 			D100_ = Random.Range(ValueConstants.LOWEST_RANGE_NUMBER, ValueConstants.D100_MAX);
-//			D100_ = 70;	//Force Event Code
+//			D100_ = 99;	//Force Event Code
 			if (D100_ < ValueConstants.MAX_RANDOM_CHANCE_TO_FIND_SHILLINGS)
             {
 				//Found Shillings

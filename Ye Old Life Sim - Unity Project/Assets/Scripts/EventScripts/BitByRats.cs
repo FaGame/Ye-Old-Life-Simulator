@@ -13,8 +13,5 @@ public class BitByRats : RandomEventBaseClass
 		//
 	}
 
-	public override string UpdateEvent(PlayerData m_Player, string m_EventDesc)
-	{
-		throw new System.NotImplementedException();
-	}
+
 }

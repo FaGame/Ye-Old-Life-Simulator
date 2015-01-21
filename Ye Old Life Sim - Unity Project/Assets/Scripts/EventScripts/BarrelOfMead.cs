@@ -4,9 +4,9 @@ using System;
 
 public class BarrelOfMead : RandomEventBaseClass 
 {
-	private int HangoverTurn_;
+	private static int HangoverTurn_;
 
-	private GameObject m_GameManager;
+	private static GameObject m_GameManager;
 	
 
 	public override string PlayEvent(PlayerData pData, string tData)
@@ -20,7 +20,7 @@ public class BarrelOfMead : RandomEventBaseClass
 		return tData;
 	}
 
-	public override string UpdateEvent(PlayerData pData, string tData)
+	public static string UpdateEvent(PlayerData pData, string tData)
 	{
 		if (m_GameManager.GetComponent<GameManager>().m_Turns == HangoverTurn_)
 		{

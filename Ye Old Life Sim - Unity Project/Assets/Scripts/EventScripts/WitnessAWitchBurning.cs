@@ -29,9 +29,6 @@ public class WitnessAWitchBurning : RandomEventBaseClass
 		tData = "A witch has been found! They're burning her and all you can say is: " + FeelingTowardWitch_;
 		return tData;
 	}
-	public override string UpdateEvent(PlayerData m_Player, string m_EventDesc)
-	{
-		throw new System.NotImplementedException();
-	}
+
 	//
 }

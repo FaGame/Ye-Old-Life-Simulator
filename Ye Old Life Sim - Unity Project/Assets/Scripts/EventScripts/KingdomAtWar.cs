@@ -3,9 +3,9 @@ using System.Collections;
 
 public class KingdomAtWar : RandomEventBaseClass
 {
-	public string m_BuildingName;//Probably better to check against the jobs available than the building itself, but this is how it is for now
-	private int EndOfWar_;
-	private GameObject m_GameManager;
+	public static string m_BuildingName;//Probably better to check against the jobs available than the building itself, but this is how it is for now
+	private static int EndOfWar_;
+	private static GameObject m_GameManager;
 
 	public override string PlayEvent(PlayerData pData, string tData)
 	{
@@ -45,7 +45,7 @@ public class KingdomAtWar : RandomEventBaseClass
 		return tData;
 	}
 
-	public override string UpdateEvent(PlayerData pData, string tData)
+	public static string UpdateEvent(PlayerData pData, string tData)
 	{
 
 		if (EndOfWar_ == m_GameManager.GetComponent<GameManager>().m_Turns)
